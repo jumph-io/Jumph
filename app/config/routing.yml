@@ -1,0 +1,20 @@
+jumph_quotation:
+    resource: "@JumphQuotationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+jumph_email:
+    resource: "@JumphEmailBundle/Resources/config/routing.yml"
+    prefix:   /
+
+jumph_project:
+    resource: "@JumphProjectBundle/Resources/config/routing.yml"
+    prefix:   /
+
+jumph_time:
+    resource: "@JumphTimeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+jumph_issue:
+    resource: "@JumphIssueBundle/Resources/config/routing.yml"
+    prefix:   /
+

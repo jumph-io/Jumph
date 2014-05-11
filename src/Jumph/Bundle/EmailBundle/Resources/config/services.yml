@@ -1,0 +1,7 @@
+parameters:
+#    jumph_email.example.class: Jumph\Bundle\EmailBundle\Example
+
+services:
+#    jumph_email.example:
+#        class: %jumph_email.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
