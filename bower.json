@@ -1,0 +1,20 @@
+{
+    "name": "Jumph",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        { "name": "Peter Nijssen", "email": "peter@peternijssen.nl"," homepage": "https://www.peternijssen.nl" }
+    ],
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "~2.1.1",
+        "bootstrap": "~3.1.1",
+        "fontawesome": "~4.0.3"
+    }
+}
