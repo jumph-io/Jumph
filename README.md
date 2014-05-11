@@ -3,7 +3,7 @@ Jumph
 
 **General note**
 
-Jumph is currently being rewritten. Except updates soon. Click the watch button to keep track of this project.
+Jumph is currently being rewritten. Expect updates soon. Click the watch button to keep track of this project.
 
 **Description**
 
