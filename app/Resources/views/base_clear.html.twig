@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Jumph{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% block stylesheets %}
+            {% stylesheets  filter='cssrewrite'
+            '%kernel.root_dir%/../vendor/components/bootstrap/dist/css/bootstrap.css'
+            '%kernel.root_dir%/../vendor/components/fontawesome/css/font-awesome.css'
+            '%kernel.root_dir%/Resources/public/css/admin.css'
+            %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+
+        <!-- time for something ugly -->
+        {% stylesheets
+        output='fonts/fontawesome-webfont.woff'
+        '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.woff'
+        %}{% endstylesheets %}
+        {% stylesheets
+        output='fonts/fontawesome-webfont.ttf'
+        '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.ttf'
+        %}{% endstylesheets %}
+        {% stylesheets
+        output='fonts/fontawesome-webfont.svg'
+        '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.svg'
+        %}{% endstylesheets %}
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        {% javascripts
+            '%kernel.root_dir%/../vendor/components/jquery/dist/jquery.min.js'
+            '%kernel.root_dir%/../vendor/components/bootstrap/dist/js/bootstrap.min.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+    </body>
+
+</html>

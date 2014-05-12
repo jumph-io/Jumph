@@ -1,39 +1,37 @@
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Jumph\Bundle\UserBundle\Entity\User:
+            algorithm: bcrypt
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_SUPER_ADMIN: [ ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
 
     providers:
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        users:
+            entity: { class: JumphUserBundle:User, property: username }
 
     firewalls:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
+        login_firewall:
+            pattern:    ^/login$
+            anonymous:  ~
 
-        secured_area:
-            pattern:    ^/demo/secured/
+        access:
+            pattern:    ^/
+            anonymous:  ~
+            provider: users
             form_login:
-                check_path: _security_check
-                login_path: _demo_login
+                login_path:  /login
+                check_path:  /login_check
+                use_referer: true
             logout:
-                path:   _demo_logout
-                target: _demo
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
+                path:   /logout
+                target: /login
 
     access_control:
-        - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/admin/, roles: ROLE_ADMIN }
+        - { path: ^/$, roles: ROLE_USER }

@@ -1,0 +1,56 @@
+{% extends '::base_clear.html.twig' %}
+
+{% block content %}
+    {{ form_start(registerForm, { 'attr': { 'class': 'form-horizontal forms', 'id': 'main-form'}}) }}
+    <div class="form-group">
+        <label class="col-sm-2 control-label">{{ form_label(registerForm.firstname) }}</label>
+        <div class="col-sm-10">
+            {{ form_widget(registerForm.firstname, { 'attr': { 'class': 'form-control input-xlarge' }}) }}
+        </div>
+        {{ form_errors(registerForm.firstname) }}
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">{{ form_label(registerForm.lastname) }}</label>
+        <div class="col-sm-10">
+            {{ form_widget(registerForm.lastname, { 'attr': { 'class': 'form-control input-xlarge' }}) }}
+        </div>
+        {{ form_errors(registerForm.lastname) }}
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">{{ form_label(registerForm.company) }}</label>
+        <div class="col-sm-10">
+            {{ form_widget(registerForm.company, { 'attr': { 'class': 'form-control input-xlarge' }}) }}
+        </div>
+        {{ form_errors(registerForm.company) }}
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">{{ form_label(registerForm.email) }}</label>
+        <div class="col-sm-10">
+            {{ form_widget(registerForm.email, { 'attr': { 'class': 'form-control input-xlarge' }}) }}
+        </div>
+        {{ form_errors(registerForm.email) }}
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">{{ form_label(registerForm.username) }}</label>
+        <div class="col-sm-10">
+            {{ form_widget(registerForm.username, { 'attr': { 'class': 'form-control input-xlarge' }}) }}
+        </div>
+        {{ form_errors(registerForm.username) }}
+    </div>
+    {% for passwordField in registerForm.password %}
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ form_label(passwordField) }}</label>
+            <div class="col-sm-10">
+                {{ form_widget(passwordField, { 'attr': { 'class': 'form-control input-xlarge' }}) }}
+            </div>
+            {{ form_errors(passwordField) }}
+        </div>
+    {% endfor %}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </div>
+    {{ form_widget(registerForm._token) }}
+    {{ form_end(registerForm, {'render_rest': false}) }}
+{% endblock %}

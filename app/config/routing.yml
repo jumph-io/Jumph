@@ -1,3 +1,11 @@
+jumph_auth:
+    resource: "@JumphAuthBundle/Resources/config/routing.yml"
+    prefix:   /
+
+jumph_user:
+    resource: "@JumphUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 jumph_quotation:
     resource: "@JumphQuotationBundle/Resources/config/routing.yml"
     prefix:   /

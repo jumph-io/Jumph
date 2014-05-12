@@ -1,0 +1,36 @@
+Jumph\Bundle\UserBundle\Entity\Company:
+    type: entity
+    table: company
+
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: true
+
+    oneToMany:
+        users:
+            targetEntity: User
+            mappedBy: company
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name:
+            type: string
+            length: 150
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            nullable: true

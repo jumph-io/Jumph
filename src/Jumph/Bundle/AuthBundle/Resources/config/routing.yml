@@ -1,0 +1,13 @@
+jumph_auth_homepage:
+    pattern: /
+    defaults: { _controller: JumphAuthBundle:Auth:login }
+jumph_auth_register:
+    pattern:  /register
+    defaults: { _controller: JumphAuthBundle:Auth:register }
+jumph_auth_login:
+    pattern:  /login
+    defaults: { _controller: JumphAuthBundle:Auth:login }
+jumph_auth_login_check:
+    pattern: /login_check
+jumph_auth_logout:
+    pattern:  /logout

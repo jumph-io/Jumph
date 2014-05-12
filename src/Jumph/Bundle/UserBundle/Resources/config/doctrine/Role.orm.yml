@@ -1,0 +1,39 @@
+Jumph\Bundle\UserBundle\Entity\Role:
+    type: entity
+    table: user_roles
+
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: true
+
+    manyToMany:
+      users:
+        targetEntity: User
+        mappedBy: roles
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name:
+            type: string
+            length: 150
+        role:
+            type: string
+            unique: true
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            nullable: true
