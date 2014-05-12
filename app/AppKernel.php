@@ -23,7 +23,10 @@ class AppKernel extends Kernel
             new Jumph\Bundle\QuotationBundle\JumphQuotationBundle(),
             new Jumph\Bundle\UserBundle\JumphUserBundle(),
             new Jumph\Bundle\AuthBundle\JumphAuthBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle()
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Jumph\Bundle\DashboardBundle\JumphDashboardBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Jumph\Bundle\AppBundle\JumphAppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

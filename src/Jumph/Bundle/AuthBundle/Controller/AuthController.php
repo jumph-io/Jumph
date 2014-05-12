@@ -48,7 +48,7 @@ class AuthController extends Controller
                 $user->setPassword($hash);
 
                 $userRepository->create($user);
-                return $this->redirect($this->generateUrl('jumph_auth_homepage'));
+                return $this->redirect($this->generateUrl('jumph_dashboard_overview'));
             }
         }
 

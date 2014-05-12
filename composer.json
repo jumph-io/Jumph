@@ -26,7 +26,8 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "stof/doctrine-extensions-bundle": "~1.1@dev"
+        "stof/doctrine-extensions-bundle": "~1.1@dev",
+        "knplabs/knp-menu-bundle": "1.1.*"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "1.5.*"

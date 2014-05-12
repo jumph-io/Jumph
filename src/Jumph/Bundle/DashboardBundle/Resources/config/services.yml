@@ -1,0 +1,8 @@
+parameters:
+#    jumph_dashboard.example.class: Jumph\Bundle\DashboardBundle\Example
+
+services:
+    jumph_dashboard.dashboard_menu_listener:
+                class: Jumph\Bundle\DashboardBundle\EventListener\DashboardMenuListener
+                tags:
+                  - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuDashboard }

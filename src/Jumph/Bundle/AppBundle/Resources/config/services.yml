@@ -1,0 +1,4 @@
+parameters:
+#    jumph_app.example.class: Jumph\Bundle\AppBundle\Example
+
+services:
