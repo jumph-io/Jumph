@@ -47,3 +47,6 @@ nb-configuration.xml
 # SublimeText project files
 /*.sublime-project
 *.sublime-workspace
+
+# Tmp
+/web/sb-admin-v2

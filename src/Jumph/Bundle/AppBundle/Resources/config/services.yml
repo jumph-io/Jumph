@@ -2,3 +2,9 @@ parameters:
 #    jumph_app.example.class: Jumph\Bundle\AppBundle\Example
 
 services:
+    gedmo.listener.softdeleteable:
+        class: Gedmo\SoftDeleteable\SoftDeleteableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
