@@ -1,0 +1,3 @@
+jumph_quotation_overview:
+    pattern:  /
+    defaults: { _controller: JumphQuotationBundle:Quotation:overview }

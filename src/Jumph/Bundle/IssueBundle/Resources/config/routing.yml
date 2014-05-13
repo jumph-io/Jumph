@@ -1,0 +1,3 @@
+jumph_issue_overview:
+    pattern:  /
+    defaults: { _controller: JumphIssueBundle:Issue:overview }

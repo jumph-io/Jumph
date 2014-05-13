@@ -2,6 +2,7 @@ parameters:
 #    jumph_time.example.class: Jumph\Bundle\TimeBundle\Example
 
 services:
-#    jumph_time.example:
-#        class: %jumph_time.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    jumph_time.time_menu_listener:
+                class: Jumph\Bundle\TimeBundle\EventListener\TimeMenuListener
+                tags:
+                  - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuTime }

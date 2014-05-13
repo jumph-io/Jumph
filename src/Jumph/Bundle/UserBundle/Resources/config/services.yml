@@ -4,6 +4,10 @@ parameters:
     jumph_user.repository.role_repository.class: Jumph\Bundle\UserBundle\Repository\RoleRepository
 
 services:
+    jumph_user.user_menu_listener:
+        class: Jumph\Bundle\UserBundle\EventListener\UserMenuListener
+        tags:
+          - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuUser }
     jumph_user.user_repository:
         class: %jumph_user.repository.user_repository.class%
         arguments:

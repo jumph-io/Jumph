@@ -1,0 +1,3 @@
+jumph_email_overview:
+    pattern:  /
+    defaults: { _controller: JumphEmailBundle:Email:overview }

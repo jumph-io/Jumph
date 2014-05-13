@@ -9,26 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\DashboardBundle\EventListener;
+namespace Jumph\Bundle\UserBundle\EventListener;
 
 use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 
-class DashboardMenuListener
+class UserMenuListener
 {
     /**
      * @param ConfigureMenuEvent $event
      */
-    public function onMenuDashboard(BuildMenuEvent $event)
+    public function onMenuUser(BuildMenuEvent $event)
     {
         $menu = $event->getMenu();
 
         $menu->addChild(
-            'Dashboard',
+            'Users',
             array(
-                'route' => 'jumph_dashboard_overview',
+                'route' => 'jumph_user_overview',
                 'extras' => array(
-                    'icon' => 'fa-dashboard fa-fw',
-                    'weight' => 0
+                    'icon' => 'fa-users fa-fw',
+                    'weight' => 10
                 )
             )
         );

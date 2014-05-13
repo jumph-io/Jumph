@@ -29,12 +29,52 @@ class Builder extends ContainerAware
     public function sideMenu(FactoryInterface $factory, array $options)
     {
         $menu = $factory->createItem('root');
-        $menu->setChildrenAttribute('class', 'nav');
+        $menu->setChildrenAttribute('class', 'nav navbar-nav side-nav');
 
         $this->container->get('event_dispatcher')->dispatch(
             BuildMenuEvent::BUILDMENU,
             new BuildMenuEvent($factory, $menu)
         );
+
+        $menu = $this->reorderMenu($menu);
+
+        return $menu;
+    }
+
+    /**
+     * Sort the menu based on weight
+     *
+     * @param $menuItemA
+     * @param $menuItemB
+     *
+     * @return int
+     */
+    public static function menuSort($menuItemA, $menuItemB)
+    {
+        if ($menuItemA->getExtra('weight') == $menuItemB->getExtra('weight')) {
+            return 0;
+        }
+        return ($menuItemA->getExtra('weight') < $menuItemB->getExtra('weight')) ? -1 : 1;
+    }
+
+    /**
+     * Reorder the menu
+     *
+     * @param $menu
+     *
+     * @return MenuItem
+     */
+    private function reorderMenu($menu)
+    {
+        $menuItems = $menu->getChildren();
+        usort($menuItems, array($this, 'menuSort'));
+
+        $newMenuOrder = array();
+        foreach ($menuItems as $menuItem) {
+            $newMenuOrder[] = $menuItem->getName();
+        }
+
+        $menu->reorderChildren($newMenuOrder);
 
         return $menu;
     }

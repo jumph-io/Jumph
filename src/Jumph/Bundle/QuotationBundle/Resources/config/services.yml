@@ -2,6 +2,7 @@ parameters:
 #    jumph_quotation.example.class: Jumph\Bundle\QuotationBundle\Example
 
 services:
-#    jumph_quotation.example:
-#        class: %jumph_quotation.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    jumph_quotation.quotation_menu_listener:
+                class: Jumph\Bundle\QuotationBundle\EventListener\QuotationMenuListener
+                tags:
+                  - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuQuotation }

@@ -1,0 +1,3 @@
+jumph_user_overview:
+    pattern:  /
+    defaults: { _controller: JumphUserBundle:User:overview }

@@ -2,6 +2,7 @@ parameters:
 #    jumph_project.example.class: Jumph\Bundle\ProjectBundle\Example
 
 services:
-#    jumph_project.example:
-#        class: %jumph_project.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    jumph_project.project_menu_listener:
+                class: Jumph\Bundle\ProjectBundle\EventListener\ProjectMenuListener
+                tags:
+                  - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuProject }
