@@ -5,10 +5,10 @@ app/bootstrap*
 vendor/*
 app/logs/*
 app/cache/*
-app/session/*
+app/sessions/*
 !app/logs/.gitkeep
 !app/cache/.gitkeep
-!app/session/.gitkeep
+!app/sessions/.gitkeep
 web/uploads/*
 web/bundles/*
 
