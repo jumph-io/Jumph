@@ -1,3 +1,0 @@
-jumph_user_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: JumphUserBundle:Default:index }

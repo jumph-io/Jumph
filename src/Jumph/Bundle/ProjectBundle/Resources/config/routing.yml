@@ -1,3 +1,0 @@
-jumph_project_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: JumphProjectBundle:Default:index }

@@ -1,3 +1,0 @@
-jumph_issue_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: JumphIssueBundle:Default:index }

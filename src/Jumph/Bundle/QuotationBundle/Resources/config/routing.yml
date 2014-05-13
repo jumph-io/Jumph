@@ -1,3 +1,0 @@
-jumph_quotation_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: JumphQuotationBundle:Default:index }

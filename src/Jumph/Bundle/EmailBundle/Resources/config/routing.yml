@@ -1,3 +1,0 @@
-jumph_email_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: JumphEmailBundle:Default:index }
