@@ -2,8 +2,6 @@
 
 namespace Jumph\Bundle\UserBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 class Company
 {
 

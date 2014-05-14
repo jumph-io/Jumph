@@ -1,3 +1,4 @@
 jumph_issue_overview:
     path: /issues
     defaults: { _controller: JumphIssueBundle:Issue:overview }
+    methods:  [GET]

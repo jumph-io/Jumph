@@ -1,3 +1,4 @@
 jumph_project_overview:
     path:  /projects
     defaults: { _controller: JumphProjectBundle:Project:overview }
+    methods:  [GET]

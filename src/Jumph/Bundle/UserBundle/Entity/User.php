@@ -3,7 +3,6 @@
 namespace Jumph\Bundle\UserBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class User implements UserInterface, \Serializable

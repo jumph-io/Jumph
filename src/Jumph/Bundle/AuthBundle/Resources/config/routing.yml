@@ -1,10 +1,14 @@
 jumph_auth_register:
-    pattern:  /register
+    path:  /register
     defaults: { _controller: JumphAuthBundle:Auth:register }
+    methods:  [GET, POST]
 jumph_auth_login:
-    pattern:  /login
+    path:  /login
     defaults: { _controller: JumphAuthBundle:Auth:login }
+    methods:  [GET]
 jumph_auth_login_check:
-    pattern: /login_check
+    path: /login_check
+    methods:  [POST]
 jumph_auth_logout:
-    pattern:  /logout
+    path:  /logout
+    methods:  [GET]

@@ -1,3 +1,4 @@
 jumph_time_overview:
     path:  /times
     defaults: { _controller: JumphTimeBundle:Time:overview }
+    methods:  [GET]
