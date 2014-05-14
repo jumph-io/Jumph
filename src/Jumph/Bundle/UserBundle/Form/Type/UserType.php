@@ -26,7 +26,6 @@ class UserType extends AbstractType
             ->add('email')
             ->add('firstname')
             ->add('lastname')
-            ->add('company', new CompanyType())
             ->add('username')
             ->add('password', 'repeated', array(
                 'first_name'  => 'password',

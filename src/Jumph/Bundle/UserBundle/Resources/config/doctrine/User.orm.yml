@@ -7,15 +7,6 @@ Jumph\Bundle\UserBundle\Entity\User:
             field_name: deletedAt
             time_aware: true
 
-    manyToOne:
-      company:
-        targetEntity: Company
-        inversedBy: users
-        joinColumn:
-          name: company_id
-          referencedColumnName: id
-        cascade: ["persist", "remove"]
-
     manyToMany:
       roles:
         targetEntity: Role

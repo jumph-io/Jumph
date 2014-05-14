@@ -1,4 +1,4 @@
 jumph_user_overview:
-    path:  /
+    path:  /users
     defaults: { _controller: JumphUserBundle:User:overview }
     methods:  [GET]

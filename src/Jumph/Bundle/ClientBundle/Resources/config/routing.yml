@@ -1,0 +1,8 @@
+jumph_company_overview:
+    path:  /clients
+    defaults: { _controller: JumphClientBundle:Company:overview }
+    methods:  [GET]
+jumph_employee_overview:
+    path:  /clients/employees
+    defaults: { _controller: JumphClientBundle:Employee:overview }
+    methods:  [GET]

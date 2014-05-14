@@ -1,3 +1,7 @@
+jumph_client:
+    resource: "@JumphClientBundle/Resources/config/routing.yml"
+    prefix:   /
+
 jumph_app:
     resource: "@JumphAppBundle/Resources/config/routing.yml"
     prefix:   /

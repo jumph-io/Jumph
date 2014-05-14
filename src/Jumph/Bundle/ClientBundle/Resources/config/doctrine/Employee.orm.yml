@@ -1,16 +1,20 @@
-Jumph\Bundle\UserBundle\Entity\Company:
+Jumph\Bundle\ClientBundle\Entity\Employee:
     type: entity
-    table: company
+    table: employee
 
     gedmo:
         soft_deleteable:
             field_name: deletedAt
             time_aware: true
 
-    oneToMany:
-        users:
-            targetEntity: User
-            mappedBy: company
+    manyToOne:
+      company:
+        targetEntity: Company
+        inversedBy: employees
+        joinColumn:
+          name: company_id
+          referencedColumnName: id
+        cascade: ["persist", "remove"]
 
     id:
         id:
@@ -18,9 +22,17 @@ Jumph\Bundle\UserBundle\Entity\Company:
             generator: { strategy: AUTO }
 
     fields:
-        name:
+        email:
             type: string
             length: 150
+            nullable: true
+            unique: true
+        firstname:
+            type: string
+            nullable: true
+        lastname:
+            type: string
+            nullable: true
         created:
             type: datetime
             gedmo:

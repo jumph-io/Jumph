@@ -9,26 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\UserBundle\EventListener;
+namespace Jumph\Bundle\ClientBundle\EventListener;
 
 use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 
-class UserMenuListener
+class ClientMenuListener
 {
     /**
      * @param ConfigureMenuEvent $event
      */
-    public function onMenuUser(BuildMenuEvent $event)
+    public function onMenuClient(BuildMenuEvent $event)
     {
         $menu = $event->getMenu();
 
         $menu->addChild(
-            'Users',
+            'Clients',
             array(
-                'route' => 'jumph_user_overview',
+                'route' => 'jumph_company_overview',
                 'extras' => array(
-                    'icon' => 'fa-users fa-fw',
-                    'weight' => 110
+                    'icon' => 'fa-building fa-fw',
+                    'weight' => 100
                 )
             )
         );

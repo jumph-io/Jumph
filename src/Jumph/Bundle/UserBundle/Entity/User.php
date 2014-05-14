@@ -44,11 +44,6 @@ class User implements UserInterface, \Serializable
     private $salt;
 
     /**
-     * @var Company
-     */
-    private $company;
-
-    /**
      * @var string
      */
     private $roles;
@@ -158,6 +153,16 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * Get the name of a user
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getFirstname() . " " . $this->getLastname();
+    }
+
+    /**
      * Get user name
      *
      * @return string
@@ -257,29 +262,6 @@ class User implements UserInterface, \Serializable
     public function removeRole(Role $roles)
     {
         $this->roles->removeElement($roles);
-    }
-
-    /**
-     * Get company
-     *
-     * @return Company
-     */
-    public function getCompany()
-    {
-        return $this->company;
-    }
-
-    /**
-     * Set company
-     *
-     * @param Company $company
-     * @return User
-     */
-    public function setCompany(Company $company = null)
-    {
-        $this->company = $company;
-
-        return $this;
     }
 
     /**

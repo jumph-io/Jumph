@@ -1,6 +1,8 @@
 <?php
 
-namespace Jumph\Bundle\UserBundle\Entity;
+namespace Jumph\Bundle\ClientBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Company
 {
@@ -16,9 +18,9 @@ class Company
     private $name;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
-    private $users;
+    private $employees;
 
     /**
      * @var date $created
@@ -40,7 +42,7 @@ class Company
      */
     public function __construct()
     {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     /**
@@ -77,36 +79,36 @@ class Company
     }
 
     /**
-     * Add users
+     * Add employees
      *
-     * @param User $users
+     * @param Employee $employees
      * @return Company
      */
-    public function addUser(User $users)
+    public function addEmployee(Employee $employees)
     {
-        $this->users[] = $users;
+        $this->employees[] = $employees;
         $users->addCompany($this);
         return $this;
     }
 
     /**
-     * Remove users
+     * Remove employees
      *
-     * @param User $users
+     * @param Employee $employees
      */
-    public function removeUser(User $users)
+    public function removeUser(Employee $employees)
     {
-        $this->users->removeElement($users);
+        $this->employees->removeElement($employees);
     }
 
     /**
-     * Get users
+     * Get employees
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
-    public function getUsers()
+    public function getEmployees()
     {
-        return $this->users;
+        return $this->employees;
     }
 
     /**

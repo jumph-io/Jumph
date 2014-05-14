@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\UserBundle\Form\Type;
+namespace Jumph\Bundle\ClientBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,7 +23,7 @@ class CompanyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', 'text', array('label' => false));
+        $builder->add('name');
     }
 
     /**
@@ -32,7 +32,7 @@ class CompanyType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Jumph\Bundle\UserBundle\Entity\Company'
+            'data_class' => 'Jumph\Bundle\ClientBundle\Entity\Company'
         ));
     }
 

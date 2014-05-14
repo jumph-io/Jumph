@@ -1,4 +1,4 @@
 jumph_quotation_overview:
-    path:  /
+    path:  /quotations
     defaults: { _controller: JumphQuotationBundle:Quotation:overview }
     methods:  [GET]

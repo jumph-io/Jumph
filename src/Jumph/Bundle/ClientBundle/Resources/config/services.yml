@@ -1,0 +1,8 @@
+parameters:
+#    jumph_client.example.class: Jumph\Bundle\ClientBundle\Example
+
+services:
+    jumph_client.client_menu_listener:
+                class: Jumph\Bundle\ClientBundle\EventListener\ClientMenuListener
+                tags:
+                  - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuClient }

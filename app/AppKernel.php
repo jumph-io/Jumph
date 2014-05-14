@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Jumph\Bundle\DashboardBundle\JumphDashboardBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Jumph\Bundle\AppBundle\JumphAppBundle(),
+            new Jumph\Bundle\ClientBundle\JumphClientBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
