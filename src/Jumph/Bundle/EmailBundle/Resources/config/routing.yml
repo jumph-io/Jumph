@@ -1,3 +1,3 @@
 jumph_email_overview:
-    pattern:  /
+    path:  /emails
     defaults: { _controller: JumphEmailBundle:Email:overview }

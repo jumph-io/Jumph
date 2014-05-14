@@ -1,3 +1,3 @@
 jumph_project_overview:
-    pattern:  /
+    path:  /projects
     defaults: { _controller: JumphProjectBundle:Project:overview }

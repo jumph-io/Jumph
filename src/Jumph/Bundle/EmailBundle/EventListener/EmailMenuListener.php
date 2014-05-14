@@ -23,7 +23,7 @@ class EmailMenuListener
         $menu = $event->getMenu();
 
         $menu->addChild(
-            'Email',
+            'Emails',
             array(
                 'route' => 'jumph_email_overview',
                 'extras' => array(

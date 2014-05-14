@@ -30,6 +30,7 @@
         "knplabs/knp-menu-bundle": "1.1.*"
     },
     "require-dev": {
+        "webfactory/exceptions-bundle": "@stable",
         "squizlabs/php_codesniffer": "1.5.*"
     },
     "scripts": {

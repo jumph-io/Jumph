@@ -1,0 +1,72 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Emails
+{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Emails</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Project</th>
+                        <th>Options</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-center"><i class="fa fa-2x fa-plus-circle"></i> <br /> Add email</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="3" class="text-center">No results</td>
+                    </tr>
+                    <tr>
+                        <td>First email</td>
+                        <td>First project</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    Options <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">View</a></li>
+                                    <li><a href="#">Edit</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Second email</td>
+                        <td>First project</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    Options <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">View</a></li>
+                                    <li><a href="#">Edit</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

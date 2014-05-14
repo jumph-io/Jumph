@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Webfactory\Bundle\ExceptionsBundle\WebfactoryExceptionsBundle();
         }
 
         return $bundles;
@@ -46,7 +47,7 @@ class AppKernel extends Kernel
     public function getCacheDir()
     {
         if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/jumph/cache/' .  $this->environment;
+            return sys_get_temp_dir().'/jumph/cache/' .  $this->environment;
         }
 
         return parent::getCacheDir();
@@ -55,7 +56,7 @@ class AppKernel extends Kernel
     public function getLogDir()
     {
         if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/jumph/logs';
+            return sys_get_temp_dir().'/jumph/logs';
         }
 
         return parent::getLogDir();

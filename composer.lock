@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "50c798ad7f544818c1eb98a716f2b2ae",
+    "hash": "4665728d83476ee8e925ea5936946ddd",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1250,12 +1250,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
-                "reference": "f1c7993863f83f22f187f11d2a8eb462b836701e"
+                "reference": "7370d18f511653d39c33d75c2190caaafdebb492"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/f1c7993863f83f22f187f11d2a8eb462b836701e",
-                "reference": "f1c7993863f83f22f187f11d2a8eb462b836701e",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/7370d18f511653d39c33d75c2190caaafdebb492",
+                "reference": "7370d18f511653d39c33d75c2190caaafdebb492",
                 "shasum": ""
             },
             "require": {
@@ -1303,7 +1303,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2014-04-09 14:29:58"
+            "time": "2014-05-14 08:12:32"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1878,6 +1878,56 @@
                 "standards"
             ],
             "time": "2014-05-01 03:07:07"
+        },
+        {
+            "name": "webfactory/exceptions-bundle",
+            "version": "4.0.0",
+            "target-dir": "Webfactory/Bundle/ExceptionsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webfactory/exceptions-bundle.git",
+                "reference": "28b79273c26af2d4a5ecb4cc1764eb4f222afd62"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webfactory/exceptions-bundle/zipball/28b79273c26af2d4a5ecb4cc1764eb4f222afd62",
+                "reference": "28b79273c26af2d4a5ecb4cc1764eb4f222afd62",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/twig-bundle": "~2.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "sensio/framework-extra-bundle": "~2.2",
+                "symfony/framework-bundle": "~2.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-default": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Webfactory\\Bundle\\ExceptionsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "webfactory GmbH",
+                    "email": "info@webfactory.de",
+                    "homepage": "http://www.webfactory.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple controller to display error pages during development plus some building blocks for more user-friendly error pages.",
+            "homepage": "http://inside.webfactory.de/de/blog/symfony2-exception-handling-and-custom-error-pages-explained.html",
+            "time": "2014-04-30 16:46:25"
         }
     ],
     "aliases": [
@@ -1885,7 +1935,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "stof/doctrine-extensions-bundle": 20
+        "stof/doctrine-extensions-bundle": 20,
+        "webfactory/exceptions-bundle": 0
     },
     "platform": {
         "php": ">=5.3.3"

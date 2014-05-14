@@ -1,0 +1,78 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+{{ parent() }} | Issue tracker
+{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Issue tracker</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Status</th>
+                    <th>Title</th>
+                    <th>Project</th>
+                    <th>Options</th>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-center"><i class="fa fa-2x fa-plus-circle"></i> <br /> Add issue</td>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="text-center">No results</td>
+                    </tr>
+                    <tr class="danger">
+                        <td>#0001</td>
+                        <td>Open</td>
+                        <td>First issue</td>
+                        <td>First project</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    Options <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">View</a></li>
+                                    <li><a href="#">Edit</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="success">
+                        <td>#0002</td>
+                        <td>Resolved</td>
+                        <td>Second issue</td>
+                        <td>First project</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    Options <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">View</a></li>
+                                    <li><a href="#">Edit</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

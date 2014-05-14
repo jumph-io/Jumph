@@ -10,5 +10,8 @@ _configurator:
     resource: "@SensioDistributionBundle/Resources/config/routing/webconfigurator.xml"
     prefix:   /_configurator
 
+webfactory_exceptions:
+    resource: "@WebfactoryExceptionsBundle/Resources/config/routing.yml"
+
 _main:
     resource: routing.yml

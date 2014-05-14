@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{{ block('webfactory_exceptions_error_headline') }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            {{ block('webfactory_exceptions_error_description') }}
+        </div>
+    </div>
+{% endblock %}

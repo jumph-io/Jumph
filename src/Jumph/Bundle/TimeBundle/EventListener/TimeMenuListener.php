@@ -23,7 +23,7 @@ class TimeMenuListener
         $menu = $event->getMenu();
 
         $menu->addChild(
-            'Time trakcer',
+            'Time tracker',
             array(
                 'route' => 'jumph_time_overview',
                 'extras' => array(
