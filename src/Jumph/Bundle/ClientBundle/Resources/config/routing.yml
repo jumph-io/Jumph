@@ -2,7 +2,31 @@ jumph_company_overview:
     path:  /clients
     defaults: { _controller: JumphClientBundle:Company:overview }
     methods:  [GET]
+jumph_company_view:
+    path:  /clients/{companyId}/view
+    defaults: { _controller: JumphClientBundle:Company:view }
+    methods:  [GET]
+    requirements:
+            id:  \d+
+jumph_company_add:
+    path:  /clients/add
+    defaults: { _controller: JumphClientBundle:Company:add }
+    methods:  [GET, POST]
+jumph_company_edit:
+    path:  /clients/{companyId}/edit
+    defaults: { _controller: JumphClientBundle:Company:edit }
+    methods:  [GET, POST]
+    requirements:
+            id:  \d+
+jumph_company_delete:
+    path:  /clients/{companyId}/delete
+    defaults: { _controller: JumphClientBundle:Company:delete }
+    methods:  [GET, POST]
+    requirements:
+            id:  \d+
 jumph_employee_overview:
-    path:  /clients/employees
+    path:  /clients/{companyId}/employees
     defaults: { _controller: JumphClientBundle:Employee:overview }
     methods:  [GET]
+    requirements:
+            id:  \d+

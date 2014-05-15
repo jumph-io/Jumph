@@ -11,14 +11,17 @@
 
 namespace Jumph\Bundle\ClientBundle\Controller;
 
+use Jumph\Bundle\ClientBundle\Entity\Company;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class EmployeeController extends Controller
 {
 
     /**
      * @Template("JumphClientBundle:Employee:overview.html.twig")
+     * @ParamConverter("Company", class="CmntyClientBundle:Company")
      *
      * Client overview page
      *
@@ -26,7 +29,7 @@ class EmployeeController extends Controller
      *
      * @return Response A Response instance
      */
-    public function overviewAction()
+    public function overviewAction(Company $company)
     {
         return array();
     }
