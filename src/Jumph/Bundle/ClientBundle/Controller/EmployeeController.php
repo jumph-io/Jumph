@@ -21,7 +21,7 @@ class EmployeeController extends Controller
 
     /**
      * @Template("JumphClientBundle:Employee:overview.html.twig")
-     * @ParamConverter("Company", class="CmntyClientBundle:Company")
+     * @ParamConverter("Company", class="JumphClientBundle:Company")
      *
      * Client overview page
      *

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
-
+<html class="bg-black">
     <head>
         <meta charset="utf-8">
         <title>{% block title %}Jumph{% endblock %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
         {% block stylesheets %}
             {% stylesheets  filter='cssrewrite'
@@ -31,16 +30,11 @@
         %}{% endstylesheets %}
     </head>
 
-    <body>
+    <body class="bg-black">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </div>
-        </div>
+        {% block content %}
+        {% endblock %}
+
         {% javascripts
             '%kernel.root_dir%/../vendor/components/jquery/dist/jquery.min.js'
             '%kernel.root_dir%/../vendor/components/bootstrap/dist/js/bootstrap.min.js'

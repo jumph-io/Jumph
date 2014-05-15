@@ -53,4 +53,4 @@ nb-configuration.xml
 *.sublime-workspace
 
 # Tmp
-/web/sb-admin-v2
+/web/adminlte

@@ -18,7 +18,7 @@ class UserController extends Controller
 {
 
     /**
-     * @Template("JumphUserBundle:Project:overview.html.twig")
+     * @Template("JumphUserBundle:User:overview.html.twig")
      *
      * User overview page
      *

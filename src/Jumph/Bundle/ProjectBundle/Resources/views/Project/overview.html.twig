@@ -1,77 +1,88 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-{{ parent() }} | Projects
+    {{ parent() }} | Projects
 {% endblock %}
 
+{% block headerContent %}
+    <h1>
+        Projects
+        <small>Overview</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-tasks"></i> Projects</li>
+    </ol>
+{% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Projects</h1>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Status</th>
-                    <th>Client</th>
-                    <th>Project manager</th>
-                    <th>Options</th>
-                </tr>
-                <tr>
-                    <td colspan="5" class="text-center"><i class="fa fa-2x fa-plus-circle"></i> <br /> Add project</td>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="5" class="text-center">No results</td>
-                    </tr>
-                    <tr>
-                        <td>First project</td>
-                        <td>Open</td>
-                        <td>First client</td>
-                        <td>First project manager</td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Options <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">View</a></li>
-                                    <li><a href="#">Edit</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Second project</td>
-                        <td>Finished</td>
-                        <td>First client</td>
-                        <td>First project manager</td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Options <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">View</a></li>
-                                    <li><a href="#">Edit</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="box box-primary">
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Client</th>
+                                <th>Project manager</th>
+                                <th>Options</th>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-center"><a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add project</a></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5" class="text-center">No results</td>
+                            </tr>
+                            <tr>
+                                <td>First project</td>
+                                <td>Open</td>
+                                <td>First client</td>
+                                <td>First project manager</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                            Options <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">View</a></li>
+                                            <li><a href="#">Edit</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Second project</td>
+                                <td>Finished</td>
+                                <td>First client</td>
+                                <td>First project manager</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                            Options <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">View</a></li>
+                                            <li><a href="#">Edit</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box-footer clearfix">
+                    <!-- pagination -->
+                </div>
             </div>
         </div>
     </div>

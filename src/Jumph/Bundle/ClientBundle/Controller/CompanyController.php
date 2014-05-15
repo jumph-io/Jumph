@@ -35,7 +35,7 @@ class CompanyController extends Controller
 
     /**
      * @Template("JumphClientBundle:Company:view.html.twig")
-     * @ParamConverter("Company", class="CmntyClientBundle:Company")
+     * @ParamConverter("Company", class="JumphClientBundle:Company")
      *
      * View company
      *
@@ -64,7 +64,7 @@ class CompanyController extends Controller
 
     /**
      * @Template("JumphClientBundle:Company:form.html.twig")
-     * @ParamConverter("Company", class="CmntyClientBundle:Company")
+     * @ParamConverter("Company", class="JumphClientBundle:Company")
      *
      * Edit company
      *

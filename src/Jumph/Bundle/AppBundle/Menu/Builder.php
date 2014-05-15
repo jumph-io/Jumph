@@ -29,7 +29,7 @@ class Builder extends ContainerAware
     public function sideMenu(FactoryInterface $factory, array $options)
     {
         $menu = $factory->createItem('root');
-        $menu->setChildrenAttribute('class', 'nav navbar-nav side-nav');
+        $menu->setChildrenAttribute('class', 'sidebar-menu');
 
         $this->container->get('event_dispatcher')->dispatch(
             BuildMenuEvent::BUILDMENU,

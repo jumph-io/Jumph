@@ -1,17 +1,17 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ parent() }} | Clients
+    {{ parent() }} | Users
 {% endblock %}
 
 {% block headerContent %}
-<h1>
-    Clients
-    <small>Overview</small>
-</h1>
-<ol class="breadcrumb">
-    <li><i class="fa fa-building"></i> Clients</li>
-</ol>
+    <h1>
+        Users
+        <small>Overview</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-users"></i> Users</li>
+    </ol>
 {% endblock %}
 
 {% block content %}
@@ -25,50 +25,51 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Employees</th>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>Username</th>
                             <th>Options</th>
                         </tr>
                         <tr>
-                            <td colspan="3" class="text-center"><a href="{{ path('jumph_company_add') }}" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add client</a></td>
+                            <td colspan="4" class="text-center"><a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add user</a></td>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td colspan="3" class="text-center">No results</td>
+                            <td colspan="4" class="text-center">No results</td>
                         </tr>
                         <tr>
-                            <td>Company 1</td>
-                            <td>2</td>
+                            <td>Peter</td>
+                            <td>Nijssen</td>
+                            <td>peter</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                         Options <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ path('jumph_company_view', {'companyId' : 1}) }}">View</a></li>
-                                        <li><a href="{{ path('jumph_company_edit', {'companyId' : 1}) }}">Edit</a></li>
-                                        <li><a href="{{ path('jumph_employee_overview', {'companyId' : 1}) }}">Employees</a></li>
+                                        <li><a href="#">View</a></li>
+                                        <li><a href="#">Edit</a></li>
                                         <li class="divider"></li>
-                                        <li><a href="{{ path('jumph_company_delete', {'companyId' : 1}) }}">Delete</a></li>
+                                        <li><a href="#">Delete</a></li>
                                     </ul>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>Company 2</td>
-                            <td>5</td>
+                            <td>Peter</td>
+                            <td>Nijssen</td>
+                            <td>peter</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                         Options <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ path('jumph_company_view', {'companyId' : 1}) }}">View</a></li>
-                                        <li><a href="{{ path('jumph_company_edit', {'companyId' : 1}) }}">Edit</a></li>
-                                        <li><a href="{{ path('jumph_employee_overview', {'companyId' : 1}) }}">Employees</a></li>
+                                        <li><a href="#">View</a></li>
+                                        <li><a href="#">Edit</a></li>
                                         <li class="divider"></li>
-                                        <li><a href="{{ path('jumph_company_delete', {'companyId' : 1}) }}">Delete</a></li>
+                                        <li><a href="#">Delete</a></li>
                                     </ul>
                                 </div>
                             </td>

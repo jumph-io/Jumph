@@ -1,12 +1,20 @@
 {% extends '::base.html.twig' %}
 
-{% block content %}
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Dashboard</h1>
-        </div>
-    </div>
+{% block title %}
+    {{ parent() }} | Dashboard
+{% endblock %}
 
+{% block headerContent %}
+    <h1>
+        Dashboard
+        <small>Overview</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-dashboard"></i> Dashboard</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
     <div class="row">
         <div class="col-lg-8">
         </div>

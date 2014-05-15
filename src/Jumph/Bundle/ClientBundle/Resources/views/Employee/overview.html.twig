@@ -4,69 +4,84 @@
     {{ parent() }} | Employees
 {% endblock %}
 
+{% block headerContent %}
+    <h1>
+        Employees
+        <small>Overview</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('jumph_company_overview') }}"><i class="fa fa-building"></i> Clients</a></li>
+        <li><i class="fa fa-building"></i> Employees</li>
+    </ol>
+{% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Employees</h1>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Options</th>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="text-center"><i class="fa fa-2x fa-plus-circle"></i> <br /> Add employee</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td colspan="3" class="text-center">No results</td>
-                    </tr>
-                    <tr>
-                        <td>Peter</td>
-                        <td>Nijssen</td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Options <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">View</a></li>
-                                    <li><a href="#">Edit</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Peter</td>
-                        <td>Nijssen</td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Options <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">View</a></li>
-                                    <li><a href="#">Edit</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="box box-primary">
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Options</th>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-center"><i class="fa fa-2x fa-plus-circle"></i> <br /> Add employee</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" class="text-center">No results</td>
+                            </tr>
+                            <tr>
+                                <td>Peter</td>
+                                <td>Nijssen</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                            Options <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">View</a></li>
+                                            <li><a href="#">Edit</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Peter</td>
+                                <td>Nijssen</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                            Options <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">View</a></li>
+                                            <li><a href="#">Edit</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box-footer clearfix">
+                    <!-- pagination -->
+                </div>
             </div>
         </div>
     </div>
 {% endblock %}
+
+{% extends '::base.html.twig' %}
+
