@@ -15,6 +15,7 @@ use Jumph\Bundle\ClientBundle\Entity\Company;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\Request;
 
 class CompanyController extends Controller
 {
@@ -57,8 +58,12 @@ class CompanyController extends Controller
      *
      * @return Response A Response instance
      */
-    public function addAction()
+    public function addAction(Request $request)
     {
+        if ($request->isMethod('POST')) {
+            return $this->redirect($this->generateUrl('jumph_company_overview'));
+        }
+
         return array();
     }
 
@@ -72,8 +77,12 @@ class CompanyController extends Controller
      *
      * @return Response A Response instance
      */
-    public function editAction(Company $company)
+    public function editAction(Request $request, Company $company)
     {
+        if ($request->isMethod('POST')) {
+            return $this->redirect($this->generateUrl('jumph_company_overview'));
+        }
+
         return array();
     }
 
