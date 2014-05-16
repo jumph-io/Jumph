@@ -26,7 +26,7 @@ class Builder extends ContainerAware
      *
      * @return MenuItem
      */
-    public function sideMenu(FactoryInterface $factory, array $options)
+    public function sideMenu(FactoryInterface $factory)
     {
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'sidebar-menu');

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4665728d83476ee8e925ea5936946ddd",
+    "hash": "531184f98d9ec988566bf5e0fbbb66f4",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1805,6 +1805,97 @@
     ],
     "packages-dev": [
         {
+            "name": "pdepend/pdepend",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pdepend/pdepend.git",
+                "reference": "0008154ed57e39c25185a78df2615823f7ce2b58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/0008154ed57e39c25185a78df2615823f7ce2b58",
+                "reference": "0008154ed57e39c25185a78df2615823f7ce2b58",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/config": "@stable",
+                "symfony/dependency-injection": "@stable",
+                "symfony/filesystem": "@stable"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.*@stable",
+                "squizlabs/php_codesniffer": "@stable"
+            },
+            "bin": [
+                "src/bin/pdepend"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PDepend\\": "src/main/php/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Official version of pdepend to be handled with Composer",
+            "time": "2014-04-30 09:18:08"
+        },
+        {
+            "name": "phpmd/phpmd",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpmd/phpmd.git",
+                "reference": "168ae4108aba73c5d42c2a989fc3c7cf9bb81da3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/168ae4108aba73c5d42c2a989fc3c7cf9bb81da3",
+                "reference": "168ae4108aba73c5d42c2a989fc3c7cf9bb81da3",
+                "shasum": ""
+            },
+            "require": {
+                "pdepend/pdepend": "2.0.0.*@dev",
+                "php": ">=5.3.0",
+                "symfony/config": "@stable",
+                "symfony/dependency-injection": "@stable",
+                "symfony/filesystem": "@stable"
+            },
+            "bin": [
+                "src/bin/phpmd"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PHPMD\\": "src/main/php",
+                    "PDepend\\": "vendor/pdepend/pdepend/src/main/php/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "../../pdepend/pdepend/src/main/php",
+                "src/main/php"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Official version of PHPMD handled with Composer.",
+            "time": "2014-04-30 11:30:12"
+        },
+        {
             "name": "squizlabs/php_codesniffer",
             "version": "1.5.3",
             "source": {
@@ -1936,7 +2027,9 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "stof/doctrine-extensions-bundle": 20,
-        "webfactory/exceptions-bundle": 0
+        "webfactory/exceptions-bundle": 0,
+        "pdepend/pdepend": 20,
+        "phpmd/phpmd": 20
     },
     "platform": {
         "php": ">=5.3.3"

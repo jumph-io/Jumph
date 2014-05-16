@@ -31,7 +31,9 @@
     },
     "require-dev": {
         "webfactory/exceptions-bundle": "@stable",
-        "squizlabs/php_codesniffer": "1.5.*"
+        "squizlabs/php_codesniffer": "1.5.*",
+        "pdepend/pdepend": "2.0.0.*@dev",
+        "phpmd/phpmd": "2.0.0.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

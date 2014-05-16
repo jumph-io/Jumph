@@ -87,7 +87,7 @@ class Company
     public function addEmployee(Employee $employees)
     {
         $this->employees[] = $employees;
-        $users->addCompany($this);
+        $employees->addCompany($this);
         return $this;
     }
 
