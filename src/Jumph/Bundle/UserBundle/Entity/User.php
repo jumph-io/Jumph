@@ -244,12 +244,12 @@ class User implements UserInterface, \Serializable
     /**
      * Add roles
      *
-     * @param Role $roles
+     * @param Role $role
      * @return User
      */
-    public function addRole(Role $roles)
+    public function addRole(Role $role)
     {
-        $this->roles[] = $roles;
+        $this->roles[] = $role;
 
         return $this;
     }
@@ -257,11 +257,11 @@ class User implements UserInterface, \Serializable
     /**
      * Remove roles
      *
-     * @param Role $roles
+     * @param Role $role
      */
-    public function removeRole(Role $roles)
+    public function removeRole(Role $role)
     {
-        $this->roles->removeElement($roles);
+        $this->roles->removeElement($role);
     }
 
     /**

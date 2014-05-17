@@ -81,13 +81,13 @@ class Company
     /**
      * Add employees
      *
-     * @param Employee $employees
+     * @param Employee $employee
      * @return Company
      */
-    public function addEmployee(Employee $employees)
+    public function addEmployee(Employee $employee)
     {
-        $this->employees[] = $employees;
-        $employees->addCompany($this);
+        $this->employees[] = $employee;
+        $employee->addCompany($this);
         return $this;
     }
 
@@ -96,9 +96,9 @@ class Company
      *
      * @param Employee $employees
      */
-    public function removeUser(Employee $employees)
+    public function removeEmployee(Employee $employee)
     {
-        $this->employees->removeElement($employees);
+        $this->employees->removeElement($employee);
     }
 
     /**

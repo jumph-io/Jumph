@@ -105,12 +105,12 @@ class Role implements RoleInterface
     /**
      * Add users
      *
-     * @param User $users
+     * @param User $user
      * @return Role
      */
-    public function addUser(User $users)
+    public function addUser(User $user)
     {
-        $this->users[] = $users;
+        $this->users[] = $user;
 
         return $this;
     }
@@ -118,11 +118,11 @@ class Role implements RoleInterface
     /**
      * Remove users
      *
-     * @param User $users
+     * @param User $user
      */
-    public function removeUser(User $users)
+    public function removeUser(User $user)
     {
-        $this->users->removeElement($users);
+        $this->users->removeElement($user);
     }
 
     /**
