@@ -12,6 +12,7 @@
 namespace Jumph\Bundle\ClientBundle\Controller;
 
 use Jumph\Bundle\ClientBundle\Entity\Company;
+use Jumph\Bundle\ClientBundle\Form\Type\CompanyType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -60,11 +61,16 @@ class CompanyController extends Controller
      */
     public function addAction(Request $request)
     {
+        $company = new Company();
+        $companyForm = $this->createForm(new CompanyType(), $company);
+
         if ($request->isMethod('POST')) {
             return $this->redirect($this->generateUrl('jumph_company_overview'));
         }
 
-        return array();
+        return array(
+            'companyForm' => $companyForm->createView()
+        );
     }
 
     /**
@@ -79,11 +85,15 @@ class CompanyController extends Controller
      */
     public function editAction(Request $request, Company $company)
     {
+        $companyForm = $this->createForm(new CompanyType(), $company);
+
         if ($request->isMethod('POST')) {
             return $this->redirect($this->generateUrl('jumph_company_overview'));
         }
 
-        return array();
+        return array(
+            'companyForm' => $companyForm->createView()
+        );
     }
 
     /**
