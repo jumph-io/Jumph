@@ -30,3 +30,9 @@ Contributing
 =====
 
 Details will follow soon
+
+Translating
+=====
+
+Details will follow soon
+
