@@ -30,3 +30,8 @@ Translating
 
 Details will follow soon
 
+Authors
+=====
+
+Jumph was originally created by [Peter Nijssen](https://www.peternijssen.nl).
+See the list of [contributors](https://github.com/jumph-io/Jumph/graphs/contributors).
