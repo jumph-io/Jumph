@@ -14,8 +14,9 @@ namespace Jumph\Bundle\ProjectBundle\Controller;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
 use Jumph\Bundle\ProjectBundle\Form\Type\ProjectType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ProjectController extends Controller
 {

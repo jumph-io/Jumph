@@ -11,9 +11,8 @@
 
 namespace Jumph\Bundle\ProjectBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Jumph\Bundle\ClientBundle\Entity\Employee;
-use Jumph\Bundle\ClientBundle\Entity\Client;
+use Jumph\Bundle\ClientBundle\Entity\Company;
 
 class Project
 {
@@ -40,6 +39,16 @@ class Project
     private $description;
 
     /**
+     * @var Company
+     */
+    private $company;
+
+    /**
+     * @var Employee
+     */
+    private $employee;
+
+    /**
      * @var \DateTime
      */
     private $created;
@@ -53,17 +62,6 @@ class Project
      * @var \DateTime
      */
     private $deletedAt;
-
-    /**
-     * @var \Jumph\Bundle\ProjectBundle\Entity\Client
-     */
-    private $client;
-
-    /**
-     * @var \Jumph\Bundle\ProjectBundle\Entity\Employee
-     */
-    private $employee;
-
 
     /**
      * Get id
@@ -145,6 +143,52 @@ class Project
     }
 
     /**
+     * Set company
+     *
+     * @param Company $company
+     * @return Project
+     */
+    public function setCompany(Company $company = null)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return Company
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    /**
+     * Set employee
+     *
+     * @param Employee $employee
+     * @return Project
+     */
+    public function setEmployee(Employee $employee = null)
+    {
+        $this->employee = $employee;
+
+        return $this;
+    }
+
+    /**
+     * Get employee
+     *
+     * @return Employee
+     */
+    public function getEmployee()
+    {
+        return $this->employee;
+    }
+
+    /**
      * Set created
      *
      * @param \DateTime $created
@@ -211,51 +255,5 @@ class Project
     public function getDeletedAt()
     {
         return $this->deletedAt;
-    }
-
-    /**
-     * Set client
-     *
-     * @param Client $client
-     * @return Project
-     */
-    public function setClient(Client $client = null)
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
-    /**
-     * Get client
-     *
-     * @return Client
-     */
-    public function getClient()
-    {
-        return $this->client;
-    }
-
-    /**
-     * Set employee
-     *
-     * @param Employee $employee
-     * @return Project
-     */
-    public function setEmployee(Employee $employee = null)
-    {
-        $this->employee = $employee;
-
-        return $this;
-    }
-
-    /**
-     * Get employee
-     *
-     * @return Employee
-     */
-    public function getEmployee()
-    {
-        return $this->employee;
     }
 }

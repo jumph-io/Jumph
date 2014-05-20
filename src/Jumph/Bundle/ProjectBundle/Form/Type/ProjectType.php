@@ -24,7 +24,7 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('client', 'entity', array(
+            ->add('company', 'entity', array(
                 'class' => 'JumphClientBundle:Company',
                 'property' => 'name'
             ))

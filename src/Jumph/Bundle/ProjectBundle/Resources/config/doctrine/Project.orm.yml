@@ -8,13 +8,13 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
             time_aware: true
 
     oneToOne:
-        client:
-          targetEntity: Client
+        company:
+          targetEntity: \Jumph\Bundle\ClientBundle\Entity\Company
           joinColumn:
-            name: client_id
+            name: company_id
             referencedColumnName: id
         employee:
-          targetEntity: Employee
+          targetEntity: \Jumph\Bundle\ClientBundle\Entity\Employee
           joinColumn:
             name: employee_id
             referencedColumnName: id
