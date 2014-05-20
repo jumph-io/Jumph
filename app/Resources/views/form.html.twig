@@ -43,3 +43,10 @@
         {% endfor %}
     {% endspaceless %}
 {% endblock choice_widget_options %}
+
+{% block textarea_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({ 'class': (attr.class|default('') ~ ' form-control')|trim }) %}
+        <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+    {% endspaceless %}
+{% endblock textarea_widget %}
