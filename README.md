@@ -3,36 +3,35 @@
 Jumph
 =====
 
-**General note**
-
-Jumph is currently being rewritten. Expect updates soon. Click the watch button to keep track of this project.
-
 **Description**
 
-Jumph is a simple open source project management tool.
+Jumph is a simple open source project management tool based on the Symfony Framework.
 
-The final stable version will contain the following parts:
-- Creating logins for your clients
-- Ability to manage projects
+Currently in development:
+- Project management
+- Client management
 - Issue tracker
 - Time tracker
-- Manage emails
-- Manage quotations
-- Ability to send emails directly to Jumph
-- Easy installer
+- Saving of emails
+- Keeping track of quotations
 
-Also features which will be created:
-- Email notifications
-- Native Android / iOS app
-
+Future plans:
+- API
+- Native mobile apps
 
 Contributing
 =====
 
-Details will follow soon
+Thanks for considering to contribute. You can contribute by creating pull requests. I am looking forward to your fixes, improvements and new features. This project is very much helped with all the issues you can resolve, any improvements you can make or unit tests you can set up.
+
 
 Translating
 =====
 
 Details will follow soon
 
+Authors
+=====
+
+Jumph was originally created by [Peter Nijssen](https://www.peternijssen.nl).
+See the list of [contributors](https://github.com/jumph-io/Jumph/graphs/contributors).
