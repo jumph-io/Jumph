@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "531184f98d9ec988566bf5e0fbbb66f4",
+    "hash": "2e379d12e8e733f60d281adceb97c83c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -808,23 +808,23 @@
         },
         {
             "name": "knplabs/knp-menu",
-            "version": "v1.1.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "f8e867268f63f561c1adadd6cbb5d8524f921873"
+                "reference": "de645e813ddca4a1243db48bce5eaee8adb346a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/f8e867268f63f561c1adadd6cbb5d8524f921873",
-                "reference": "f8e867268f63f561c1adadd6cbb5d8524f921873",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/de645e813ddca4a1243db48bce5eaee8adb346a2",
+                "reference": "de645e813ddca4a1243db48bce5eaee8adb346a2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "pimple/pimple": "*",
+                "pimple/pimple": "1.0.*",
                 "silex/silex": "1.0.*",
                 "twig/twig": ">=1.2,<2.0-dev"
             },
@@ -836,7 +836,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -868,28 +868,33 @@
                 "menu",
                 "tree"
             ],
-            "time": "2012-06-10 16:20:40"
+            "time": "2014-05-01 19:50:28"
         },
         {
             "name": "knplabs/knp-menu-bundle",
-            "version": "v1.1.2",
+            "version": "dev-master",
             "target-dir": "Knp/Bundle/MenuBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "2fecac02614e5a006f674dd5dd754eeaeca060b9"
+                "reference": "f6d6d5081c0e441f953200a6b5f1c760ee54377e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/2fecac02614e5a006f674dd5dd754eeaeca060b9",
-                "reference": "2fecac02614e5a006f674dd5dd754eeaeca060b9",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/f6d6d5081c0e441f953200a6b5f1c760ee54377e",
+                "reference": "f6d6d5081c0e441f953200a6b5f1c760ee54377e",
                 "shasum": ""
             },
             "require": {
-                "knplabs/knp-menu": "~1.1",
+                "knplabs/knp-menu": "~2.0, >=2.0.0-beta1",
                 "symfony/framework-bundle": "~2.0"
             },
             "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Knp\\Bundle\\MenuBundle": ""
@@ -917,7 +922,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2013-05-25 10:20:03"
+            "time": "2014-05-17 17:25:37"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -2027,6 +2032,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "stof/doctrine-extensions-bundle": 20,
+        "knplabs/knp-menu": 20,
+        "knplabs/knp-menu-bundle": 20,
         "webfactory/exceptions-bundle": 0,
         "pdepend/pdepend": 20,
         "phpmd/phpmd": 20

@@ -37,7 +37,8 @@ class Builder extends ContainerAware
         );
 
         $menu = $this->reorderMenu($menu);
-        $menu->setCurrentUri($this->container->get('request')->getRequestUri());
+
+        //@TODO: set current item through a voter
 
         return $menu;
     }

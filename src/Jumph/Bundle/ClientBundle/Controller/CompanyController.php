@@ -26,8 +26,6 @@ class CompanyController extends Controller
      *
      * Company overview page
      *
-     * @param Request $request A Request instance
-     *
      * @return Response A Response instance
      */
     public function overviewAction()
@@ -41,7 +39,7 @@ class CompanyController extends Controller
      *
      * View company
      *
-     * @param Request $request A Request instance
+     * @param Company $company
      *
      * @return Response A Response instance
      */
@@ -80,6 +78,7 @@ class CompanyController extends Controller
      * Edit company
      *
      * @param Request $request A Request instance
+     * @param Company $company
      *
      * @return Response A Response instance
      */
@@ -99,7 +98,7 @@ class CompanyController extends Controller
     /**
      * Delete company
      *
-     * @param Request $request A Request instance
+     * @param Company $company
      *
      * @return Response A Response instance
      */
