@@ -1,0 +1,48 @@
+Jumph\Bundle\ProjectBundle\Entity\Project:
+    type: entity
+    table: project
+
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: true
+
+    oneToOne:
+        client:
+          targetEntity: Client
+          joinColumn:
+            name: client_id
+            referencedColumnName: id
+        employee:
+          targetEntity: Employee
+          joinColumn:
+            name: employee_id
+            referencedColumnName: id
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name:
+            type: string
+            length: 150
+        status:
+            type: string
+            length: 150
+        description:
+            type: text
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            nullable: true

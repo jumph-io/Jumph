@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\ClientBundle\Form\Type;
+namespace Jumph\Bundle\ProjectBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EmployeeType extends AbstractType
+class ProjectType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -23,9 +23,17 @@ class EmployeeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
-            ->add('firstname')
-            ->add('lastname');
+            ->add('name')
+            ->add('client', 'entity', array(
+                'class' => 'JumphClientBundle:Company',
+                'property' => 'name'
+            ))
+            ->add('employee', 'entity', array(
+                'class' => 'JumphClientBundle:Employee',
+                'property' => 'firstname'
+            ))
+            ->add('status')
+            ->add('description');
     }
 
     /**
@@ -34,7 +42,7 @@ class EmployeeType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Jumph\Bundle\ClientBundle\Entity\Employee'
+            'data_class' => 'Jumph\Bundle\ProjectBundle\Entity\Project'
         ));
     }
 
@@ -43,6 +51,6 @@ class EmployeeType extends AbstractType
      */
     public function getName()
     {
-        return 'employee';
+        return 'project';
     }
 }

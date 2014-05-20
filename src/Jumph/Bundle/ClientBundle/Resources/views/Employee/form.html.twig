@@ -18,7 +18,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6 col-md-12">
             <div class="box box-primary">
                 {{ form_start(companyForm, { 'attr': { 'id': 'main-form'}}) }}
                 <div class="box-header">
@@ -36,6 +36,20 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                 {{ form_end(companyForm, {'render_rest': false}) }}
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body">
+                    <!-- To be defined -->
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
             </div>
         </div>
     </div>

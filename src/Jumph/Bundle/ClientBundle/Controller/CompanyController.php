@@ -14,9 +14,9 @@ namespace Jumph\Bundle\ClientBundle\Controller;
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Form\Type\CompanyType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Component\HttpFoundation\Request;
 
 class CompanyController extends Controller
 {
@@ -96,13 +96,15 @@ class CompanyController extends Controller
     }
 
     /**
+     * @ParamConverter("Company", class="JumphClientBundle:Company")
+     *
      * Delete company
      *
      * @param Company $company
      *
      * @return Response A Response instance
      */
-    public function deleteAction()
+    public function deleteAction(Company $company)
     {
         return $this->redirect($this->generateUrl('jumph_company_overview'));
     }

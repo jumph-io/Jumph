@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Projects
+{% endblock %}
+
+{% block headerContent %}
+    <h1>
+        Projects
+        <small>Add / Edit</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('jumph_project_overview') }}"><i class="fa fa-tasks"></i> Projects</a></li>
+        <li> Add / Edit</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="box box-primary">
+                {{ form_start(projectForm, { 'attr': { 'id': 'main-form'}}) }}
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body">
+                    <div class="form-group">
+                        {{ form_label(projectForm.name) }}
+                        {{ form_widget(projectForm.name) }}
+                        {{ form_errors(projectForm.name) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(projectForm.client) }}
+                        {{ form_widget(projectForm.client) }}
+                        {{ form_errors(projectForm.client) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(projectForm.employee) }}
+                        {{ form_widget(projectForm.employee) }}
+                        {{ form_errors(projectForm.employee) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(projectForm.status) }}
+                        {{ form_widget(projectForm.status) }}
+                        {{ form_errors(projectForm.status) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(projectForm.description) }}
+                        {{ form_widget(projectForm.description) }}
+                        {{ form_errors(projectForm.description) }}
+                    </div>
+                    {{ form_widget(projectForm._token) }}
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                {{ form_end(projectForm, {'render_rest': false}) }}
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body">
+                    <!-- To be defined -->
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

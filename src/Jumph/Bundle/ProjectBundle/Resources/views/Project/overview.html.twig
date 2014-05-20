@@ -32,7 +32,7 @@
                                 <th>Options</th>
                             </tr>
                             <tr>
-                                <td colspan="5" class="text-center"><a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add project</a></td>
+                                <td colspan="5" class="text-center"><a href="{{ path('jumph_project_add') }}" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add project</a></td>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,10 +50,10 @@
                                             Options <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">View</a></li>
-                                            <li><a href="#">Edit</a></li>
+                                            <li><a href="{{ path('jumph_project_view', { 'projectId': 1 }) }}">View</a></li>
+                                            <li><a href="{{ path('jumph_project_edit', { 'projectId': 1 }) }}">Edit</a></li>
                                             <li class="divider"></li>
-                                            <li><a href="#">Delete</a></li>
+                                            <li><a href="{{ path('jumph_project_delete', { 'projectId': 1 }) }}">Delete</a></li>
                                         </ul>
                                     </div>
                                 </td>
@@ -69,10 +69,10 @@
                                             Options <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">View</a></li>
-                                            <li><a href="#">Edit</a></li>
+                                            <li><a href="{{ path('jumph_project_view', { 'projectId': 1 }) }}">View</a></li>
+                                            <li><a href="{{ path('jumph_project_edit', { 'projectId': 1 }) }}">Edit</a></li>
                                             <li class="divider"></li>
-                                            <li><a href="#">Delete</a></li>
+                                            <li><a href="{{ path('jumph_project_delete', { 'projectId': 1 }) }}">Delete</a></li>
                                         </ul>
                                     </div>
                                 </td>
