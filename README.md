@@ -19,6 +19,11 @@ Future plans:
 - API
 - Native mobile apps
 
+Screenshots
+=====
+
+![Jumph Dashboard](http://i57.tinypic.com/fonjac.png)
+
 Contributing
 =====
 
