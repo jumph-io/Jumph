@@ -25,19 +25,18 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Subject</th>
                                 <th>Project</th>
                                 <th>Options</th>
                             </tr>
-                            <tr>
-                                <td colspan="3" class="text-center"><a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add email</a></td>
-                            </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="3" class="text-center">No results</td>
+                                <td colspan="4" class="text-center">No results</td>
                             </tr>
                             <tr>
+                                <td><input type="checkbox" /></td>
                                 <td>First email</td>
                                 <td>First project</td>
                                 <td>
@@ -55,6 +54,7 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td><input type="checkbox" /></td>
                                 <td>Second email</td>
                                 <td>First project</td>
                                 <td>
@@ -75,7 +75,23 @@
                     </table>
                 </div>
                 <div class="box-footer clearfix">
-                    <!-- pagination -->
+                    <div class="col-xs-6">
+                        <div class="btn-group pagination">
+                            <a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add email</a>
+                            <a href="" class="btn btn-default"><i class="fa fa-lg fa-trash-o"></i>  Delete selected</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <ul class="pagination pull-right">
+                            <li class="prev disabled"><a href="#">← Previous</a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li class="next"><a href="#">Next → </a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
