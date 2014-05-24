@@ -1,6 +1,6 @@
 Jumph\Bundle\ProjectBundle\Entity\Project:
     type: entity
-    table: project
+    table: jumph_project
 
     gedmo:
         soft_deleteable:

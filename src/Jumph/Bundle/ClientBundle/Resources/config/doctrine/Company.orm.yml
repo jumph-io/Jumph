@@ -1,6 +1,6 @@
 Jumph\Bundle\ClientBundle\Entity\Company:
     type: entity
-    table: company
+    table: jumph_company
 
     gedmo:
         soft_deleteable:

@@ -1,0 +1,38 @@
+{% extends '::base_clear.html.twig' %}
+
+{% block content %}
+    <div class="form-box" id="login-box">
+        <div class="header">Sign In</div>
+        <form action="{{ path('fos_user_security_check') }}" method="post" class="form-horizontal">
+            <div class="body bg-gray">
+                {% if error %}
+                    <div class="alert alert-danger alert-dismissable">
+                        <i class="fa fa-ban"></i>
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        {{ error }}
+                    </div>
+                {% endif %}
+                <div class="form-group">
+                    <input type="text" id="username" class="form-control" placeholder="username" name="_username" value="{{ last_username }}" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="password" id="password" name="_password" />
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <div class="checkbox">
+                            <label for="remember_me">
+                                Remember me? &nbsp; <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            </div>
+            <div class="footer">
+                <button type="submit" class="btn bg-olive btn-block">Sign me in</button>
+                <a href="{{ path('fos_user_registration_register') }}" class="text-center">Register</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

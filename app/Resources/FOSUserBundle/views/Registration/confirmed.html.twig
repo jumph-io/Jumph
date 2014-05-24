@@ -1,0 +1,13 @@
+{% extends '::base_clear.html.twig' %}
+
+{% block content %}
+    <div class="form-box" id="login-box">
+        <div class="header">Registered</div>
+        <div class="body bg-gray">
+            {{ 'registration.confirmed'|trans({'%username%': user.firstName}) }}
+        </div>
+        <div class="footer">
+            <a href="{{ path('fos_user_security_login') }}" class="text-center">Login</a>
+        </div>
+    </div>
+{% endblock %}

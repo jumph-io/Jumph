@@ -1,0 +1,16 @@
+{% extends '::base_clear.html.twig' %}
+
+{% block content %}
+    <div class="form-box" id="login-box">
+        <div class="header">Register</div>
+        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+            <div class="body bg-gray">
+                {{ form_widget(form) }}
+            </div>
+            <div class="footer">
+                <button type="submit" class="btn bg-olive btn-block">Register</button>
+                <a href="{{ path('fos_user_security_login') }}" class="text-center">Login</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

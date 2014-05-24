@@ -13,7 +13,8 @@ namespace Jumph\Bundle\AppBundle\Session;
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class AlertMessage {
+class AlertMessage
+{
 
     /** @var SessionInterface */
     private $session;
@@ -85,4 +86,4 @@ class AlertMessage {
     {
         $this->session->getFlashBag()->clear();
     }
-} 
+}

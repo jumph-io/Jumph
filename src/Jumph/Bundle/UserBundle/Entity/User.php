@@ -4,19 +4,15 @@ namespace Jumph\Bundle\UserBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use FOS\UserBundle\Model\User as BaseUser;
 
-class User implements UserInterface, \Serializable
+class User extends BaseUser
 {
 
     /**
      * @var integer
      */
-    private $id;
-
-    /**
-     * @var string
-     */
-    private $email;
+    protected $id;
 
     /**
      * @var string
@@ -27,26 +23,6 @@ class User implements UserInterface, \Serializable
      * @var string
      */
     private $lastname;
-
-    /**
-     * @var string
-     */
-    private $username;
-
-    /**
-     * @var string
-     */
-    private $password;
-
-    /**
-     * @var string
-     */
-    private $salt;
-
-    /**
-     * @var string
-     */
-    private $roles;
 
     /**
      * @var date $createdAt
@@ -68,7 +44,7 @@ class User implements UserInterface, \Serializable
      */
     public function __construct()
     {
-        $this->roles = new ArrayCollection();
+        parent::__construct();
     }
     /**
      * Get id
@@ -78,30 +54,6 @@ class User implements UserInterface, \Serializable
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Get email of user
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set user email
-     *
-     * @param string $email
-     *
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
     }
 
     /**
@@ -163,107 +115,6 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Get user name
-     *
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     * @return User
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get salt
-     *
-     * @return string
-     */
-    public function getSalt()
-    {
-        return null;
-    }
-
-    /**
-     * Set salt
-     *
-     * @param string $salt
-     * @return User
-     */
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
-
-        return $this;
-    }
-
-    /**
-     * Return roles
-     *
-     * @return object
-     */
-    public function getRoles()
-    {
-        return $this->roles->toArray();
-    }
-
-    /**
-     * Add roles
-     *
-     * @param Role $role
-     * @return User
-     */
-    public function addRole(Role $role)
-    {
-        $this->roles[] = $role;
-        return $this;
-    }
-
-    /**
-     * Remove roles
-     *
-     * @param Role $role
-     */
-    public function removeRole(Role $role)
-    {
-        $this->roles->removeElement($role);
-    }
-
-    /**
      * Get creation date
      *
      * @return date
@@ -301,54 +152,5 @@ class User implements UserInterface, \Serializable
     public function setDeletedAt($deletedAt)
     {
         $this->deletedAt = $deletedAt;
-    }
-
-    /**
-     * Check if user is admin
-     *
-     * @return bool
-     */
-    public function isAdmin()
-    {
-        foreach ($this->roles as $role) {
-            if ($role->getRole() === "ROLE_ADMIN") {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Remove users credentials
-     *
-     * @return User
-     */
-    public function eraseCredentials()
-    {
-
-    }
-
-    /**
-     * @see \Serializable::serialize()
-     */
-    public function serialize()
-    {
-        return serialize(array(
-            $this->id,
-            $this->username,
-            $this->password,
-        ));
-    }
-
-    /**
-     * @see \Serializable::unserialize()
-     */
-    public function unserialize($serialized)
-    {
-        list (
-            $this->id,
-            $this->username,
-            $this->password,
-            ) = unserialize($serialized);
     }
 }

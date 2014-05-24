@@ -89,7 +89,14 @@ class EmployeeController extends Controller
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Employee created!');
 
-                return $this->redirect($this->generateUrl('jumph_employee_overview', array('companyId' => $company->getId())));
+                return $this->redirect(
+                    $this->generateUrl(
+                        'jumph_employee_overview',
+                        array(
+                            'companyId' => $company->getId()
+                        )
+                    )
+                );
             }
         }
 
@@ -125,7 +132,14 @@ class EmployeeController extends Controller
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Employee updated!');
 
-                return $this->redirect($this->generateUrl('jumph_employee_overview', array('companyId' => $company->getId())));
+                return $this->redirect(
+                    $this->generateUrl(
+                        'jumph_employee_overview',
+                        array(
+                            'companyId' => $company->getId()
+                        )
+                    )
+                );
             }
         }
 
@@ -154,6 +168,13 @@ class EmployeeController extends Controller
         $alertMessage = $this->get('jumph_app.alert_message');
         $alertMessage->success('Employee deleted!');
 
-        return $this->redirect($this->generateUrl('jumph_employee_overview', array('companyId' => $company->getId())));
+        return $this->redirect(
+            $this->generateUrl(
+                'jumph_employee_overview',
+                array(
+                    'companyId' => $company->getId()
+                )
+            )
+        );
     }
 }

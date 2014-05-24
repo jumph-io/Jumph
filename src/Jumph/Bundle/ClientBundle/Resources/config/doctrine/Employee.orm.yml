@@ -1,6 +1,6 @@
 Jumph\Bundle\ClientBundle\Entity\Employee:
     type: entity
-    table: employee
+    table: jumph_employee
 
     gedmo:
         soft_deleteable:

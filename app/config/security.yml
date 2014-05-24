@@ -1,15 +1,15 @@
 security:
     encoders:
-        Jumph\Bundle\UserBundle\Entity\User:
+        FOS\UserBundle\Model\UserInterface:
             algorithm: bcrypt
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
-        users:
-            entity: { class: JumphUserBundle:User, property: username }
+        fos_userbundle:
+            id: fos_user.user_provider.username
 
     firewalls:
         dev:
@@ -24,17 +24,16 @@ security:
             pattern:    ^/register
             anonymous:  ~
 
-        access:
-            pattern:    ^/
-            provider: users
+        main:
+            pattern: ^/
             form_login:
-                login_path:  /login
-                check_path:  /login_check
-                use_referer: true
-            logout:
-                path:   /logout
-                target: /login
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+            logout:       true
 
     access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, roles: ROLE_ADMIN }
         - { path: ^/$, roles: ROLE_USER }

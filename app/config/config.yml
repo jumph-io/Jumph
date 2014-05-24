@@ -84,6 +84,15 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# Fos user
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Jumph\Bundle\UserBundle\Entity\User
+    registration:
+            form:
+                type: jumph_user_registration
+
 # Knp menu
 knp_menu:
     twig:

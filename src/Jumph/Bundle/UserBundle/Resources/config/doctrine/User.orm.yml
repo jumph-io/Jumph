@@ -1,25 +1,11 @@
 Jumph\Bundle\UserBundle\Entity\User:
     type: entity
-    table: user
+    table: jumph_user
 
     gedmo:
         soft_deleteable:
             field_name: deletedAt
             time_aware: true
-
-    manyToMany:
-      roles:
-        targetEntity: Role
-        inversedBy: users
-        cascade: ["persist", "remove"]
-        joinTable:
-          name: user_in_role
-          joinColumns:
-            user_id:
-              referencedColumnName: id
-          inverseJoinColumns:
-            role_id:
-              referencedColumnName: id
 
     id:
         id:
@@ -27,28 +13,11 @@ Jumph\Bundle\UserBundle\Entity\User:
             generator: { strategy: AUTO }
 
     fields:
-        email:
-            type: string
-            length: 150
-            nullable: true
-            unique: true
         firstname:
             type: string
             nullable: true
         lastname:
             type: string
-            nullable: true
-        username:
-            type: string
-            length: 45
-            nullable: false
-            unique: true
-        password:
-            type: string
-            nullable: false
-        salt:
-            type: string
-            length: 10
             nullable: true
         createdAt:
             type: datetime
