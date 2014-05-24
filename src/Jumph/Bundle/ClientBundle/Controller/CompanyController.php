@@ -26,16 +26,22 @@ class CompanyController extends Controller
      *
      * Company overview page
      *
+     * @param Request $request A Request instance
+     *
      * @return Response A Response instance
      */
-    public function overviewAction()
+    public function overviewAction(Request $request)
     {
-        return array();
+        $companyRepository = $this->get('jumph_client.company_repository');
+
+        return array(
+            'companies' => $companyRepository->getPaginatedResults($request->query->get('page', 1))
+        );
     }
 
     /**
      * @Template("JumphClientBundle:Company:view.html.twig")
-     * @ParamConverter("Company", class="JumphClientBundle:Company")
+     * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      *
      * View company
      *
@@ -63,7 +69,16 @@ class CompanyController extends Controller
         $companyForm = $this->createForm(new CompanyType(), $company);
 
         if ($request->isMethod('POST')) {
-            return $this->redirect($this->generateUrl('jumph_company_overview'));
+            $companyForm->handleRequest($request);
+            if ($companyForm->isValid()) {
+                $companyRepository = $this->get('jumph_client.company_repository');
+                $companyRepository->create($company);
+
+                $alertMessage = $this->get('jumph_app.alert_message');
+                $alertMessage->success('Company created!');
+
+                return $this->redirect($this->generateUrl('jumph_company_overview'));
+            }
         }
 
         return array(
@@ -73,7 +88,7 @@ class CompanyController extends Controller
 
     /**
      * @Template("JumphClientBundle:Company:form.html.twig")
-     * @ParamConverter("Company", class="JumphClientBundle:Company")
+     * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      *
      * Edit company
      *
@@ -87,7 +102,16 @@ class CompanyController extends Controller
         $companyForm = $this->createForm(new CompanyType(), $company);
 
         if ($request->isMethod('POST')) {
-            return $this->redirect($this->generateUrl('jumph_company_overview'));
+            $companyForm->handleRequest($request);
+            if ($companyForm->isValid()) {
+                $companyRepository = $this->get('jumph_client.company_repository');
+                $companyRepository->update($company);
+
+                $alertMessage = $this->get('jumph_app.alert_message');
+                $alertMessage->success('Company updated!');
+
+                return $this->redirect($this->generateUrl('jumph_company_overview'));
+            }
         }
 
         return array(
@@ -96,7 +120,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * @ParamConverter("Company", class="JumphClientBundle:Company")
+     * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      *
      * Delete company
      *
@@ -106,6 +130,12 @@ class CompanyController extends Controller
      */
     public function deleteAction(Company $company)
     {
+        $companyRepository = $this->get('jumph_client.company_repository');
+        $companyRepository->delete($company);
+
+        $alertMessage = $this->get('jumph_app.alert_message');
+        $alertMessage->success('Company deleted!');
+
         return $this->redirect($this->generateUrl('jumph_company_overview'));
     }
 }

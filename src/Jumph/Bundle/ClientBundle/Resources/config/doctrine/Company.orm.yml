@@ -21,12 +21,12 @@ Jumph\Bundle\ClientBundle\Entity\Company:
         name:
             type: string
             length: 150
-        created:
+        createdAt:
             type: datetime
             gedmo:
                 timestampable:
                     on: create
-        updated:
+        updatedAt:
             type: datetime
             gedmo:
                 timestampable:

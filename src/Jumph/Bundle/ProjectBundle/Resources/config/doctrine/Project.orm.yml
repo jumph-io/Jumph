@@ -33,12 +33,12 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
             length: 150
         description:
             type: text
-        created:
+        createdAt:
             type: datetime
             gedmo:
                 timestampable:
                     on: create
-        updated:
+        updatedAt:
             type: datetime
             gedmo:
                 timestampable:

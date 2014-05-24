@@ -32,47 +32,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="4" class="text-center">No results</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>Company 1</td>
-                                <td>2</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="{{ path('jumph_company_view', {'companyId' : 1}) }}">View</a></li>
-                                            <li><a href="{{ path('jumph_company_edit', {'companyId' : 1}) }}">Edit</a></li>
-                                            <li><a href="{{ path('jumph_employee_overview', {'companyId' : 1}) }}">Employees</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="{{ path('jumph_company_delete', {'companyId' : 1}) }}">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>Company 2</td>
-                                <td>5</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="{{ path('jumph_company_view', {'companyId' : 1}) }}">View</a></li>
-                                            <li><a href="{{ path('jumph_company_edit', {'companyId' : 1}) }}">Edit</a></li>
-                                            <li><a href="{{ path('jumph_employee_overview', {'companyId' : 1}) }}">Employees</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="{{ path('jumph_company_delete', {'companyId' : 1}) }}">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            {% if companies is empty %}
+                                <tr>
+                                    <td colspan="4" class="text-center">No results</td>
+                                </tr>
+                            {% endif %}
+                            {% for company in companies  %}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>{{ company.name }}</td>
+                                    <td>{{ company.employees.count() }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                Options <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="{{ path('jumph_company_view', {'companyId' : company.id}) }}">View</a></li>
+                                                <li><a href="{{ path('jumph_company_edit', {'companyId' : company.id}) }}">Edit</a></li>
+                                                <li><a href="{{ path('jumph_employee_overview', {'companyId' : company.id}) }}">Employees</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="{{ path('jumph_company_delete', {'companyId' : company.id}) }}">Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -84,15 +69,7 @@
                         </div>
                     </div>
                     <div class="col-xs-6">
-                        <ul class="pagination pull-right">
-                            <li class="prev disabled"><a href="#">← Previous</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li class="next"><a href="#">Next → </a></li>
-                        </ul>
+                        {{ knp_pagination_render(companies) }}
                     </div>
                 </div>
             </div>

@@ -9,12 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\UserBundle\Repository;
+namespace Jumph\Bundle\ClientBundle\Repository;
 
 use Doctrine\ORM\EntityManager;
-use Jumph\Bundle\UserBundle\Entity\Company;
+use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
+use Jumph\Bundle\ClientBundle\Entity\Company;
 
-class CompanyRepository
+class CompanyRepository extends PaginatorAware
 {
 
     /**
@@ -22,14 +23,14 @@ class CompanyRepository
      *
      * @var constant
      */
-    const ENTITY_ALIAS = 'r';
+    const ENTITY_ALIAS = 'c';
 
     /**
      * Entity to use
      *
      * @var constant
      */
-    const ENTITY_CLASS = 'JumphUserBundle:Company';
+    const ENTITY_CLASS = 'JumphClientBundle:Company';
 
     /**
      * Entity manager
@@ -76,9 +77,28 @@ class CompanyRepository
             ->createQueryBuilder(self::ENTITY_ALIAS)
             ->select(self::ENTITY_ALIAS)
             ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS)
-            ->orderBy(self::ENTITY_ALIAS . $sortField, $sortOrder)
+            ->orderBy(self::ENTITY_ALIAS . "." . $sortField, $sortOrder)
             ->getQuery()
             ->getResult();
+    }
+
+    /**
+     * Get paginated results.
+     *
+     * @param int           $page       Current page
+     * @param int           $limit      Items per page limit
+     * @param array         $sortby     Sorting options
+     *
+     * @return \Knp\Component\Pager\Pagination\PaginationInterface Returns a filtered paginator
+     */
+    public function getPaginatedResults($page = 1, $limit = 15, array $sortby = array())
+    {
+        $qb = $this->entityManager
+            ->createQueryBuilder(self::ENTITY_ALIAS)
+            ->select(self::ENTITY_ALIAS)
+            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS);
+
+        return $this->getPaginator()->paginate($qb, $page, $limit, $sortby);
     }
 
     /**

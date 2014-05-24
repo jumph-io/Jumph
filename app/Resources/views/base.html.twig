@@ -86,6 +86,8 @@
                 </section>
 
                 <section class="content">
+                    {% include '::alerts.html.twig' with { 'close': true } %}
+
                     {% block content %}
                     {% endblock %}
                 </section>

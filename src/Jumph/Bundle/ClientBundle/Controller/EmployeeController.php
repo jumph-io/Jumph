@@ -24,23 +24,29 @@ class EmployeeController extends Controller
 
     /**
      * @Template("JumphClientBundle:Employee:overview.html.twig")
-     * @ParamConverter("Company", class="JumphClientBundle:Company")
+     * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      *
      * Client overview page
      *
+     * @param Request $request A Request instance
      * @param Company $company
      *
      * @return Response A Response instance
      */
-    public function overviewAction(Company $company)
+    public function overviewAction(Request $request, Company $company)
     {
-        return array();
+        $employeeRepository = $this->get('jumph_client.employee_repository');
+
+        return array(
+            'employees' => $employeeRepository->getPaginatedResults($company, $request->query->get('page', 1)),
+            'company' => $company
+        );
     }
 
     /**
      * @Template("JumphClientBundle:Employee:view.html.twig")
-     * @ParamConverter("Company", class="JumphClientBundle:Company")
-     * @ParamConverter("Employee", class="JumphClientBundle:Employee")
+     * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
+     * @ParamConverter("employee", class="JumphClientBundle:Employee", options={"id" = "employeeId"})
      *
      * View employee
      *
@@ -56,7 +62,7 @@ class EmployeeController extends Controller
 
     /**
      * @Template("JumphClientBundle:Employee:form.html.twig")
-     * @ParamConverter("Company", class="JumphClientBundle:Company")
+     * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      *
      * Add employee
      *
@@ -68,21 +74,32 @@ class EmployeeController extends Controller
     public function addAction(Request $request, Company $company)
     {
         $employee = new Employee();
+        $employee->setCompany($company);
         $employeeForm = $this->createForm(new EmployeeType(), $employee);
 
         if ($request->isMethod('POST')) {
-            return $this->redirect($this->generateUrl('jumph_employee_overview'));
+            $employeeForm->handleRequest($request);
+            if ($employeeForm->isValid()) {
+                $employeeRepository = $this->get('jumph_client.employee_repository');
+                $employeeRepository->create($employee);
+
+                $alertMessage = $this->get('jumph_app.alert_message');
+                $alertMessage->success('Employee created!');
+
+                return $this->redirect($this->generateUrl('jumph_employee_overview', array('companyId' => $company->getId())));
+            }
         }
 
         return array(
-            'employeeForm' => $employeeForm->createView()
+            'employeeForm' => $employeeForm->createView(),
+            'company' => $company
         );
     }
 
     /**
      * @Template("JumphClientBundle:Employee:form.html.twig")
-     * @ParamConverter("Company", class="JumphClientBundle:Company")
-     * @ParamConverter("Employee", class="JumphClientBundle:Employee")
+     * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
+     * @ParamConverter("employee", class="JumphClientBundle:Employee", options={"id" = "employeeId"})
      *
      * Edit employee
      *
@@ -97,21 +114,43 @@ class EmployeeController extends Controller
         $employeeForm = $this->createForm(new EmployeeType(), $employee);
 
         if ($request->isMethod('POST')) {
-            return $this->redirect($this->generateUrl('jumph_employee_overview'));
+            $employeeForm->handleRequest($request);
+            if ($employeeForm->isValid()) {
+                $employeeRepository = $this->get('jumph_client.employee_repository');
+                $employeeRepository->update($employee);
+
+                $alertMessage = $this->get('jumph_app.alert_message');
+                $alertMessage->success('Employee updated!');
+
+                return $this->redirect($this->generateUrl('jumph_employee_overview', array('companyId' => $company->getId())));
+            }
         }
 
         return array(
-            'employeeForm' => $employeeForm->createView()
+            'employeeForm' => $employeeForm->createView(),
+            'company' => $company
         );
     }
 
     /**
+     * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
+     * @ParamConverter("employee", class="JumphClientBundle:Employee", options={"id" = "employeeId"})
+     *
      * Delete employee
+     *
+     * @param Company $company
+     * @param Employee $employee
      *
      * @return Response A Response instance
      */
-    public function deleteAction()
+    public function deleteAction(Company $company, Employee $employee)
     {
-        return $this->redirect($this->generateUrl('jumph_employee_overview'));
+        $employeeRepository = $this->get('jumph_client.employee_repository');
+        $employeeRepository->update($employee);
+
+        $alertMessage = $this->get('jumph_app.alert_message');
+        $alertMessage->success('Employee deleted!');
+
+        return $this->redirect($this->generateUrl('jumph_employee_overview', array('companyId' => $company->getId())));
     }
 }

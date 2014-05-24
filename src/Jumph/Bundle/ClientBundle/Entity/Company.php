@@ -23,14 +23,14 @@ class Company
     private $employees;
 
     /**
-     * @var date $created
+     * @var date $createdAt
      */
-    private $created;
+    private $createdAt;
 
     /**
-     * @var date $updated
+     * @var date $updatedAt
      */
-    private $updated;
+    private $updatedAt;
 
     /**
      * @var date $deletedAt
@@ -116,9 +116,9 @@ class Company
      *
      * @return date
      */
-    public function getCreated()
+    public function getCreatedAt()
     {
-        return $this->created;
+        return $this->createdAt;
     }
 
     /**
@@ -126,9 +126,9 @@ class Company
      *
      * @return date
      */
-    public function getUpdated()
+    public function getUpdatedAt()
     {
-        return $this->updated;
+        return $this->updatedAt;
     }
 
     /**

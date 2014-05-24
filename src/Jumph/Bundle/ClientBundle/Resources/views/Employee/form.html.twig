@@ -11,7 +11,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ path('jumph_company_overview') }}"><i class="fa fa-building"></i> Clients</a></li>
-        <li><a href="{{ path('jumph_employee_overview') }}"> Employees</a></li>
+        <li><a href="{{ path('jumph_employee_overview', {'companyId' : company.id}) }}"> Employees</a></li>
         <li>Add / Edit</li>
     </ol>
 {% endblock %}
@@ -20,22 +20,20 @@
     <div class="row">
         <div class="col-lg-6 col-md-12">
             <div class="box box-primary">
-                {{ form_start(companyForm, { 'attr': { 'id': 'main-form'}}) }}
+                {{ form_start(employeeForm, { 'attr': { 'id': 'main-form'}}) }}
                 <div class="box-header">
                     <!-- Potential title -->
                 </div>
                 <div class="box-body">
-                    <div class="form-group">
-                        {{ form_label(companyForm.name) }}
-                        {{ form_widget(companyForm.name) }}
-                        {{ form_errors(companyForm.name) }}
-                    </div>
-                    {{ form_widget(companyForm._token) }}
+                    {{ form_row(employeeForm.firstname) }}
+                    {{ form_row(employeeForm.lastname) }}
+                    {{ form_row(employeeForm.email) }}
+                    {{ form_widget(employeeForm._token) }}
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-                {{ form_end(companyForm, {'render_rest': false}) }}
+                {{ form_end(employeeForm, {'render_rest': false}) }}
             </div>
         </div>
 

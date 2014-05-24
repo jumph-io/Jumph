@@ -33,12 +33,12 @@ Jumph\Bundle\ClientBundle\Entity\Employee:
         lastname:
             type: string
             nullable: true
-        created:
+        createdAt:
             type: datetime
             gedmo:
                 timestampable:
                     on: create
-        updated:
+        updatedAt:
             type: datetime
             gedmo:
                 timestampable:

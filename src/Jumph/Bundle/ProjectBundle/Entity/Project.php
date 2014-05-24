@@ -49,14 +49,14 @@ class Project
     private $employee;
 
     /**
-     * @var \DateTime
+     * @var date $createdAt
      */
-    private $created;
+    private $createdAt;
 
     /**
-     * @var \DateTime
+     * @var date $updatedAt
      */
-    private $updated;
+    private $updatedAt;
 
     /**
      * @var \DateTime
@@ -189,51 +189,24 @@ class Project
     }
 
     /**
-     * Set created
+     * Get creation date
      *
-     * @param \DateTime $created
-     * @return Project
+     * @return date
      */
-    public function setCreated($created)
+    public function getCreatedAt()
     {
-        $this->created = $created;
-
-        return $this;
+        return $this->createdAt;
     }
 
     /**
-     * Get created
+     * Get update date
      *
-     * @return \DateTime
+     * @return date
      */
-    public function getCreated()
+    public function getUpdatedAt()
     {
-        return $this->created;
+        return $this->updatedAt;
     }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return Project
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-
     /**
      * Set deletedAt
      *

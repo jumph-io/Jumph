@@ -1,7 +1,20 @@
 parameters:
-#    jumph_client.example.class: Jumph\Bundle\ClientBundle\Example
+    jumph_client.repository.company_repository.class: Jumph\Bundle\ClientBundle\Repository\CompanyRepository
+    jumph_client.repository.employee_repository.class: Jumph\Bundle\ClientBundle\Repository\EmployeeRepository
 
 services:
+    jumph_client.company_repository:
+        class: %jumph_client.repository.company_repository.class%
+        arguments:
+            - @doctrine.orm.entity_manager
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]
+    jumph_client.employee_repository:
+        class: %jumph_client.repository.employee_repository.class%
+        arguments:
+            - @doctrine.orm.entity_manager
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]
     jumph_client.client_menu_listener:
                 class: Jumph\Bundle\ClientBundle\EventListener\ClientMenuListener
                 tags:

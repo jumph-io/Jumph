@@ -11,7 +11,7 @@ framework:
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
+    validation:      { enabled: true, enable_annotations: true }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
@@ -88,3 +88,8 @@ swiftmailer:
 knp_menu:
     twig:
         template: menu.html.twig
+
+# Knp paginator
+knp_paginator:
+    template:
+        pagination: pagination.html.twig

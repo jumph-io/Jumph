@@ -24,12 +24,12 @@ Jumph\Bundle\UserBundle\Entity\Role:
         role:
             type: string
             unique: true
-        created:
+        createdAt:
             type: datetime
             gedmo:
                 timestampable:
                     on: create
-        updated:
+        updatedAt:
             type: datetime
             gedmo:
                 timestampable:

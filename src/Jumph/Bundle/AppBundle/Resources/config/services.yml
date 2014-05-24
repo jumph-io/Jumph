@@ -1,7 +1,11 @@
 parameters:
-#    jumph_app.example.class: Jumph\Bundle\AppBundle\Example
+    jumph_app.session.alert_message.class: Jumph\Bundle\AppBundle\Session\AlertMessage
 
 services:
+    jumph_app.alert_message:
+        class: %jumph_app.session.alert_message.class%
+        arguments:
+            - @session
     gedmo.listener.softdeleteable:
         class: Gedmo\SoftDeleteable\SoftDeleteableListener
         tags:

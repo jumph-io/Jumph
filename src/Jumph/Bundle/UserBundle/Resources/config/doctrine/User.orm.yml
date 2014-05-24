@@ -49,12 +49,12 @@ Jumph\Bundle\UserBundle\Entity\User:
             type: string
             length: 10
             nullable: true
-        created:
+        createdAt:
             type: datetime
             gedmo:
                 timestampable:
                     on: create
-        updated:
+        updatedAt:
             type: datetime
             gedmo:
                 timestampable:

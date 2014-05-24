@@ -22,7 +22,6 @@ security:
 
         access:
             pattern:    ^/
-            anonymous:  ~
             provider: users
             form_login:
                 login_path:  /login

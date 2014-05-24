@@ -1,6 +1,5 @@
 parameters:
     jumph_user.repository.user_repository.class: Jumph\Bundle\UserBundle\Repository\UserRepository
-    jumph_user.repository.company_repository.class: Jumph\Bundle\UserBundle\Repository\CompanyRepository
     jumph_user.repository.role_repository.class: Jumph\Bundle\UserBundle\Repository\RoleRepository
 
 services:
@@ -10,10 +9,6 @@ services:
           - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuUser }
     jumph_user.user_repository:
         class: %jumph_user.repository.user_repository.class%
-        arguments:
-            - @doctrine.orm.entity_manager
-    jumph_user.company_repository:
-        class: %jumph_user.repository.company_repository.class%
         arguments:
             - @doctrine.orm.entity_manager
     jumph_user.role_repository:

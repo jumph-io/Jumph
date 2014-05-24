@@ -24,11 +24,7 @@
                         <!-- Potential title -->
                     </div>
                     <div class="box-body">
-                        <div class="form-group">
-                            {{ form_label(companyForm.name) }}
-                            {{ form_widget(companyForm.name) }}
-                            {{ form_errors(companyForm.name) }}
-                        </div>
+                        {{ form_row(companyForm.name) }}
                         {{ form_widget(companyForm._token) }}
                     </div>
                     <div class="box-footer">

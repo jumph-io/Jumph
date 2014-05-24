@@ -33,65 +33,43 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="4" class="text-center">No results</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>Peter</td>
-                                <td>Nijssen</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">View</a></li>
-                                            <li><a href="#">Edit</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>Peter</td>
-                                <td>Nijssen</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">View</a></li>
-                                            <li><a href="#">Edit</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            {% if employees is empty %}
+                                <tr>
+                                    <td colspan="4" class="text-center">No results</td>
+                                </tr>
+                            {% endif %}
+                            {% for employee in employees  %}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>{{ employee.firstname }}</td>
+                                    <td>{{ employee.lastname }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                Options <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="{{ path('jumph_employee_view', {'companyId' : employee.company.id, 'employeeId' : employee.id}) }}">View</a></li>
+                                                <li><a href="{{ path('jumph_employee_edit', {'companyId' : employee.company.id, 'employeeId' : employee.id}) }}">Edit</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="{{ path('jumph_employee_delete', {'companyId' : employee.company.id, 'employeeId' : employee.id}) }}">Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
                 <div class="box-footer clearfix">
                     <div class="col-xs-6">
                         <div class="btn-group pagination">
-                            <a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add employee</a>
+                            <a href="{{ path('jumph_employee_add', {'companyId' : company.id}) }}" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add employee</a>
                             <a href="" class="btn btn-default"><i class="fa fa-lg fa-trash-o"></i>  Delete selected</a>
                         </div>
                     </div>
                     <div class="col-xs-6">
-                        <ul class="pagination pull-right">
-                            <li class="prev disabled"><a href="#">← Previous</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li class="next"><a href="#">Next → </a></li>
-                        </ul>
+                        {{ knp_pagination_render(employees) }}
                     </div>
                 </div>
             </div>

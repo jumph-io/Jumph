@@ -1,0 +1,21 @@
+Jumph\Bundle\ClientBundle\Entity\Company:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                min: 3
+Jumph\Bundle\ClientBundle\Entity\Employee:
+    properties:
+        firstname:
+            - NotBlank: ~
+            - Length:
+                min: 3
+        lastname:
+            - NotBlank: ~
+            - Length:
+                min: 3
+        email:
+            - NotBlank: ~
+            - Email: ~
+            - Length:
+                min: 3
