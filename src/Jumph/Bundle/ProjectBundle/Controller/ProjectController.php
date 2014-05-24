@@ -51,7 +51,9 @@ class ProjectController extends Controller
      */
     public function viewAction(Project $project)
     {
-        return array();
+        return array(
+            'project' => $project
+        );
     }
 
     /**

@@ -11,6 +11,9 @@ Jumph\Bundle\ClientBundle\Entity\Company:
         employees:
             targetEntity: Employee
             mappedBy: company
+        projects:
+            targetEntity: \Jumph\Bundle\ProjectBundle\Entity\Project
+            mappedBy: company
 
     id:
         id:

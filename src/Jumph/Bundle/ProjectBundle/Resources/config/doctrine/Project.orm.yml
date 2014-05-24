@@ -7,17 +7,21 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
             field_name: deletedAt
             time_aware: true
 
-    oneToOne:
+    manyToOne:
         company:
           targetEntity: \Jumph\Bundle\ClientBundle\Entity\Company
+          inversedBy: projects
           joinColumn:
             name: company_id
             referencedColumnName: id
+          cascade: ["persist", "remove"]
         employee:
           targetEntity: \Jumph\Bundle\ClientBundle\Entity\Employee
+          inversedBy: projects
           joinColumn:
             name: employee_id
             referencedColumnName: id
+          cascade: ["persist", "remove"]
 
     id:
         id:

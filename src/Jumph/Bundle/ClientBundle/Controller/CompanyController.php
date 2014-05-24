@@ -51,7 +51,9 @@ class CompanyController extends Controller
      */
     public function viewAction(Company $company)
     {
-        return array();
+        return array(
+            'company' => $company
+        );
     }
 
     /**

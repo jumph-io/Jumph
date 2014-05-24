@@ -3,6 +3,7 @@
 namespace Jumph\Bundle\ClientBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Jumph\Bundle\ProjectBundle\Entity\Project;
 
 class Company
 {
@@ -21,6 +22,11 @@ class Company
      * @var Collection
      */
     private $employees;
+
+    /**
+     * @var Collection
+     */
+    private $projects;
 
     /**
      * @var date $createdAt
@@ -43,6 +49,7 @@ class Company
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     /**
@@ -109,6 +116,39 @@ class Company
     public function getEmployees()
     {
         return $this->employees;
+    }
+
+    /**
+     * Get projects
+     *
+     * @return Collection
+     */
+    public function getProjects()
+    {
+        return $this->projects;
+    }
+
+    /**
+     * Add projects
+     *
+     * @param Project $project
+     * @return Company
+     */
+    public function addProject(Project $project)
+    {
+        $this->employees[] = $project;
+        $project->setCompany($this);
+        return $this;
+    }
+
+    /**
+     * Remove projects
+     *
+     * @param Project $project
+     */
+    public function removeProject(Project $project)
+    {
+        $this->employees->removeElement($project);
     }
 
     /**

@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Projects
+{% endblock %}
+
+{% block headerContent %}
+    <h1>
+        Projects
+        <small>View</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('jumph_project_overview') }}"><i class="fa fa-tasks"></i> Projects</a></li>
+        <li> View</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8 col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Project</h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>Name</dt>
+                        <dd>{{ project.name }}</dd>
+                        <dt>Status</dt>
+                        <dd>{{ project.status }}</dd>
+                        <dt>Description</dt>
+                        <dd>{{ project.description }}</dd>
+                    </dl>
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Company</h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>Name</dt>
+                        <dd>{{ project.company.name }}</dd>
+                    </dl>
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
+            </div>
+
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Project manager</h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>Name</dt>
+                        <dd>{{ project.employee.firstname }} {{ project.employee.lastname }}</dd>
+                        <dt>Email</dt>
+                        <dd>{{ project.employee.email }}</dd>
+                    </dl>
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

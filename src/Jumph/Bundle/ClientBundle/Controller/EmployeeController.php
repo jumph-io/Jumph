@@ -57,7 +57,10 @@ class EmployeeController extends Controller
      */
     public function viewAction(Company $company, Employee $employee)
     {
-        return array();
+        return array(
+            'company' => $company,
+            'employee' => $employee
+        );
     }
 
     /**
