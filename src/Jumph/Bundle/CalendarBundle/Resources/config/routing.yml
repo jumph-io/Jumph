@@ -1,0 +1,4 @@
+jumph_calendar_overview:
+    path:  /
+    defaults: { _controller: JumphCalendarBundle:Calendar:overview }
+    methods:  [GET]
