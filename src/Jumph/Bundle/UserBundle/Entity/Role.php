@@ -111,7 +111,7 @@ class Role implements RoleInterface
     public function addUser(User $user)
     {
         $this->users[] = $user;
-
+        $user->addRole($this);
         return $this;
     }
 

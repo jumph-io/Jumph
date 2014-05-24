@@ -11,6 +11,7 @@
 
 namespace Jumph\Bundle\AuthBundle\Controller;
 
+use Jumph\Bundle\UserBundle\Entity\Role;
 use Jumph\Bundle\UserBundle\Entity\User;
 use Jumph\Bundle\UserBundle\Form\Type\UserType;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +24,7 @@ class AuthController extends Controller
     /**
      * @Template("JumphAuthBundle:Auth:register.html.twig")
      *
-     * Form to register a user
+     * Form to register a user. This method is temporary till a installation page has been completed
      *
      * @param Request $request A Request instance
      *
@@ -32,6 +33,10 @@ class AuthController extends Controller
     public function registerAction(Request $request)
     {
         $user = new User();
+        $role = new Role();
+        $role->setName('admin');
+        $role->setRole('ROLE_ADMIN');
+        $user->addRole($role);
 
         $registerForm = $this->createForm(new UserType(), $user);
         $userRepository = $this->get('jumph_user.user_repository');

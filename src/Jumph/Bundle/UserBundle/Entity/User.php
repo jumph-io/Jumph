@@ -250,7 +250,6 @@ class User implements UserInterface, \Serializable
     public function addRole(Role $role)
     {
         $this->roles[] = $role;
-
         return $this;
     }
 

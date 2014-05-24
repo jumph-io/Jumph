@@ -24,6 +24,17 @@ Screenshots
 
 ![Jumph Dashboard](http://i57.tinypic.com/fonjac.png)
 
+
+Installation
+=====
+
+Jumph is not production ready yet. However, if you want to install it already or you want to contribute, follow these steps:
+- Run `bower install`
+- Run `composer install`
+- Make sure a database is present and the connection has been set
+- Run `php app/console doctrine:schema:update --force`
+- Open up Jumph and register yourself on the temporary registration page
+
 Contributing
 =====
 

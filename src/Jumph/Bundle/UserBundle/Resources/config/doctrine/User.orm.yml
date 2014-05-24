@@ -11,6 +11,7 @@ Jumph\Bundle\UserBundle\Entity\User:
       roles:
         targetEntity: Role
         inversedBy: users
+        cascade: ["persist", "remove"]
         joinTable:
           name: user_in_role
           joinColumns:

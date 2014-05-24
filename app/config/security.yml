@@ -20,6 +20,10 @@ security:
             pattern:    ^/login$
             anonymous:  ~
 
+        register_firewall:
+            pattern:    ^/register
+            anonymous:  ~
+
         access:
             pattern:    ^/
             provider: users
