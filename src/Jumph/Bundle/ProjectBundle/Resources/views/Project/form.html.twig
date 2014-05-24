@@ -24,31 +24,11 @@
                     <!-- Potential title -->
                 </div>
                 <div class="box-body">
-                    <div class="form-group">
-                        {{ form_label(projectForm.name) }}
-                        {{ form_widget(projectForm.name) }}
-                        {{ form_errors(projectForm.name) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(projectForm.company) }}
-                        {{ form_widget(projectForm.company) }}
-                        {{ form_errors(projectForm.company) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(projectForm.employee) }}
-                        {{ form_widget(projectForm.employee) }}
-                        {{ form_errors(projectForm.employee) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(projectForm.status) }}
-                        {{ form_widget(projectForm.status) }}
-                        {{ form_errors(projectForm.status) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(projectForm.description) }}
-                        {{ form_widget(projectForm.description) }}
-                        {{ form_errors(projectForm.description) }}
-                    </div>
+                    {{ form_row(projectForm.name) }}
+                    {{ form_row(projectForm.company) }}
+                    {{ form_row(projectForm.employee) }}
+                    {{ form_row(projectForm.status) }}
+                    {{ form_row(projectForm.description) }}
                     {{ form_widget(projectForm._token) }}
                 </div>
                 <div class="box-footer">

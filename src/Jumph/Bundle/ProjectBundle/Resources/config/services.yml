@@ -1,7 +1,13 @@
 parameters:
-#    jumph_project.example.class: Jumph\Bundle\ProjectBundle\Example
+    jumph_project.repository.project_repository.class: Jumph\Bundle\ProjectBundle\Repository\ProjectRepository
 
 services:
+    jumph_project.project_repository:
+        class: %jumph_project.repository.project_repository.class%
+        arguments:
+            - @doctrine.orm.entity_manager
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]
     jumph_project.project_menu_listener:
                 class: Jumph\Bundle\ProjectBundle\EventListener\ProjectMenuListener
                 tags:

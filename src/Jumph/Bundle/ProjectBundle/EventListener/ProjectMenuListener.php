@@ -23,7 +23,7 @@ class ProjectMenuListener
         $menu = $event->getMenu();
 
         $menu->addChild(
-            'Project',
+            'Projects',
             array(
                 'route' => 'jumph_project_overview',
                 'extras' => array(

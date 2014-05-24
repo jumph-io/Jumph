@@ -33,6 +33,7 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
             length: 150
         description:
             type: text
+            nullable: true
         createdAt:
             type: datetime
             gedmo:

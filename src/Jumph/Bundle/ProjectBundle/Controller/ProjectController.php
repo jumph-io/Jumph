@@ -30,14 +30,18 @@ class ProjectController extends Controller
      *
      * @return Response A Response instance
      */
-    public function overviewAction()
+    public function overviewAction(Request $request)
     {
-        return array();
+        $projectRepository = $this->get('jumph_project.project_repository');
+
+        return array(
+            'projects' => $projectRepository->getPaginatedResults($request->query->get('page', 1))
+        );
     }
 
     /**
      * @Template("JumphProjectBundle:Project:view.html.twig")
-     * @ParamConverter("Project", class="JumphProjectBundle:Project")
+     * @ParamConverter("project", class="JumphProjectBundle:Project", options={"id" = "projectId"})
      *
      * View project
      *
@@ -65,7 +69,16 @@ class ProjectController extends Controller
         $projectForm = $this->createForm(new ProjectType(), $project);
 
         if ($request->isMethod('POST')) {
-            return $this->redirect($this->generateUrl('jumph_project_overview'));
+            $projectForm->handleRequest($request);
+            if ($projectForm->isValid()) {
+                $projectRepository = $this->get('jumph_project.project_repository');
+                $projectRepository->create($project);
+
+                $alertMessage = $this->get('jumph_app.alert_message');
+                $alertMessage->success('Project created!');
+
+                return $this->redirect($this->generateUrl('jumph_project_overview'));
+            }
         }
 
         return array(
@@ -75,7 +88,7 @@ class ProjectController extends Controller
 
     /**
      * @Template("JumphProjectBundle:Project:form.html.twig")
-     * @ParamConverter("Project", class="JumphProjectBundle:Project")
+     * @ParamConverter("project", class="JumphProjectBundle:Project", options={"id" = "projectId"})
      *
      * Edit project
      *
@@ -89,7 +102,16 @@ class ProjectController extends Controller
         $projectForm = $this->createForm(new ProjectType(), $project);
 
         if ($request->isMethod('POST')) {
-            return $this->redirect($this->generateUrl('jumph_project_overview'));
+            $projectForm->handleRequest($request);
+            if ($projectForm->isValid()) {
+                $projectRepository = $this->get('jumph_project.project_repository');
+                $projectRepository->update($project);
+
+                $alertMessage = $this->get('jumph_app.alert_message');
+                $alertMessage->success('Project updated!');
+
+                return $this->redirect($this->generateUrl('jumph_project_overview'));
+            }
         }
 
         return array(
@@ -98,7 +120,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * @ParamConverter("Project", class="JumphProjectBundle:Project")
+     * @ParamConverter("project", class="JumphProjectBundle:Project", options={"id" = "projectId"})
      *
      * Delete project
      *
@@ -108,6 +130,12 @@ class ProjectController extends Controller
      */
     public function deleteAction(Project $project)
     {
+        $projectRepository = $this->get('jumph_project.project_repository');
+        $projectRepository->delete($project);
+
+        $alertMessage = $this->get('jumph_app.alert_message');
+        $alertMessage->success('Project deleted!');
+
         return $this->redirect($this->generateUrl('jumph_project_overview'));
     }
 }

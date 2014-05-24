@@ -34,49 +34,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="6" class="text-center">No results</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>First project</td>
-                                <td>Open</td>
-                                <td>First client</td>
-                                <td>First project manager</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="{{ path('jumph_project_view', { 'projectId': 1 }) }}">View</a></li>
-                                            <li><a href="{{ path('jumph_project_edit', { 'projectId': 1 }) }}">Edit</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="{{ path('jumph_project_delete', { 'projectId': 1 }) }}">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>Second project</td>
-                                <td>Finished</td>
-                                <td>First client</td>
-                                <td>First project manager</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="{{ path('jumph_project_view', { 'projectId': 1 }) }}">View</a></li>
-                                            <li><a href="{{ path('jumph_project_edit', { 'projectId': 1 }) }}">Edit</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="{{ path('jumph_project_delete', { 'projectId': 1 }) }}">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            {% if projects is empty %}
+                                <tr>
+                                    <td colspan="6" class="text-center">No results</td>
+                                </tr>
+                            {% endif %}
+                            {% for project in projects  %}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>{{ project.name }}</td>
+                                    <td>{{ project.status }}</td>
+                                    <td>{{ project.company.name }}</td>
+                                    <td>{{ project.employee.firstname }} {{ project.employee.lastname }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                Options <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="{{ path('jumph_project_view', { 'projectId': project.id }) }}">View</a></li>
+                                                <li><a href="{{ path('jumph_project_edit', { 'projectId': project.id }) }}">Edit</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="{{ path('jumph_project_delete', { 'projectId': project.id }) }}">Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -88,15 +72,7 @@
                         </div>
                     </div>
                     <div class="col-xs-6">
-                        <ul class="pagination pull-right">
-                            <li class="prev disabled"><a href="#">← Previous</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li class="next"><a href="#">Next → </a></li>
-                        </ul>
+                        {{ knp_pagination_render(projects) }}
                     </div>
                 </div>
             </div>

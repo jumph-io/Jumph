@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "efee7995857a0ff84645585a3e9a8f0d",
+    "hash": "0894704a9196388ef70d28520dc64a8d",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1373,21 +1373,21 @@
         },
         {
             "name": "stof/doctrine-extensions-bundle",
-            "version": "dev-master",
+            "version": "v1.1.0",
             "target-dir": "Stof/DoctrineExtensionsBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
-                "reference": "7370d18f511653d39c33d75c2190caaafdebb492"
+                "reference": "0aa21137bcae43241ffa047946bbdd46b91a2b0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/7370d18f511653d39c33d75c2190caaafdebb492",
-                "reference": "7370d18f511653d39c33d75c2190caaafdebb492",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/0aa21137bcae43241ffa047946bbdd46b91a2b0a",
+                "reference": "0aa21137bcae43241ffa047946bbdd46b91a2b0a",
                 "shasum": ""
             },
             "require": {
-                "gedmo/doctrine-extensions": "~2.3.1",
+                "gedmo/doctrine-extensions": "2.3.*",
                 "php": ">=5.3.2",
                 "symfony/framework-bundle": "~2.1"
             },
@@ -1431,7 +1431,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2014-05-14 08:12:32"
+            "time": "2013-06-23 16:53:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1934,7 +1934,7 @@
     "packages-dev": [
         {
             "name": "pdepend/pdepend",
-            "version": "dev-master",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
@@ -1973,7 +1973,7 @@
         },
         {
             "name": "phpmd/phpmd",
-            "version": "dev-master",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
@@ -2144,12 +2144,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "stof/doctrine-extensions-bundle": 20,
         "knplabs/knp-menu": 20,
-        "knplabs/knp-menu-bundle": 20,
-        "webfactory/exceptions-bundle": 0,
-        "pdepend/pdepend": 20,
-        "phpmd/phpmd": 20
+        "knplabs/knp-menu-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

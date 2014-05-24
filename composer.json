@@ -26,16 +26,16 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "stof/doctrine-extensions-bundle": "~1.1@dev",
+        "stof/doctrine-extensions-bundle": "1.1.*",
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
-        "knplabs/knp-paginator-bundle": "~2.4"
+        "knplabs/knp-paginator-bundle": "2.4.*"
     },
     "require-dev": {
-        "webfactory/exceptions-bundle": "@stable",
+        "webfactory/exceptions-bundle": "4.0.*",
         "squizlabs/php_codesniffer": "1.5.*",
-        "pdepend/pdepend": "2.0.0.*@dev",
-        "phpmd/phpmd": "2.0.0.*@dev"
+        "pdepend/pdepend": "2.0.*",
+        "phpmd/phpmd": "2.0.*"
     },
     "scripts": {
         "post-install-cmd": [
