@@ -2,8 +2,6 @@
 
 namespace Jumph\Bundle\UserBundle\Entity;
 
-use Symfony\Component\Security\Core\User\UserInterface;
-use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 
 class User extends BaseUser
