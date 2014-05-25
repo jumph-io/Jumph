@@ -18,4 +18,4 @@ before_script:
     
 script: phpunit -c app/ --coverage-text --coverage-clover ./build/logs/clover.xml
 
-after_script: php vendor/bin/coveralls
+after_script: php bin/coveralls
