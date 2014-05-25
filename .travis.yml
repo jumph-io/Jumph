@@ -1,9 +1,21 @@
 language: php
 
 php:
+  - 5.3
   - 5.4
   - 5.5
 
-before_script: composer install -n
+branches:
+    only:
+        - master
+        
+before_script: 
+    - cp app/config/parameters.yml.dist app/config/parameters.yml
+    - composer self-update
+    - composer install --no-interaction --dev
+    - app/console doctrine:database:create --env=test > /dev/null
+    - app/console doctrine:schema:create --env=test > /dev/null
+    
+script: phpunit -c app/ --coverage-text --coverage-clover ./build/logs/clover.xml
 
-script: phpunit -c app
+after_script: php vendor/bin/coveralls
