@@ -163,7 +163,7 @@ class EmployeeController extends Controller
     public function deleteAction(Company $company, Employee $employee)
     {
         $employeeRepository = $this->get('jumph_client.employee_repository');
-        $employeeRepository->update($employee);
+        $employeeRepository->delete($employee);
 
         $alertMessage = $this->get('jumph_app.alert_message');
         $alertMessage->success('Employee deleted!');
