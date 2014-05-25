@@ -1,8 +1,4 @@
-[![Build Status](https://travis-ci.org/jumph-io/Jumph.svg?branch=master)](https://travis-ci.org/jumph-io/Jumph)
-[![Coverage Status](https://coveralls.io/repos/jumph-io/Jumph/badge.png?branch=master)](https://coveralls.io/r/jumph-io/Jumph?branch=master)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/10b7bd65-d1b4-41d7-9569-2ffee88014b7/mini.png)](https://insight.sensiolabs.com/projects/10b7bd65-d1b4-41d7-9569-2ffee88014b7)
-
-Jumph
+Jumph [![Build Status](https://travis-ci.org/jumph-io/Jumph.svg?branch=master)](https://travis-ci.org/jumph-io/Jumph) [![Coverage Status](https://coveralls.io/repos/jumph-io/Jumph/badge.png?branch=master)](https://coveralls.io/r/jumph-io/Jumph?branch=master) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/10b7bd65-d1b4-41d7-9569-2ffee88014b7/mini.png)](https://insight.sensiolabs.com/projects/10b7bd65-d1b4-41d7-9569-2ffee88014b7)
 =====
 
 **Description**
