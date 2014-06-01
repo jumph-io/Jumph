@@ -136,16 +136,4 @@ class EmployeeManager extends PaginatorAware
         $this->objectManager->remove($employee);
         $this->objectManager->flush();
     }
-
-    /**
-     * Return a new query builder
-     *
-     * @return \Doctrine\ORM\QueryBuilder
-     */
-    public function getQueryBuilder()
-    {
-        return $this->objectManager
-            ->getRepository(self::ENTITY_CLASS)
-            ->createQueryBuilder(self::ENTITY_ALIAS);
-    }
 }

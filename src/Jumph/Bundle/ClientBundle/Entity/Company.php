@@ -48,7 +48,7 @@ class Company
      */
     public function __construct()
     {
-        $this->users = new ArrayCollection();
+        $this->employees = new ArrayCollection();
         $this->projects = new ArrayCollection();
     }
 
@@ -94,7 +94,7 @@ class Company
     public function addEmployee(Employee $employee)
     {
         $this->employees[] = $employee;
-        $employee->addCompany($this);
+        $employee->setCompany($this);
         return $this;
     }
 
@@ -136,7 +136,7 @@ class Company
      */
     public function addProject(Project $project)
     {
-        $this->employees[] = $project;
+        $this->projects[] = $project;
         $project->setCompany($this);
         return $this;
     }
@@ -148,7 +148,7 @@ class Company
      */
     public function removeProject(Project $project)
     {
-        $this->employees->removeElement($project);
+        $this->projects->removeElement($project);
     }
 
     /**
