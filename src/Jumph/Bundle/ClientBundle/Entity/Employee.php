@@ -67,7 +67,6 @@ class Employee
      */
     public function __construct()
     {
-        $this->roles = new ArrayCollection();
         $this->projects = new ArrayCollection();
     }
     /**
@@ -193,7 +192,7 @@ class Employee
      */
     public function addProject(Project $project)
     {
-        $this->employees[] = $project;
+        $this->projects[] = $project;
         $project->setCompany($this);
         return $this;
     }
@@ -205,7 +204,7 @@ class Employee
      */
     public function removeProject(Project $project)
     {
-        $this->employees->removeElement($project);
+        $this->projects->removeElement($project);
     }
 
     /**

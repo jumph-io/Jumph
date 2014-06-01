@@ -101,4 +101,4 @@ class CompanyTest extends \PHPUnit_Framework_TestCase
         $company->setDeletedAt($dateTime);
         $this->assertEquals($dateTime, $company->getDeletedAt());
     }
-} 
+}

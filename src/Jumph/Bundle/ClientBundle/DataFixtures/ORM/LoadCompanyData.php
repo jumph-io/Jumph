@@ -16,7 +16,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Jumph\Bundle\ClientBundle\Entity\Company;
 
-class LoadCompanyData  extends AbstractFixture implements OrderedFixtureInterface
+class LoadCompanyData extends AbstractFixture implements OrderedFixtureInterface
 {
     /**
      * {@inheritDoc}
