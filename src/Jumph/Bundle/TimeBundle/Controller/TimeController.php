@@ -22,7 +22,6 @@ class TimeController extends Controller
      *
      * Project overview page
      *
-     * @param Request $request A Request instance
      *
      * @return Response A Response instance
      */

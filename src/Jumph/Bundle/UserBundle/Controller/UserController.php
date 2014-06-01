@@ -22,7 +22,6 @@ class UserController extends Controller
      *
      * User overview page
      *
-     * @param Request $request A Request instance
      *
      * @return Response A Response instance
      */
