@@ -22,7 +22,6 @@ class Builder extends ContainerAware
      * Create the side menu
      *
      * @param  FactoryInterface  $factory Menu Factory
-     * @param  array             $options Options
      *
      * @return MenuItem
      */
@@ -62,7 +61,7 @@ class Builder extends ContainerAware
     /**
      * Reorder the menu
      *
-     * @param $menu
+     * @param \Knp\Menu\ItemInterface $menu
      *
      * @return MenuItem
      */

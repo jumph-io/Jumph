@@ -22,7 +22,6 @@ class EmailController extends Controller
      *
      * Email overview page
      *
-     * @param Request $request A Request instance
      *
      * @return Response A Response instance
      */

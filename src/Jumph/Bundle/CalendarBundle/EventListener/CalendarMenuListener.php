@@ -16,7 +16,7 @@ use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 class CalendarMenuListener
 {
     /**
-     * @param ConfigureMenuEvent $event
+     * @param BuildMenuEvent $event
      */
     public function onMenuCalendar(BuildMenuEvent $event)
     {

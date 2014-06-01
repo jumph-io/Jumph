@@ -16,7 +16,7 @@ use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 class IssueMenuListener
 {
     /**
-     * @param ConfigureMenuEvent $event
+     * @param BuildMenuEvent $event
      */
     public function onMenuIssue(BuildMenuEvent $event)
     {

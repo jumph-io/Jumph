@@ -101,7 +101,7 @@ class Company
     /**
      * Remove employees
      *
-     * @param Employee $employees
+     * @param Employee $employee
      */
     public function removeEmployee(Employee $employee)
     {
@@ -184,7 +184,7 @@ class Company
     /**
      * Set deletion date
      *
-     * @param $deletedAt
+     * @param \DateTime $deletedAt
      */
     public function setDeletedAt($deletedAt)
     {
