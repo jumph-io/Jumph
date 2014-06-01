@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\ClientBundle\Tests\EventListener;
+namespace Jumph\Bundle\ProjectBundle\Tests\EventListener;
 
-use Jumph\Bundle\ClientBundle\EventListener\ClientMenuListener;
+use Jumph\Bundle\ProjectBundle\EventListener\ProjectMenuListener;
 
-class ClientMenuListenerTest extends \PHPUnit_Framework_TestCase
+class ProjectMenuListenerTest extends \PHPUnit_Framework_TestCase
 {
-    public function testOnMenuClient()
+    public function testOnMenuProject()
     {
         $buildMenuEventMock = \Mockery::mock('\Jumph\Bundle\AppBundle\Event\BuildMenuEvent');
         $itemInterfaceMock = \Mockery::mock('\Knp\Menu\ItemInterface');
         $itemInterfaceMock->shouldReceive('addChild')->once()->andReturnSelf();
         $buildMenuEventMock->shouldReceive('getMenu')->once()->andReturn($itemInterfaceMock);
 
-        $clientMenuListener = new ClientMenuListener();
-        $this->assertNull($clientMenuListener->onMenuClient($buildMenuEventMock));
+        $projectMenuListener = new ProjectMenuListener();
+        $this->assertNull($projectMenuListener->onMenuProject($buildMenuEventMock));
     }
 }

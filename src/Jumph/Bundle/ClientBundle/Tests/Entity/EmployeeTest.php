@@ -11,7 +11,6 @@
 
 namespace Jumph\Bundle\ClientBundle\Tests\Entity;
 
-
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
@@ -93,22 +92,22 @@ class EmployeeTest extends \PHPUnit_Framework_TestCase
 
     public function testGetCreatedAt()
     {
-        $company = new Company();
-        $this->assertNull($company->getCreatedAt());
+        $employee = new Employee();
+        $this->assertNull($employee->getCreatedAt());
     }
 
     public function testGetUpdatedAt()
     {
-        $company = new Company();
-        $this->assertNull($company->getUpdatedAt());
+        $employee = new Employee();
+        $this->assertNull($employee->getUpdatedAt());
     }
 
     public function testSetDeletedAt()
     {
-        $company = new Company();
+        $employee = new Employee();
         $dateTime = new \DateTime();
 
-        $company->setDeletedAt($dateTime);
-        $this->assertEquals($dateTime, $company->getDeletedAt());
+        $employee->setDeletedAt($dateTime);
+        $this->assertEquals($dateTime, $employee->getDeletedAt());
     }
 }

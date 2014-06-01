@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\ProjectBundle\Repository;
+namespace Jumph\Bundle\ProjectBundle\Manager;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Persistence\ObjectManager;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
 
-class ProjectRepository extends PaginatorAware
+class ProjectManager extends PaginatorAware
 {
 
     /**
@@ -33,20 +33,20 @@ class ProjectRepository extends PaginatorAware
     const ENTITY_CLASS = 'JumphProjectBundle:Project';
 
     /**
-     * Entity manager
+     * Object manager
      *
      * @var EntityManager
      */
-    private $entityManager;
+    private $objectManager;
 
     /**
      * Constructor.
      *
-     * @param EntityManager $entityManager
+     * @param ObjectManager $objectManager
      */
-    public function __construct(EntityManager $entityManager)
+    public function __construct(ObjectManager $objectManager)
     {
-        $this->entityManager = $entityManager;
+        $this->objectManager = $objectManager;
     }
 
     /**
@@ -58,7 +58,7 @@ class ProjectRepository extends PaginatorAware
      */
     public function findById($id)
     {
-        return $this->entityManager
+        return $this->objectManager
             ->getRepository(self::ENTITY_CLASS)
             ->find($id);
     }
@@ -73,7 +73,7 @@ class ProjectRepository extends PaginatorAware
      */
     public function findAll($sortField = 'createdAt', $sortOrder = 'DESC')
     {
-        return $this->entityManager
+        return $this->objectManager
             ->createQueryBuilder(self::ENTITY_ALIAS)
             ->select(self::ENTITY_ALIAS)
             ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS)
@@ -93,7 +93,7 @@ class ProjectRepository extends PaginatorAware
      */
     public function getPaginatedResults($page = 1, $limit = 15, array $sortby = array())
     {
-        $qb = $this->entityManager
+        $qb = $this->objectManager
             ->createQueryBuilder(self::ENTITY_ALIAS)
             ->select(self::ENTITY_ALIAS)
             ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS);
@@ -108,8 +108,8 @@ class ProjectRepository extends PaginatorAware
      */
     public function create(Project $project)
     {
-        $this->entityManager->persist($project);
-        $this->entityManager->flush();
+        $this->objectManager->persist($project);
+        $this->objectManager->flush();
     }
 
     /**
@@ -119,8 +119,8 @@ class ProjectRepository extends PaginatorAware
      */
     public function update(Project $project)
     {
-        $this->entityManager->persist($project);
-        $this->entityManager->flush();
+        $this->objectManager->persist($project);
+        $this->objectManager->flush();
     }
 
     /**
@@ -130,19 +130,7 @@ class ProjectRepository extends PaginatorAware
      */
     public function delete(Project $project)
     {
-        $this->entityManager->remove($project);
-        $this->entityManager->flush();
-    }
-
-    /**
-     * Return a new query builder
-     *
-     * @return \Doctrine\ORM\QueryBuilder
-     */
-    public function getQueryBuilder()
-    {
-        return $this->entityManager
-            ->getRepository(self::ENTITY_CLASS)
-            ->createQueryBuilder(self::ENTITY_ALIAS);
+        $this->objectManager->remove($project);
+        $this->objectManager->flush();
     }
 }

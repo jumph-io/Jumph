@@ -32,10 +32,10 @@ class ProjectController extends Controller
      */
     public function overviewAction(Request $request)
     {
-        $projectRepository = $this->get('jumph_project.project_repository');
+        $projectManager = $this->get('jumph_project.project_manager');
 
         return array(
-            'projects' => $projectRepository->getPaginatedResults($request->query->get('page', 1))
+            'projects' => $projectManager->getPaginatedResults($request->query->get('page', 1))
         );
     }
 
@@ -73,8 +73,8 @@ class ProjectController extends Controller
         if ($request->isMethod('POST')) {
             $projectForm->handleRequest($request);
             if ($projectForm->isValid()) {
-                $projectRepository = $this->get('jumph_project.project_repository');
-                $projectRepository->create($project);
+                $projectManager = $this->get('jumph_project.project_manager');
+                $projectManager->create($project);
 
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Project created!');
@@ -106,8 +106,8 @@ class ProjectController extends Controller
         if ($request->isMethod('POST')) {
             $projectForm->handleRequest($request);
             if ($projectForm->isValid()) {
-                $projectRepository = $this->get('jumph_project.project_repository');
-                $projectRepository->update($project);
+                $projectManager = $this->get('jumph_project.project_manager');
+                $projectManager->update($project);
 
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Project updated!');
@@ -132,8 +132,8 @@ class ProjectController extends Controller
      */
     public function deleteAction(Project $project)
     {
-        $projectRepository = $this->get('jumph_project.project_repository');
-        $projectRepository->delete($project);
+        $projectManager = $this->get('jumph_project.project_manager');
+        $projectManager->delete($project);
 
         $alertMessage = $this->get('jumph_app.alert_message');
         $alertMessage->success('Project deleted!');
