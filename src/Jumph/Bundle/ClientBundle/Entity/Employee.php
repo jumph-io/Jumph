@@ -151,6 +151,11 @@ class Employee
         return $this;
     }
 
+    public function getName()
+    {
+        return $this->getFirstname() . " " . $this->getLastname();
+    }
+
     /**
      * Get company
      *
@@ -193,7 +198,7 @@ class Employee
     public function addProject(Project $project)
     {
         $this->projects[] = $project;
-        $project->setCompany($this);
+        $project->setEmployee($this);
         return $this;
     }
 
