@@ -35,10 +35,10 @@ class EmployeeController extends Controller
      */
     public function overviewAction(Request $request, Company $company)
     {
-        $employeeRepository = $this->get('jumph_client.employee_repository');
+        $employeeManager = $this->get('jumph_client.employee_manager');
 
         return array(
-            'employees' => $employeeRepository->getPaginatedResults($company, $request->query->get('page', 1)),
+            'employees' => $employeeManager->getPaginatedResults($company, $request->query->get('page', 1)),
             'company' => $company
         );
     }
@@ -83,8 +83,8 @@ class EmployeeController extends Controller
         if ($request->isMethod('POST')) {
             $employeeForm->handleRequest($request);
             if ($employeeForm->isValid()) {
-                $employeeRepository = $this->get('jumph_client.employee_repository');
-                $employeeRepository->create($employee);
+                $employeeManager = $this->get('jumph_client.employee_manager');
+                $employeeManager->create($employee);
 
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Employee created!');
@@ -126,8 +126,8 @@ class EmployeeController extends Controller
         if ($request->isMethod('POST')) {
             $employeeForm->handleRequest($request);
             if ($employeeForm->isValid()) {
-                $employeeRepository = $this->get('jumph_client.employee_repository');
-                $employeeRepository->update($employee);
+                $employeeManager = $this->get('jumph_client.employee_manager');
+                $employeeManager->update($employee);
 
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Employee updated!');
@@ -162,8 +162,8 @@ class EmployeeController extends Controller
      */
     public function deleteAction(Company $company, Employee $employee)
     {
-        $employeeRepository = $this->get('jumph_client.employee_repository');
-        $employeeRepository->delete($employee);
+        $employeeManager = $this->get('jumph_client.employee_manager');
+        $employeeManager->delete($employee);
 
         $alertMessage = $this->get('jumph_app.alert_message');
         $alertMessage->success('Employee deleted!');

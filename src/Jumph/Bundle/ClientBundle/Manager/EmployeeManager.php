@@ -9,13 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\ClientBundle\Repository;
+namespace Jumph\Bundle\ClientBundle\Manager;
 
-use Doctrine\ORM\EntityManager;
-use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
+use Doctrine\Common\Persistence\ObjectManager;
 use Jumph\Bundle\ClientBundle\Entity\Company;
+use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
+use Jumph\Bundle\ClientBundle\Entity\Employee;
 
-class CompanyRepository extends PaginatorAware
+class EmployeeManager extends PaginatorAware
 {
 
     /**
@@ -23,48 +24,48 @@ class CompanyRepository extends PaginatorAware
      *
      * @var constant
      */
-    const ENTITY_ALIAS = 'c';
+    const ENTITY_ALIAS = 'e';
 
     /**
      * Entity to use
      *
      * @var constant
      */
-    const ENTITY_CLASS = 'JumphClientBundle:Company';
+    const ENTITY_CLASS = 'JumphClientBundle:Employee';
 
     /**
-     * Entity manager
+     * Object manager
      *
-     * @var EntityManager
+     * @var ObjectManager
      */
-    private $entityManager;
+    private $objectManager;
 
     /**
      * Constructor.
      *
-     * @param EntityManager $entityManager
+     * @param ObjectManager $objectManager
      */
-    public function __construct(EntityManager $entityManager)
+    public function __construct(ObjectManager $objectManager)
     {
-        $this->entityManager = $entityManager;
+        $this->objectManager = $objectManager;
     }
 
     /**
-     * Find company by id
+     * Find employee by id
      *
-     * @param int $id Company id
+     * @param int $id employee id
      *
-     * @return array Array of companies
+     * @return array Array of employees
      */
     public function findById($id)
     {
-        return $this->entityManager
+        return $this->objectManager
             ->getRepository(self::ENTITY_CLASS)
             ->find($id);
     }
 
     /**
-     * Find all companies
+     * Find all employees
      *
      * @param string $sortField Field to sort by
      * @param string $sortOrder Order of sorting
@@ -73,7 +74,7 @@ class CompanyRepository extends PaginatorAware
      */
     public function findAll($sortField = 'createdAt', $sortOrder = 'DESC')
     {
-        return $this->entityManager
+        return $this->objectManager
             ->createQueryBuilder(self::ENTITY_ALIAS)
             ->select(self::ENTITY_ALIAS)
             ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS)
@@ -89,49 +90,51 @@ class CompanyRepository extends PaginatorAware
      * @param int           $limit      Items per page limit
      * @param array         $sortby     Sorting options
      *
-     * @return \Knp\Component\Pager\Pagination\PaginationInterface Returns a filtered paginator
+     * @return PaginationInterface Returns a filtered paginator
      */
-    public function getPaginatedResults($page = 1, $limit = 15, array $sortby = array())
+    public function getPaginatedResults(Company $company, $page = 1, $limit = 15, array $sortby = array())
     {
-        $qb = $this->entityManager
+        $qb = $this->objectManager
             ->createQueryBuilder(self::ENTITY_ALIAS)
             ->select(self::ENTITY_ALIAS)
-            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS);
+            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS)
+            ->where(self::ENTITY_ALIAS . '.company = :company_id')
+            ->setParameter('company_id', $company->getId());
 
         return $this->getPaginator()->paginate($qb, $page, $limit, $sortby);
     }
 
     /**
-     * Create a company
+     * Create a employee
      *
-     * @param Company $company
+     * @param Employee $employee
      */
-    public function create(Company $company)
+    public function create(Employee $employee)
     {
-        $this->entityManager->persist($company);
-        $this->entityManager->flush();
+        $this->objectManager->persist($employee);
+        $this->objectManager->flush();
     }
 
     /**
-     * Update a company
+     * Update a employee
      *
-     * @param Company $company
+     * @param Employee $employee
      */
-    public function update(Company $company)
+    public function update(Employee $employee)
     {
-        $this->entityManager->persist($company);
-        $this->entityManager->flush();
+        $this->objectManager->persist($employee);
+        $this->objectManager->flush();
     }
 
     /**
-     * Delete a company
+     * Delete a employee
      *
-     * @param Company $company
+     * @param Employee $employee
      */
-    public function delete(Company $company)
+    public function delete(Employee $employee)
     {
-        $this->entityManager->remove($company);
-        $this->entityManager->flush();
+        $this->objectManager->remove($employee);
+        $this->objectManager->flush();
     }
 
     /**
@@ -141,7 +144,7 @@ class CompanyRepository extends PaginatorAware
      */
     public function getQueryBuilder()
     {
-        return $this->entityManager
+        return $this->objectManager
             ->getRepository(self::ENTITY_CLASS)
             ->createQueryBuilder(self::ENTITY_ALIAS);
     }

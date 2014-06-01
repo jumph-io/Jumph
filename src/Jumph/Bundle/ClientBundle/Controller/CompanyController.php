@@ -32,10 +32,10 @@ class CompanyController extends Controller
      */
     public function overviewAction(Request $request)
     {
-        $companyRepository = $this->get('jumph_client.company_repository');
+        $companyManager = $this->get('jumph_client.company_manager');
 
         return array(
-            'companies' => $companyRepository->getPaginatedResults($request->query->get('page', 1))
+            'companies' => $companyManager->getPaginatedResults($request->query->get('page', 1))
         );
     }
 
@@ -73,8 +73,8 @@ class CompanyController extends Controller
         if ($request->isMethod('POST')) {
             $companyForm->handleRequest($request);
             if ($companyForm->isValid()) {
-                $companyRepository = $this->get('jumph_client.company_repository');
-                $companyRepository->create($company);
+                $companyManager = $this->get('jumph_client.company_manager');
+                $companyManager->create($company);
 
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Company created!');
@@ -106,8 +106,8 @@ class CompanyController extends Controller
         if ($request->isMethod('POST')) {
             $companyForm->handleRequest($request);
             if ($companyForm->isValid()) {
-                $companyRepository = $this->get('jumph_client.company_repository');
-                $companyRepository->update($company);
+                $companyManager = $this->get('jumph_client.company_manager');
+                $companyManager->update($company);
 
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Company updated!');
@@ -132,8 +132,8 @@ class CompanyController extends Controller
      */
     public function deleteAction(Company $company)
     {
-        $companyRepository = $this->get('jumph_client.company_repository');
-        $companyRepository->delete($company);
+        $companyManager = $this->get('jumph_client.company_manager');
+        $companyManager->delete($company);
 
         $alertMessage = $this->get('jumph_app.alert_message');
         $alertMessage->success('Company deleted!');

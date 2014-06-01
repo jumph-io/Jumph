@@ -25,40 +25,40 @@ class LoadEmployeeData extends AbstractFixture implements OrderedFixtureInterfac
     {
         // First employee
         $employee = new Employee();
-        $employee->setEmail('employee1@jumph.io');
-        $employee->setFirstname('Employee');
-        $employee->setLastname('One');
-        $employee->setCompany($this->getReference('company-1'));
+        $employee->setEmail('larry@jumph.io');
+        $employee->setFirstname('Larry');
+        $employee->setLastname('Page');
+        $employee->setCompany($this->getReference('google'));
 
         $manager->persist($employee);
         $manager->flush();
 
         // Second employee
         $employee = new Employee();
-        $employee->setEmail('employee2@jumph.io');
-        $employee->setFirstname('Employee');
-        $employee->setLastname('Two');
-        $employee->setCompany($this->getReference('company-1'));
+        $employee->setEmail('sergey@jumph.io');
+        $employee->setFirstname('Sergey');
+        $employee->setLastname('Brin');
+        $employee->setCompany($this->getReference('google'));
 
         $manager->persist($employee);
         $manager->flush();
 
         // Third employee
         $employee = new Employee();
-        $employee->setEmail('employee3@jumph.io');
-        $employee->setFirstname('Employee');
-        $employee->setLastname('Three');
-        $employee->setCompany($this->getReference('company-2'));
+        $employee->setEmail('bill@jumph.io');
+        $employee->setFirstname('Bill');
+        $employee->setLastname('Gates');
+        $employee->setCompany($this->getReference('microsoft'));
 
         $manager->persist($employee);
         $manager->flush();
 
         // Fourth employee
         $employee = new Employee();
-        $employee->setEmail('employee4@jumph.io');
-        $employee->setFirstname('Employee');
-        $employee->setLastname('Four');
-        $employee->setCompany($this->getReference('company-1'));
+        $employee->setEmail('vic@jumph.io');
+        $employee->setFirstname('Vic');
+        $employee->setLastname('Gundotra');
+        $employee->setCompany($this->getReference('google'));
         $employee->setDeletedAt(new \DateTime());
 
         $manager->persist($employee);

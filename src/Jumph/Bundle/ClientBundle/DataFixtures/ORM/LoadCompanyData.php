@@ -25,31 +25,31 @@ class LoadCompanyData  extends AbstractFixture implements OrderedFixtureInterfac
     {
         // First company
         $company = new Company();
-        $company->setName('Company 1');
+        $company->setName('Google');
 
         $manager->persist($company);
         $manager->flush();
 
-        //$this->addReference('company-1', $company);
+        $this->addReference('google', $company);
 
         // Second company
         $company = new Company();
-        $company->setName('Company 2');
+        $company->setName('Microsoft');
 
         $manager->persist($company);
         $manager->flush();
 
-        //$this->addReference('company-2', $company);
+        $this->addReference('microsoft', $company);
 
         // Third company
         $company = new Company();
-        $company->setName('Company 3');
+        $company->setName('Apple');
         $company->setDeletedAt(new \DateTime());
 
         $manager->persist($company);
         $manager->flush();
 
-        //$this->addReference('company-3', $company);
+        $this->addReference('apple', $company);
     }
 
     /**

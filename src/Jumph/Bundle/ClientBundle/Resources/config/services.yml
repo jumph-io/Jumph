@@ -1,16 +1,16 @@
 parameters:
-    jumph_client.repository.company_repository.class: Jumph\Bundle\ClientBundle\Repository\CompanyRepository
-    jumph_client.repository.employee_repository.class: Jumph\Bundle\ClientBundle\Repository\EmployeeRepository
+    jumph_client.repository.company_manager.class: Jumph\Bundle\ClientBundle\Manager\CompanyManager
+    jumph_client.repository.employee_manager.class: Jumph\Bundle\ClientBundle\Manager\EmployeeManager
 
 services:
-    jumph_client.company_repository:
-        class: %jumph_client.repository.company_repository.class%
+    jumph_client.company_manager:
+        class: %jumph_client.repository.company_manager.class%
         arguments:
             - @doctrine.orm.entity_manager
         calls:
             - [ setPaginator, [ @knp_paginator ] ]
-    jumph_client.employee_repository:
-        class: %jumph_client.repository.employee_repository.class%
+    jumph_client.employee_manager:
+        class: %jumph_client.repository.employee_manager.class%
         arguments:
             - @doctrine.orm.entity_manager
         calls:
