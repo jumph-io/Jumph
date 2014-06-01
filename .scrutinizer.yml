@@ -1,0 +1,24 @@
+filter:
+    paths: [src/*]
+    excluded_paths: [vendor/*, tests/*]
+before_commands:
+    - 'composer install --dev --prefer-source'
+tools:
+    php_analyzer:
+        config:
+            symfony_request_injection:
+                enabled: true
+    php_code_sniffer:
+        config:
+            standard: "PSR2"
+    php_cpd:
+        enabled: true
+        excluded_dirs: [vendor, tests]
+    php_pdepend:
+        enabled: true
+        excluded_dirs: [vendor, tests]
+    php_loc:
+        enabled: true
+        excluded_dirs: [vendor, tests]
+    php_hhvm: false
+    php_mess_detector: true
