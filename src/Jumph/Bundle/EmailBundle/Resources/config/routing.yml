@@ -2,3 +2,25 @@ jumph_email_overview:
     path:  /emails
     defaults: { _controller: JumphEmailBundle:Email:overview }
     methods:  [GET]
+jumph_email_view:
+    path:  /emails/{emailId}/view
+    defaults: { _controller: JumphEmailBundle:Email:view }
+    methods:  [GET]
+    requirements:
+            emailId:  \d+
+jumph_email_add:
+    path:  /emails/add
+    defaults: { _controller: JumphEmailBundle:Email:add }
+    methods:  [GET, POST]
+jumph_email_edit:
+    path:  /emails/{emailId}/edit
+    defaults: { _controller: JumphEmailBundle:Email:edit }
+    methods:  [GET, POST]
+    requirements:
+            emailId:  \d+
+jumph_email_delete:
+    path:  /emails/{emailId}/delete
+    defaults: { _controller: JumphEmailBundle:Email:delete }
+    methods:  [GET]
+    requirements:
+            emailId:  \d+

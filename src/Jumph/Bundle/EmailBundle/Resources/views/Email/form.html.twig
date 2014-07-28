@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Emails
+{% endblock %}
+
+{% block headerContent %}
+    <h1>
+        Emails
+        <small>Add / Edit</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('jumph_email_overview') }}"><i class="fa fa-envelope"></i> Emails</a></li>
+        <li> Add / Edit</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8 col-md-12">
+            <div class="box box-primary">
+                {{ form_start(emailForm, { 'attr': { 'id': 'main-form'}}) }}
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body">
+                    {{ form_row(emailForm.company) }}
+                    {{ form_row(emailForm.employee) }}
+                    {{ form_row(emailForm.project) }}
+                    {{ form_row(emailForm.subject) }}
+                    {{ form_row(emailForm.body) }}
+                    {{ form_widget(emailForm._token) }}
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                {{ form_end(emailForm, {'render_rest': false}) }}
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body">
+                    <!-- To be defined -->
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

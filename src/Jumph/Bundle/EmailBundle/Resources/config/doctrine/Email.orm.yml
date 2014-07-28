@@ -1,0 +1,56 @@
+Jumph\Bundle\EmailBundle\Entity\Email:
+    type: entity
+    table: jumph_email
+
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: true
+
+    manyToOne:
+        company:
+          targetEntity: \Jumph\Bundle\ClientBundle\Entity\Company
+          inversedBy: projects
+          joinColumn:
+            name: company_id
+            referencedColumnName: id
+          cascade: ["persist", "remove"]
+        employee:
+          targetEntity: \Jumph\Bundle\ClientBundle\Entity\Employee
+          inversedBy: projects
+          joinColumn:
+            name: employee_id
+            referencedColumnName: id
+          cascade: ["persist", "remove"]
+        project:
+          targetEntity: \Jumph\Bundle\ProjectBundle\Entity\Project
+          joinColumn:
+            name: project_id
+            referencedColumnName: id
+          cascade: ["persist", "remove"]
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        subject:
+            type: string
+            length: 150
+        body:
+            type: text
+            nullable: true
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        deletedAt:
+            type: datetime
+            nullable: true

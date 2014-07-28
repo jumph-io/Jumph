@@ -1,9 +1,6 @@
-parameters:
-    jumph_project.repository.project_manager.class: Jumph\Bundle\ProjectBundle\Manager\ProjectManager
-
 services:
     jumph_project.project_manager:
-        class: %jumph_project.repository.project_manager.class%
+        class: Jumph\Bundle\ProjectBundle\Manager\ProjectManager
         arguments:
             - @doctrine.orm.entity_manager
         calls:

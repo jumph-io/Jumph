@@ -27,70 +27,50 @@
                             <tr>
                                 <th></th>
                                 <th>Subject</th>
+                                <th>Employee</th>
                                 <th>Project</th>
                                 <th>Options</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="4" class="text-center">No results</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>First email</td>
-                                <td>First project</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">View</a></li>
-                                            <li><a href="#">Edit</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>Second email</td>
-                                <td>First project</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">View</a></li>
-                                            <li><a href="#">Edit</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            {% if emails is empty %}
+                                <tr>
+                                    <td colspan="6" class="text-center">No results</td>
+                                </tr>
+                            {% endif %}
+                            {% for email in emails  %}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>{{ email.subject }}</td>
+                                    <td>{{ email.employee.name }}</td>
+                                    <td>{{ email.project.name }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                Options <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="{{ path('jumph_email_view', { 'emailId': email.id }) }}">View</a></li>
+                                                <li><a href="{{ path('jumph_email_edit', { 'emailId': email.id }) }}">Edit</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="{{ path('jumph_email_delete', { 'emailId': email.id }) }}">Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
                 <div class="box-footer clearfix">
                     <div class="col-xs-6">
                         <div class="btn-group pagination">
-                            <a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add email</a>
+                            <a href="{{ path('jumph_email_add') }}" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add email</a>
                             <a href="" class="btn btn-default"><i class="fa fa-lg fa-trash-o"></i>  Delete selected</a>
                         </div>
                     </div>
                     <div class="col-xs-6">
-                        <ul class="pagination pull-right">
-                            <li class="prev disabled"><a href="#">← Previous</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li class="next"><a href="#">Next → </a></li>
-                        </ul>
+                        {{ knp_pagination_render(emails) }}
                     </div>
                 </div>
             </div>
