@@ -1,0 +1,16 @@
+Jumph\Bundle\EmailBundle\Entity\Email:
+    properties:
+        subject:
+            - NotBlank: ~
+            - Length:
+                min: 3
+        body:
+            - NotBlank: ~
+            - Length:
+                min: 3
+        company:
+            - Valid: ~
+        employee:
+            - Valid: ~
+        project:
+            - Valid: ~
