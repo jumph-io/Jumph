@@ -128,7 +128,7 @@ class CompanyController extends Controller
      *
      * @param Company $company
      *
-     * @return Response A Response instance
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse A Response instance
      */
     public function deleteAction(Company $company)
     {

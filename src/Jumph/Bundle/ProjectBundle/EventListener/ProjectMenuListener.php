@@ -16,7 +16,7 @@ use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 class ProjectMenuListener
 {
     /**
-     * @param ConfigureMenuEvent $event
+     * @param BuildMenuEvent $event
      */
     public function onMenuProject(BuildMenuEvent $event)
     {

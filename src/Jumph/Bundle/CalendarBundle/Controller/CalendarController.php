@@ -12,7 +12,6 @@
 namespace Jumph\Bundle\CalendarBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class CalendarController extends Controller
@@ -23,7 +22,6 @@ class CalendarController extends Controller
      *
      * Calendar overview page
      *
-     * @param Request $request A Request instance
      *
      * @return Response A Response instance
      */

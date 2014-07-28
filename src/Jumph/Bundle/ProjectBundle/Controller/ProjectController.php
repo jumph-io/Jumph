@@ -128,7 +128,7 @@ class ProjectController extends Controller
      *
      * @param Project $project
      *
-     * @return Response A Response instance
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse A Response instance
      */
     public function deleteAction(Project $project)
     {

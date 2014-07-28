@@ -22,7 +22,6 @@ class IssueController extends Controller
      *
      * Issue overview page
      *
-     * @param Request $request A Request instance
      *
      * @return Response A Response instance
      */

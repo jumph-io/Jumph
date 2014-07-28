@@ -22,7 +22,6 @@ class DashboardController extends Controller
      *
      * Dashboard overview page
      *
-     * @param Request $request A Request instance
      *
      * @return Response A Response instance
      */

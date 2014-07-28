@@ -90,7 +90,7 @@ class EmployeeManager extends PaginatorAware
      * @param int           $limit      Items per page limit
      * @param array         $sortby     Sorting options
      *
-     * @return PaginationInterface Returns a filtered paginator
+     * @return \Knp\Component\Pager\Pagination\PaginationInterface Returns a filtered paginator
      */
     public function getPaginatedResults(Company $company, $page = 1, $limit = 15, array $sortby = array())
     {

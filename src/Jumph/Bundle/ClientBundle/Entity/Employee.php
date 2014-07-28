@@ -94,7 +94,7 @@ class Employee
      *
      * @param string $email
      *
-     * @return User
+     * @return Employee
      */
     public function setEmail($email)
     {
@@ -118,7 +118,7 @@ class Employee
      *
      * @param string $firstname
      *
-     * @return User
+     * @return Employee
      */
     public function setFirstname($firstname)
     {
@@ -142,7 +142,7 @@ class Employee
      *
      * @param string $lastname
      *
-     * @return User
+     * @return Employee
      */
     public function setLastname($lastname)
     {
@@ -170,7 +170,7 @@ class Employee
      * Set company
      *
      * @param Company $company
-     * @return User
+     * @return Employee
      */
     public function setCompany(Company $company = null)
     {
@@ -245,7 +245,7 @@ class Employee
     /**
      * Set deletion date
      *
-     * @param $deletedAt
+     * @param \DateTime $deletedAt
      */
     public function setDeletedAt($deletedAt)
     {

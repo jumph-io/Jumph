@@ -16,7 +16,7 @@ use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 class QuotationMenuListener
 {
     /**
-     * @param ConfigureMenuEvent $event
+     * @param BuildMenuEvent $event
      */
     public function onMenuQuotation(BuildMenuEvent $event)
     {
