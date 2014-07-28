@@ -15,6 +15,7 @@
     "dependencies": {
         "jquery": "~2.1.*",
         "bootstrap": "~3.1.*",
-        "fontawesome": "~4.1.*"
+        "fontawesome": "~4.1.*",
+        "admin-lte": "~1.2.*"
     }
 }
