@@ -2,6 +2,10 @@ jumph_email_overview:
     path:  /emails
     defaults: { _controller: JumphEmailBundle:Email:overview }
     methods:  [GET]
+jumph_email_overview:
+    path:  /emails
+    defaults: { _controller: JumphEmailBundle:Email:overview }
+    methods:  [GET]
 jumph_email_view:
     path:  /emails/{emailId}/view
     defaults: { _controller: JumphEmailBundle:Email:view }

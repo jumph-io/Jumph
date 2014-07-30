@@ -13,6 +13,7 @@ namespace Jumph\Bundle\AppBundle\Menu;
 
 use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 use Knp\Menu\FactoryInterface;
+use Knp\Menu\Matcher\Voter\RouteVoter;
 use Symfony\Component\DependencyInjection\ContainerAware;
 
 class Builder extends ContainerAware
@@ -36,9 +37,6 @@ class Builder extends ContainerAware
         );
 
         $menu = $this->reorderMenu($menu);
-
-        //@TODO: set current item through a voter
-
         return $menu;
     }
 

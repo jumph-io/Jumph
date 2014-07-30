@@ -6,6 +6,12 @@ services:
         class: %jumph_app.session.alert_message.class%
         arguments:
             - @session
+    jumph_app.menu.voter.route_voter:
+        class: Jumph\Bundle\AppBundle\Menu\Voter\RouteVoter
+        arguments:
+            - @service_container
+        tags:
+            - { name: knp_menu.voter }
     gedmo.listener.softdeleteable:
         class: Gedmo\SoftDeleteable\SoftDeleteableListener
         tags:
