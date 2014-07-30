@@ -13,7 +13,6 @@ namespace Jumph\Bundle\AppBundle\Menu;
 
 use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 use Knp\Menu\FactoryInterface;
-use Knp\Menu\Matcher\Voter\RouteVoter;
 use Symfony\Component\DependencyInjection\ContainerAware;
 
 class Builder extends ContainerAware
