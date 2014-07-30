@@ -94,7 +94,7 @@
                 </section>
             </aside>
         </div>
-
+        {% block javascripts %}
             {% javascripts
                 '%kernel.root_dir%/../vendor/components/jquery/dist/jquery.min.js'
                 '%kernel.root_dir%/../vendor/components/bootstrap/dist/js/bootstrap.min.js'
@@ -102,5 +102,31 @@
             %}
             <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
+
+            <script type="text/javascript">
+                var createForm = function (action, data) {
+                    var $form = $('<form action="' + action + '" method="POST"></form>');
+                    for (input in data) {
+                        if (data.hasOwnProperty(input)) {
+                            $form.append('<input name="' + input + '" value="' + data[input] + '">');
+                        }
+                    }
+
+                    return $form;
+                };
+
+                $(document).on('click', 'a.js-delete-item', function (e) {
+                    e.preventDefault();
+                    var $this = $(this);
+
+                    var $form = createForm($this.attr('href'), {
+                        _method: 'DELETE'
+                    }).hide();
+
+                    $('body').append($form); // Firefox requires form to be on the page to allow submission
+                    $form.submit();
+                });
+            </script>
+        {% endblock %}
     </body>
 </html>

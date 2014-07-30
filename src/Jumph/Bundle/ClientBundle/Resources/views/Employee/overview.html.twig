@@ -52,7 +52,7 @@
                                                 <li><a href="{{ path('jumph_employee_view', {'companyId' : employee.company.id, 'employeeId' : employee.id}) }}">View</a></li>
                                                 <li><a href="{{ path('jumph_employee_edit', {'companyId' : employee.company.id, 'employeeId' : employee.id}) }}">Edit</a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="{{ path('jumph_employee_delete', {'companyId' : employee.company.id, 'employeeId' : employee.id}) }}">Delete</a></li>
+                                                <li><a href="{{ path('jumph_employee_delete', {'companyId' : employee.company.id, 'employeeId' : employee.id}) }}" class="js-delete-item">Delete</a></li>
                                             </ul>
                                         </div>
                                     </td>

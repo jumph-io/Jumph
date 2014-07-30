@@ -21,6 +21,6 @@ jumph_email_edit:
 jumph_email_delete:
     path:  /emails/{emailId}/delete
     defaults: { _controller: JumphEmailBundle:Email:delete }
-    methods:  [GET]
+    methods:  [DELETE]
     requirements:
             emailId:  \d+

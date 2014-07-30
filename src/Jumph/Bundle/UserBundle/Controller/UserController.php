@@ -12,10 +12,10 @@
 namespace Jumph\Bundle\UserBundle\Controller;
 
 use Jumph\Bundle\UserBundle\Entity\User;
-use Jumph\Bundle\UserBundle\Form\Type\RegistrationFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class UserController extends Controller
 {

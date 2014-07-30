@@ -21,6 +21,6 @@ jumph_user_edit:
 jumph_user_delete:
     path:  /users/{userId}/delete
     defaults: { _controller: JumphUserBundle:User:delete }
-    methods:  [GET]
+    methods:  [DELETE]
     requirements:
             userId:  \d+

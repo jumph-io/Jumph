@@ -21,6 +21,6 @@ jumph_project_edit:
 jumph_project_delete:
     path:  /projects/{projectId}/delete
     defaults: { _controller: JumphProjectBundle:Project:delete }
-    methods:  [GET]
+    methods:  [DELETE]
     requirements:
             projectId:  \d+

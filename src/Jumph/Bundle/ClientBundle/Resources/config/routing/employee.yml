@@ -27,7 +27,7 @@ jumph_employee_edit:
 jumph_employee_delete:
     path:  /clients/{companyId}/employees/{employeeId}/delete
     defaults: { _controller: JumphClientBundle:Employee:delete }
-    methods:  [GET]
+    methods:  [DELETE]
     requirements:
             companyId:  \d+
             employeeId: \d+

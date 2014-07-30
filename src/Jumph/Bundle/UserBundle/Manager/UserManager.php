@@ -12,7 +12,6 @@
 namespace Jumph\Bundle\UserBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
 use Jumph\Bundle\UserBundle\Entity\User;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
 

@@ -21,6 +21,6 @@ jumph_company_edit:
 jumph_company_delete:
     path:  /clients/{companyId}/delete
     defaults: { _controller: JumphClientBundle:Company:delete }
-    methods:  [GET]
+    methods:  [DELETE]
     requirements:
             companyId:  \d+
