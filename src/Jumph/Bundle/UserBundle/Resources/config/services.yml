@@ -4,11 +4,18 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: jumph_user_registration }
+    jumph_user.profile.form.type:
+        class: Jumph\Bundle\UserBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: jumph_user_profile }
     jumph_user.user_menu_listener:
         class: Jumph\Bundle\UserBundle\EventListener\UserMenuListener
         tags:
           - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuUser }
-    jumph_user.user_repository:
-        class: Jumph\Bundle\UserBundle\Repository\UserRepository
+    jumph_user.user_manager:
+        class: Jumph\Bundle\UserBundle\Manager\UserManager
         arguments:
             - @doctrine.orm.entity_manager
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]

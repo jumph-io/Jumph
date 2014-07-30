@@ -55,7 +55,8 @@
                                 <span>{{ app.getUser().getName() }} <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" class="btn btn-default btn-flat">Profile</a></li>
+                                <li><a href="{{ path('fos_user_profile_edit') }}" class="btn btn-default btn-flat">Profile</a></li>
+                                <li><a href="{{ path('fos_user_change_password') }}" class="btn btn-default btn-flat">Change password</a></li>
                                 <li><a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-flat">Sign out</a></li>
                             </ul>
                         </li>

@@ -92,6 +92,9 @@ fos_user:
     registration:
             form:
                 type: jumph_user_registration
+    profile:
+            form:
+                type: jumph_user_profile
 
 # Knp menu
 knp_menu:

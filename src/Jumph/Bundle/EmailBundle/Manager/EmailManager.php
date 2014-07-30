@@ -13,7 +13,6 @@ namespace Jumph\Bundle\EmailBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Jumph\Bundle\EmailBundle\Entity\Email;
-use Jumph\Bundle\ProjectBundle\Entity\Project;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
 
 class EmailManager extends PaginatorAware

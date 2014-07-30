@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}
+    {{ parent() }} | Profile
+{% endblock %}
+
+{% block headerContent %}
+    <h1>
+        Profile
+        <small>Show</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('jumph_user_overview') }}"><i class="fa fa-users"></i> Profile</a></li>
+        <li> Show</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8 col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">User</h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>Firstname</dt>
+                        <dd>{{ user.firstname }}</dd>
+                        <dt>Lastname</dt>
+                        <dd>{{ user.lastname }}</dd>
+                        <dt>Username</dt>
+                        <dd>{{ user.username }}</dd>
+                        <dt>Emailaddress</dt>
+                        <dd>{{ user.email }}</dd>
+                    </dl>
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+
+            <div class="box box-primary">
+                <div class="box-header">
+                    <!-- Potential header -->
+                </div>
+                <div class="box-body">
+                    <!-- Potential body -->
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

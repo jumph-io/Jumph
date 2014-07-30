@@ -9,12 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\UserBundle\Repository;
+namespace Jumph\Bundle\UserBundle\Manager;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
 use Jumph\Bundle\UserBundle\Entity\User;
+use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
 
-class UserRepository
+class UserManager extends PaginatorAware
 {
     /**
      * Entity alias
@@ -33,18 +35,18 @@ class UserRepository
     /**
      * Entity manager
      *
-     * @var EntityManager
+     * @var ObjectManager
      */
-    private $entityManager;
+    private $objectManager;
 
     /**
      * Constructor.
      *
-     * @param EntityManager $entityManager
+     * @param ObjectManager $objectManager
      */
-    public function __construct(EntityManager $entityManager)
+    public function __construct(ObjectManager $objectManager)
     {
-        $this->entityManager = $entityManager;
+        $this->objectManager = $objectManager;
     }
 
     /**
@@ -56,7 +58,7 @@ class UserRepository
      */
     public function findById($id)
     {
-        return $this->entityManager
+        return $this->objectManager
             ->getRepository(self::ENTITY_ALIAS)
             ->find($id);
     }
@@ -71,7 +73,7 @@ class UserRepository
      */
     public function findAll($sortField = 'createdAt', $sortOrder = 'DESC')
     {
-        return $this->entityManager
+        return $this->objectManager
             ->createQueryBuilder(self::ENTITY_ALIAS)
             ->select(self::ENTITY_ALIAS)
             ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS)
@@ -81,14 +83,33 @@ class UserRepository
     }
 
     /**
+     * Get paginated results.
+     *
+     * @param int           $page       Current page
+     * @param int           $limit      Items per page limit
+     * @param array         $sortby     Sorting options
+     *
+     * @return PaginationInterface Returns a filtered paginator
+     */
+    public function getPaginatedResults($page = 1, $limit = 15, array $sortby = array())
+    {
+        $qb = $this->objectManager
+            ->createQueryBuilder(self::ENTITY_ALIAS)
+            ->select(self::ENTITY_ALIAS)
+            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS);
+
+        return $this->getPaginator()->paginate($qb, $page, $limit, $sortby);
+    }
+
+    /**
      * Create an user
      *
      * @param User $user
      */
     public function create(User $user)
     {
-        $this->entityManager->persist($user);
-        $this->entityManager->flush();
+        $this->objectManager->persist($user);
+        $this->objectManager->flush();
     }
 
     /**
@@ -98,8 +119,8 @@ class UserRepository
      */
     public function update(User $user)
     {
-        $this->entityManager->persist($user);
-        $this->entityManager->flush();
+        $this->objectManager->persist($user);
+        $this->objectManager->flush();
     }
 
     /**
@@ -109,8 +130,8 @@ class UserRepository
      */
     public function delete(User $user)
     {
-        $this->entityManager->remove($user);
-        $this->entityManager->flush();
+        $this->objectManager->remove($user);
+        $this->objectManager->flush();
     }
 
     /**
@@ -120,7 +141,7 @@ class UserRepository
      */
     public function getQueryBuilder()
     {
-        return $this->entityManager
+        return $this->objectManager
             ->getRepository(self::ENTITY_CLASS)
             ->createQueryBuilder(self::ENTITY_ALIAS);
     }

@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}
+    {{ parent() }} | Profile
+{% endblock %}
+
+{% block headerContent %}
+    <h1>
+        Profile
+        <small>Edit</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('jumph_user_overview') }}"><i class="fa fa-users"></i> Profile</a></li>
+        <li> Edit</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+    </div>
+</form>
+{% endblock %}

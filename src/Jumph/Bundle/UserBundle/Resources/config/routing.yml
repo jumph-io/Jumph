@@ -2,3 +2,25 @@ jumph_user_overview:
     path:  /users
     defaults: { _controller: JumphUserBundle:User:overview }
     methods:  [GET]
+jumph_user_view:
+    path:  /users/{userId}/view
+    defaults: { _controller: JumphUserBundle:User:view }
+    methods:  [GET]
+    requirements:
+            userId:  \d+
+jumph_user_add:
+    path:  /users/add
+    defaults: { _controller: JumphUserBundle:User:add }
+    methods:  [GET, POST]
+jumph_user_edit:
+    path:  /users/{userId}/edit
+    defaults: { _controller: JumphUserBundle:User:edit }
+    methods:  [GET, POST]
+    requirements:
+            userId:  \d+
+jumph_user_delete:
+    path:  /users/{userId}/delete
+    defaults: { _controller: JumphUserBundle:User:delete }
+    methods:  [GET]
+    requirements:
+            userId:  \d+
