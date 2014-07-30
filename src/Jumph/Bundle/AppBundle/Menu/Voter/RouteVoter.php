@@ -81,8 +81,15 @@ class RouteVoter extends KnpRouteVoter
         return false;
     }
 
-    private function getBaseRoute($str) {
-        $chunks = explode("_", $str);
+    /**
+     * Get the base of the route
+     *
+     * @param $route
+     * @return string
+     */
+    private function getBaseRoute($route)
+    {
+        $chunks = explode("_", $route);
         return implode("_", array_slice($chunks, 0, 2));
     }
 }

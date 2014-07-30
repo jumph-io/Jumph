@@ -17,7 +17,8 @@ use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
 
-class Email {
+class Email
+{
 
     /**
      * @var integer
@@ -259,4 +260,3 @@ class Email {
         return $this->deletedAt;
     }
 }
-
