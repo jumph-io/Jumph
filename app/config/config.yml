@@ -75,6 +75,12 @@ stof_doctrine_extensions:
         default:
             tree: true
             timestampable: true
+            blameable:      ~
+            sluggable:      ~
+            translatable:   ~
+            loggable:       ~
+            softdeleteable: ~
+            uploadable:     ~
 
 # Swiftmailer Configuration
 swiftmailer:

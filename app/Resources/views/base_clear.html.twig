@@ -9,25 +9,10 @@
             {% stylesheets  filter='cssrewrite'
             '%kernel.root_dir%/../vendor/components/bootstrap/dist/css/bootstrap.css'
             '%kernel.root_dir%/../vendor/components/fontawesome/css/font-awesome.css'
-            '%kernel.root_dir%/Resources/public/css/admin.css'
             %}
             <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
         {% endblock %}
-
-        <!-- time for something ugly -->
-        {% stylesheets
-        output='fonts/fontawesome-webfont.woff'
-        '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.woff'
-        %}{% endstylesheets %}
-        {% stylesheets
-        output='fonts/fontawesome-webfont.ttf'
-        '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.ttf'
-        %}{% endstylesheets %}
-        {% stylesheets
-        output='fonts/fontawesome-webfont.svg'
-        '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.svg'
-        %}{% endstylesheets %}
     </head>
 
     <body class="bg-black">
