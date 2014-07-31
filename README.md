@@ -33,16 +33,21 @@ Jumph is not production ready yet. However, if you want to install it already or
 - Run `php app/console doctrine:schema:update --force`
 - Open up Jumph and register yourself on the temporary registration page
 
+Demo
+=====
+Go to https://jumph.peternijssen.nl
+log in with "peter" / "jumph2014"
+
+
 Contributing
 =====
 
 Thanks for considering to contribute. You can contribute by creating pull requests. I am looking forward to your fixes, improvements and new features. This project is very much helped with all the issues you can resolve, any improvements you can make or unit tests you can set up.
 
-
 Translating
 =====
 
-Details will follow soon
+Currently, no language files have been created. Feel free to help out. When done, translating Jumph will become possible.
 
 Authors
 =====
