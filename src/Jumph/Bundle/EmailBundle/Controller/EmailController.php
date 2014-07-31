@@ -15,6 +15,8 @@ use Jumph\Bundle\EmailBundle\Entity\Email;
 use Jumph\Bundle\EmailBundle\Form\Type\EmailType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
@@ -127,7 +129,7 @@ class EmailController extends Controller
      *
      * @param Email $email
      *
-     * @return Response A Response instance
+     * @return RedirectResponse A Response instance
      */
     public function deleteAction(Email $email)
     {

@@ -13,6 +13,7 @@ namespace Jumph\Bundle\AppBundle\Menu;
 
 use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 use Knp\Menu\FactoryInterface;
+use \Knp\Menu\ItemInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
 
 class Builder extends ContainerAware
@@ -23,7 +24,7 @@ class Builder extends ContainerAware
      *
      * @param  FactoryInterface  $factory Menu Factory
      *
-     * @return MenuItem
+     * @return ItemInterface
      */
     public function sideMenu(FactoryInterface $factory)
     {
@@ -42,12 +43,12 @@ class Builder extends ContainerAware
     /**
      * Sort the menu based on weight
      *
-     * @param $menuItemA
-     * @param $menuItemB
+     * @param ItemInterface $menuItemA
+     * @param ItemInterface $menuItemB
      *
      * @return int
      */
-    public static function menuSort($menuItemA, $menuItemB)
+    public static function menuSort(ItemInterface $menuItemA, ItemInterface $menuItemB)
     {
         if ($menuItemA->getExtra('weight') == $menuItemB->getExtra('weight')) {
             return 0;
@@ -58,11 +59,11 @@ class Builder extends ContainerAware
     /**
      * Reorder the menu
      *
-     * @param \Knp\Menu\ItemInterface $menu
+     * @param ItemInterface $menu
      *
-     * @return MenuItem
+     * @return ItemInterface
      */
-    private function reorderMenu($menu)
+    private function reorderMenu(ItemInterface $menu)
     {
         $menuItems = $menu->getChildren();
         usort($menuItems, array($this, 'menuSort'));

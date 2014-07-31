@@ -15,6 +15,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Jumph\Bundle\AppBundle\Entity\FilterableManagerInterface;
 use Jumph\Bundle\UserBundle\Entity\User;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
+use Knp\Component\Pager\Pagination\PaginationInterface;
 
 class UserManager extends PaginatorAware implements FilterableManagerInterface
 {

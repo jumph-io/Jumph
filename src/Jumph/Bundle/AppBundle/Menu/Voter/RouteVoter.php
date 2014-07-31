@@ -27,7 +27,7 @@ class RouteVoter extends KnpRouteVoter
      *
      * @param ItemInterface $item
      *
-     * @return true|null true if the item is current, null if not
+     * @return null|boolean true if the item is current, null if not
      */
     public function matchItem(ItemInterface $item)
     {
