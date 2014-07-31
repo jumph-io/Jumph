@@ -21,3 +21,7 @@ composer.phar
 
 # Tmp
 /web/adminlte
+
+#Capifony
+Capfile
+app/config/deploy.rb
