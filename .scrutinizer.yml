@@ -22,3 +22,4 @@ tools:
         excluded_dirs: [vendor, tests]
     php_hhvm: false
     php_mess_detector: true
+    external_code_coverage: true
