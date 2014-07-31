@@ -12,6 +12,7 @@
 namespace Jumph\Bundle\UserBundle\Controller;
 
 use Jumph\Bundle\UserBundle\Entity\User;
+use Jumph\Bundle\UserBundle\Form\Filter\UserFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -31,10 +32,14 @@ class UserController extends Controller
      */
     public function overviewAction(Request $request)
     {
-        $userManager = $this->get('jumph_user.user_manager');
+        $filterForm = $this->createForm(new UserFilterType());
+        $filterForm->handleRequest($request);
+
+        $filter = $this->get('jumph_user.user_filter');
 
         return array(
-            'users' => $userManager->getPaginatedResults($request->query->get('page', 1))
+            'filterForm' => $filterForm->createView(),
+            'users' => $filter->getPaginatedResults($filterForm)
         );
     }
 

@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
             new Jumph\Bundle\IssueBundle\JumphIssueBundle(),
             new Jumph\Bundle\TimeBundle\JumphTimeBundle(),
             new Jumph\Bundle\ProjectBundle\JumphProjectBundle(),
@@ -30,6 +31,7 @@ class AppKernel extends Kernel
             new Jumph\Bundle\AppBundle\JumphAppBundle(),
             new Jumph\Bundle\ClientBundle\JumphClientBundle(),
             new Jumph\Bundle\CalendarBundle\JumphCalendarBundle(),
+            new Jumph\Bundle\InstallerBundle\JumphInstallerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

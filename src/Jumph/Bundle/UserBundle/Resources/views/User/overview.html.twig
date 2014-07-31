@@ -9,6 +9,7 @@
         Users
         <small>Overview</small>
     </h1>
+
     <ol class="breadcrumb">
         <li><i class="fa fa-users"></i> Users</li>
     </ol>
@@ -17,9 +18,18 @@
 {% block content %}
     <div class="row">
         <div class="col-lg-12">
+            <div class="form-group col-lg-3 search-field pull-right">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                    {{ form_widget(filterForm.name) }}
+                </div>
+            </div>
+
+            <br clear="all" />
+
             <div class="box box-primary">
                 <div class="box-header">
-                    <!-- Potential title -->
+
                 </div>
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-striped">

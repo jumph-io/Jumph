@@ -30,7 +30,8 @@
         "friendsofsymfony/user-bundle": "2.0.*@dev",
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
-        "knplabs/knp-paginator-bundle": "2.4.*"
+        "knplabs/knp-paginator-bundle": "2.4.*",
+        "lexik/form-filter-bundle": "2.0.*"
     },
     "require-dev": {
         "webfactory/exceptions-bundle": "4.0.*",

@@ -1,3 +1,7 @@
+jumph_installer:
+    resource: "@JumphInstallerBundle/Resources/config/routing.yml"
+    prefix:   /
+
 jumph_calendar:
     resource: "@JumphCalendarBundle/Resources/config/routing.yml"
     prefix:   /

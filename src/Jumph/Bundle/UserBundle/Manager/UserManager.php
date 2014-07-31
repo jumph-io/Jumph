@@ -12,10 +12,11 @@
 namespace Jumph\Bundle\UserBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Jumph\Bundle\AppBundle\Entity\FilterableManagerInterface;
 use Jumph\Bundle\UserBundle\Entity\User;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
 
-class UserManager extends PaginatorAware
+class UserManager extends PaginatorAware implements FilterableManagerInterface
 {
     /**
      * Entity alias
