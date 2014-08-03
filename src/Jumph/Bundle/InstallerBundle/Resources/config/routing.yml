@@ -1,0 +1,12 @@
+jumph_install_check:
+    path:  /install
+    defaults: { _controller: JumphInstallerBundle:Install:check }
+    methods:  [GET]
+jumph_install_database:
+    path:  /install/database
+    defaults: { _controller: JumphInstallerBundle:Install:database }
+    methods:  [GET]
+jumph_install_user:
+    path:  /install/user
+    defaults: { _controller: JumphInstallerBundle:Install:user }
+    methods:  [GET]

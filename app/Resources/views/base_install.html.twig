@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Jumph{% endblock %}</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+        {% block stylesheets %}
+            {% stylesheets  filter='cssrewrite'
+            '%kernel.root_dir%/../vendor/components/bootstrap/dist/css/bootstrap.css'
+            '%kernel.root_dir%/../vendor/components/fontawesome/css/font-awesome.css'
+            '%kernel.root_dir%/../vendor/components/admin-lte/css/AdminLTE.css'
+            '%kernel.root_dir%/../app/Resources/public/css/jumph.css'
+            %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body class="skin-blue">
+        <header class="header">
+            <a href="{{ path('jumph_dashboard_overview') }}" class="logo">
+                Jumph
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <aside class="left-side sidebar-offcanvas">
+                <section class="sidebar">
+                    {{ knp_menu_render('JumphInstallerBundle:Builder:sideMenu', {'currentClass' : 'active'} ) }}
+                </section>
+            </aside>
+
+            <aside class="right-side">
+                <section class="content-header">
+                    {% block headerContent %}
+
+                    {% endblock %}
+                </section>
+
+                <section class="content">
+                    {% include '::alerts.html.twig' with { 'close': true } %}
+
+                    {% block content %}
+                    {% endblock %}
+                </section>
+            </aside>
+        </div>
+        {% block javascripts %}
+            {% javascripts
+                '%kernel.root_dir%/../vendor/components/jquery/dist/jquery.min.js'
+                '%kernel.root_dir%/../vendor/components/bootstrap/dist/js/bootstrap.min.js'
+                '%kernel.root_dir%/../vendor/components/admin-lte/js/AdminLTE/app.js'
+            %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>
