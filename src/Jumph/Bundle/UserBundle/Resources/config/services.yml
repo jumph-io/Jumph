@@ -24,7 +24,6 @@ services:
         arguments:
             - @jumph_user.user_manager
             - @lexik_form_filter.query_builder_updater
-            - @session
         calls:
             - [ setPaginator, [ @knp_paginator ] ]
     jumph_user.filter_name:

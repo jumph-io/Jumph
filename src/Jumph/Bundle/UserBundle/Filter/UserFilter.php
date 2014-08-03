@@ -31,11 +31,6 @@ class UserFilter extends PaginatorAware
     private $filterBuilderUpdater;
 
     /**
-     * @var Session
-     */
-    private $session;
-
-    /**
      * Constructor.
      *
      * @param FilterableManagerInterface $manager           Repository to filter
@@ -43,12 +38,10 @@ class UserFilter extends PaginatorAware
      */
     public function __construct(
         FilterableManagerInterface $manager,
-        FilterBuilderUpdaterInterface $filterBuilderUpdater,
-        Session $session
+        FilterBuilderUpdaterInterface $filterBuilderUpdater
     ) {
         $this->manager = $manager;
         $this->filterBuilderUpdater = $filterBuilderUpdater;
-        $this->session = $session;
     }
 
     /**
