@@ -20,7 +20,10 @@ Future plans:
 Screenshots
 =====
 
-![Jumph Dashboard](http://i57.tinypic.com/fonjac.png)
+
+![Jumph Calendar](http://i61.tinypic.com/311pac6.png)
+
+![Jumph Projects](http://i61.tinypic.com/aahq82.png)
 
 
 Installation
