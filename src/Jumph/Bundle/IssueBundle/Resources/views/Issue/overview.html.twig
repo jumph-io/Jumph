@@ -17,71 +17,162 @@
 {% block content %}
     <div class="row">
         <div class="col-lg-12">
-            <div class="box box-primary">
-                <div class="box-header">
-                    <!-- Potential title -->
-                </div>
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Status</th>
-                                <th>Title</th>
-                                <th>Project</th>
-                                <th>Options</th>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-center"><a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add issue</a></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="5" class="text-center">No results</td>
-                            </tr>
-                            <tr class="danger">
-                                <td>#0001</td>
-                                <td>Open</td>
-                                <td>First issue</td>
-                                <td>First project</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">View</a></li>
-                                            <li><a href="#">Edit</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="success">
-                                <td>#0002</td>
-                                <td>Resolved</td>
-                                <td>Second issue</td>
-                                <td>First project</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">View</a></li>
-                                            <li><a href="#">Edit</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="box-footer clearfix">
-                    <!-- pagination -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#issues" data-toggle="tab">Issues</a></li>
+                    <li class=""><a href="#milestones" data-toggle="tab">Milestones</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="issues">
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Status</th>
+                                        <th>Title</th>
+                                        <th>Project</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5" class="text-center">No results</td>
+                                    </tr>
+                                    <tr class="danger">
+                                        <td>#0001</td>
+                                        <td>Open</td>
+                                        <td>First issue</td>
+                                        <td>First project</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                    Options <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">View</a></li>
+                                                    <li><a href="#">Edit</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="success">
+                                        <td>#0002</td>
+                                        <td>Resolved</td>
+                                        <td>Second issue</td>
+                                        <td>First project</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                    Options <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">View</a></li>
+                                                    <li><a href="#">Edit</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box-footer clearfix">
+                            <div class="col-xs-6">
+                                <div class="btn-group pagination">
+                                    <a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add issue</a>
+                                    <a href="" class="btn btn-default"><i class="fa fa-lg fa-trash-o"></i>  Delete selected</a>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <!-- Pagination -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="milestones">
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Project</th>
+                                        <th>Date</th>
+                                        <th>Progress</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5" class="text-center">No results</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0.9.0</td>
+                                        <td>Project 1</td>
+                                        <td>3 August, 2014</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                    <span class="sr-only">40% Complete (1 / 50)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                    Options <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">View</a></li>
+                                                    <li><a href="#">Edit</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1.0.0</td>
+                                        <td>Project 2</td>
+                                        <td>4 August, 2014</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                    <span class="sr-only">40% Complete (1 / 50)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                    Options <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">View</a></li>
+                                                    <li><a href="#">Edit</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box-footer clearfix">
+                            <div class="col-xs-6">
+                                <div class="btn-group pagination">
+                                    <a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add milestone</a>
+                                    <a href="" class="btn btn-default"><i class="fa fa-lg fa-trash-o"></i>  Delete selected</a>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <!-- Pagination -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
