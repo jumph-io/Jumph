@@ -2,10 +2,10 @@
 namespace Jumph\Bundle\AppBundle\Menu\Voter;
 
 use Knp\Menu\ItemInterface;
-use Knp\Menu\Matcher\Voter\RouteVoter as KnpRouteVoter;
+use Knp\Menu\Matcher\Voter\VoterInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class RouteVoter extends KnpRouteVoter
+class RouteVoter implements VoterInterface
 {
     /**
      * @var Request $request

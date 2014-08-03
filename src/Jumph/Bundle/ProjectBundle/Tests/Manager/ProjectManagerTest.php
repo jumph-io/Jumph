@@ -11,6 +11,7 @@
 
 namespace Jumph\Bundle\ProjectBundle\Tests\Manager;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
 use Jumph\Bundle\ProjectBundle\Manager\ProjectManager;
 

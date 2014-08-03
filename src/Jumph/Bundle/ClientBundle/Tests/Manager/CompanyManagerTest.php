@@ -11,6 +11,7 @@
 
 namespace Jumph\Bundle\ClientBundle\Tests\Manager;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Manager\CompanyManager;
 

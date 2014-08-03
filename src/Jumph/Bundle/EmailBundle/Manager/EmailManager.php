@@ -35,7 +35,7 @@ class EmailManager extends PaginatorAware
     /**
      * Object manager
      *
-     * @var EntityManager
+     * @var ObjectManager
      */
     private $objectManager;
 

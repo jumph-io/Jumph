@@ -11,7 +11,6 @@
 
 namespace Jumph\Bundle\InstallerBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -25,7 +24,7 @@ class InstallController
      *
      * @return Response A Response instance
      */
-    public function checkAction(Request $request)
+    public function checkAction()
     {
         return array(
 
@@ -39,7 +38,7 @@ class InstallController
      *
      * @return Response A Response instance
      */
-    public function databaseAction(Request $request)
+    public function databaseAction()
     {
          return array(
 
@@ -53,7 +52,7 @@ class InstallController
      *
      * @return Response A Response instance
      */
-    public function userAction(Request $request)
+    public function userAction()
     {
         return array(
 

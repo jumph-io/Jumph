@@ -35,7 +35,7 @@ class ProjectManager extends PaginatorAware
     /**
      * Object manager
      *
-     * @var EntityManager
+     * @var ObjectManager
      */
     private $objectManager;
 

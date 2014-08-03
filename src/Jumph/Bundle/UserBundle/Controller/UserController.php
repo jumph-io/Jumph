@@ -76,6 +76,10 @@ class UserController extends Controller
         if ($request->isMethod('POST')) {
             return $this->redirect($this->generateUrl('jumph_user_overview'));
         }
+
+        return array(
+
+        );
     }
 
     /**
@@ -94,6 +98,10 @@ class UserController extends Controller
         if ($request->isMethod('POST')) {
             return $this->redirect($this->generateUrl('jumph_user_overview'));
         }
+
+        return array(
+
+        );
     }
 
     /**
