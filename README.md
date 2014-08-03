@@ -55,3 +55,5 @@ Authors
 
 Jumph was originally created by [Peter Nijssen](https://www.peternijssen.nl).
 See the list of [contributors](https://github.com/jumph-io/Jumph/graphs/contributors).
+
+The theme is named [AdminLTE](https://github.com/almasaeed2010/AdminLTE) and is created by [Almsaeed Studio](http://www.almsaeedstudio.com/).
