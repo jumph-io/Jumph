@@ -16,7 +16,8 @@ use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Doctrine\ORM\QueryBuilder;
 
 class UserFilter extends PaginatorAware
 {
@@ -33,8 +34,8 @@ class UserFilter extends PaginatorAware
     /**
      * Constructor.
      *
-     * @param FilterableManagerInterface $manager           Repository to filter
-     * @param FilterBuilderUpdater          $filterBuilderUpdater The form filter
+     * @param FilterableManagerInterface $manager Repository to filter
+     * @param FilterBuilderUpdater $filterBuilderUpdater The form filter
      */
     public function __construct(
         FilterableManagerInterface $manager,
@@ -66,7 +67,7 @@ class UserFilter extends PaginatorAware
      * @param int           $limit   Limit per page
      * @param array         $options Pagination options
      *
-     * @return \Knp\Component\Pager\Pagination\PaginationInterface
+     * @return PaginationInterface
      */
     public function getPaginatedResults(FormInterface $form, $page = 1, $limit = 100, array $options = array())
     {
@@ -79,7 +80,7 @@ class UserFilter extends PaginatorAware
      *
      * @param FormInterface $form Filter form
      *
-     * @return \Doctrine\ORM\QueryBuilder Returns the queryBuilder object to filter on
+     * @return QueryBuilder Returns the queryBuilder object to filter on
      */
     private function createQueryBuilder(FormInterface $form)
     {

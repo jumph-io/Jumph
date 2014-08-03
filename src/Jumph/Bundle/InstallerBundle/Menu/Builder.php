@@ -11,7 +11,6 @@
 
 namespace Jumph\Bundle\InstallerBundle\Menu;
 
-use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 use Knp\Menu\FactoryInterface;
 use \Knp\Menu\ItemInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
