@@ -18,9 +18,9 @@ class TimeController extends Controller
 {
 
     /**
-     * @Template("JumphProjectBundle:Project:overview.html.twig")
+     * @Template("JumphTimeBundle:Time:overview.html.twig")
      *
-     * Project overview page
+     * Time overview page
      *
      *
      * @return Response A Response instance
