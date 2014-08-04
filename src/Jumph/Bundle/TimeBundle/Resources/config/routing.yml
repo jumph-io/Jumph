@@ -2,3 +2,7 @@ jumph_time_overview:
     path:  /times
     defaults: { _controller: JumphTimeBundle:Time:overview }
     methods:  [GET]
+jumph_config_time_category:
+    path:  /config/times/category
+    defaults: { _controller: JumphTimeBundle:TimeCategory:overview }
+    methods:  [GET, POST]

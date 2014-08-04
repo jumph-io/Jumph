@@ -33,4 +33,23 @@ class TimeMenuListener
             )
         );
     }
+
+    /**
+     * @param BuildMenuEvent $event
+     */
+    public function onConfigMenuTime(BuildMenuEvent $event)
+    {
+        $menu = $event->getMenu();
+
+        $menu->addChild(
+            'Time category',
+            array(
+                'route' => 'jumph_config_time_category',
+                'extras' => array(
+                    'icon' => 'fa-cogs fa-fw',
+                    'weight' => 40
+                )
+            )
+        );
+    }
 }

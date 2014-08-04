@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\ProjectBundle\Controller;
+namespace Jumph\Bundle\TimeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class ProjectStatusController extends Controller
+class TimeCategoryController extends Controller
 {
     /**
-     * @Template("JumphProjectBundle:ProjectStatus:overview.html.twig")
+     * @Template("JumphTimeBundle:TimeCategory:overview.html.twig")
      *
-     * Project status overview page
+     * Time category overview page
      *
      * @param Request $request A Request instance
      *
@@ -30,7 +30,7 @@ class ProjectStatusController extends Controller
     public function overviewAction(Request $request)
     {
         if ($request->isMethod('POST')) {
-            return $this->redirect($this->generateUrl('jumph_project_overview'));
+            return $this->redirect($this->generateUrl('jumph_time_overview'));
         }
 
         return array(

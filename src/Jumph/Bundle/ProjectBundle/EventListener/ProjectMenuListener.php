@@ -46,7 +46,7 @@ class ProjectMenuListener
             array(
                 'route' => 'jumph_config_project_status',
                 'extras' => array(
-                    'icon' => 'fa-check fa-fw',
+                    'icon' => 'fa-cogs fa-fw',
                     'weight' => 10
                 )
             )
