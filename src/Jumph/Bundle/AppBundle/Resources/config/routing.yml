@@ -1,0 +1,6 @@
+jumph_config_overview:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: jumph_dashboard_overview
+        permanent: true

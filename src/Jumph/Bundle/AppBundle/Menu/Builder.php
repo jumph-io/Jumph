@@ -32,11 +32,42 @@ class Builder extends ContainerAware
         $menu->setChildrenAttribute('class', 'sidebar-menu');
 
         $this->container->get('event_dispatcher')->dispatch(
-            BuildMenuEvent::BUILDMENU,
+            BuildMenuEvent::BUILD_MENU,
             new BuildMenuEvent($factory, $menu)
         );
 
+        $menu = $this->createConfigMenu($menu, $factory);
         $menu = $this->reorderMenu($menu);
+        return $menu;
+    }
+
+    /**
+     * Create the config menu
+     *
+     * @param ItemInterface $menu
+     *
+     * @return ItemInterface
+     */
+    private function createConfigMenu(ItemInterface $menu, FactoryInterface $factory)
+    {
+        $configMenu = $menu->addChild(
+            'Configure',
+            array(
+                'childrenAttributes' => array('class' => 'treeview-menu'),
+                'route' => 'jumph_config_overview',
+                'attributes' => array('class' => 'treeview'),
+                'extras' => array(
+                    'icon' => 'fa-cogs fa-fw',
+                    'weight' => 200
+                )
+            )
+        );
+
+        $this->container->get('event_dispatcher')->dispatch(
+            BuildMenuEvent::BUILD_CONFIG_MENU,
+            new BuildMenuEvent($factory, $configMenu)
+        );
+
         return $menu;
     }
 

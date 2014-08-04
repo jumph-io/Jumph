@@ -17,9 +17,18 @@ use Symfony\Component\EventDispatcher\Event;
 
 class BuildMenuEvent extends Event
 {
-    const BUILDMENU = 'jumph.build_menu';
+    const BUILD_MENU = 'jumph.build_menu';
 
+    const BUILD_CONFIG_MENU = 'jumph.build_config_menu';
+
+    /**
+     * @var FactoryInterface
+     */
     private $factory;
+
+    /**
+     * @var ItemInterface
+     */
     private $menu;
 
     /**

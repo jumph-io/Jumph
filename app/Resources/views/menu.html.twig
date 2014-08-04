@@ -6,4 +6,7 @@
         {% if item.extras.icon is defined %}<i class="fa {{ item.extras.icon }}"></i>{% endif %}
         {{ block('label') }}
     </a>
+    {% if item.hasChildren() %}
+        <i class="fa fa-angle-left pull-right"></i>
+    {% endif %}
 {% endblock %}

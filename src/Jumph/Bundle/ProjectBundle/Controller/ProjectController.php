@@ -15,6 +15,8 @@ use Jumph\Bundle\ProjectBundle\Entity\Project;
 use Jumph\Bundle\ProjectBundle\Form\Type\ProjectType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
@@ -128,7 +130,7 @@ class ProjectController extends Controller
      *
      * @param Project $project
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse A Response instance
+     * @return RedirectResponse A Response instance
      */
     public function deleteAction(Project $project)
     {

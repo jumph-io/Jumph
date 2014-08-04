@@ -33,4 +33,23 @@ class ProjectMenuListener
             )
         );
     }
+
+    /**
+     * @param BuildMenuEvent $event
+     */
+    public function onConfigMenuProject(BuildMenuEvent $event)
+    {
+        $menu = $event->getMenu();
+
+        $menu->addChild(
+            'Projects',
+            array(
+                'route' => 'jumph_config_project_status',
+                'extras' => array(
+                    'icon' => 'fa-tasks fa-fw',
+                    'weight' => 20
+                )
+            )
+        );
+    }
 }

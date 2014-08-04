@@ -24,3 +24,7 @@ jumph_project_delete:
     methods:  [DELETE]
     requirements:
             projectId:  \d+
+jumph_config_project_status:
+    path:  /config/projects/status
+    defaults: { _controller: JumphProjectBundle:ProjectStatus:overview }
+    methods:  [GET, POST]
