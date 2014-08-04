@@ -42,12 +42,12 @@ class ProjectMenuListener
         $menu = $event->getMenu();
 
         $menu->addChild(
-            'Projects',
+            'Project status',
             array(
                 'route' => 'jumph_config_project_status',
                 'extras' => array(
-                    'icon' => 'fa-tasks fa-fw',
-                    'weight' => 20
+                    'icon' => 'fa-check fa-fw',
+                    'weight' => 10
                 )
             )
         );
