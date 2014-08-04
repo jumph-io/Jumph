@@ -1,9 +1,20 @@
 <?php
+
+/**
+ * This file is part of the Jumph package.
+ *
+ * (c) Peter Nijssen
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Jumph\Bundle\AppBundle\Menu\Voter;
 
 use Knp\Menu\ItemInterface;
 use Knp\Menu\Matcher\Voter\VoterInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class RouteVoter implements VoterInterface
 {
@@ -13,13 +24,11 @@ class RouteVoter implements VoterInterface
     private $request;
 
     /**
-     * Constructor.
-     *
-     * @param ContainerInterface $container
+     * @param Request $request
      */
-    public function __construct(ContainerInterface $container)
+    public function setRequest(Request $request = null)
     {
-        $this->request = $container->get('request');
+        $this->request = $request;
     }
 
     /**

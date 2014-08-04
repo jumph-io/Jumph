@@ -8,8 +8,8 @@ services:
             - @session
     jumph_app.menu.voter.route_voter:
         class: Jumph\Bundle\AppBundle\Menu\Voter\RouteVoter
-        arguments:
-            - @service_container
+        calls:
+            - [setRequest, ["@?request="]]
         tags:
             - { name: knp_menu.voter }
     gedmo.listener.softdeleteable:
