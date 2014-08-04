@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\ProjectBundle\Tests\EventListener;
+namespace Jumph\Bundle\TimeBundle\Tests\EventListener;
 
-use Jumph\Bundle\ProjectBundle\EventListener\ProjectMenuListener;
+use Jumph\Bundle\TimeBundle\EventListener\TimeMenuListener;
 
-class ProjectMenuListenerTest extends \PHPUnit_Framework_TestCase
+class TimeMenuListenerTest extends \PHPUnit_Framework_TestCase
 {
     public function testOnMenuProject()
     {
@@ -22,8 +22,8 @@ class ProjectMenuListenerTest extends \PHPUnit_Framework_TestCase
         $itemInterfaceMock->shouldReceive('addChild')->once()->andReturnSelf();
         $buildMenuEventMock->shouldReceive('getMenu')->once()->andReturn($itemInterfaceMock);
 
-        $projectMenuListener = new ProjectMenuListener();
-        $this->assertNull($projectMenuListener->onMenuProject($buildMenuEventMock));
+        $timeMenuListener = new TimeMenuListener();
+        $this->assertNull($timeMenuListener->onMenuTime($buildMenuEventMock));
     }
 
     public function testOnConfigMenuProject()
@@ -33,7 +33,7 @@ class ProjectMenuListenerTest extends \PHPUnit_Framework_TestCase
         $itemInterfaceMock->shouldReceive('addChild')->once()->andReturnSelf();
         $buildMenuEventMock->shouldReceive('getMenu')->once()->andReturn($itemInterfaceMock);
 
-        $projectMenuListener = new ProjectMenuListener();
-        $this->assertNull($projectMenuListener->onConfigMenuProject($buildMenuEventMock));
+        $timeMenuListener = new TimeMenuListener();
+        $this->assertNull($timeMenuListener->onConfigMenuTime($buildMenuEventMock));
     }
 }
