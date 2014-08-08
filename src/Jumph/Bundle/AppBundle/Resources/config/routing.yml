@@ -1,5 +1,5 @@
 jumph_config_overview:
-    path: /
+    path: /config
     defaults:
         _controller: FrameworkBundle:Redirect:redirect
         route: jumph_dashboard_overview
