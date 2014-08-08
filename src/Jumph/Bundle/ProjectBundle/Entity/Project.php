@@ -13,6 +13,8 @@ namespace Jumph\Bundle\ProjectBundle\Entity;
 
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 use Jumph\Bundle\ClientBundle\Entity\Company;
+use Jumph\Bundle\TimeBundle\Entity\TimeTracker;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Project
 {
@@ -62,6 +64,19 @@ class Project
      * @var \DateTime
      */
     private $deletedAt;
+
+    /**
+     * @var ArrayCollection
+     */
+    private $timeTrackers;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->timeTrackers = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -228,5 +243,38 @@ class Project
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    /**
+     * Add timeTrackers
+     *
+     * @param TimeTracker $timeTrackers
+     * @return Project
+     */
+    public function addTimeTracker(TimeTracker $timeTrackers)
+    {
+        $this->timeTrackers[] = $timeTrackers;
+
+        return $this;
+    }
+
+    /**
+     * Remove timeTrackers
+     *
+     * @param TimeTracker $timeTrackers
+     */
+    public function removeTimeTracker(TimeTracker $timeTrackers)
+    {
+        $this->timeTrackers->removeElement($timeTrackers);
+    }
+
+    /**
+     * Get timeTrackers
+     *
+     * @return ollection
+     */
+    public function getTimeTrackers()
+    {
+        return $this->timeTrackers;
     }
 }

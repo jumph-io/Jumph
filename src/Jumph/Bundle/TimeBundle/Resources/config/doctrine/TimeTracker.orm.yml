@@ -1,30 +1,18 @@
-Jumph\Bundle\ProjectBundle\Entity\Project:
+Jumph\Bundle\TimeBundle\Entity\TimeTracker:
     type: entity
-    table: jumph_project
+    table: jumph_time_tracker
 
     gedmo:
         soft_deleteable:
             field_name: deletedAt
             time_aware: true
 
-    oneToMany:
-        timeTrackers:
-            targetEntity: \Jumph\Bundle\TimeBundle\Entity\TimeTracker
-            mappedBy: project
-
     manyToOne:
-        company:
-          targetEntity: \Jumph\Bundle\ClientBundle\Entity\Company
-          inversedBy: projects
+        project:
+          targetEntity: \Jumph\Bundle\ProjectBundle\Entity\Project
+          inversedBy: timeTrackers
           joinColumn:
-            name: company_id
-            referencedColumnName: id
-          cascade: ["persist", "remove"]
-        employee:
-          targetEntity: \Jumph\Bundle\ClientBundle\Entity\Employee
-          inversedBy: projects
-          joinColumn:
-            name: employee_id
+            name: project_id
             referencedColumnName: id
           cascade: ["persist", "remove"]
 
@@ -34,15 +22,16 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
             generator: { strategy: AUTO }
 
     fields:
-        name:
-            type: string
-            length: 150
-        status:
+        category:
             type: string
             length: 150
         description:
             type: text
-            nullable: true
+        date:
+            type: date
+        hours:
+            type: decimal
+            scale: 1
         createdAt:
             type: datetime
             gedmo:
