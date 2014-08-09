@@ -1,0 +1,236 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Time tracker
+{% endblock %}
+
+{% block headerContent %}
+    <h1>
+        Time tracker
+        <small>Overview</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('jumph_time_tracker_overview') }}"><i class="fa fa-clock-o"></i> Time tracker</a></li>
+        <li> Overview</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8 col-md-12">
+            <div class="box box-primary table-responsive">
+                {{ form_start(timeTrackerForm, { 'action': path('jumph_time_tracker_add'), 'attr': { 'id': 'main-form'}}) }}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Options</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ form_widget(timeTrackerForm.project) }}
+                            </td>
+                            <td>
+                                {{ form_widget(timeTrackerForm.category) }}
+                            </td>
+                            <td>
+                                {{ form_widget(timeTrackerForm.description) }}
+                            </td>
+                            <td>
+                                {{ form_widget(timeTrackerForm.date) }}
+                            </td>
+                            <td>
+                                {{ form_widget(timeTrackerForm.hours) }}
+                            </td>
+                            <td>
+                                {{ form_widget(timeTrackerForm._token) }}
+                                <button type="submit" class="btn btn-primary">Add</button>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody class="js-show-time-lines">
+                        {% for timeTracker in timeTrackers %}
+                            {% include('JumphTimeTrackerBundle:TimeTracker:_time_line.html.twig') %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {{ form_end(timeTrackerForm, {'render_rest': false}) }}
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#day" data-toggle="tab">Day</a></li>
+                    <li class=""><a href="#week" data-toggle="tab">Week</a></li>
+                    <li class=""><a href="#month" data-toggle="tab">Month</a></li>
+                    <li class=""><a href="#year" data-toggle="tab">All-time</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="day">
+                        <div class="pie-chart">
+
+                        </div>
+
+                        <div class="column-chart">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        '%kernel.root_dir%/../vendor/components/highcharts/highcharts.js'
+        '%kernel.root_dir%/../vendor/components/highcharts/modules/exporting.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            // Submit time
+            $('body').on('submit', 'form', function(e) {
+                e.preventDefault();
+
+                var form = $(this);
+
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: $(form).attr('action'),
+                    data: $(form).serialize()
+                })
+                .success(function( data ) {
+                    if(data.status == 'success') {
+                    }
+                });
+            });
+
+            // Make monochrome colors and set them as default for all pies
+            Highcharts.getOptions().plotOptions.pie.colors = (function () {
+                var colors = [],
+                        base = Highcharts.getOptions().colors[0],
+                        i
+
+                for (i = 0; i < 10; i++) {
+                    // Start out with a darkened base color (negative brighten), and end
+                    // up with a much brighter color
+                    colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
+                }
+                return colors;
+            }());
+
+            // Pie chart
+            $('.pie-chart').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: 'Categories overview'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Categories',
+                    data: [
+                        ['Development',   45.0],
+                        ['Design',       26.8],
+                        ['Setup',     6.2],
+                        ['Documentation',   0.7]
+                    ]
+                }]
+            });
+
+            // Column Chart
+
+            $('.column-chart').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: 'Day overview'
+                },
+                xAxis: {
+                    type: 'category',
+                            labels: {
+                        rotation: -45,
+                                style: {
+                            fontSize: '13px',
+                                    fontFamily: 'Verdana, sans-serif'
+                        }
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                            title: {
+                        text: 'Hours'
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.y:.1f} hours</b>'
+                },
+                series: [{
+                    name: 'Day of the week',
+                    data: [
+                        ['Monday', 23.7],
+                        ['Tuesday', 16,1],
+                        ['Wednesday', 14.2],
+                        ['Thursday', 14.0],
+                        ['Friday', 12.5],
+                        ['Saturday', 12.1],
+                        ['Sunday', 11.8]
+                    ],
+                    dataLabels: {
+                        enabled: true,
+                        rotation: -90,
+                        color: '#FFFFFF',
+                        align: 'right',
+                        x: 4,
+                        y: 10,
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif',
+                            textShadow: '0 0 3px black'
+                        }
+                    }
+                }]
+            });
+        });
+    </script>
+
+{% endblock %}

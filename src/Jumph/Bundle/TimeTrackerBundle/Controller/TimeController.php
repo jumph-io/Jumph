@@ -23,19 +23,23 @@ class TimeController extends Controller
 {
 
     /**
-     * @Template("JumphTimeTrackerBundle:Time:overview.html.twig")
+     * @Template("JumphTimeTrackerBundle:TimeTracker:overview.html.twig")
      *
      * Time overview page
      *
+     * @param Request $request
+     *
      * @return Response A Response instance
      */
-    public function overviewAction()
+    public function overviewAction(Request $request)
     {
         $timeTracker = new TimeTracker();
         $timeTrackerForm = $this->createForm(new TimeTrackerType(), $timeTracker);
+        $timeTrackerManager = $this->get('jumph_time_tracker.time_tracker_manager');
 
         return array(
-            'timeTrackerForm' => $timeTrackerForm->createView()
+            'timeTrackerForm' => $timeTrackerForm->createView(),
+            'timeTrackers' => $timeTrackerManager->getPaginatedResults($request->query->get('page', 1))
         );
     }
 
@@ -43,6 +47,8 @@ class TimeController extends Controller
      * Add a new time
      *
      * @param Request $request
+     *
+     * @return JsonResponse A Response instance
      */
     public function addAction(Request $request)
     {
@@ -55,10 +61,15 @@ class TimeController extends Controller
                 $timeTrackerManager = $this->get('jumph_time_tracker.time_tracker_manager');
                 $timeTrackerManager->create($timeTracker);
 
-                return new JsonResponse(array('status' => 'success'));
+                return new JsonResponse(array(
+                    'status' => 'success'
+                ));
             }
         }
 
-        return new JsonResponse(array('status' => 'error'));
+        return new JsonResponse(array(
+            'status' => 'error',
+            'error' => $timeTrackerForm->getErrorsAsString()
+            ));
     }
 }

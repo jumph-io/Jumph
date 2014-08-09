@@ -32,7 +32,11 @@ class TimeTrackerType extends AbstractType
             ))
             ->add('description', 'text')
             ->add('date', 'date', array(
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'format' => 'MM/dd/yyyy',
+                'attr' => array(
+                    'data-provide' => 'datepicker'
+                )
             ))
             ->add('hours');
     }

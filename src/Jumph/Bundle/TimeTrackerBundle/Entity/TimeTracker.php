@@ -61,6 +61,13 @@ class TimeTracker
      */
     private $project;
 
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
 
     /**
      * Get id
@@ -127,7 +134,6 @@ class TimeTracker
     public function setDate($date)
     {
         $this->date = $date;
-
         return $this;
     }
 
