@@ -22,7 +22,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
             new Jumph\Bundle\IssueBundle\JumphIssueBundle(),
-            new Jumph\Bundle\TimeBundle\JumphTimeBundle(),
+            new Jumph\Bundle\TimeTrackerBundle\JumphTimeTrackerBundle(),
             new Jumph\Bundle\ProjectBundle\JumphProjectBundle(),
             new Jumph\Bundle\EmailBundle\JumphEmailBundle(),
             new Jumph\Bundle\QuotationBundle\JumphQuotationBundle(),

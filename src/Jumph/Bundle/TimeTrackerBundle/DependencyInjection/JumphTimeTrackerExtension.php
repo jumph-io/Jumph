@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeBundle\DependencyInjection;
+namespace Jumph\Bundle\TimeTrackerBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
-class JumphTimeExtension extends Extension
+class JumphTimeTrackerExtension extends Extension
 {
     /**
      * {@inheritDoc}

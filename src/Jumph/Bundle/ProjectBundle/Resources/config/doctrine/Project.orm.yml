@@ -9,7 +9,7 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
 
     oneToMany:
         timeTrackers:
-            targetEntity: \Jumph\Bundle\TimeBundle\Entity\TimeTracker
+            targetEntity: \Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker
             mappedBy: project
 
     manyToOne:

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeBundle\EventListener;
+namespace Jumph\Bundle\TimeTrackerBundle\EventListener;
 
 use Jumph\Bundle\AppBundle\Event\BuildMenuEvent;
 
@@ -25,7 +25,7 @@ class TimeMenuListener
         $menu->addChild(
             'Time tracker',
             array(
-                'route' => 'jumph_time_overview',
+                'route' => 'jumph_time_tracker_overview',
                 'extras' => array(
                     'icon' => 'fa-clock-o fa-fw',
                     'weight' => 50
@@ -42,9 +42,9 @@ class TimeMenuListener
         $menu = $event->getMenu();
 
         $menu->addChild(
-            'Time category',
+            'Time tracker category',
             array(
-                'route' => 'jumph_config_time_category',
+                'route' => 'jumph_config_time_tracker_category',
                 'extras' => array(
                     'icon' => 'fa-cogs fa-fw',
                     'weight' => 40

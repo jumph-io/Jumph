@@ -10,7 +10,7 @@
         <small>Overview</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ path('jumph_time_overview') }}"><i class="fa fa-clock-o"></i> Time tracker</a></li>
+        <li><a href="{{ path('jumph_time_tracker_overview') }}"><i class="fa fa-clock-o"></i> Time tracker</a></li>
         <li> Overview</li>
     </ol>
 {% endblock %}
@@ -19,6 +19,7 @@
     <div class="row">
         <div class="col-lg-8 col-md-12">
             <div class="box box-primary table-responsive">
+                {{ form_start(timeTrackerForm, { 'attr': { 'id': 'main-form'}}) }}
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -33,25 +34,19 @@
                     <tbody>
                         <tr>
                             <td>
-                                <select class="form-control">
-                                    <option>Project 1</option>
-                                    <option>Project 2</option>
-                                </select>
+                                {{ form_widget(timeTrackerForm.project) }}
                             </td>
                             <td>
-                                <select class="form-control">
-                                    <option>Design</option>
-                                    <option>Development</option>
-                                </select>
+                                {{ form_widget(timeTrackerForm.category) }}
                             </td>
                             <td>
-                                <input type="text" class="form-control" />
+                                {{ form_widget(timeTrackerForm.description) }}
                             </td>
                             <td>
-                                <input type="date" class="form-control" />
+                                {{ form_widget(timeTrackerForm.date) }}
                             </td>
                             <td>
-                                <input type="text" class="form-control" /> : <input type="text" class="form-control" />
+                                {{ form_widget(timeTrackerForm.hours) }}
                             </td>
                             <td>
                                 &nbsp;
@@ -97,6 +92,7 @@
                         </tr>
                     </tbody>
                 </table>
+                {{ form_end(timeTrackerForm, {'render_rest': false}) }}
             </div>
         </div>
 

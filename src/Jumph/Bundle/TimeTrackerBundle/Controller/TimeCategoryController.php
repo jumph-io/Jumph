@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeBundle\Controller;
+namespace Jumph\Bundle\TimeTrackerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +19,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class TimeCategoryController extends Controller
 {
     /**
-     * @Template("JumphTimeBundle:TimeCategory:overview.html.twig")
+     * @Template("JumphTimeTrackerBundle:TimeCategory:overview.html.twig")
      *
      * Time category overview page
      *
@@ -30,7 +30,7 @@ class TimeCategoryController extends Controller
     public function overviewAction(Request $request)
     {
         if ($request->isMethod('POST')) {
-            return $this->redirect($this->generateUrl('jumph_time_overview'));
+            return $this->redirect($this->generateUrl('jumph_time_tracker_overview'));
         }
 
         return array(

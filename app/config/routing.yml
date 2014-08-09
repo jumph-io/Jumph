@@ -53,8 +53,8 @@ jumph_project:
     resource: "@JumphProjectBundle/Resources/config/routing.yml"
     prefix:   /
 
-jumph_time:
-    resource: "@JumphTimeBundle/Resources/config/routing.yml"
+jumph_time_tracker:
+    resource: "@JumphTimeTrackerBundle/Resources/config/routing.yml"
     prefix:   /
 
 jumph_issue:

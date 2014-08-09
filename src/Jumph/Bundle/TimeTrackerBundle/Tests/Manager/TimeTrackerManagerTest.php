@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeBundle\Tests\Manager;
+namespace Jumph\Bundle\TimeTrackerBundle\Tests\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Jumph\Bundle\TimeBundle\Entity\TimeTracker;
-use Jumph\Bundle\TimeBundle\Manager\TimeTrackerManager;
+use Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker;
+use Jumph\Bundle\TimeTrackerBundle\Manager\TimeTrackerManager;
 
 class TimeTrackerManagerTest extends \PHPUnit_Framework_TestCase
 {

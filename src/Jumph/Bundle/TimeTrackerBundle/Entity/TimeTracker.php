@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeBundle\Entity;
+namespace Jumph\Bundle\TimeTrackerBundle\Entity;
 
 use Jumph\Bundle\ProjectBundle\Entity\Project;
 

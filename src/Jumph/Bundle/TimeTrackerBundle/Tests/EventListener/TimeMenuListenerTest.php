@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeBundle\Tests\EventListener;
+namespace Jumph\Bundle\TimeTrackerBundle\Tests\EventListener;
 
-use Jumph\Bundle\TimeBundle\EventListener\TimeMenuListener;
+use Jumph\Bundle\TimeTrackerBundle\EventListener\TimeMenuListener;
 
 class TimeMenuListenerTest extends \PHPUnit_Framework_TestCase
 {

@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeBundle\Tests\Entity;
+namespace Jumph\Bundle\TimeTrackerBundle\Tests\Entity;
 
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
-use Jumph\Bundle\TimeBundle\Entity\TimeTracker;
+use Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker;
 
 class TimeTrackerTest extends \PHPUnit_Framework_TestCase
 {

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeBundle;
+namespace Jumph\Bundle\TimeTrackerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class JumphTimeBundle extends Bundle
+class JumphTimeTrackerBundle extends Bundle
 {
 }

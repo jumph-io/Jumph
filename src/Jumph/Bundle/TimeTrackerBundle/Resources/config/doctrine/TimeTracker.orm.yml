@@ -1,4 +1,4 @@
-Jumph\Bundle\TimeBundle\Entity\TimeTracker:
+Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker:
     type: entity
     table: jumph_time_tracker
 

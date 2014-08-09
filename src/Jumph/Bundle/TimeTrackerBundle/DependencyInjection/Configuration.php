@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeBundle\DependencyInjection;
+namespace Jumph\Bundle\TimeTrackerBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('jumph_time');
+        $treeBuilder->root('jumph_time_tracker');
 
         return $treeBuilder;
     }

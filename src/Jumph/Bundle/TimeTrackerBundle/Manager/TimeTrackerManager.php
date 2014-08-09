@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeBundle\Manager;
+namespace Jumph\Bundle\TimeTrackerBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Jumph\Bundle\TimeBundle\Entity\TimeTracker;
+use Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
 
 class TimeTrackerManager extends PaginatorAware
@@ -30,7 +30,7 @@ class TimeTrackerManager extends PaginatorAware
      *
      * @var constant
      */
-    const ENTITY_CLASS = 'JumphTimeBundle:TimeTracker';
+    const ENTITY_CLASS = 'JumphTimeTrackerBundle:TimeTracker';
 
     /**
      * Object manager

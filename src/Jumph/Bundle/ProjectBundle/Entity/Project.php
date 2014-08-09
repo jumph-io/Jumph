@@ -13,7 +13,7 @@ namespace Jumph\Bundle\ProjectBundle\Entity;
 
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 use Jumph\Bundle\ClientBundle\Entity\Company;
-use Jumph\Bundle\TimeBundle\Entity\TimeTracker;
+use Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Project
