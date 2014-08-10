@@ -19,9 +19,6 @@ app/config/parameters.yml
 # Composer
 composer.phar
 
-# Tmp
-/web/adminlte
-
 #Capifony
 Capfile
 app/config/deploy.rb

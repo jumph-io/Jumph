@@ -53,6 +53,12 @@ assetic:
         font-awesome-woff:
             inputs: '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.woff'
             output: 'fonts/fontawesome-webfont.woff'
+        minimal-icon-2x:
+            inputs: '%kernel.root_dir%/../vendor/components/admin-lte/css/iCheck/minimal/minimal@2x.png'
+            output: 'iCheck/minimal/minimal@2x.png'
+        minimal-icon:
+            inputs: '%kernel.root_dir%/../vendor/components/admin-lte/css/iCheck/minimal/minimal.png'
+            output: 'iCheck/minimal/minimal.png'
     filters:
         cssrewrite: ~
 
