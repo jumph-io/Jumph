@@ -128,3 +128,4 @@ knp_menu:
 knp_paginator:
     template:
         pagination: pagination.html.twig
+        sortable: sortable.html.twig

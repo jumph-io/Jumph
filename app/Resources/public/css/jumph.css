@@ -1,3 +1,11 @@
 .search-form {
     padding: 10px 10px 0px 0px;
 }
+
+table th a.sortable {
+    color: #000;
+}
+
+table th a:hover {
+    color: #3c8dbc;
+}

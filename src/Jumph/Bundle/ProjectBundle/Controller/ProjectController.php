@@ -37,7 +37,14 @@ class ProjectController extends Controller
         $projectManager = $this->get('jumph_project.project_manager');
 
         return array(
-            'projects' => $projectManager->getPaginatedResults($request->query->get('page', 1))
+            'projects' => $projectManager->getPaginatedResults(
+                    $request->query->get('page', 1),
+                    15,
+                    array(
+                        'sort' => $request->query->get('sort', 'DESC'),
+                        'direction' => $request->query->get('direction', 'dateCreated')
+                    )
+                )
         );
     }
 

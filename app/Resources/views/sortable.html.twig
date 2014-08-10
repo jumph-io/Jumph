@@ -1,0 +1,15 @@
+{% spaceless %}
+    <a{% for attr, value in options %} {{ attr }}="{{ value }}"{% endfor %}>
+        {{ title }}&nbsp;
+        {% if sorted %}
+            {% if direction == 'asc' %}
+                <i class="fa fa-sort-down"></i>
+            {% endif %}
+            {% if direction == 'desc' %}
+                <i class="fa fa-sort-up"></i>
+            {% endif %}
+        {% else %}
+            <i class="fa fa-sort"></i>
+        {% endif %}
+    </a>
+{% endspaceless %}
