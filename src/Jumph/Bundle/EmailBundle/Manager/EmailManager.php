@@ -14,6 +14,7 @@ namespace Jumph\Bundle\EmailBundle\Manager;
 use Doctrine\Common\Persistence\ObjectManager;
 use Jumph\Bundle\EmailBundle\Entity\Email;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
+use Knp\Component\Pager\Pagination\PaginationInterface;
 
 class EmailManager extends PaginatorAware
 {
@@ -89,14 +90,16 @@ class EmailManager extends PaginatorAware
      * @param int           $limit      Items per page limit
      * @param array         $sortby     Sorting options
      *
-     * @return \Knp\Component\Pager\Pagination\PaginationInterface Returns a filtered paginator
+     * @return PaginationInterface Returns a filtered paginator
      */
     public function getPaginatedResults($page = 1, $limit = 15, array $sortby = array())
     {
         $qb = $this->objectManager
             ->createQueryBuilder(self::ENTITY_ALIAS)
-            ->select(self::ENTITY_ALIAS)
-            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS);
+            ->select(self::ENTITY_ALIAS, "em", "p")
+            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS)
+            ->leftJoin(self::ENTITY_ALIAS.".employee", "em")
+            ->leftJoin(self::ENTITY_ALIAS.".project", "p");
 
         return $this->getPaginator()->paginate($qb, $page, $limit, $sortby);
     }

@@ -11,12 +11,14 @@
 
 namespace Jumph\Bundle\AppBundle\Entity;
 
+use Doctrine\ORM\QueryBuilder;
+
 interface FilterableManagerInterface
 {
     /**
      * Return a new query builder
      *
-     * @return \Doctrine\ORM\QueryBuilder
+     * @return QueryBuilder
      */
     public function getQueryBuilder();
 }

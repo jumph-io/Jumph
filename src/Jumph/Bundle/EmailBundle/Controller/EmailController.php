@@ -36,7 +36,14 @@ class EmailController extends Controller
         $emailManager = $this->get('jumph_email.email_manager');
 
         return array(
-            'emails' => $emailManager->getPaginatedResults($request->query->get('page', 1))
+            'emails' => $emailManager->getPaginatedResults(
+                    $request->query->get('page', 1),
+                    15,
+                    array(
+                        'sort' => $request->query->get('sort', 'DESC'),
+                        'direction' => $request->query->get('direction', 'dateCreated')
+                    )
+                )
         );
     }
 
