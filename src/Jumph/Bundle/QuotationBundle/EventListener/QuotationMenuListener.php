@@ -22,7 +22,7 @@ class QuotationMenuListener
     {
         $menu = $event->getMenu();
 
-        $menu->addChild(
+        /*$menu->addChild(
             'Quotations',
             array(
                 'route' => 'jumph_quotation_overview',
@@ -31,6 +31,6 @@ class QuotationMenuListener
                     'weight' => 30
                 )
             )
-        );
+        );*/
     }
 }

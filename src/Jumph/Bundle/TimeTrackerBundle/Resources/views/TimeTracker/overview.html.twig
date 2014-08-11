@@ -88,12 +88,8 @@
 
 {% block javascripts %}
     {{ parent() }}
-    {% javascripts
-        '%kernel.root_dir%/../vendor/components/highcharts/highcharts.js'
-        '%kernel.root_dir%/../vendor/components/highcharts/modules/exporting.js'
-    %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script src="{{ asset('assets/js/highcharts.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/highcharts-exporting.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function() {
 

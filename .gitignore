@@ -1,5 +1,7 @@
 # Bootstrap
 app/bootstrap*
+node_modules
+bower_components
 
 # Symfony directories
 vendor/*
@@ -11,6 +13,7 @@ app/sessions/*
 !app/sessions/.gitkeep
 web/uploads/*
 web/bundles/*
+web/assets/*
 
 # Configuration files
 app/config/parameters.ini

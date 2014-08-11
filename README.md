@@ -5,17 +5,22 @@ Jumph [![Build Status](https://travis-ci.org/jumph-io/Jumph.svg?branch=master)](
 
 Jumph is a simple open source project management tool based on the Symfony Framework.
 
-Currently in development:
+Currently finished:
 - Project management
 - Client management
+
+Currently in development:
 - Issue tracker
 - Time tracker
 - Saving of emails
-- Keeping track of quotations
+- Calendar
+- Dashboard
 
 Future plans:
+- Task management
+- Quotations management
+- Invoice management
 - API
-- Native mobile apps
 
 Screenshots
 =====
@@ -30,9 +35,13 @@ Installation
 =====
 
 Jumph is not production ready yet. However, if you want to install it already or you want to contribute, follow these steps:
-- Run `bower install`
-- Run `composer install`
-- Make sure a database is present and the connection has been set
+- install bower `npm install -g bower`
+- install grunt `npm install -g grunt-cli`
+- run `bower install` to get bower dependencies
+- Run `npm install` to install grunt dependencies
+- Run `grunt` to install your assets
+- Run `composer install` to install php dependencies
+- Make sure a database is present and the connection has been set in `app/config/parameters.yml`
 - Run `php app/console doctrine:schema:update --force`
 - Open up Jumph and register yourself on the temporary registration page
 
