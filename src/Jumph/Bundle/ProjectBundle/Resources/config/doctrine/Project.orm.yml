@@ -19,14 +19,14 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
           joinColumn:
             name: company_id
             referencedColumnName: id
-          cascade: ["persist", "remove"]
+          cascade: ["persist"]
         employee:
           targetEntity: \Jumph\Bundle\ClientBundle\Entity\Employee
           inversedBy: projects
           joinColumn:
             name: employee_id
             referencedColumnName: id
-          cascade: ["persist", "remove"]
+          cascade: ["persist"]
 
     id:
         id:
