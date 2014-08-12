@@ -6,29 +6,17 @@
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
         {% block stylesheets %}
-            {% stylesheets  filter='cssrewrite'
-            '%kernel.root_dir%/../vendor/components/bootstrap/dist/css/bootstrap.css'
-            '%kernel.root_dir%/../vendor/components/fontawesome/css/font-awesome.css'
-            '%kernel.root_dir%/../vendor/components/admin-lte/css/AdminLTE.css'
-            %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/css/bundled.min.css') }}" />
         {% endblock %}
     </head>
 
     <body class="bg-black">
-
         {% block content %}
         {% endblock %}
 
-        {% javascripts
-            '%kernel.root_dir%/../vendor/components/jquery/dist/jquery.min.js'
-            '%kernel.root_dir%/../vendor/components/bootstrap/dist/js/bootstrap.min.js'
-            '%kernel.root_dir%/../vendor/components/admin-lte/js/AdminLTE/app.js'
-        %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-
+        {% block javascripts %}
+            <script src="{{ asset('assets/js/bundled.min.js') }}" type="text/javascript"></script>
+        {% endblock %}
     </body>
 
 </html>
