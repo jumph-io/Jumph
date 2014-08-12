@@ -1,0 +1,5 @@
+services:
+    jumph_project.project_manager:
+        class: Jumph\Bundle\ProjectBundle\Manager\ProjectManager
+        arguments:
+            - @doctrine.orm.entity_manager

@@ -1,0 +1,5 @@
+services:
+    jumph_email.email_manager:
+        class: Jumph\Bundle\EmailBundle\Manager\EmailManager
+        arguments:
+            - @doctrine.orm.entity_manager

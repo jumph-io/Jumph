@@ -1,0 +1,5 @@
+services:
+    jumph_email.email_menu_listener:
+        class: Jumph\Bundle\EmailBundle\EventListener\EmailMenuListener
+        tags:
+          - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuEmail }

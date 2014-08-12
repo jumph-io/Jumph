@@ -5,13 +5,14 @@
 {% endblock %}
 
 {% block headerContent %}
-<h1>
-    Clients
-    <small>Overview</small>
-</h1>
-<ol class="breadcrumb">
-    <li><i class="fa fa-building"></i> Clients</li>
-</ol>
+    <h1>
+        Clients
+        <small>Overview</small>
+    </h1>
+
+    <ol class="breadcrumb">
+        <li><i class="fa fa-building"></i> Clients</li>
+    </ol>
 {% endblock %}
 
 {% block content %}
@@ -19,14 +20,23 @@
         <div class="col-lg-12">
             <div class="box box-primary">
                 <div class="box-header">
-                    <!-- Potential title -->
+                    <div class="col-sm-6 col-lg-2 search-form pull-right">
+                        {{ form_start(filterForm, { 'attr': { 'id': 'main-form'}}) }}
+                        <div class="input-group">
+                            {{ form_widget(filterForm.name, { 'attr': { 'class': 'input-sm' } }) }}
+                            <div class="input-group-btn">
+                                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        {{ form_end(filterForm, {'render_rest': false}) }}
+                    </div>
                 </div>
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Name</th>
+                                <th>{{ knp_pagination_sortable(companies, 'Name', 'c.name') }}</th>
                                 <th>Employees</th>
                                 <th>Options</th>
                             </tr>
@@ -48,11 +58,11 @@
                                                 Options <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="{{ path('jumph_company_view', {'companyId' : company.id}) }}">View</a></li>
-                                                <li><a href="{{ path('jumph_company_edit', {'companyId' : company.id}) }}">Edit</a></li>
-                                                <li><a href="{{ path('jumph_employee_overview', {'companyId' : company.id}) }}">Employees</a></li>
+                                                <li><a href="{{ path('jumph_client_company_view', {'companyId' : company.id}) }}">View</a></li>
+                                                <li><a href="{{ path('jumph_client_company_edit', {'companyId' : company.id}) }}">Edit</a></li>
+                                                <li><a href="{{ path('jumph_client_employee_overview', {'companyId' : company.id}) }}">Employees</a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="{{ path('jumph_company_delete', {'companyId' : company.id}) }}s" class="js-delete-item">Delete</a></li>
+                                                <li><a href="{{ path('jumph_client_company_delete', {'companyId' : company.id}) }}s" class="js-delete-item">Delete</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -64,8 +74,8 @@
                 <div class="box-footer clearfix">
                     <div class="col-xs-6">
                         <div class="btn-group pagination">
-                            <a href="{{ path('jumph_company_add') }}" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add company</a>
-                            <a href="" class="btn btn-default"><i class="fa fa-lg fa-trash-o"></i>  Delete selected</a>
+                            <a href="{{ path('jumph_client_company_add') }}" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add company</a>
+                            <!--<a href="" class="btn btn-default"><i class="fa fa-lg fa-trash-o"></i>  Delete selected</a>-->
                         </div>
                     </div>
                     <div class="col-xs-6">

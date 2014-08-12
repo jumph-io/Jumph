@@ -13,6 +13,7 @@ namespace Jumph\Bundle\ClientBundle\Controller;
 
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Form\Type\CompanyType;
+use Jumph\Bundle\ClientBundle\Form\Filter\CompanyFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -32,10 +33,22 @@ class CompanyController extends Controller
      */
     public function overviewAction(Request $request)
     {
-        $companyManager = $this->get('jumph_client.company_manager');
+        $filterForm = $this->createForm(new CompanyFilterType());
+        $filterForm->handleRequest($request);
+
+        $filter = $this->get('jumph_client.company_filter');
 
         return array(
-            'companies' => $companyManager->getPaginatedResults($request->query->get('page', 1))
+            'filterForm' => $filterForm->createView(),
+            'companies' => $filter->getPaginatedResults(
+                $filterForm,
+                $request->query->get('page', 1),
+                15,
+                array(
+                    'sort' => $request->query->get('sort', 'DESC'),
+                    'direction' => $request->query->get('direction', 'dateCreated')
+                )
+            )
         );
     }
 
@@ -79,7 +92,7 @@ class CompanyController extends Controller
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Company created!');
 
-                return $this->redirect($this->generateUrl('jumph_company_overview'));
+                return $this->redirect($this->generateUrl('jumph_client_company_overview'));
             }
         }
 
@@ -112,7 +125,7 @@ class CompanyController extends Controller
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Company updated!');
 
-                return $this->redirect($this->generateUrl('jumph_company_overview'));
+                return $this->redirect($this->generateUrl('jumph_client_company_overview'));
             }
         }
 
@@ -138,6 +151,6 @@ class CompanyController extends Controller
         $alertMessage = $this->get('jumph_app.alert_message');
         $alertMessage->success('Company deleted!');
 
-        return $this->redirect($this->generateUrl('jumph_company_overview'));
+        return $this->redirect($this->generateUrl('jumph_client_company_overview'));
     }
 }

@@ -1,0 +1,16 @@
+services:
+    jumph_email.email_filter:
+        class: Jumph\Bundle\EmailBundle\Filter\EmailFilter
+        arguments:
+            - @jumph_email.email_manager
+            - @lexik_form_filter.query_builder_updater
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]
+    jumph_email.email_filter_name:
+            class: Jumph\Bundle\EmailBundle\Filter\Type\NameFilterType
+            tags:
+                - { name: form.type, alias: email_filter_name }
+    jumph_email.filter_subscriber:
+        class: Jumph\Bundle\EmailBundle\Filter\Subscriber\FilterSubscriber
+        tags:
+            - { name: kernel.event_subscriber, alias: filter_subscriber }

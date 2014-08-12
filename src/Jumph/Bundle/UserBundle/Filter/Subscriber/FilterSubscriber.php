@@ -26,10 +26,10 @@ class FilterSubscriber implements EventSubscriberInterface
     {
         return array(
             // if a Doctrine\ORM\QueryBuilder is passed to the lexik_form_filter.query_builder_updater service
-            'lexik_form_filter.apply.orm.filter_name' => array('filterName'),
+            'lexik_form_filter.apply.orm.user_filter_name' => array('filterName'),
 
             // if a Doctrine\DBAL\Query\QueryBuilder is passed to the lexik_form_filter.query_builder_updater service
-            'lexik_form_filter.apply.dbal.filter_name' => array('filterName'),
+            'lexik_form_filter.apply.dbal.user_filter_name' => array('filterName'),
         );
     }
 

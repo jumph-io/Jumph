@@ -12,12 +12,11 @@
 namespace Jumph\Bundle\UserBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\QueryBuilder;
 use Jumph\Bundle\AppBundle\Entity\FilterableManagerInterface;
 use Jumph\Bundle\UserBundle\Entity\User;
-use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
-use Knp\Component\Pager\Pagination\PaginationInterface;
 
-class UserManager extends PaginatorAware implements FilterableManagerInterface
+class UserManager implements FilterableManagerInterface
 {
     /**
      * Entity alias
@@ -48,58 +47,6 @@ class UserManager extends PaginatorAware implements FilterableManagerInterface
     public function __construct(ObjectManager $objectManager)
     {
         $this->objectManager = $objectManager;
-    }
-
-    /**
-     * Find user by id
-     *
-     * @param int $id User id
-     *
-     * @return array Array of users
-     */
-    public function findById($id)
-    {
-        return $this->objectManager
-            ->getRepository(self::ENTITY_ALIAS)
-            ->find($id);
-    }
-
-    /**
-     * Find all users
-     *
-     * @param string $sortField Field to sort by
-     * @param string $sortOrder Order of sorting
-     *
-     * @return array Array of users
-     */
-    public function findAll($sortField = 'createdAt', $sortOrder = 'DESC')
-    {
-        return $this->objectManager
-            ->createQueryBuilder(self::ENTITY_ALIAS)
-            ->select(self::ENTITY_ALIAS)
-            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS)
-            ->orderBy(self::ENTITY_ALIAS . $sortField, $sortOrder)
-            ->getQuery()
-            ->getResult();
-    }
-
-    /**
-     * Get paginated results.
-     *
-     * @param int           $page       Current page
-     * @param int           $limit      Items per page limit
-     * @param array         $sortby     Sorting options
-     *
-     * @return PaginationInterface Returns a filtered paginator
-     */
-    public function getPaginatedResults($page = 1, $limit = 15, array $sortby = array())
-    {
-        $qb = $this->objectManager
-            ->createQueryBuilder(self::ENTITY_ALIAS)
-            ->select(self::ENTITY_ALIAS)
-            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS);
-
-        return $this->getPaginator()->paginate($qb, $page, $limit, $sortby);
     }
 
     /**
@@ -138,7 +85,7 @@ class UserManager extends PaginatorAware implements FilterableManagerInterface
     /**
      * Return a new query builder
      *
-     * @return \Doctrine\ORM\QueryBuilder
+     * @return QueryBuilder
      */
     public function getQueryBuilder()
     {

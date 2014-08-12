@@ -9,6 +9,7 @@
         Projects
         <small>Overview</small>
     </h1>
+
     <ol class="breadcrumb">
         <li><i class="fa fa-tasks"></i> Projects</li>
     </ol>
@@ -19,7 +20,16 @@
         <div class="col-lg-12">
             <div class="box box-primary">
                 <div class="box-header">
-                    <!-- Potential title -->
+                    <div class="col-sm-6 col-lg-2 search-form pull-right">
+                        {{ form_start(filterForm, { 'attr': { 'id': 'main-form'}}) }}
+                        <div class="input-group">
+                            {{ form_widget(filterForm.name, { 'attr': { 'class': 'input-sm' } }) }}
+                            <div class="input-group-btn">
+                                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        {{ form_end(filterForm, {'render_rest': false}) }}
+                    </div>
                 </div>
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-striped">

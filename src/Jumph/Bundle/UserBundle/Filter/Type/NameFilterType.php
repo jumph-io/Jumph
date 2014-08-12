@@ -47,6 +47,6 @@ class NameFilterType extends AbstractType
      */
     public function getName()
     {
-        return 'filter_name';
+        return 'user_filter_name';
     }
 }

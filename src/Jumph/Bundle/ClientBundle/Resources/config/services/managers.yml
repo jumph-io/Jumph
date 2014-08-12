@@ -1,0 +1,9 @@
+services:
+    jumph_client.company_manager:
+        class: Jumph\Bundle\ClientBundle\Manager\CompanyManager
+        arguments:
+            - @doctrine.orm.entity_manager
+    jumph_client.employee_manager:
+        class: Jumph\Bundle\ClientBundle\Manager\EmployeeManager
+        arguments:
+            - @doctrine.orm.entity_manager

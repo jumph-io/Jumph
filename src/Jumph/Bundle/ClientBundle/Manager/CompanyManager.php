@@ -12,10 +12,11 @@
 namespace Jumph\Bundle\ClientBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
+use Doctrine\ORM\QueryBuilder;
+use Jumph\Bundle\AppBundle\Entity\FilterableManagerInterface;
 use Jumph\Bundle\ClientBundle\Entity\Company;
 
-class CompanyManager extends PaginatorAware
+class CompanyManager implements FilterableManagerInterface
 {
 
     /**
@@ -50,58 +51,6 @@ class CompanyManager extends PaginatorAware
     }
 
     /**
-     * Find company by id
-     *
-     * @param int $id Company id
-     *
-     * @return array Array of companies
-     */
-    public function findById($id)
-    {
-        return $this->objectManager
-            ->getRepository(self::ENTITY_CLASS)
-            ->find($id);
-    }
-
-    /**
-     * Find all companies
-     *
-     * @param string $sortField Field to sort by
-     * @param string $sortOrder Order of sorting
-     *
-     * @return array Array of companies
-     */
-    public function findAll($sortField = 'createdAt', $sortOrder = 'DESC')
-    {
-        return $this->objectManager
-            ->createQueryBuilder(self::ENTITY_ALIAS)
-            ->select(self::ENTITY_ALIAS)
-            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS)
-            ->orderBy(self::ENTITY_ALIAS . "." . $sortField, $sortOrder)
-            ->getQuery()
-            ->getResult();
-    }
-
-    /**
-     * Get paginated results.
-     *
-     * @param int           $page       Current page
-     * @param int           $limit      Items per page limit
-     * @param array         $sortby     Sorting options
-     *
-     * @return \Knp\Component\Pager\Pagination\PaginationInterface Returns a filtered paginator
-     */
-    public function getPaginatedResults($page = 1, $limit = 15, array $sortby = array())
-    {
-        $qb = $this->objectManager
-            ->createQueryBuilder(self::ENTITY_ALIAS)
-            ->select(self::ENTITY_ALIAS)
-            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS);
-
-        return $this->getPaginator()->paginate($qb, $page, $limit, $sortby);
-    }
-
-    /**
      * Create a company
      *
      * @param Company $company
@@ -132,5 +81,17 @@ class CompanyManager extends PaginatorAware
     {
         $this->objectManager->remove($company);
         $this->objectManager->flush();
+    }
+
+    /**
+     * Return a new query builder
+     *
+     * @return QueryBuilder
+     */
+    public function getQueryBuilder()
+    {
+        return $this->objectManager
+            ->getRepository(self::ENTITY_CLASS)
+            ->createQueryBuilder(self::ENTITY_ALIAS);
     }
 }

@@ -1,0 +1,5 @@
+services:
+    jumph_user.user_manager:
+        class: Jumph\Bundle\UserBundle\Manager\UserManager
+        arguments:
+            - @doctrine.orm.entity_manager

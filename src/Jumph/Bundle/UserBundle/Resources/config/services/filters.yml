@@ -1,0 +1,16 @@
+services:
+    jumph_user.user_filter:
+        class: Jumph\Bundle\UserBundle\Filter\UserFilter
+        arguments:
+            - @jumph_user.user_manager
+            - @lexik_form_filter.query_builder_updater
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]
+    jumph_user.user_filter_name:
+            class: Jumph\Bundle\UserBundle\Filter\Type\NameFilterType
+            tags:
+                - { name: form.type, alias: user_filter_name }
+    jumph_user.filter_subscriber:
+        class: Jumph\Bundle\UserBundle\Filter\Subscriber\FilterSubscriber
+        tags:
+            - { name: kernel.event_subscriber, alias: filter_subscriber }

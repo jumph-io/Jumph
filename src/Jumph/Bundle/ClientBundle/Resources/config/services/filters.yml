@@ -1,0 +1,31 @@
+services:
+    jumph_client.company_filter:
+        class: Jumph\Bundle\ClientBundle\Filter\CompanyFilter
+        arguments:
+            - @jumph_client.company_manager
+            - @lexik_form_filter.query_builder_updater
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]
+    jumph_client.company_filter_name:
+            class: Jumph\Bundle\ClientBundle\Filter\Type\CompanyNameFilterType
+            tags:
+                - { name: form.type, alias: company_filter_name }
+    jumph_client.company_filter_subscriber:
+        class: Jumph\Bundle\ClientBundle\Filter\Subscriber\CompanyFilterSubscriber
+        tags:
+            - { name: kernel.event_subscriber, alias: company_filter_subscriber }
+    jumph_client.employee_filter:
+        class: Jumph\Bundle\ClientBundle\Filter\EmployeeFilter
+        arguments:
+            - @jumph_client.employee_manager
+            - @lexik_form_filter.query_builder_updater
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]
+    jumph_client.employee_filter_name:
+            class: Jumph\Bundle\ClientBundle\Filter\Type\EmployeeNameFilterType
+            tags:
+                - { name: form.type, alias: employee_filter_name }
+    jumph_client.employee_filter_subscriber:
+        class: Jumph\Bundle\ClientBundle\Filter\Subscriber\EmployeeFilterSubscriber
+        tags:
+            - { name: kernel.event_subscriber, alias: employee_filter_subscriber }

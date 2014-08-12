@@ -1,0 +1,11 @@
+services:
+    jumph_user.registration.form.type:
+        class: Jumph\Bundle\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: jumph_user_registration }
+    jumph_user.profile.form.type:
+        class: Jumph\Bundle\UserBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: jumph_user_profile }

@@ -25,7 +25,7 @@ class ClientMenuListener
         $menu->addChild(
             'Clients',
             array(
-                'route' => 'jumph_company_overview',
+                'route' => 'jumph_client_company_overview',
                 'extras' => array(
                     'icon' => 'fa-building fa-fw',
                     'weight' => 100

@@ -12,6 +12,7 @@
 namespace Jumph\Bundle\EmailBundle\Controller;
 
 use Jumph\Bundle\EmailBundle\Entity\Email;
+use Jumph\Bundle\EmailBundle\Form\Filter\EmailFilterType;
 use Jumph\Bundle\EmailBundle\Form\Type\EmailType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,17 +34,22 @@ class EmailController extends Controller
      */
     public function overviewAction(Request $request)
     {
-        $emailManager = $this->get('jumph_email.email_manager');
+        $filterForm = $this->createForm(new EmailFilterType());
+        $filterForm->handleRequest($request);
+
+        $filter = $this->get('jumph_email.email_filter');
 
         return array(
-            'emails' => $emailManager->getPaginatedResults(
-                    $request->query->get('page', 1),
-                    15,
-                    array(
-                        'sort' => $request->query->get('sort', 'DESC'),
-                        'direction' => $request->query->get('direction', 'dateCreated')
-                    )
+            'filterForm' => $filterForm->createView(),
+            'emails' => $filter->getPaginatedResults(
+                $filterForm,
+                $request->query->get('page', 1),
+                15,
+                array(
+                    'sort' => $request->query->get('sort', 'DESC'),
+                    'direction' => $request->query->get('direction', 'dateCreated')
                 )
+            )
         );
     }
 

@@ -1,30 +1,30 @@
-jumph_employee_overview:
+jumph_client_employee_overview:
     path:  /clients/{companyId}/employees
     defaults: { _controller: JumphClientBundle:Employee:overview }
     methods:  [GET]
     requirements:
             companyId:  \d+
-jumph_employee_view:
+jumph_client_employee_view:
     path:  /clients/{companyId}/employees/{employeeId}/view
     defaults: { _controller: JumphClientBundle:Employee:view }
     methods:  [GET]
     requirements:
             companyId:  \d+
             employeeId: \d+
-jumph_employee_add:
+jumph_client_employee_add:
     path:  /clients/{companyId}/employees/add
     defaults: { _controller: JumphClientBundle:Employee:add }
     methods:  [GET, POST]
     requirements:
             companyId:  \d+
-jumph_employee_edit:
+jumph_client_employee_edit:
     path:  /clients/{companyId}/employees/{employeeId}/edit
     defaults: { _controller: JumphClientBundle:Employee:edit }
     methods:  [GET, POST]
     requirements:
             companyId:  \d+
             employeeId: \d+
-jumph_employee_delete:
+jumph_client_employee_delete:
     path:  /clients/{companyId}/employees/{employeeId}/delete
     defaults: { _controller: JumphClientBundle:Employee:delete }
     methods:  [DELETE]

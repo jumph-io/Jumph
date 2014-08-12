@@ -46,20 +46,6 @@ class UserFilter extends PaginatorAware
     }
 
     /**
-     * Returns an array of filter results.
-     *
-     * @param FormInterface $form
-     *
-     * @return array Return an array of objects
-     */
-    public function getResults(FormInterface $form, array $criteria = array())
-    {
-        $qb = $this->createQueryBuilder($form);
-
-        return $qb->getQuery()->getResult();
-    }
-
-    /**
      * Returns a filtered paginator.
      *
      * @param FormInterface $form    Filter form

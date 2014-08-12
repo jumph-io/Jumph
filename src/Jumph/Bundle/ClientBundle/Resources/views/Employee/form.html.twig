@@ -10,8 +10,8 @@
         <small>Add / Edit</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ path('jumph_company_overview') }}"><i class="fa fa-building"></i> Clients</a></li>
-        <li><a href="{{ path('jumph_employee_overview', {'companyId' : company.id}) }}"> Employees</a></li>
+        <li><a href="{{ path('jumph_client_company_overview') }}"><i class="fa fa-building"></i> Clients</a></li>
+        <li><a href="{{ path('jumph_client_employee_overview', {'companyId' : company.id}) }}"> Employees</a></li>
         <li>Add / Edit</li>
     </ol>
 {% endblock %}

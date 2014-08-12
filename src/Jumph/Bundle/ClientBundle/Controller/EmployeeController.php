@@ -14,6 +14,7 @@ namespace Jumph\Bundle\ClientBundle\Controller;
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 use Jumph\Bundle\ClientBundle\Form\Type\EmployeeType;
+use Jumph\Bundle\ClientBundle\Form\Filter\EmployeeFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -35,11 +36,24 @@ class EmployeeController extends Controller
      */
     public function overviewAction(Request $request, Company $company)
     {
-        $employeeManager = $this->get('jumph_client.employee_manager');
+        $filterForm = $this->createForm(new EmployeeFilterType());
+        $filterForm->handleRequest($request);
+
+        $filter = $this->get('jumph_client.employee_filter');
 
         return array(
-            'employees' => $employeeManager->getPaginatedResults($company, $request->query->get('page', 1)),
-            'company' => $company
+            'filterForm' => $filterForm->createView(),
+            'company' => $company,
+            'employees' => $filter->getPaginatedResults(
+                $company,
+                $filterForm,
+                $request->query->get('page', 1),
+                15,
+                array(
+                    'sort' => $request->query->get('sort', 'DESC'),
+                    'direction' => $request->query->get('direction', 'dateCreated')
+                )
+            )
         );
     }
 
@@ -91,7 +105,7 @@ class EmployeeController extends Controller
 
                 return $this->redirect(
                     $this->generateUrl(
-                        'jumph_employee_overview',
+                        'jumph_client_employee_overview',
                         array(
                             'companyId' => $company->getId()
                         )
@@ -134,7 +148,7 @@ class EmployeeController extends Controller
 
                 return $this->redirect(
                     $this->generateUrl(
-                        'jumph_employee_overview',
+                        'jumph_client_employee_overview',
                         array(
                             'companyId' => $company->getId()
                         )
@@ -170,7 +184,7 @@ class EmployeeController extends Controller
 
         return $this->redirect(
             $this->generateUrl(
-                'jumph_employee_overview',
+                'jumph_client_employee_overview',
                 array(
                     'companyId' => $company->getId()
                 )

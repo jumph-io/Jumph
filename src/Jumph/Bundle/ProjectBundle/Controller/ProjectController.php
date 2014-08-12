@@ -13,6 +13,7 @@ namespace Jumph\Bundle\ProjectBundle\Controller;
 
 use Jumph\Bundle\ProjectBundle\Entity\Project;
 use Jumph\Bundle\ProjectBundle\Form\Type\ProjectType;
+use Jumph\Bundle\ProjectBundle\Form\Filter\ProjectFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,17 +35,22 @@ class ProjectController extends Controller
      */
     public function overviewAction(Request $request)
     {
-        $projectManager = $this->get('jumph_project.project_manager');
+        $filterForm = $this->createForm(new ProjectFilterType());
+        $filterForm->handleRequest($request);
+
+        $filter = $this->get('jumph_project.project_filter');
 
         return array(
-            'projects' => $projectManager->getPaginatedResults(
-                    $request->query->get('page', 1),
-                    15,
-                    array(
-                        'sort' => $request->query->get('sort', 'DESC'),
-                        'direction' => $request->query->get('direction', 'dateCreated')
-                    )
+            'filterForm' => $filterForm->createView(),
+            'projects' => $filter->getPaginatedResults(
+                $filterForm,
+                $request->query->get('page', 1),
+                15,
+                array(
+                    'sort' => $request->query->get('sort', 'DESC'),
+                    'direction' => $request->query->get('direction', 'dateCreated')
                 )
+            )
         );
     }
 

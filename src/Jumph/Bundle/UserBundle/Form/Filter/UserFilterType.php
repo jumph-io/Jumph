@@ -24,7 +24,7 @@ class UserFilterType extends AbstractType
     {
         $builder
             ->setMethod('GET')
-            ->add('name', 'filter_name');
+            ->add('name', 'user_filter_name');
     }
 
     /**

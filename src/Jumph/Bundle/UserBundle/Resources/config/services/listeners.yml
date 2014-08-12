@@ -1,0 +1,5 @@
+services:
+    jumph_user.user_menu_listener:
+        class: Jumph\Bundle\UserBundle\EventListener\UserMenuListener
+        tags:
+          - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuUser }
