@@ -1,7 +1,7 @@
 jumph_config_project_status_overview:
     path:  /config/projects/status
     defaults: { _controller: JumphProjectBundle:ProjectStatus:overview }
-    methods:  [GET, POST]
+    methods:  [GET]
 jumph_config_project_status_view:
     path:  /config/projects/status/{projectStatusId}/view
     defaults: { _controller: JumphProjectBundle:ProjectStatus:view }
