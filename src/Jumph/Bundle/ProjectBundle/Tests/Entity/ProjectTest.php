@@ -14,6 +14,8 @@ namespace Jumph\Bundle\ProjectBundle\Tests\Entity;
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
+use Jumph\Bundle\ProjectBundle\Entity\ProjectStatus;
+use Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker;
 
 class ProjectTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,12 +34,13 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Google Glass', $project->getName());
     }
 
-    public function testSetStatus()
+    public function testSetProjectStatus()
     {
         $project = new Project();
+        $projectStatus = new ProjectStatus();
 
-        $project->setStatus('Development');
-        $this->assertEquals('Development', $project->getStatus());
+        $project->setProjectStatus($projectStatus);
+        $this->assertEquals($projectStatus, $project->getProjectStatus());
     }
 
     public function testSetDescription()
@@ -66,6 +69,28 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($project->getEmployee());
         $project->setEmployee($employee);
         $this->assertEquals($employee, $project->getEmployee());
+    }
+
+    public function testAddTimeTracker()
+    {
+        $timeTracker = new TimeTracker();
+        $project = new Project();
+
+        $this->assertEquals(0, $project->getTimetrackers()->count());
+        $project->addTimeTracker($timeTracker);
+        $this->assertEquals(1, $project->getTimetrackers()->count());
+    }
+
+    public function testRemoveTimeTracker()
+    {
+        $timeTracker = new TimeTracker();
+        $project = new Project();
+
+        $this->assertEquals(0, $project->getTimetrackers()->count());
+        $project->addTimeTracker($timeTracker);
+        $this->assertEquals(1, $project->getTimetrackers()->count());
+        $project->removeTimeTracker($timeTracker);
+        $this->assertEquals(0, $project->getTimetrackers()->count());
     }
 
     public function testGetCreatedAt()
