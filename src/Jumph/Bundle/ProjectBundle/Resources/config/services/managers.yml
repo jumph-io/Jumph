@@ -3,3 +3,7 @@ services:
         class: Jumph\Bundle\ProjectBundle\Manager\ProjectManager
         arguments:
             - @doctrine.orm.entity_manager
+    jumph_project.project_status_manager:
+        class: Jumph\Bundle\ProjectBundle\Manager\ProjectStatusManager
+        arguments:
+            - @doctrine.orm.entity_manager

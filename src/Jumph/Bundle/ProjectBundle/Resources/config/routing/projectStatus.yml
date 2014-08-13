@@ -1,0 +1,26 @@
+jumph_config_project_status_overview:
+    path:  /config/projects/status
+    defaults: { _controller: JumphProjectBundle:ProjectStatus:overview }
+    methods:  [GET, POST]
+jumph_config_project_status_view:
+    path:  /config/projects/status/{projectStatusId}/view
+    defaults: { _controller: JumphProjectBundle:ProjectStatus:view }
+    methods:  [GET]
+    requirements:
+            projectStatusId:  \d+
+jumph_config_project_status_add:
+    path:  /config/projects/status/add
+    defaults: { _controller: JumphProjectBundle:ProjectStatus:add }
+    methods:  [GET, POST]
+jumph_config_project_status_edit:
+    path:  /config/projects/status/{projectStatusId}/edit
+    defaults: { _controller: JumphProjectBundle:ProjectStatus:edit }
+    methods:  [GET, POST]
+    requirements:
+            projectStatusId:  \d+
+jumph_config_project_status_delete:
+    path:  /config/projects/status/{projectStatusId}/delete
+    defaults: { _controller: JumphProjectBundle:ProjectStatus:delete }
+    methods:  [DELETE]
+    requirements:
+            projectStatusId:  \d+

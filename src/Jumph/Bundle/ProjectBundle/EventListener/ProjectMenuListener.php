@@ -44,7 +44,7 @@ class ProjectMenuListener
         $menu->addChild(
             'Project status',
             array(
-                'route' => 'jumph_config_project_status',
+                'route' => 'jumph_config_project_status_overview',
                 'extras' => array(
                     'icon' => 'fa-cogs fa-fw',
                     'weight' => 10

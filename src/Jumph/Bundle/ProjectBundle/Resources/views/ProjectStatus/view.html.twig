@@ -1,17 +1,18 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ parent() }} | Projects
+    {{ parent() }} | Config | Projects
 {% endblock %}
 
 {% block headerContent %}
     <h1>
-        Projects
+        Config | Projects
         <small>Add / Edit</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ path('jumph_project_overview') }}"><i class="fa fa-tasks"></i> Projects</a></li>
-        <li> Add / Edit</li>
+        <li><i class="fa fa-cogs"></i> Config</li>
+        <li><a href="{{ path('jumph_config_project_status_overview') }}"><i class="fa fa-tasks"></i> Project status</a></li>
+        <li> View</li>
     </ol>
 {% endblock %}
 
@@ -19,32 +20,30 @@
     <div class="row">
         <div class="col-lg-8 col-md-12">
             <div class="box box-primary">
-                {{ form_start(projectForm, { 'attr': { 'id': 'main-form'}}) }}
                 <div class="box-header">
-                    <!-- Potential title -->
+                    <h3 class="box-title">Project status</h3>
                 </div>
                 <div class="box-body">
-                    {{ form_row(projectForm.name) }}
-                    {{ form_row(projectForm.company) }}
-                    {{ form_row(projectForm.employee) }}
-                    {{ form_row(projectForm.projectStatus) }}
-                    {{ form_row(projectForm.description) }}
-                    {{ form_widget(projectForm._token) }}
+                    <dl class="dl-horizontal">
+                        <dt>Name</dt>
+                        <dd>{{ projectStatus.name }}</dd>
+                        <dt>Description</dt>
+                        <dd>{{ projectStatus.description }}</dd>
+                    </dl>
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <!-- Potential footer -->
                 </div>
-                {{ form_end(projectForm, {'render_rest': false}) }}
             </div>
         </div>
 
         <div class="col-lg-4 col-md-12">
             <div class="box box-primary">
                 <div class="box-header">
-                    <!-- Potential title -->
+                    <!-- Potential header -->
                 </div>
                 <div class="box-body">
-                    <!-- To be defined -->
+                    <!-- Potential body -->
                 </div>
                 <div class="box-footer">
                     <!-- Potential footer -->

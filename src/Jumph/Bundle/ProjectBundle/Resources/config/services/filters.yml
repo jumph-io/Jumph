@@ -7,10 +7,25 @@ services:
         calls:
             - [ setPaginator, [ @knp_paginator ] ]
     jumph_project.project_filter_name:
-            class: Jumph\Bundle\ProjectBundle\Filter\Type\NameFilterType
+            class: Jumph\Bundle\ProjectBundle\Filter\Type\ProjectNameFilterType
             tags:
                 - { name: form.type, alias: project_filter_name }
-    jumph_project.filter_subscriber:
-        class: Jumph\Bundle\ProjectBundle\Filter\Subscriber\FilterSubscriber
+    jumph_project.project_filter_subscriber:
+        class: Jumph\Bundle\ProjectBundle\Filter\Subscriber\ProjectFilterSubscriber
         tags:
-            - { name: kernel.event_subscriber, alias: filter_subscriber }
+            - { name: kernel.event_subscriber, alias: project_filter_subscriber }
+    jumph_project.project_status_filter:
+        class: Jumph\Bundle\ProjectBundle\Filter\ProjectStatusFilter
+        arguments:
+            - @jumph_project.project_status_manager
+            - @lexik_form_filter.query_builder_updater
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]
+    jumph_project.project_status_filter_name:
+            class: Jumph\Bundle\ProjectBundle\Filter\Type\ProjectStatusNameFilterType
+            tags:
+                - { name: form.type, alias: project_status_filter_name }
+    jumph_project.project_status_filter_subscriber:
+        class: Jumph\Bundle\ProjectBundle\Filter\Subscriber\ProjectStatusFilterSubscriber
+        tags:
+            - { name: kernel.event_subscriber, alias: project_status_filter_subscriber }

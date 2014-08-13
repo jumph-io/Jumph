@@ -27,7 +27,7 @@
                         <dt>Name</dt>
                         <dd>{{ project.name }}</dd>
                         <dt>Status</dt>
-                        <dd>{{ project.status }}</dd>
+                        <dd>{{ project.projectStatus is not null ? project.projectStatus.name : "" }}</dd>
                         <dt>Description</dt>
                         <dd>{{ project.description }}</dd>
                     </dl>

@@ -8,5 +8,12 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
             - Valid: ~
         employee:
             - Valid: ~
-        status:
+        projectStatus:
+            - Valid: ~
+
+Jumph\Bundle\ProjectBundle\Entity\ProjectStatus:
+    properties:
+        name:
             - NotBlank: ~
+            - Length:
+                min: 3

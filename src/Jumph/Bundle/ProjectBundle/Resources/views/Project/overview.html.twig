@@ -37,7 +37,7 @@
                             <tr>
                                 <th></th>
                                 <th>{{ knp_pagination_sortable(projects, 'Title', 'p.name') }}</th>
-                                <th>{{ knp_pagination_sortable(projects, 'Status', 'p.status') }}</th>
+                                <th>{{ knp_pagination_sortable(projects, 'Status', 'ps.name') }}</th>
                                 <th>{{ knp_pagination_sortable(projects, 'Client', 'c.name') }}</th>
                                 <th>{{ knp_pagination_sortable(projects, 'Project manager', 'e.firstname') }}</th>
                                 <th>Options</th>
@@ -53,9 +53,9 @@
                                 <tr>
                                     <td><input type="checkbox" /></td>
                                     <td>{{ project.name }}</td>
-                                    <td>{{ project.status }}</td>
-                                    <td>{{ project.company.name }}</td>
-                                    <td>{{ project.employee.firstname }} {{ project.employee.lastname }}</td>
+                                    <td>{{ project.projectStatus is not null ? project.projectStatus.name : "" }}</td>
+                                    <td>{{ project.company is not null ? project.company.name : "" }}</td>
+                                    <td>{{ project.employee is not null ? project.employee.firstname ~ " " ~ project.employee.lastname  : "" }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">

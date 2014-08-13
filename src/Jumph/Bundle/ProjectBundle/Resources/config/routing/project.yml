@@ -1,0 +1,26 @@
+jumph_project_overview:
+    path:  /projects
+    defaults: { _controller: JumphProjectBundle:Project:overview }
+    methods:  [GET]
+jumph_project_view:
+    path:  /projects/{projectId}/view
+    defaults: { _controller: JumphProjectBundle:Project:view }
+    methods:  [GET]
+    requirements:
+            projectId:  \d+
+jumph_project_add:
+    path:  /projects/add
+    defaults: { _controller: JumphProjectBundle:Project:add }
+    methods:  [GET, POST]
+jumph_project_edit:
+    path:  /projects/{projectId}/edit
+    defaults: { _controller: JumphProjectBundle:Project:edit }
+    methods:  [GET, POST]
+    requirements:
+            projectId:  \d+
+jumph_project_delete:
+    path:  /projects/{projectId}/delete
+    defaults: { _controller: JumphProjectBundle:Project:delete }
+    methods:  [DELETE]
+    requirements:
+            projectId:  \d+

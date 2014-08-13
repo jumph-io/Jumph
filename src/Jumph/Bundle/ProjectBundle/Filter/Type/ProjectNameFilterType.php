@@ -14,7 +14,7 @@ namespace Jumph\Bundle\ProjectBundle\Filter\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class NameFilterType extends AbstractType
+class ProjectNameFilterType extends AbstractType
 {
     /**
      * Set the default options.

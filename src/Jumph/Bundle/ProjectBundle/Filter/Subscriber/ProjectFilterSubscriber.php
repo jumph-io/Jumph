@@ -15,7 +15,7 @@ namespace Jumph\Bundle\ProjectBundle\Filter\Subscriber;
 use Lexik\Bundle\FormFilterBundle\Event\ApplyFilterEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class FilterSubscriber implements EventSubscriberInterface
+class ProjectFilterSubscriber implements EventSubscriberInterface
 {
     /**
      * Events to listen to.

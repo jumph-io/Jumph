@@ -32,14 +32,10 @@ class ProjectType extends AbstractType
                 'class' => 'JumphClientBundle:Employee',
                 'property' => 'firstname'
             ))
-            ->add('status', 'choice', array(
-                'choices'   => array(
-                    'setup'   => 'Setup',
-                    'progress'   => 'In progress',
-                    'finished' => 'Finished',
-                    'onhold'   => 'On hold',
-                )
-            ))
+            ->add('projectStatus', 'entity', array(
+                    'class' => 'JumphProjectBundle:ProjectStatus',
+                    'property' => 'name'
+                ))
             ->add('description');
     }
 
@@ -58,6 +54,6 @@ class ProjectType extends AbstractType
      */
     public function getName()
     {
-        return 'project';
+        return 'jumph_project';
     }
 }

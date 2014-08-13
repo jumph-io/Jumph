@@ -13,6 +13,12 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
             mappedBy: project
 
     manyToOne:
+        projectStatus:
+          targetEntity: ProjectStatus
+          joinColumn:
+            name: project_status_id
+            referencedColumnName: id
+          cascade: ["persist"]
         company:
           targetEntity: \Jumph\Bundle\ClientBundle\Entity\Company
           inversedBy: projects
@@ -35,9 +41,6 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
 
     fields:
         name:
-            type: string
-            length: 150
-        status:
             type: string
             length: 150
         description:

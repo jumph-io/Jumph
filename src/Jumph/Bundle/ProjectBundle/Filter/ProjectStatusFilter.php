@@ -19,7 +19,7 @@ use Symfony\Component\Form\FormInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Doctrine\ORM\QueryBuilder;
 
-class ProjectFilter extends PaginatorAware
+class ProjectStatusFilter extends PaginatorAware
 {
     /**
      * @var FilterableManagerInterface
@@ -48,20 +48,17 @@ class ProjectFilter extends PaginatorAware
     /**
      * Returns a filtered paginator.
      *
-     * @param FormInterface $form    Filter form
-     * @param int           $page    Page number
-     * @param int           $limit   Limit per page
-     * @param array         $options Pagination options
+     * @param FormInterface $form Filter form
+     * @param int $page Page number
+     * @param int $limit Limit per page
+     * @param array $options Pagination options
      *
      * @return PaginationInterface
      */
     public function getPaginatedResults(FormInterface $form, $page = 1, $limit = 100, array $options = array())
     {
-        $qb = $this->createQueryBuilder($form)
-            ->addSelect("e", "c", "ps")
-            ->leftJoin("p.employee", "e")
-            ->leftJoin("p.company", "c")
-            ->leftJoin("p.projectStatus", "ps");
+        $qb = $this->createQueryBuilder($form);
+
         return $this->getPaginator()->paginate($qb, $page, $limit, $options);
     }
 

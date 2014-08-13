@@ -33,11 +33,6 @@ class Project
     /**
      * @var string
      */
-    private $status;
-
-    /**
-     * @var string
-     */
     private $description;
 
     /**
@@ -49,6 +44,16 @@ class Project
      * @var Employee
      */
     private $employee;
+
+    /**
+     * @var ProjectStatus
+     */
+    private $projectStatus;
+
+    /**
+     * @var ArrayCollection
+     */
+    private $timeTrackers;
 
     /**
      * @var date $createdAt
@@ -65,10 +70,6 @@ class Project
      */
     private $deletedAt;
 
-    /**
-     * @var ArrayCollection
-     */
-    private $timeTrackers;
 
     /**
      * Constructor
@@ -109,29 +110,6 @@ class Project
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status
-     * @return Project
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return string 
-     */
-    public function getStatus()
-    {
-        return $this->status;
     }
 
     /**
@@ -204,6 +182,63 @@ class Project
     }
 
     /**
+     * Set projectStatus
+     *
+     * @param ProjectStatus $projectStatus
+     * @return Project
+     */
+    public function setProjectStatus(ProjectStatus $projectStatus = null)
+    {
+        $this->projectStatus = $projectStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get projectStatus
+     *
+     * @return ProjectStatus
+     */
+    public function getProjectStatus()
+    {
+        return $this->projectStatus;
+    }
+
+    /**
+     * Add timeTrackers
+     *
+     * @param TimeTracker $timeTrackers
+     * @return Project
+     */
+    public function addTimeTracker(TimeTracker $timeTrackers)
+    {
+        $this->timeTrackers[] = $timeTrackers;
+
+        return $this;
+    }
+
+    /**
+     * Remove timeTrackers
+     *
+     * @param TimeTracker $timeTrackers
+     */
+    public function removeTimeTracker(TimeTracker $timeTrackers)
+    {
+        $this->timeTrackers->removeElement($timeTrackers);
+    }
+
+    /**
+     * Get timeTrackers
+     *
+     * @return Collection
+     */
+    public function getTimeTrackers()
+    {
+        return $this->timeTrackers;
+    }
+
+
+    /**
      * Get creation date
      *
      * @return date
@@ -243,38 +278,5 @@ class Project
     public function getDeletedAt()
     {
         return $this->deletedAt;
-    }
-
-    /**
-     * Add timeTrackers
-     *
-     * @param TimeTracker $timeTrackers
-     * @return Project
-     */
-    public function addTimeTracker(TimeTracker $timeTrackers)
-    {
-        $this->timeTrackers[] = $timeTrackers;
-
-        return $this;
-    }
-
-    /**
-     * Remove timeTrackers
-     *
-     * @param TimeTracker $timeTrackers
-     */
-    public function removeTimeTracker(TimeTracker $timeTrackers)
-    {
-        $this->timeTrackers->removeElement($timeTrackers);
-    }
-
-    /**
-     * Get timeTrackers
-     *
-     * @return ollection
-     */
-    public function getTimeTrackers()
-    {
-        return $this->timeTrackers;
     }
 }
