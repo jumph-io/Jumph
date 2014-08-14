@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Config | Time tracker
+{% endblock %}
+
+{% block headerContent %}
+    <h1>
+        Config | Time tracker
+        <small>Add / Edit</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-cogs"></i> Config</li>
+        <li><a href="{{ path('jumph_config_time_category_overview') }}"><i class="fa fa-clock-o"></i> Time category</a></li>
+        <li> Add / Edit</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8 col-md-12">
+            <div class="box box-primary">
+                {{ form_start(timeCategoryForm, { 'attr': { 'id': 'main-form'}}) }}
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body">
+                    {{ form_row(timeCategoryForm.name) }}
+                    {{ form_row(timeCategoryForm.description) }}
+                    {{ form_widget(timeCategoryForm._token) }}
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                {{ form_end(timeCategoryForm, {'render_rest': false}) }}
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body">
+                    <!-- To be defined -->
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

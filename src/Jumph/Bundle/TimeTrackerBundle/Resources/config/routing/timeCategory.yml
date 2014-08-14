@@ -1,0 +1,26 @@
+jumph_config_time_category_overview:
+    path:  /config/timetracker/category
+    defaults: { _controller: JumphTimeTrackerBundle:TimeCategory:overview }
+    methods:  [GET]
+jumph_config_time_category_view:
+    path:  /config/timetracker/category/{timeCategoryId}/view
+    defaults: { _controller: JumphTimeTrackerBundle:TimeCategory:view }
+    methods:  [GET]
+    requirements:
+            timeCategoryId:  \d+
+jumph_config_time_category_add:
+    path:  /config/timetracker/category/add
+    defaults: { _controller: JumphTimeTrackerBundle:TimeCategory:add }
+    methods:  [GET, POST]
+jumph_config_time_category_edit:
+    path:  /config/timetracker/category/{timeCategoryId}/edit
+    defaults: { _controller: JumphTimeTrackerBundle:TimeCategory:edit }
+    methods:  [GET, POST]
+    requirements:
+            timeCategoryId:  \d+
+jumph_config_time_category_delete:
+    path:  /config/timetracker/category/{timeCategoryId}/delete
+    defaults: { _controller: JumphTimeTrackerBundle:TimeCategory:delete }
+    methods:  [DELETE]
+    requirements:
+            timeCategoryId:  \d+

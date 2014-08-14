@@ -27,6 +27,8 @@ class JumphTimeTrackerExtension extends Extension
         $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
+        $loader->load('services/managers.yml');
+        $loader->load('services/filters.yml');
+        $loader->load('services/listeners.yml');
     }
 }

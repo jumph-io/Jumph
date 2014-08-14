@@ -44,7 +44,7 @@ class TimeMenuListener
         $menu->addChild(
             'Time tracker category',
             array(
-                'route' => 'jumph_config_time_tracker_category',
+                'route' => 'jumph_config_time_category_overview',
                 'extras' => array(
                     'icon' => 'fa-cogs fa-fw',
                     'weight' => 40

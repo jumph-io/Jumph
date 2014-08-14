@@ -1,0 +1,8 @@
+jumph_time_tracker_overview:
+    path:  /timetracker
+    defaults: { _controller: JumphTimeTrackerBundle:Time:overview }
+    methods:  [GET]
+jumph_time_tracker_add:
+    path:  /timetracker/add
+    defaults: { _controller: JumphTimeTrackerBundle:Time:add }
+    methods:  [POST]

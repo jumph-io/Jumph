@@ -11,10 +11,15 @@
 
 namespace Jumph\Bundle\TimeTrackerBundle\Controller;
 
+use Jumph\Bundle\TimeTrackerBundle\Entity\TimeCategory;
+use Jumph\Bundle\TimeTrackerBundle\Form\Filter\TimeCategoryFilterType;
+use Jumph\Bundle\TimeTrackerBundle\Form\Type\TimeCategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class TimeCategoryController extends Controller
 {
@@ -29,12 +34,124 @@ class TimeCategoryController extends Controller
      */
     public function overviewAction(Request $request)
     {
+        $filterForm = $this->createForm(new TimeCategoryFilterType());
+        $filterForm->handleRequest($request);
+
+        $filter = $this->get('jumph_time_tracker.time_category_filter');
+
+        return array(
+            'filterForm' => $filterForm->createView(),
+            'timeCategories' => $filter->getPaginatedResults(
+                $filterForm,
+                $request->query->get('page', 1),
+                15,
+                array(
+                    'sort' => $request->query->get('sort', 'DESC'),
+                    'direction' => $request->query->get('direction', 'dateCreated')
+                )
+            )
+        );
+    }
+
+    /**
+     * @Template("JumphTimeTrackerBundle:TimeCategory:view.html.twig")
+     * @ParamConverter("timeCategory", class="JumphTimeTrackerBundle:TimeCategory", options={"id" = "timeCategoryId"})
+     *
+     * View time category
+     *
+     * @param TimeCategory $timeCategory
+     *
+     * @return Response A Response instance
+     */
+    public function viewAction(TimeCategory $timeCategory)
+    {
+        return array(
+            'timeCategory' => $timeCategory
+        );
+    }
+
+    /**
+     * @Template("JumphTimeTrackerBundle:TimeCategory:form.html.twig")
+     *
+     * Add time category
+     *
+     * @param Request $request A Request instance
+     *
+     * @return Response A Response instance
+     */
+    public function addAction(Request $request)
+    {
+        $timeCategory = new TimeCategory();
+        $timeCategoryForm = $this->createForm(new TimeCategoryType(), $timeCategory);
+
         if ($request->isMethod('POST')) {
-            return $this->redirect($this->generateUrl('jumph_time_tracker_overview'));
+            $timeCategoryForm->handleRequest($request);
+            if ($timeCategoryForm->isValid()) {
+                $timeCategoryManager = $this->get('jumph_time_tracker.time_category_manager');
+                $timeCategoryManager->create($timeCategory);
+
+                $alertMessage = $this->get('jumph_app.alert_message');
+                $alertMessage->success('Time category created!');
+
+                return $this->redirect($this->generateUrl('jumph_config_time_category_overview'));
+            }
         }
 
         return array(
-
+            'timeCategoryForm' => $timeCategoryForm->createView()
         );
+    }
+
+    /**
+     * @Template("JumphTimeTrackerBundle:TimeCategory:form.html.twig")
+     * @ParamConverter("timeCategory", class="JumphTimeTrackerBundle:TimeCategory", options={"id" = "timeCategoryId"})
+     *
+     * Edit time category
+     *
+     * @param Request $request A Request instance
+     * @param TimeCategory $timeCategory
+     *
+     * @return Response A Response instance
+     */
+    public function editAction(Request $request, TimeCategory $timeCategory)
+    {
+        $timeCategoryForm = $this->createForm(new TimeCategoryType(), $timeCategory);
+
+        if ($request->isMethod('POST')) {
+            $timeCategoryForm->handleRequest($request);
+            if ($timeCategoryForm->isValid()) {
+                $timeCategoryManager = $this->get('jumph_time_tracker.time_category_manager');
+                $timeCategoryManager->update($timeCategory);
+
+                $alertMessage = $this->get('jumph_app.alert_message');
+                $alertMessage->success('Time category updated!');
+
+                return $this->redirect($this->generateUrl('jumph_config_time_category_overview'));
+            }
+        }
+
+        return array(
+            'timeCategoryForm' => $timeCategoryForm->createView()
+        );
+    }
+
+    /**
+     * @ParamConverter("timeCategory", class="JumphTimeTrackerBundle:TimeCategory", options={"id" = "timeCategoryId"})
+     *
+     * Delete time category
+     *
+     * @param TimeCategory $timeCategory
+     *
+     * @return RedirectResponse A Response instance
+     */
+    public function deleteAction(TimeCategory $timeCategory)
+    {
+        $timeCategoryManager = $this->get('jumph_time_tracker.time_category_manager');
+        $timeCategoryManager->delete($timeCategory);
+
+        $alertMessage = $this->get('jumph_app.alert_message');
+        $alertMessage->success('Time category deleted!');
+
+        return $this->redirect($this->generateUrl('jumph_config_time_category_overview'));
     }
 }

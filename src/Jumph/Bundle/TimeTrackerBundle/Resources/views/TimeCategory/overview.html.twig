@@ -20,50 +20,63 @@
         <div class="col-lg-12">
             <div class="box box-primary">
                 <div class="box-header">
-                    <!-- Potential title -->
+                    <div class="col-sm-6 col-lg-2 search-form pull-right">
+                        {{ form_start(filterForm, { 'attr': { 'id': 'main-form'}}) }}
+                        <div class="input-group">
+                            {{ form_widget(filterForm.name, { 'attr': { 'class': 'input-sm' } }) }}
+                            <div class="input-group-btn">
+                                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        {{ form_end(filterForm, {'render_rest': false}) }}
+                    </div>
                 </div>
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Name</th>
+                                <th>{{ knp_pagination_sortable(timeCategories, 'Title', 'tc.name') }}</th>
                                 <th>Options</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="3" class="text-center">No results</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>Setup</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Options <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="">View</a></li>
-                                            <li><a href="">Edit</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="" class="js-delete-item">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            {% if timeCategories is empty %}
+                                <tr>
+                                    <td colspan="3" class="text-center">No results</td>
+                                </tr>
+                            {% endif %}
+                            {% for timeCategory in timeCategories  %}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>{{ timeCategory.name }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                Options <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="{{ path('jumph_config_time_category_view', { 'timeCategoryId': timeCategory.id }) }}">View</a></li>
+                                                <li><a href="{{ path('jumph_config_time_category_edit', { 'timeCategoryId': timeCategory.id }) }}">Edit</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="{{ path('jumph_config_time_category_delete', { 'timeCategoryId': timeCategory.id }) }}" class="js-delete-item">Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
                 <div class="box-footer clearfix">
                     <div class="col-xs-6">
                         <div class="btn-group pagination">
-                            <a href="" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add category</a>
-                            <a href="" class="btn btn-default"><i class="fa fa-lg fa-trash-o"></i>  Delete selected</a>
+                            <a href="{{ path('jumph_config_time_category_add') }}" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add category</a>
+                            <!--<a href="" class="btn btn-default"><i class="fa fa-lg fa-trash-o"></i>  Delete selected</a>-->
                         </div>
                     </div>
                     <div class="col-xs-6">
-                        <!-- Pagination -->
+                        {{ knp_pagination_render(timeCategories) }}
                     </div>
                 </div>
             </div>

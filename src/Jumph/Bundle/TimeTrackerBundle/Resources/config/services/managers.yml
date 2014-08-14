@@ -1,0 +1,11 @@
+services:
+    jumph_time_tracker.time_tracker_manager:
+        class: Jumph\Bundle\TimeTrackerBundle\Manager\TimeTrackerManager
+        arguments:
+            - @doctrine.orm.entity_manager
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]
+    jumph_time_tracker.time_category_manager:
+        class: Jumph\Bundle\TimeTrackerBundle\Manager\TimeCategoryManager
+        arguments:
+            - @doctrine.orm.entity_manager

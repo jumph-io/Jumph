@@ -1,0 +1,6 @@
+services:
+    jumph_time_tracker.time_menu_listener:
+        class: Jumph\Bundle\TimeTrackerBundle\EventListener\TimeMenuListener
+        tags:
+          - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuTime }
+          - { name: kernel.event_listener, event: jumph.build_config_menu, method: onConfigMenuTime }

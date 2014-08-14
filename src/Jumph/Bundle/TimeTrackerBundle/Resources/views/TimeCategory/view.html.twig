@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Config | Projects
+{% endblock %}
+
+{% block headerContent %}
+    <h1>
+        Config | Projects
+        <small>Add / Edit</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-cogs"></i> Config</li>
+        <li><a href="{{ path('jumph_config_project_status_overview') }}"><i class="fa fa-tasks"></i> Project status</a></li>
+        <li> View</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8 col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Project status</h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>Name</dt>
+                        <dd>{{ projectStatus.name }}</dd>
+                        <dt>Description</dt>
+                        <dd>{{ projectStatus.description }}</dd>
+                    </dl>
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <!-- Potential header -->
+                </div>
+                <div class="box-body">
+                    <!-- Potential body -->
+                </div>
+                <div class="box-footer">
+                    <!-- Potential footer -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

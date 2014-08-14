@@ -9,19 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\ClientBundle\Tests\Manager;
+namespace Jumph\Bundle\ProjectBundle\Tests\Manager;
 
-use Doctrine\Common\Persistence\ObjectManager;
-use Jumph\Bundle\ClientBundle\Entity\Employee;
-use Jumph\Bundle\ClientBundle\Manager\EmployeeManager;
+use Jumph\Bundle\ProjectBundle\Entity\ProjectStatus;
+use Jumph\Bundle\ProjectBundle\Manager\ProjectStatusManager;
 
-class EmployeeManagerTest extends \PHPUnit_Framework_TestCase
+class ProjectStatusManagerTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var EmployeeManager
+     * @var ProjectStatusManager
      */
-    protected $employeeManager;
+    protected $projectStatusManager;
 
     /**
      * @var ObjectManager
@@ -32,34 +31,34 @@ class EmployeeManagerTest extends \PHPUnit_Framework_TestCase
     {
 
         $this->objectManagerMock = \Mockery::mock('\Doctrine\Common\Persistence\ObjectManager');
-        $this->employeeManager = new EmployeeManager($this->objectManagerMock);
+        $this->projectStatusManager = new ProjectStatusManager($this->objectManagerMock);
     }
 
     public function testCreate()
     {
-        $employee = new Employee();
-        $this->objectManagerMock->shouldReceive('persist')->once()->with($employee)->andReturn(true);
+        $projectStatus = new ProjectStatus();
+        $this->objectManagerMock->shouldReceive('persist')->once()->with($projectStatus)->andReturn(true);
         $this->objectManagerMock->shouldReceive('flush')->once();
 
-        $this->employeeManager->create($employee);
+        $this->projectStatusManager->create($projectStatus);
     }
 
     public function testUpdate()
     {
-        $employee = new Employee();
-        $this->objectManagerMock->shouldReceive('persist')->once()->with($employee)->andReturn(true);
+        $projectStatus = new ProjectStatus();
+        $this->objectManagerMock->shouldReceive('persist')->once()->with($projectStatus)->andReturn(true);
         $this->objectManagerMock->shouldReceive('flush')->once();
 
-        $this->employeeManager->update($employee);
+        $this->projectStatusManager->update($projectStatus);
     }
 
     public function testDelete()
     {
-        $employee = new Employee();
-        $this->objectManagerMock->shouldReceive('remove')->once()->with($employee)->andReturn(true);
+        $projectStatus = new ProjectStatus();
+        $this->objectManagerMock->shouldReceive('remove')->once()->with($projectStatus)->andReturn(true);
         $this->objectManagerMock->shouldReceive('flush')->once();
 
-        $this->employeeManager->delete($employee);
+        $this->projectStatusManager->delete($projectStatus);
     }
 
     public function testGetQueryBuilder()
@@ -69,15 +68,15 @@ class EmployeeManagerTest extends \PHPUnit_Framework_TestCase
 
         $repo->shouldReceive('createQueryBuilder')
             ->once()
-            ->with(EmployeeManager::ENTITY_ALIAS)
+            ->with(ProjectStatusManager::ENTITY_ALIAS)
             ->andReturn($qb);
 
         $this->objectManagerMock
             ->shouldReceive('getRepository')
             ->once()
-            ->with(EmployeeManager::ENTITY_CLASS)
+            ->with(ProjectStatusManager::ENTITY_CLASS)
             ->andReturn($repo);
 
-        $this->employeeManager->getQueryBuilder();
+        $this->projectStatusManager->getQueryBuilder();
     }
 }

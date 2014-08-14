@@ -1,12 +1,6 @@
-jumph_time_tracker_overview:
-    path:  /timetracker
-    defaults: { _controller: JumphTimeTrackerBundle:Time:overview }
-    methods:  [GET]
-jumph_time_tracker_add:
-    path:  /timetracker/add
-    defaults: { _controller: JumphTimeTrackerBundle:Time:add }
-    methods:  [post]
-jumph_config_time_tracker_category:
-    path:  /config/timetracker/category
-    defaults: { _controller: JumphTimeTrackerBundle:TimeCategory:overview }
-    methods:  [GET, POST]
+jumph_time_tracker:
+    resource: "@JumphTimeTrackerBundle/Resources/config/routing/timeTracker.yml"
+    prefix:   /
+jumph_time_category:
+    resource: "@JumphTimeTrackerBundle/Resources/config/routing/timeCategory.yml"
+    prefix:   /

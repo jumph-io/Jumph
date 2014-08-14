@@ -61,4 +61,23 @@ class UserManagerTest extends \PHPUnit_Framework_TestCase
 
         $this->userManager->delete($user);
     }
+
+    public function testGetQueryBuilder()
+    {
+        $qb = \Mockery::mock('\Doctrine\Orm\QueryBuilder');
+        $repo = \Mockery::mock('\Doctrine\Common\Persistence\ObjectRepository');
+
+        $repo->shouldReceive('createQueryBuilder')
+            ->once()
+            ->with(UserManager::ENTITY_ALIAS)
+            ->andReturn($qb);
+
+        $this->objectManagerMock
+            ->shouldReceive('getRepository')
+            ->once()
+            ->with(UserManager::ENTITY_CLASS)
+            ->andReturn($repo);
+
+        $this->userManager->getQueryBuilder();
+    }
 }

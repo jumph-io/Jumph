@@ -1,0 +1,16 @@
+services:
+    jumph_time_tracker.time_category_filter:
+        class: Jumph\Bundle\TimeTrackerBundle\Filter\TimeCategoryFilter
+        arguments:
+            - @jumph_time_tracker.time_category_manager
+            - @lexik_form_filter.query_builder_updater
+        calls:
+            - [ setPaginator, [ @knp_paginator ] ]
+    jumph_time_tracker.time_category_filter_name:
+            class: Jumph\Bundle\TimeTrackerBundle\Filter\Type\NameFilterType
+            tags:
+                - { name: form.type, alias: time_category_filter_name }
+    jumph_time_tracker.time_category_filter_subscriber:
+        class: Jumph\Bundle\TimeTrackerBundle\Filter\Subscriber\FilterSubscriber
+        tags:
+            - { name: kernel.event_subscriber, alias: time_category_filter_subscriber }
