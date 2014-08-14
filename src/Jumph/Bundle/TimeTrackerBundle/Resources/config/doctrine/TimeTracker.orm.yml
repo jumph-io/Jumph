@@ -8,6 +8,12 @@ Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker:
             time_aware: true
 
     manyToOne:
+        category:
+          targetEntity: TimeCategory
+          joinColumn:
+            name: time_category_id
+            referencedColumnName: id
+          cascade: ["persist"]
         project:
           targetEntity: \Jumph\Bundle\ProjectBundle\Entity\Project
           inversedBy: timeTrackers
@@ -22,9 +28,6 @@ Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker:
             generator: { strategy: AUTO }
 
     fields:
-        category:
-            type: string
-            length: 150
         description:
             type: text
         date:

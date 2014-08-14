@@ -24,12 +24,17 @@ class TimeTracker
     /**
      * @var string
      */
+    private $description;
+
+    /**
+     * @var TimeCategory
+     */
     private $category;
 
     /**
-     * @var string
+     * @var Project
      */
-    private $description;
+    private $project;
 
     /**
      * @var \DateTime
@@ -57,11 +62,6 @@ class TimeTracker
     private $deletedAt;
 
     /**
-     * @var Project
-     */
-    private $project;
-
-    /**
      * Constructor.
      */
     public function __construct()
@@ -77,29 +77,6 @@ class TimeTracker
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set category
-     *
-     * @param string $category
-     * @return TimeTracker
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return string 
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 
     /**
@@ -123,6 +100,52 @@ class TimeTracker
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set project
+     *
+     * @param Project $project
+     * @return TimeTracker
+     */
+    public function setProject(Project $project = null)
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    /**
+     * Set category
+     *
+     * @param TimeCategory $category
+     * @return TimeTracker
+     */
+    public function setCategory(TimeCategory $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return TimeCategory
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 
     /**
@@ -211,28 +234,5 @@ class TimeTracker
     public function getDeletedAt()
     {
         return $this->deletedAt;
-    }
-
-    /**
-     * Set project
-     *
-     * @param Project $project
-     * @return TimeTracker
-     */
-    public function setProject(Project $project = null)
-    {
-        $this->project = $project;
-
-        return $this;
-    }
-
-    /**
-     * Get project
-     *
-     * @return Project
-     */
-    public function getProject()
-    {
-        return $this->project;
     }
 }

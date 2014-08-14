@@ -27,9 +27,10 @@ class TimeTrackerType extends AbstractType
                 'class' => 'JumphProjectBundle:Project',
                 'property' => 'name'
             ))
-            ->add('category', 'choice', array(
-                'choices' => array("Setup", 'Development', "Documentation", "Setup")
-            ))
+            ->add('category', 'entity', array(
+                    'class' => 'JumphTimeTrackerBundle:TimeCategory',
+                    'property' => 'name'
+                ))
             ->add('description', 'text')
             ->add('date', 'date', array(
                 'widget' => 'single_text',
