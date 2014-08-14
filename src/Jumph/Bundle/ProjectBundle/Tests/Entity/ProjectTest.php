@@ -34,13 +34,13 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Google Glass', $project->getName());
     }
 
-    public function testSetProjectStatus()
+    public function testSetStatus()
     {
         $project = new Project();
         $projectStatus = new ProjectStatus();
 
-        $project->setProjectStatus($projectStatus);
-        $this->assertEquals($projectStatus, $project->getProjectStatus());
+        $project->setStatus($projectStatus);
+        $this->assertEquals($projectStatus, $project->getStatus());
     }
 
     public function testSetDescription()

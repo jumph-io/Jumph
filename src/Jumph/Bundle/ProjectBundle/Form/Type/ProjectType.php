@@ -32,7 +32,7 @@ class ProjectType extends AbstractType
                 'class' => 'JumphClientBundle:Employee',
                 'property' => 'firstname'
             ))
-            ->add('projectStatus', 'entity', array(
+            ->add('status', 'entity', array(
                     'class' => 'JumphProjectBundle:ProjectStatus',
                     'property' => 'name'
                 ))

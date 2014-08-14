@@ -61,7 +61,7 @@ class ProjectFilter extends PaginatorAware
             ->addSelect("e", "c", "ps")
             ->leftJoin("p.employee", "e")
             ->leftJoin("p.company", "c")
-            ->leftJoin("p.projectStatus", "ps");
+            ->leftJoin("p.status", "ps");
         return $this->getPaginator()->paginate($qb, $page, $limit, $options);
     }
 

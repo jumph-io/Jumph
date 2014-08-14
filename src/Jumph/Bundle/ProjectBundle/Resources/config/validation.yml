@@ -8,7 +8,7 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
             - Valid: ~
         employee:
             - Valid: ~
-        projectStatus:
+        status:
             - Valid: ~
 
 Jumph\Bundle\ProjectBundle\Entity\ProjectStatus:

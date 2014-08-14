@@ -13,7 +13,7 @@ Jumph\Bundle\ProjectBundle\Entity\Project:
             mappedBy: project
 
     manyToOne:
-        projectStatus:
+        status:
           targetEntity: ProjectStatus
           joinColumn:
             name: project_status_id

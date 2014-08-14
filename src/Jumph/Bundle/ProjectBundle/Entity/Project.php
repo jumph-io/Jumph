@@ -48,7 +48,7 @@ class Project
     /**
      * @var ProjectStatus
      */
-    private $projectStatus;
+    private $status;
 
     /**
      * @var ArrayCollection
@@ -182,26 +182,26 @@ class Project
     }
 
     /**
-     * Set projectStatus
+     * Set status
      *
      * @param ProjectStatus $projectStatus
      * @return Project
      */
-    public function setProjectStatus(ProjectStatus $projectStatus = null)
+    public function setStatus(ProjectStatus $status = null)
     {
-        $this->projectStatus = $projectStatus;
+        $this->status = $status;
 
         return $this;
     }
 
     /**
-     * Get projectStatus
+     * Get status
      *
      * @return ProjectStatus
      */
-    public function getProjectStatus()
+    public function getStatus()
     {
-        return $this->projectStatus;
+        return $this->status;
     }
 
     /**
