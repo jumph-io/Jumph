@@ -14,6 +14,7 @@ namespace Jumph\Bundle\TimeTrackerBundle\Tests\Entity;
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
+use Jumph\Bundle\TimeTrackerBundle\Entity\TimeCategory;
 use Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker;
 
 class TimeTrackerTest extends \PHPUnit_Framework_TestCase
@@ -28,9 +29,10 @@ class TimeTrackerTest extends \PHPUnit_Framework_TestCase
     public function testSetCategory()
     {
         $timeTracker = new TimeTracker();
+        $category = new TimeCategory();
 
-        $timeTracker->setCategory('Design');
-        $this->assertEquals('Design', $timeTracker->getCategory());
+        $timeTracker->setCategory($category);
+        $this->assertEquals($category, $timeTracker->getCategory());
     }
 
     public function testSetDescription()
