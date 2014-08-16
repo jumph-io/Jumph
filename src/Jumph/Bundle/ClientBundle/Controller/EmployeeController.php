@@ -48,11 +48,7 @@ class EmployeeController extends Controller
                 $company,
                 $filterForm,
                 $request->query->get('page', 1),
-                15,
-                array(
-                    'sort' => $request->query->get('sort', 'DESC'),
-                    'direction' => $request->query->get('direction', 'dateCreated')
-                )
+                15
             )
         );
     }

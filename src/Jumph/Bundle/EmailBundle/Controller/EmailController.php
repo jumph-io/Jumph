@@ -44,11 +44,7 @@ class EmailController extends Controller
             'emails' => $filter->getPaginatedResults(
                 $filterForm,
                 $request->query->get('page', 1),
-                15,
-                array(
-                    'sort' => $request->query->get('sort', 'DESC'),
-                    'direction' => $request->query->get('direction', 'dateCreated')
-                )
+                15
             )
         );
     }

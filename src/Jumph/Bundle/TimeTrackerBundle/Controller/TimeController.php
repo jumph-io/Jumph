@@ -41,11 +41,7 @@ class TimeController extends Controller
             'timeTrackerForm' => $timeTrackerForm->createView(),
             'timeTrackers' => $timeTrackerManager->getPaginatedResults(
                 $request->query->get('page', 1),
-                20,
-                array(
-                    '' => '',
-                    '' => ''
-                )
+                20
             )
         );
     }
