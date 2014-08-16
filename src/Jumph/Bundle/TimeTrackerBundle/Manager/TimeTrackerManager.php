@@ -64,7 +64,8 @@ class TimeTrackerManager extends PaginatorAware
         $qb = $this->objectManager
             ->createQueryBuilder(self::ENTITY_ALIAS)
             ->select(self::ENTITY_ALIAS)
-            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS);
+            ->from(self::ENTITY_CLASS, self::ENTITY_ALIAS)
+            ->orderBy(self::ENTITY_ALIAS . '.dateAt', 'DESC');
 
         return $this->getPaginator()->paginate($qb, $page, $limit, $sortby);
     }
