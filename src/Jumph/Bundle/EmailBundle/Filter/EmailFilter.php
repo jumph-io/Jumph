@@ -12,6 +12,7 @@
 namespace Jumph\Bundle\EmailBundle\Filter;
 
 use Jumph\Bundle\AppBundle\Entity\FilterableManagerInterface;
+use Jumph\Bundle\EmailBundle\Manager\EmailManager;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
@@ -59,8 +60,8 @@ class EmailFilter extends PaginatorAware
     {
         $qb = $this->createQueryBuilder($form)
         ->addSelect("em", "p")
-        ->leftJoin("e.employee", "em")
-        ->leftJoin("e.project", "p");
+        ->leftJoin(EmailManager::ENTITY_ALIAS . ".employee", "em")
+        ->leftJoin(EmailManager::ENTITY_ALIAS . ".project", "p");
 
         return $this->getPaginator()->paginate($qb, $page, $limit, $options);
     }

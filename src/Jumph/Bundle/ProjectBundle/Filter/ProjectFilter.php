@@ -12,6 +12,7 @@
 namespace Jumph\Bundle\ProjectBundle\Filter;
 
 use Jumph\Bundle\AppBundle\Entity\FilterableManagerInterface;
+use Jumph\Bundle\ProjectBundle\Manager\ProjectManager;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
@@ -59,9 +60,9 @@ class ProjectFilter extends PaginatorAware
     {
         $qb = $this->createQueryBuilder($form)
             ->addSelect("e", "c", "ps")
-            ->leftJoin("p.employee", "e")
-            ->leftJoin("p.company", "c")
-            ->leftJoin("p.status", "ps");
+            ->leftJoin(ProjectManager::ENTITY_ALIAS . ".employee", "e")
+            ->leftJoin(ProjectManager::ENTITY_ALIAS . ".company", "c")
+            ->leftJoin(ProjectManager::ENTITY_ALIAS . ".status", "ps");
         return $this->getPaginator()->paginate($qb, $page, $limit, $options);
     }
 

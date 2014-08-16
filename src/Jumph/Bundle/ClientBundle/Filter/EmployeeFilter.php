@@ -13,6 +13,7 @@ namespace Jumph\Bundle\ClientBundle\Filter;
 
 use Jumph\Bundle\AppBundle\Entity\FilterableManagerInterface;
 use Jumph\Bundle\ClientBundle\Entity\Company;
+use Jumph\Bundle\ClientBundle\Manager\EmployeeManager;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
@@ -65,7 +66,7 @@ class EmployeeFilter extends PaginatorAware
         array $options = array()
     ) {
         $qb = $this->createQueryBuilder($form)
-            ->where('e.company = :company_id')
+            ->where(EmployeeManager::ENTITY_ALIAS . '.company = :company_id')
             ->setParameter('company_id', $company->getId());
 
         return $this->getPaginator()->paginate($qb, $page, $limit, $options);
