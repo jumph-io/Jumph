@@ -44,13 +44,13 @@ class TimeTrackerTest extends \PHPUnit_Framework_TestCase
     }
 
 
-    public function testSetDate()
+    public function testSetDateAt()
     {
         $timeTracker = new TimeTracker();
         $dateTime = new \DateTime();
 
-        $timeTracker->setDate($dateTime);
-        $this->assertEquals($dateTime, $timeTracker->getDate());
+        $timeTracker->setDateAt($dateTime);
+        $this->assertEquals($dateTime, $timeTracker->getDateAt());
     }
 
     public function testSetHours()

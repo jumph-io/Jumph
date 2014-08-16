@@ -2,7 +2,7 @@
     <td>{{ timeTracker.project.name }}</td>
     <td>{{ timeTracker.category is not null ? timeTracker.category.name : "" }}</td>
     <td>{{ timeTracker.description }}</td>
-    <td>{{ timeTracker.date|date("m/d/Y") }}</td>
+    <td>{{ timeTracker.dateAt|date("m/d/Y") }}</td>
     <td>{{ timeTracker.hours }} h</td>
     <td>
         <div class="btn-group">

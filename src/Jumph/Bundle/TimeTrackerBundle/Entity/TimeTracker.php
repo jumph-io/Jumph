@@ -39,7 +39,7 @@ class TimeTracker
     /**
      * @var \DateTime
      */
-    private $date;
+    private $dateAt;
 
     /**
      * @var string
@@ -154,9 +154,9 @@ class TimeTracker
      * @param \DateTime $date
      * @return TimeTracker
      */
-    public function setDate($date)
+    public function setDateAt($dateAt)
     {
-        $this->date = $date;
+        $this->dateAt = $dateAt;
         return $this;
     }
 
@@ -165,9 +165,9 @@ class TimeTracker
      *
      * @return \DateTime 
      */
-    public function getDate()
+    public function getDateAt()
     {
-        return $this->date;
+        return $this->dateAt;
     }
 
     /**

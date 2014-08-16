@@ -32,7 +32,7 @@ class TimeTrackerType extends AbstractType
                     'property' => 'name'
                 ))
             ->add('description', 'text')
-            ->add('date', 'date', array(
+            ->add('dateAt', 'date', array(
                 'widget' => 'single_text',
                 'format' => 'MM/dd/yyyy',
                 'attr' => array(

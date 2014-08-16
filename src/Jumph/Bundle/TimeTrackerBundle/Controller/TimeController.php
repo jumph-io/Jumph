@@ -39,7 +39,14 @@ class TimeController extends Controller
 
         return array(
             'timeTrackerForm' => $timeTrackerForm->createView(),
-            'timeTrackers' => $timeTrackerManager->getPaginatedResults($request->query->get('page', 1))
+            'timeTrackers' => $timeTrackerManager->getPaginatedResults(
+                $request->query->get('page', 1),
+                20,
+                array(
+                    '' => '',
+                    '' => ''
+                )
+            )
         );
     }
 
@@ -62,7 +69,10 @@ class TimeController extends Controller
                 $timeTrackerManager->create($timeTracker);
 
                 return new JsonResponse(array(
-                    'status' => 'success'
+                    'status' => 'success',
+                    'html' => $this->renderView('JumphTimeTrackerBundle:TimeTracker:_time_line.html.twig', array(
+                        'timeTracker' => $timeTracker
+                    ))
                 ));
             }
         }

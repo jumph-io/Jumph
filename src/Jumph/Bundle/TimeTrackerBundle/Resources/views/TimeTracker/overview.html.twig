@@ -41,7 +41,7 @@
                                 {{ form_widget(timeTrackerForm.description) }}
                             </td>
                             <td>
-                                {{ form_widget(timeTrackerForm.date) }}
+                                {{ form_widget(timeTrackerForm.dateAt) }}
                             </td>
                             <td>
                                 {{ form_widget(timeTrackerForm.hours) }}
@@ -59,6 +59,11 @@
                     </tbody>
                 </table>
                 {{ form_end(timeTrackerForm, {'render_rest': false}) }}
+            </div>
+            <div class="box-footer clearfix">
+                <div class="col-xs-12">
+                    {{ knp_pagination_render(timeTrackers) }}
+                </div>
             </div>
         </div>
 
@@ -107,6 +112,7 @@
                 })
                 .success(function( data ) {
                     if(data.status == 'success') {
+                        $('table tbody').prepend(data.html);
                     }
                 });
             });

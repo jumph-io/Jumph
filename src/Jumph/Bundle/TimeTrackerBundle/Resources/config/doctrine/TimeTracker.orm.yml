@@ -30,7 +30,7 @@ Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker:
     fields:
         description:
             type: text
-        date:
+        dateAt:
             type: date
         hours:
             type: decimal
