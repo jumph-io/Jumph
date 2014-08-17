@@ -13,6 +13,8 @@ module.exports = function (grunt) {
                     'js/adminlte.js': 'admin-lte/js/AdminLTE/app.js',
                     'js/fullcalendar.js': 'admin-lte/js/plugins/fullcalendar/fullcalendar.js',
                     'js/bootstrap-datepicker.js': 'bootstrap-datepicker/js/bootstrap-datepicker.js',
+                    'js/bootstrap-daterangepicker.js': 'bootstrap-daterangepicker/daterangepicker.js',
+                    'js/moment.js': 'moment/min/moment-with-locales.min.js',
                     'js/highcharts.js': 'highcharts/highcharts.js',
                     'js/highcharts-exporting.js': 'highcharts/modules/exporting.js'
                 }
@@ -24,7 +26,8 @@ module.exports = function (grunt) {
                     'css/font-awesome.css': 'fontawesome/css/font-awesome.css',
                     'css/adminlte.css': 'admin-lte/css/AdminLTE.css',
                     'css/fullcalendar.css': 'admin-lte/css/fullcalendar/fullcalendar.css',
-                    'css/bootstrap-datepicker.css': 'bootstrap-datepicker/css/datepicker3.css'
+                    'css/bootstrap-datepicker.css': 'bootstrap-datepicker/css/datepicker3.css',
+                    'css/bootstrap-daterangepicker.css': 'bootstrap-daterangepicker/daterangepicker-bs3.css'
                 }
             },
             fonts: {
@@ -56,6 +59,7 @@ module.exports = function (grunt) {
                     'web/assets/css/font-awesome.css',
                     'web/assets/css/adminlte.css',
                     'web/assets/css/bootstrap-datepicker.css',
+                    'web/assets/css/bootstrap-daterangepicker.css',
                     'src/Jumph/Bundle/*/Resources/public/css/*.css'
                 ],
                 dest: 'web/assets/css/bundled.css'
@@ -65,7 +69,9 @@ module.exports = function (grunt) {
                     'web/assets/js/jquery.js',
                     'web/assets/js/bootstrap.js',
                     'web/assets/js/adminlte.js',
+                    'web/assets/js/moment.js',
                     'web/assets/js/bootstrap-datepicker.js',
+                    'web/assets/js/bootstrap-daterangepicker.js',
                     'src/Jumph/Bundle/*/Resources/public/js/*.js'
                 ],
                 dest: 'web/assets/js/bundled.js'

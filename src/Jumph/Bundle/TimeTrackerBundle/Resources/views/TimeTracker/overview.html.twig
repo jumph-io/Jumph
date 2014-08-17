@@ -68,22 +68,42 @@
         </div>
 
         <div class="col-lg-4 col-md-12">
-            <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#day" data-toggle="tab">Day</a></li>
-                    <li class=""><a href="#week" data-toggle="tab">Week</a></li>
-                    <li class=""><a href="#month" data-toggle="tab">Month</a></li>
-                    <li class=""><a href="#year" data-toggle="tab">All-time</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="day">
-                        <div class="pie-chart">
+            <div class="box box-solid bg-light-blue-gradient">
+                <div class="box-header">
+                    <!-- tools box -->
+                    <div class="pull-right box-tools">
+                        <button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="" data-original-title="Date range"><i class="fa fa-calendar"></i></button>
+                        <button class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="" style="margin-right: 5px;" data-original-title="Collapse"><i class="fa fa-minus"></i></button>
+                    </div><!-- /. tools -->
 
-                        </div>
+                    <i class="fa fa-bar-chart-o"></i>
+                    <h3 class="box-title">
+                        Categories overview
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <div class="pie-chart">
 
-                        <div class="column-chart">
+                    </div>
+                </div>
+            </div>
 
-                        </div>
+            <div class="box box-solid bg-light-blue-gradient">
+                <div class="box-header">
+                    <!-- tools box -->
+                    <div class="pull-right box-tools">
+                        <button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="" data-original-title="Date range"><i class="fa fa-calendar"></i></button>
+                        <button class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="" style="margin-right: 5px;" data-original-title="Collapse"><i class="fa fa-minus"></i></button>
+                    </div><!-- /. tools -->
+
+                    <i class="fa fa-bar-chart-o"></i>
+                    <h3 class="box-title">
+                        Day overview
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <div class="column-chart">
+
                     </div>
                 </div>
             </div>
@@ -94,7 +114,6 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('assets/js/highcharts.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/js/highcharts-exporting.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -117,6 +136,23 @@
                 });
             });
 
+            $('.daterange').daterangepicker(
+            {
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+                    'Last 7 Days': [moment().subtract('days', 6), moment()],
+                    'Last 30 Days': [moment().subtract('days', 29), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+                },
+                startDate: moment().subtract('days', 29),
+                endDate: moment()
+            },
+            function(start, end) {
+                alert("You chose: " + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            });
+
             // Make monochrome colors and set them as default for all pies
             Highcharts.getOptions().plotOptions.pie.colors = (function () {
                 var colors = [],
@@ -134,6 +170,7 @@
             // Pie chart
             $('.pie-chart').highcharts({
                 chart: {
+                    backgroundColor: 'rgba(0,0,0,0)',
                     plotBackgroundColor: null,
                     plotBorderWidth: null,
                     plotShadow: false
@@ -142,7 +179,7 @@
                     enabled: false
                 },
                 title: {
-                    text: 'Categories overview'
+                    text: null
                 },
                 tooltip: {
                     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -155,7 +192,7 @@
                             enabled: true,
                             format: '<b>{point.name}</b>: {point.percentage:.1f} %',
                             style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                color: '#FFF'
                             }
                         }
                     }
@@ -176,28 +213,42 @@
 
             $('.column-chart').highcharts({
                 chart: {
+                    backgroundColor: 'rgba(0,0,0,0)',
                     type: 'column'
                 },
                 credits: {
                     enabled: false
                 },
                 title: {
-                    text: 'Day overview'
+                    text: null
                 },
                 xAxis: {
                     type: 'category',
-                            labels: {
+                    labels: {
                         rotation: -45,
-                                style: {
+                        style: {
+                            color: '#FFF',
                             fontSize: '13px',
-                                    fontFamily: 'Verdana, sans-serif'
+                            fontFamily: 'Verdana, sans-serif'
                         }
                     }
                 },
                 yAxis: {
                     min: 0,
-                            title: {
-                        text: 'Hours'
+                    title: {
+                        text: 'Hours',
+                        style: {
+                            color: '#FFF',
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif'
+                        }
+                    },
+                    labels: {
+                        style: {
+                            color: '#FFF',
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif'
+                        }
                     }
                 },
                 legend: {
