@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cb8d406609a89fd1eb508b76b6512b3a",
+    "hash": "0ff7ebbbcf0644d256e649ec64a69402",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -636,12 +636,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "1fe261de17abde29d6d461b7a93873d48b0efce7"
+                "reference": "27a84cec3ea4daa32cd6fe308c0847ca9644f588"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/1fe261de17abde29d6d461b7a93873d48b0efce7",
-                "reference": "1fe261de17abde29d6d461b7a93873d48b0efce7",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/27a84cec3ea4daa32cd6fe308c0847ca9644f588",
+                "reference": "27a84cec3ea4daa32cd6fe308c0847ca9644f588",
                 "shasum": ""
             },
             "require": {
@@ -695,7 +695,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-08-01 02:49:19"
+            "time": "2014-08-04 23:04:17"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -942,7 +942,7 @@
         },
         {
             "name": "knplabs/knp-menu",
-            "version": "dev-master",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
@@ -988,7 +988,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1006,7 +1006,7 @@
         },
         {
             "name": "knplabs/knp-menu-bundle",
-            "version": "dev-master",
+            "version": "v2.0.0",
             "target-dir": "Knp/Bundle/MenuBundle",
             "source": {
                 "type": "git",
@@ -1044,7 +1044,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1190,17 +1190,17 @@
         },
         {
             "name": "lexik/form-filter-bundle",
-            "version": "v2.0.4",
+            "version": "v2.0.5",
             "target-dir": "Lexik/Bundle/FormFilterBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lexik/LexikFormFilterBundle.git",
-                "reference": "cdaf5a9b33b5bf787d3075aad5b15f5004979771"
+                "reference": "1702d4faed7deb54059e0903773b3424243cf4f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lexik/LexikFormFilterBundle/zipball/cdaf5a9b33b5bf787d3075aad5b15f5004979771",
-                "reference": "cdaf5a9b33b5bf787d3075aad5b15f5004979771",
+                "url": "https://api.github.com/repos/lexik/LexikFormFilterBundle/zipball/1702d4faed7deb54059e0903773b3424243cf4f9",
+                "reference": "1702d4faed7deb54059e0903773b3424243cf4f9",
                 "shasum": ""
             },
             "require": {
@@ -1246,7 +1246,7 @@
                 "filter",
                 "form"
             ],
-            "time": "2014-04-25 07:17:11"
+            "time": "2014-08-08 13:13:27"
         },
         {
             "name": "monolog/monolog",
@@ -2182,16 +2182,16 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.9.1",
+            "version": "v3.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "92d9934f2fca1da15178c91239576ae26e505e60"
+                "reference": "54991459675c1a2924122afbb0e5609ade581155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/92d9934f2fca1da15178c91239576ae26e505e60",
-                "reference": "92d9934f2fca1da15178c91239576ae26e505e60",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/54991459675c1a2924122afbb0e5609ade581155",
+                "reference": "54991459675c1a2924122afbb0e5609ade581155",
                 "shasum": ""
             },
             "require": {
@@ -2235,7 +2235,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.8-dev"
+                    "dev-master": "3.9-dev"
                 }
             },
             "autoload": {
@@ -2270,7 +2270,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-05-07 17:04:22"
+            "time": "2014-08-11 04:32:36"
         },
         {
             "name": "mockery/mockery",
@@ -2421,16 +2421,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "2.0.9",
+            "version": "2.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "ed8ac99ce38c3fd134128c898f7ca74665abef7f"
+                "reference": "6d196af48e8c100a3ae881940123e693da5a9217"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ed8ac99ce38c3fd134128c898f7ca74665abef7f",
-                "reference": "ed8ac99ce38c3fd134128c898f7ca74665abef7f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6d196af48e8c100a3ae881940123e693da5a9217",
+                "reference": "6d196af48e8c100a3ae881940123e693da5a9217",
                 "shasum": ""
             },
             "require": {
@@ -2482,7 +2482,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-06-29 08:14:40"
+            "time": "2014-08-06 06:39:42"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2669,16 +2669,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.1.4",
+            "version": "4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a71c4842c5fb836d8b200624583b859ec34e8a26"
+                "reference": "241116219bb7e3b8111a36ffd8f37546888738d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a71c4842c5fb836d8b200624583b859ec34e8a26",
-                "reference": "a71c4842c5fb836d8b200624583b859ec34e8a26",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/241116219bb7e3b8111a36ffd8f37546888738d6",
+                "reference": "241116219bb7e3b8111a36ffd8f37546888738d6",
                 "shasum": ""
             },
             "require": {
@@ -2692,7 +2692,7 @@
                 "phpunit/php-file-iterator": "~1.3.1",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "~1.0.2",
-                "phpunit/phpunit-mock-objects": "~2.1",
+                "phpunit/phpunit-mock-objects": "2.1.5",
                 "sebastian/comparator": "~1.0",
                 "sebastian/diff": "~1.1",
                 "sebastian/environment": "~1.0",
@@ -2739,7 +2739,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-07-18 07:15:58"
+            "time": "2014-08-17 08:07:02"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3142,16 +3142,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "1.5.3",
+            "version": "1.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "396178ada8499ec492363587f037125bf7b07fcc"
+                "reference": "4097e2c106e4a32bc234ae880e5585a19137e435"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/396178ada8499ec492363587f037125bf7b07fcc",
-                "reference": "396178ada8499ec492363587f037125bf7b07fcc",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/4097e2c106e4a32bc234ae880e5585a19137e435",
+                "reference": "4097e2c106e4a32bc234ae880e5585a19137e435",
                 "shasum": ""
             },
             "require": {
@@ -3213,21 +3213,20 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-05-01 03:07:07"
+            "time": "2014-08-05 23:54:05"
         },
         {
             "name": "webfactory/exceptions-bundle",
-            "version": "4.0.0",
-            "target-dir": "Webfactory/Bundle/ExceptionsBundle",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webfactory/exceptions-bundle.git",
-                "reference": "28b79273c26af2d4a5ecb4cc1764eb4f222afd62"
+                "reference": "f4bd90e2948a9bd932197eae491675078a8a6477"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webfactory/exceptions-bundle/zipball/28b79273c26af2d4a5ecb4cc1764eb4f222afd62",
-                "reference": "28b79273c26af2d4a5ecb4cc1764eb4f222afd62",
+                "url": "https://api.github.com/repos/webfactory/exceptions-bundle/zipball/f4bd90e2948a9bd932197eae491675078a8a6477",
+                "reference": "f4bd90e2948a9bd932197eae491675078a8a6477",
                 "shasum": ""
             },
             "require": {
@@ -3245,8 +3244,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Webfactory\\Bundle\\ExceptionsBundle": ""
+                "psr-4": {
+                    "Webfactory\\Bundle\\ExceptionsBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3263,7 +3262,7 @@
             ],
             "description": "A simple controller to display error pages during development plus some building blocks for more user-friendly error pages.",
             "homepage": "http://inside.webfactory.de/de/blog/symfony2-exception-handling-and-custom-error-pages-explained.html",
-            "time": "2014-04-30 16:46:25"
+            "time": "2014-08-17 20:06:52"
         }
     ],
     "aliases": [
@@ -3272,8 +3271,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
-        "knplabs/knp-menu": 20,
-        "knplabs/knp-menu-bundle": 20,
         "satooshi/php-coveralls": 20
     },
     "platform": {

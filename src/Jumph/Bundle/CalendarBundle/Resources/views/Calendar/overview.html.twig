@@ -6,7 +6,11 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
+    {% stylesheets  filter='cssrewrite'
+        '%kernel.root_dir%/../vendor/components/admin-lte/css/fullcalendar/fullcalendar.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 {% endblock %}
 
 {% block headerContent %}
@@ -63,7 +67,11 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('assets/js/fullcalendar.js') }}" type="text/javascript"></script>
+    {% javascripts
+        '%kernel.root_dir%/../vendor/components/admin-lte/js/plugins/fullcalendar/fullcalendar.min.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
     <script type="text/javascript">
         $(function() {
 

@@ -36,10 +36,7 @@ Installation
 
 Jumph is not production ready yet. However, if you want to install it already or you want to contribute, follow these steps:
 - install bower `npm install -g bower`
-- install grunt `npm install -g grunt-cli`
 - run `bower install` to get bower dependencies
-- Run `npm install` to install grunt dependencies
-- Run `grunt` to install your assets
 - Run `composer install` to install php dependencies
 - Make sure a database is present and the connection has been set in `app/config/parameters.yml`
 - Run `php app/console doctrine:schema:update --force`
