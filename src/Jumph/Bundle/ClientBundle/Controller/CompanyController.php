@@ -11,10 +11,12 @@
 
 namespace Jumph\Bundle\ClientBundle\Controller;
 
+use Jumph\Bundle\ClientBundle\ClientEvents;
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Form\Type\CompanyType;
 use Jumph\Bundle\ClientBundle\Form\Filter\CompanyFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -85,6 +87,9 @@ class CompanyController extends Controller
                 $companyManager = $this->get('jumph_client.company_manager');
                 $companyManager->create($company);
 
+                $dispatcher = $this->container->get('event_dispatcher');
+                $dispatcher->dispatch(ClientEvents::CREATE_COMPANY, new Event());
+
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Company created!');
 
@@ -118,6 +123,9 @@ class CompanyController extends Controller
                 $companyManager = $this->get('jumph_client.company_manager');
                 $companyManager->update($company);
 
+                $dispatcher = $this->container->get('event_dispatcher');
+                $dispatcher->dispatch(ClientEvents::UPDATE_COMPANY, new Event());
+
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Company updated!');
 
@@ -143,6 +151,9 @@ class CompanyController extends Controller
     {
         $companyManager = $this->get('jumph_client.company_manager');
         $companyManager->delete($company);
+
+        $dispatcher = $this->container->get('event_dispatcher');
+        $dispatcher->dispatch(ClientEvents::DELETE_COMPANY, new Event());
 
         $alertMessage = $this->get('jumph_app.alert_message');
         $alertMessage->success('Company deleted!');

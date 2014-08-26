@@ -14,7 +14,9 @@ namespace Jumph\Bundle\ProjectBundle\Controller;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
 use Jumph\Bundle\ProjectBundle\Form\Type\ProjectType;
 use Jumph\Bundle\ProjectBundle\Form\Filter\ProjectFilterType;
+use Jumph\Bundle\ProjectBundle\ProjectEvents;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -87,6 +89,9 @@ class ProjectController extends Controller
                 $projectManager = $this->get('jumph_project.project_manager');
                 $projectManager->create($project);
 
+                $dispatcher = $this->container->get('event_dispatcher');
+                $dispatcher->dispatch(ProjectEvents::CREATE_PROJECT, new Event());
+
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Project created!');
 
@@ -120,6 +125,9 @@ class ProjectController extends Controller
                 $projectManager = $this->get('jumph_project.project_manager');
                 $projectManager->update($project);
 
+                $dispatcher = $this->container->get('event_dispatcher');
+                $dispatcher->dispatch(ProjectEvents::UPDATE_PROJECT, new Event());
+
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Project updated!');
 
@@ -145,6 +153,9 @@ class ProjectController extends Controller
     {
         $projectManager = $this->get('jumph_project.project_manager');
         $projectManager->delete($project);
+
+        $dispatcher = $this->container->get('event_dispatcher');
+        $dispatcher->dispatch(ProjectEvents::DELETE_PROJECT, new Event());
 
         $alertMessage = $this->get('jumph_app.alert_message');
         $alertMessage->success('Project deleted!');

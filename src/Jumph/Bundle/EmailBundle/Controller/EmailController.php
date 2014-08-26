@@ -11,10 +11,12 @@
 
 namespace Jumph\Bundle\EmailBundle\Controller;
 
+use Jumph\Bundle\EmailBundle\EmailEvents;
 use Jumph\Bundle\EmailBundle\Entity\Email;
 use Jumph\Bundle\EmailBundle\Form\Filter\EmailFilterType;
 use Jumph\Bundle\EmailBundle\Form\Type\EmailType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -86,6 +88,9 @@ class EmailController extends Controller
                 $emailManager = $this->get('jumph_email.email_manager');
                 $emailManager->create($email);
 
+                $dispatcher = $this->container->get('event_dispatcher');
+                $dispatcher->dispatch(EmailEvents::CREATE_EMAIL, new Event());
+
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Email created!');
 
@@ -119,6 +124,9 @@ class EmailController extends Controller
                 $emailManager = $this->get('jumph_email.email_manager');
                 $emailManager->update($email);
 
+                $dispatcher = $this->container->get('event_dispatcher');
+                $dispatcher->dispatch(EmailEvents::UPDATE_EMAIL, new Event());
+
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Email updated!');
 
@@ -144,6 +152,9 @@ class EmailController extends Controller
     {
         $emailManager = $this->get('jumph_email.email_manager');
         $emailManager->delete($email);
+
+        $dispatcher = $this->container->get('event_dispatcher');
+        $dispatcher->dispatch(EmailEvents::DELETE_EMAIL, new Event());
 
         $alertMessage = $this->get('jumph_app.alert_message');
         $alertMessage->success('Email deleted!');

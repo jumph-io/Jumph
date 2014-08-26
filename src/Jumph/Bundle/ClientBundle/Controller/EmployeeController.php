@@ -11,11 +11,13 @@
 
 namespace Jumph\Bundle\ClientBundle\Controller;
 
+use Jumph\Bundle\ClientBundle\ClientEvents;
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 use Jumph\Bundle\ClientBundle\Form\Type\EmployeeType;
 use Jumph\Bundle\ClientBundle\Form\Filter\EmployeeFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -96,6 +98,9 @@ class EmployeeController extends Controller
                 $employeeManager = $this->get('jumph_client.employee_manager');
                 $employeeManager->create($employee);
 
+                $dispatcher = $this->container->get('event_dispatcher');
+                $dispatcher->dispatch(ClientEvents::CREATE_EMPLOYEE, new Event());
+
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Employee created!');
 
@@ -139,6 +144,9 @@ class EmployeeController extends Controller
                 $employeeManager = $this->get('jumph_client.employee_manager');
                 $employeeManager->update($employee);
 
+                $dispatcher = $this->container->get('event_dispatcher');
+                $dispatcher->dispatch(ClientEvents::UPDATE_EMPLOYEE, new Event());
+
                 $alertMessage = $this->get('jumph_app.alert_message');
                 $alertMessage->success('Employee updated!');
 
@@ -174,6 +182,9 @@ class EmployeeController extends Controller
     {
         $employeeManager = $this->get('jumph_client.employee_manager');
         $employeeManager->delete($employee);
+
+        $dispatcher = $this->container->get('event_dispatcher');
+        $dispatcher->dispatch(ClientEvents::DELETE_EMPLOYEE, new Event());
 
         $alertMessage = $this->get('jumph_app.alert_message');
         $alertMessage->success('Employee deleted!');
