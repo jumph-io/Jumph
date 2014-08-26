@@ -13,6 +13,7 @@ namespace Jumph\Bundle\CalendarBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\BrowserKit\Response;
 
 class CalendarController extends Controller
 {
@@ -22,12 +23,10 @@ class CalendarController extends Controller
      *
      * Calendar overview page
      *
-     *
      * @return Response A Response instance
      */
     public function overviewAction()
     {
-
         return array();
     }
 }

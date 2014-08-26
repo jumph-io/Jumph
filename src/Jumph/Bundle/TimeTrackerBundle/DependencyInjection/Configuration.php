@@ -23,7 +23,6 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $treeBuilder->root('jumph_time_tracker');
-
         return $treeBuilder;
     }
 }
