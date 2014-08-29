@@ -1,6 +1,3 @@
-parameters:
-#    jumph_issue.example.class: Jumph\Bundle\IssueBundle\Example
-
 services:
     jumph_issue.issue_menu_listener:
                 class: Jumph\Bundle\IssueBundle\EventListener\IssueMenuListener

@@ -1,6 +1,3 @@
-parameters:
-#    jumph_quotation.example.class: Jumph\Bundle\QuotationBundle\Example
-
 services:
     jumph_quotation.quotation_menu_listener:
                 class: Jumph\Bundle\QuotationBundle\EventListener\QuotationMenuListener
