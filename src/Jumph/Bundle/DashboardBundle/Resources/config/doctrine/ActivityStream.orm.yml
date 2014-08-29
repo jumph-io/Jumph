@@ -1,0 +1,32 @@
+Jumph\Bundle\DashboardBundle\Entity\ActivityStream:
+    type: entity
+    table: jumph_activity_stream
+
+    manyToOne:
+        user:
+          targetEntity: \Jumph\Bundle\UserBundle\Entity\User
+          joinColumn:
+            name: user_id
+            referencedColumnName: id
+          cascade: ["persist"]
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        objectId:
+            type: string
+            length: 150
+        objectType:
+            type: string
+            length: 150
+        verb:
+            type: string
+            length: 150
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
