@@ -1,0 +1,5 @@
+services:
+    jumph_email.dashboard_email_block:
+        class: Jumph\Bundle\EmailBundle\Dashboard\EmailBlock
+        tags:
+            -  { name: jumph_dashboard.block, alias: email_block }

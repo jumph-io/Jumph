@@ -1,0 +1,5 @@
+services:
+    jumph_project.dashboard_project_block:
+        class: Jumph\Bundle\ProjectBundle\Dashboard\ProjectBlock
+        tags:
+            -  { name: jumph_dashboard.block, alias: project_block }

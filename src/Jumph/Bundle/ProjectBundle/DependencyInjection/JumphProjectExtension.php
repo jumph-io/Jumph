@@ -30,5 +30,6 @@ class JumphProjectExtension extends Extension
         $loader->load('services/managers.yml');
         $loader->load('services/filters.yml');
         $loader->load('services/listeners.yml');
+        $loader->load('services/services.yml');
     }
 }

@@ -16,78 +16,26 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-lg-3 col-xs-6">
-            <div class="small-box bg-aqua">
-                <div class="inner">
-                    <h3>
-                        5
-                    </h3>
-                    <p>
-                        Unfinished projects
-                    </p>
+        {% for block in blocks %}
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-{{ block.color }}">
+                    <div class="inner">
+                        <h3>
+                            {{ block.totalItems }}
+                        </h3>
+                        <p>
+                            {{ block.itemName }}
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-{{ block.icon }}"></i>
+                    </div>
+                    <a href="{{ block.link }}" class="small-box-footer">
+                        More info <i class="fa fa-arrow-circle-right"></i>
+                    </a>
                 </div>
-                <div class="icon">
-                    <i class="fa fa-tasks"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                    More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
             </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-            <div class="small-box bg-green">
-                <div class="inner">
-                    <h3>
-                        8
-                    </h3>
-                    <p>
-                        New emails
-                    </p>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-envelope"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                    More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-            <div class="small-box bg-yellow">
-                <div class="inner">
-                    <h3>
-                        12
-                    </h3>
-                    <p>
-                        Open quotations
-                    </p>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-dollar"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                    More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-            <div class="small-box bg-red">
-                <div class="inner">
-                    <h3>
-                        65
-                    </h3>
-                    <p>
-                        Open issues
-                    </p>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-bug"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                    More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-            </div>
-        </div>
+        {% endfor %}
 
         <div class="col-lg-12 col-xs-12">
             <ul class="timeline">

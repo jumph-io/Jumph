@@ -23,11 +23,14 @@ class DashboardController extends Controller
      *
      * Dashboard overview page
      *
-     *
      * @return Response A Response instance
      */
     public function overviewAction()
     {
-        return array();
+        $blocksContainer = $this->get('jumph_dashboard.dashboard_block_container');
+
+        return array(
+            'blocks' => $blocksContainer->getAllBlocks()
+        );
     }
 }

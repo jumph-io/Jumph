@@ -13,7 +13,8 @@ namespace Jumph\Bundle\DashboardBundle\Entity;
 
 use Jumph\Bundle\UserBundle\Entity\User;
 
-class ActivityStream {
+class ActivityStream
+{
 
     /**
      * @var integer
