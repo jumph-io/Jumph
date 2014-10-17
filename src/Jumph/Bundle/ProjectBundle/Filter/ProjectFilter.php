@@ -14,7 +14,6 @@ namespace Jumph\Bundle\ProjectBundle\Filter;
 use Jumph\Bundle\AppBundle\Entity\FilterableManagerInterface;
 use Jumph\Bundle\ProjectBundle\Manager\ProjectManager;
 use Knp\Bundle\PaginatorBundle\Definition\PaginatorAware;
-use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
 use Symfony\Component\Form\FormInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
@@ -35,7 +34,7 @@ class ProjectFilter extends PaginatorAware
     /**
      * Constructor.
      *
-     * @param FilterableManagerInterface $manager Repository to filter
+     * @param FilterableManagerInterface    $manager              Repository to filter
      * @param FilterBuilderUpdaterInterface $filterBuilderUpdater The form filter
      */
     public function __construct(
@@ -63,6 +62,7 @@ class ProjectFilter extends PaginatorAware
             ->leftJoin(ProjectManager::ENTITY_ALIAS . ".employee", "e")
             ->leftJoin(ProjectManager::ENTITY_ALIAS . ".company", "c")
             ->leftJoin(ProjectManager::ENTITY_ALIAS . ".status", "ps");
+
         return $this->getPaginator()->paginate($qb, $page, $limit, $options);
     }
 

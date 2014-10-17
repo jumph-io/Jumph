@@ -1,9 +1,6 @@
-parameters:
-    jumph_app.session.alert_message.class: Jumph\Bundle\AppBundle\Session\AlertMessage
-
 services:
     jumph_app.alert_message:
-        class: %jumph_app.session.alert_message.class%
+        class: Jumph\Bundle\AppBundle\Session\AlertMessage
         arguments:
             - @session
     jumph_app.menu.voter.route_voter:

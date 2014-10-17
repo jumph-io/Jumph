@@ -22,7 +22,7 @@ class Builder extends ContainerAware
     /**
      * Create the side menu
      *
-     * @param  FactoryInterface  $factory Menu Factory
+     * @param FactoryInterface $factory Menu Factory
      *
      * @return ItemInterface
      */
@@ -33,18 +33,20 @@ class Builder extends ContainerAware
 
         $this->container->get('event_dispatcher')->dispatch(
             BuildMenuEvent::BUILD_MENU,
-            new BuildMenuEvent($factory, $menu)
+            new BuildMenuEvent($menu)
         );
 
         $menu = $this->createConfigMenu($menu, $factory);
         $menu = $this->reorderMenu($menu);
+
         return $menu;
     }
 
     /**
      * Create the config menu
      *
-     * @param ItemInterface $menu
+     * @param ItemInterface    $menu
+     * @param FactoryInterface $factory
      *
      * @return ItemInterface
      */
@@ -65,7 +67,7 @@ class Builder extends ContainerAware
 
         $this->container->get('event_dispatcher')->dispatch(
             BuildMenuEvent::BUILD_CONFIG_MENU,
-            new BuildMenuEvent($factory, $configMenu)
+            new BuildMenuEvent($configMenu)
         );
 
         return $menu;
@@ -84,6 +86,7 @@ class Builder extends ContainerAware
         if ($menuItemA->getExtra('weight') == $menuItemB->getExtra('weight')) {
             return 0;
         }
+
         return ($menuItemA->getExtra('weight') < $menuItemB->getExtra('weight')) ? -1 : 1;
     }
 

@@ -4,8 +4,7 @@
         {% if sorted %}
             {% if direction == 'asc' %}
                 <i class="fa fa-sort-down"></i>
-            {% endif %}
-            {% if direction == 'desc' %}
+            {% elseif direction == 'desc' %}
                 <i class="fa fa-sort-up"></i>
             {% endif %}
         {% else %}

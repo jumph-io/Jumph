@@ -22,31 +22,18 @@ class BuildMenuEvent extends Event
     const BUILD_CONFIG_MENU = 'jumph.build_config_menu';
 
     /**
-     * @var FactoryInterface
-     */
-    private $factory;
-
-    /**
      * @var ItemInterface
      */
     private $menu;
 
     /**
-     * @param FactoryInterface $factory
+     * Constructor
+     *
      * @param ItemInterface $menu
      */
-    public function __construct(FactoryInterface $factory, ItemInterface $menu)
+    public function __construct(ItemInterface $menu)
     {
-        $this->factory = $factory;
         $this->menu = $menu;
-    }
-
-    /**
-     * @return FactoryInterface
-     */
-    public function getFactory()
-    {
-        return $this->factory;
     }
 
     /**

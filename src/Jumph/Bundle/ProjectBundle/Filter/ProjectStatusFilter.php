@@ -34,7 +34,7 @@ class ProjectStatusFilter extends PaginatorAware
     /**
      * Constructor.
      *
-     * @param FilterableManagerInterface $manager Repository to filter
+     * @param FilterableManagerInterface    $manager              Repository to filter
      * @param FilterBuilderUpdaterInterface $filterBuilderUpdater The form filter
      */
     public function __construct(
@@ -48,10 +48,10 @@ class ProjectStatusFilter extends PaginatorAware
     /**
      * Returns a filtered paginator.
      *
-     * @param FormInterface $form Filter form
-     * @param int $page Page number
-     * @param int $limit Limit per page
-     * @param array $options Pagination options
+     * @param FormInterface $form    Filter form
+     * @param int           $page    Page number
+     * @param int           $limit   Limit per page
+     * @param array         $options Pagination options
      *
      * @return PaginationInterface
      */

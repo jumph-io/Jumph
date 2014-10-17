@@ -18,8 +18,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class Project
 {
-
-
     /**
      * @var integer
      */
@@ -93,6 +91,7 @@ class Project
      * Set name
      *
      * @param string $name
+     *
      * @return Project
      */
     public function setName($name)
@@ -116,6 +115,7 @@ class Project
      * Set description
      *
      * @param string $description
+     *
      * @return Project
      */
     public function setDescription($description)
@@ -139,6 +139,7 @@ class Project
      * Set company
      *
      * @param Company $company
+     *
      * @return Project
      */
     public function setCompany(Company $company = null)
@@ -233,7 +234,7 @@ class Project
     /**
      * Get timeTrackers
      *
-     * @return Collection
+     * @return ArrayCollection
      */
     public function getTimeTrackers()
     {
@@ -267,7 +268,7 @@ class Project
      *
      * @return Project
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeletedAt(\DateTime $deletedAt)
     {
         $this->deletedAt = $deletedAt;
 

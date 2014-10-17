@@ -83,6 +83,7 @@ class TimeTracker
      * Set description
      *
      * @param string $description
+     *
      * @return TimeTracker
      */
     public function setDescription($description)
@@ -106,6 +107,7 @@ class TimeTracker
      * Set project
      *
      * @param Project $project
+     *
      * @return TimeTracker
      */
     public function setProject(Project $project = null)
@@ -129,6 +131,7 @@ class TimeTracker
      * Set category
      *
      * @param TimeCategory $category
+     *
      * @return TimeTracker
      */
     public function setCategory(TimeCategory $category = null)
@@ -151,12 +154,14 @@ class TimeTracker
     /**
      * Set date
      *
-     * @param \DateTime $date
+     * @param \DateTime $dateAt
+     *
      * @return TimeTracker
      */
-    public function setDateAt($dateAt)
+    public function setDateAt(\DateTime $dateAt)
     {
         $this->dateAt = $dateAt;
+
         return $this;
     }
 
@@ -174,6 +179,7 @@ class TimeTracker
      * Set hours
      *
      * @param string $hours
+     *
      * @return TimeTracker
      */
     public function setHours($hours)
@@ -217,9 +223,10 @@ class TimeTracker
      * Set deletedAt
      *
      * @param \DateTime $deletedAt
+     *
      * @return TimeTracker
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeletedAt(\DateTime $deletedAt)
     {
         $this->deletedAt = $deletedAt;
 
