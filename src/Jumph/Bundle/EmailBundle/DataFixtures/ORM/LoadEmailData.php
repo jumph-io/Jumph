@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\ClientBundle\DataFixtures\ORM;
+namespace Jumph\Bundle\EmailBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
-use Jumph\Bundle\ClientBundle\Entity\Company;
+use Jumph\Bundle\EmailBundle\Entity\Email;
 
 /**
- * Fixture for company data
+ * Fixture for email data
  */
-class LoadCompanyData extends AbstractFixture implements OrderedFixtureInterface, FixtureInterface
+class LoadEmailData extends AbstractFixture implements OrderedFixtureInterface, FixtureInterface
 {
     /**
      * {@inheritDoc}
@@ -31,11 +31,14 @@ class LoadCompanyData extends AbstractFixture implements OrderedFixtureInterface
         $faker = Factory::create();
 
         for ($i = 0; $i < 10; $i++) {
-            $company = new Company();
-            $company->setName($faker->company);
+            $email = new Email();
+            $email->setSubject($faker->sentence(6));
+            $email->setBody($faker->paragraph(4));
+            $email->setCompany($this->getReference('company-' . $faker->numberBetween(0, 9)));
+            $email->setEmployee($this->getReference('employee-' . $faker->numberBetween(0, 9)));
 
-            $this->addReference('company-'.$i, $company);
-            $manager->persist($company);
+            $this->addReference('email-'.$i, $email);
+            $manager->persist($email);
         }
 
         $manager->flush();
@@ -46,6 +49,6 @@ class LoadCompanyData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 13;
+        return 44;
     }
 }

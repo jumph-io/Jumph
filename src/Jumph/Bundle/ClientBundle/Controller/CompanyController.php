@@ -18,15 +18,14 @@ use Jumph\Bundle\ClientBundle\Form\Filter\CompanyFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class CompanyController extends Controller
 {
 
     /**
-     * @Template("JumphClientBundle:Company:overview.html.twig")
-     *
      * Company overview page
      *
      * @param Request $request A Request instance
@@ -40,18 +39,17 @@ class CompanyController extends Controller
 
         $filter = $this->get('jumph_client.company_filter');
 
-        return array(
+        return $this->render("JumphClientBundle:Company:overview.html.twig", array(
             'filterForm' => $filterForm->createView(),
             'companies' => $filter->getPaginatedResults(
                 $filterForm,
                 $request->query->get('page', 1),
                 15
             )
-        );
+        ));
     }
 
     /**
-     * @Template("JumphClientBundle:Company:view.html.twig")
      * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      *
      * View company
@@ -62,14 +60,12 @@ class CompanyController extends Controller
      */
     public function viewAction(Company $company)
     {
-        return array(
+        return $this->render("JumphClientBundle:Company:view.html.twig", array(
             'company' => $company
-        );
+        ));
     }
 
     /**
-     * @Template("JumphClientBundle:Company:form.html.twig")
-     *
      * Add company
      *
      * @param Request $request A Request instance
@@ -97,13 +93,12 @@ class CompanyController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphClientBundle:Company:form.html.twig", array(
             'companyForm' => $companyForm->createView()
-        );
+        ));
     }
 
     /**
-     * @Template("JumphClientBundle:Company:form.html.twig")
      * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      *
      * Edit company
@@ -133,9 +128,9 @@ class CompanyController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphClientBundle:Company:form.html.twig", array(
             'companyForm' => $companyForm->createView()
-        );
+        ));
     }
 
     /**
@@ -145,7 +140,7 @@ class CompanyController extends Controller
      *
      * @param Company $company
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse A Response instance
+     * @return RedirectResponse A Response instance
      */
     public function deleteAction(Company $company)
     {

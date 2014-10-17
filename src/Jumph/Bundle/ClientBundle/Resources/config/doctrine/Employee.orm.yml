@@ -14,7 +14,6 @@ Jumph\Bundle\ClientBundle\Entity\Employee:
         joinColumn:
           name: company_id
           referencedColumnName: id
-        cascade: ["persist", "remove"]
     oneToMany:
       projects:
         targetEntity: \Jumph\Bundle\ProjectBundle\Entity\Project

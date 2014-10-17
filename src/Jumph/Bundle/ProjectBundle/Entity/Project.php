@@ -56,12 +56,12 @@ class Project
     private $timeTrackers;
 
     /**
-     * @var date $createdAt
+     * @var \DateTime $createdAt
      */
     private $createdAt;
 
     /**
-     * @var date $updatedAt
+     * @var \DateTime $updatedAt
      */
     private $updatedAt;
 
@@ -162,6 +162,7 @@ class Project
      * Set employee
      *
      * @param Employee $employee
+     *
      * @return Project
      */
     public function setEmployee(Employee $employee = null)
@@ -184,7 +185,8 @@ class Project
     /**
      * Set status
      *
-     * @param ProjectStatus $projectStatus
+     * @param ProjectStatus $status
+     *
      * @return Project
      */
     public function setStatus(ProjectStatus $status = null)
@@ -208,6 +210,7 @@ class Project
      * Add timeTrackers
      *
      * @param TimeTracker $timeTrackers
+     *
      * @return Project
      */
     public function addTimeTracker(TimeTracker $timeTrackers)
@@ -241,7 +244,7 @@ class Project
     /**
      * Get creation date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -251,7 +254,7 @@ class Project
     /**
      * Get update date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -261,6 +264,7 @@ class Project
      * Set deletedAt
      *
      * @param \DateTime $deletedAt
+     *
      * @return Project
      */
     public function setDeletedAt($deletedAt)

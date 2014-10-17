@@ -18,7 +18,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class TimeCategoryController extends Controller
@@ -58,7 +57,7 @@ class TimeCategoryController extends Controller
      */
     public function viewAction(TimeCategory $timeCategory)
     {
-        return $this->array("JumphTimeTrackerBundle:TimeCategory:view.html.twig", array(
+        return $this->render("JumphTimeTrackerBundle:TimeCategory:view.html.twig", array(
             'timeCategory' => $timeCategory
         ));
     }

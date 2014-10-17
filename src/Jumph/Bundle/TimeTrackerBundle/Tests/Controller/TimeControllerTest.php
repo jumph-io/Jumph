@@ -9,21 +9,30 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\UserBundle\Tests\Controller;
+namespace Jumph\Bundle\TimeTrackerBundle\Tests\Controller;
 
 use Jumph\Bundle\AppBundle\Tests\BaseWebTestCase;
 
 /**
- * Functional user controller tests
+ * Functional time controller tests
  */
-class UserControllerTest extends BaseWebTestCase
+class TimeControllerTest extends BaseWebTestCase
 {
     /**
      * Test the overview method
      */
     public function testOverview()
     {
-        $this->client->request('GET', '/users');
+        $this->client->request('GET', '/timetracker');
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
+    }
+
+    /**
+     * Test the add method
+     */
+    public function testAdd()
+    {
+        $this->client->request('POST', '/timetracker/add');
         $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 }

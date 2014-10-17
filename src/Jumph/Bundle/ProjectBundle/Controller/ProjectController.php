@@ -20,15 +20,12 @@ use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ProjectController extends Controller
 {
 
     /**
-     * @Template("JumphProjectBundle:Project:overview.html.twig")
-     *
      * Project overview page
      *
      * @param Request $request A Request instance
@@ -42,18 +39,17 @@ class ProjectController extends Controller
 
         $filter = $this->get('jumph_project.project_filter');
 
-        return array(
+        return $this->render("JumphProjectBundle:Project:overview.html.twig", array(
             'filterForm' => $filterForm->createView(),
             'projects' => $filter->getPaginatedResults(
                 $filterForm,
                 $request->query->get('page', 1),
                 15
             )
-        );
+        ));
     }
 
     /**
-     * @Template("JumphProjectBundle:Project:view.html.twig")
      * @ParamConverter("project", class="JumphProjectBundle:Project", options={"id" = "projectId"})
      *
      * View project
@@ -64,14 +60,12 @@ class ProjectController extends Controller
      */
     public function viewAction(Project $project)
     {
-        return array(
+        return $this->render("JumphProjectBundle:Project:view.html.twig", array(
             'project' => $project
-        );
+        ));
     }
 
     /**
-     * @Template("JumphProjectBundle:Project:form.html.twig")
-     *
      * Add project
      *
      * @param Request $request A Request instance
@@ -99,13 +93,12 @@ class ProjectController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphProjectBundle:Project:form.html.twig", array(
             'projectForm' => $projectForm->createView()
-        );
+        ));
     }
 
     /**
-     * @Template("JumphProjectBundle:Project:form.html.twig")
      * @ParamConverter("project", class="JumphProjectBundle:Project", options={"id" = "projectId"})
      *
      * Edit project
@@ -135,9 +128,9 @@ class ProjectController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphProjectBundle:Project:form.html.twig", array(
             'projectForm' => $projectForm->createView()
-        );
+        ));
     }
 
     /**

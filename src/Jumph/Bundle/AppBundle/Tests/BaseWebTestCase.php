@@ -36,5 +36,17 @@ class BaseWebTestCase extends WebTestCase
             'PHP_AUTH_PW'   => 'jumphpassword',
         ));
 
+        $fixtures = array(
+            'Jumph\Bundle\UserBundle\DataFixtures\ORM\LoadUserData',
+            'Jumph\Bundle\EmailBundle\DataFixtures\ORM\LoadEmailData',
+            'Jumph\Bundle\ClientBundle\DataFixtures\ORM\LoadCompanyData',
+            'Jumph\Bundle\ClientBundle\DataFixtures\ORM\LoadEmployeeData',
+            'Jumph\Bundle\ProjectBundle\DataFixtures\ORM\LoadProjectData',
+            'Jumph\Bundle\ProjectBundle\DataFixtures\ORM\LoadProjectStatusData',
+            'Jumph\Bundle\TimeTrackerBundle\DataFixtures\ORM\LoadTimeTrackerData',
+            'Jumph\Bundle\TimeTrackerBundle\DataFixtures\ORM\LoadTimeCategoryData',
+        );
+
+        $this->loadFixtures($fixtures);
     }
 }

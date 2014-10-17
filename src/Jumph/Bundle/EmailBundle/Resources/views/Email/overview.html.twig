@@ -51,8 +51,8 @@
                                 <tr>
                                     <td><input type="checkbox" /></td>
                                     <td>{{ email.subject }}</td>
-                                    <td>{{ email.employee.name }}</td>
-                                    <td>{{ email.project.name }}</td>
+                                    <td>{{ email.employee is not null ? email.employee.name : "" }}</td>
+                                    <td>{{ email.project is not null ? email.project.name : "" }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">

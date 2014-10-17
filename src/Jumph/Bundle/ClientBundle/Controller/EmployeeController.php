@@ -19,14 +19,14 @@ use Jumph\Bundle\ClientBundle\Form\Filter\EmployeeFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class EmployeeController extends Controller
 {
 
     /**
-     * @Template("JumphClientBundle:Employee:overview.html.twig")
      * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      *
      * Client overview page
@@ -43,7 +43,7 @@ class EmployeeController extends Controller
 
         $filter = $this->get('jumph_client.employee_filter');
 
-        return array(
+        return $this->render("JumphClientBundle:Employee:overview.html.twig", array(
             'filterForm' => $filterForm->createView(),
             'company' => $company,
             'employees' => $filter->getPaginatedResults(
@@ -52,11 +52,10 @@ class EmployeeController extends Controller
                 $request->query->get('page', 1),
                 15
             )
-        );
+        ));
     }
 
     /**
-     * @Template("JumphClientBundle:Employee:view.html.twig")
      * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      * @ParamConverter("employee", class="JumphClientBundle:Employee", options={"id" = "employeeId"})
      *
@@ -69,14 +68,13 @@ class EmployeeController extends Controller
      */
     public function viewAction(Company $company, Employee $employee)
     {
-        return array(
+        return $this->render("JumphClientBundle:Employee:view.html.twig", array(
             'company' => $company,
             'employee' => $employee
-        );
+        ));
     }
 
     /**
-     * @Template("JumphClientBundle:Employee:form.html.twig")
      * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      *
      * Add employee
@@ -115,14 +113,13 @@ class EmployeeController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphClientBundle:Employee:form.html.twig", array(
             'employeeForm' => $employeeForm->createView(),
             'company' => $company
-        );
+        ));
     }
 
     /**
-     * @Template("JumphClientBundle:Employee:form.html.twig")
      * @ParamConverter("company", class="JumphClientBundle:Company", options={"id" = "companyId"})
      * @ParamConverter("employee", class="JumphClientBundle:Employee", options={"id" = "employeeId"})
      *
@@ -161,10 +158,10 @@ class EmployeeController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphClientBundle:Employee:form.html.twig", array(
             'employeeForm' => $employeeForm->createView(),
             'company' => $company
-        );
+        ));
     }
 
     /**

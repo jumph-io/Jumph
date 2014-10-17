@@ -32,8 +32,9 @@ class LoadTimeTrackerData extends AbstractFixture implements OrderedFixtureInter
 
         for ($i = 0; $i < 10; $i++) {
             $timeTracker = new TimeTracker();
-            $timeTracker->setCategory($this->getReference('time-category-' . $faker->numberBetween(9, 5)));
-            $timeTracker->setDateAt($faker->dateTimea);
+            $timeTracker->setCategory($this->getReference('time-category-' . $faker->numberBetween(0, 9)));
+            $timeTracker->setProject($this->getReference('project-' . $faker->numberBetween(0, 9)));
+            $timeTracker->setDateAt($faker->dateTime);
             $timeTracker->setDescription($faker->paragraph(2));
             $timeTracker->setHours($faker->randomFloat(1, 0, 10));
 
@@ -48,6 +49,6 @@ class LoadTimeTrackerData extends AbstractFixture implements OrderedFixtureInter
      */
     public function getOrder()
     {
-        return 4;
+        return 34;
     }
 }

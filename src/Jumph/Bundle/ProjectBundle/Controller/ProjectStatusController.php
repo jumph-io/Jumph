@@ -18,14 +18,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ProjectStatusController extends Controller
 {
     /**
-     * @Template("JumphProjectBundle:ProjectStatus:overview.html.twig")
-     *
      * Project status overview page
      *
      * @param Request $request A Request instance
@@ -39,18 +36,17 @@ class ProjectStatusController extends Controller
 
         $filter = $this->get('jumph_project.project_status_filter');
 
-        return array(
+        return $this->render("JumphProjectBundle:ProjectStatus:overview.html.twig", array(
             'filterForm' => $filterForm->createView(),
             'projectStatuses' => $filter->getPaginatedResults(
                 $filterForm,
                 $request->query->get('page', 1),
                 15
             )
-        );
+        ));
     }
 
     /**
-     * @Template("JumphProjectBundle:ProjectStatus:view.html.twig")
      * @ParamConverter("projectStatus", class="JumphProjectBundle:ProjectStatus", options={"id" = "projectStatusId"})
      *
      * View project
@@ -61,14 +57,12 @@ class ProjectStatusController extends Controller
      */
     public function viewAction(ProjectStatus $projectStatus)
     {
-        return array(
+        return $this->render("JumphProjectBundle:ProjectStatus:view.html.twig", array(
             'projectStatus' => $projectStatus
-        );
+        ));
     }
 
     /**
-     * @Template("JumphProjectBundle:ProjectStatus:form.html.twig")
-     *
      * Add project
      *
      * @param Request $request A Request instance
@@ -93,13 +87,12 @@ class ProjectStatusController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphProjectBundle:ProjectStatus:form.html.twig", array(
             'projectStatusForm' => $projectStatusForm->createView()
-        );
+        ));
     }
 
     /**
-     * @Template("JumphProjectBundle:ProjectStatus:form.html.twig")
      * @ParamConverter("projectStatus", class="JumphProjectBundle:ProjectStatus", options={"id" = "projectStatusId"})
      *
      * Edit project
@@ -126,9 +119,9 @@ class ProjectStatusController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphProjectBundle:ProjectStatus:form.html.twig", array(
             'projectStatusForm' => $projectStatusForm->createView()
-        );
+        ));
     }
 
     /**

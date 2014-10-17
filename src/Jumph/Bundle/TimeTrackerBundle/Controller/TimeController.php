@@ -17,14 +17,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class TimeController extends Controller
 {
 
     /**
-     * @Template("JumphTimeTrackerBundle:TimeTracker:overview.html.twig")
-     *
      * Time overview page
      *
      * @param Request $request
@@ -37,13 +34,13 @@ class TimeController extends Controller
         $timeTrackerForm = $this->createForm(new TimeTrackerType(), $timeTracker);
         $timeTrackerManager = $this->get('jumph_time_tracker.time_tracker_manager');
 
-        return array(
+        return $this->render("JumphTimeTrackerBundle:TimeTracker:overview.html.twig", array(
             'timeTrackerForm' => $timeTrackerForm->createView(),
             'timeTrackers' => $timeTrackerManager->getPaginatedResults(
                 $request->query->get('page', 1),
                 20
             )
-        );
+        ));
     }
 
     /**

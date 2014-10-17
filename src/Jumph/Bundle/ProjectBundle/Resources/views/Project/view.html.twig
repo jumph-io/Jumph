@@ -61,9 +61,9 @@
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt>Name</dt>
-                        <dd>{{ project.employee.firstname }} {{ project.employee.lastname }}</dd>
+                        <dd>{{ project.employee is not null ? project.employee.firstname ~ " " ~ project.employee.lastname  : "" }}</dd>
                         <dt>Email</dt>
-                        <dd>{{ project.employee.email }}</dd>
+                        <dd>{{ project.employee is not null ? project.employee.email : "" }}</dd>
                     </dl>
                 </div>
                 <div class="box-footer">

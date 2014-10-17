@@ -12,56 +12,35 @@
 namespace Jumph\Bundle\ClientBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Faker\Factory;
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 
-class LoadEmployeeData extends AbstractFixture implements OrderedFixtureInterface
+/**
+ * Fixture for employee data
+ */
+class LoadEmployeeData extends AbstractFixture implements OrderedFixtureInterface, FixtureInterface
 {
     /**
      * {@inheritDoc}
      */
     public function load(ObjectManager $manager)
     {
-        // First employee
-        $employee = new Employee();
-        $employee->setEmail('larry@jumph.io');
-        $employee->setFirstname('Larry');
-        $employee->setLastname('Page');
-        $employee->setCompany($this->getReference('google'));
+        $faker = Factory::create();
 
-        $manager->persist($employee);
-        $manager->flush();
+        for ($i = 0; $i < 10; $i++) {
+            $employee = new Employee();
+            $employee->setFirstname($faker->firstName);
+            $employee->setLastname($faker->lastName);
+            $employee->setEmail($faker->email);
+            $employee->setCompany($this->getReference('company-' . $i));
 
-        // Second employee
-        $employee = new Employee();
-        $employee->setEmail('sergey@jumph.io');
-        $employee->setFirstname('Sergey');
-        $employee->setLastname('Brin');
-        $employee->setCompany($this->getReference('google'));
+            $this->addReference('employee-'.$i, $employee);
+            $manager->persist($employee);
+        }
 
-        $manager->persist($employee);
-        $manager->flush();
-
-        // Third employee
-        $employee = new Employee();
-        $employee->setEmail('bill@jumph.io');
-        $employee->setFirstname('Bill');
-        $employee->setLastname('Gates');
-        $employee->setCompany($this->getReference('microsoft'));
-
-        $manager->persist($employee);
-        $manager->flush();
-
-        // Fourth employee
-        $employee = new Employee();
-        $employee->setEmail('vic@jumph.io');
-        $employee->setFirstname('Vic');
-        $employee->setLastname('Gundotra');
-        $employee->setCompany($this->getReference('google'));
-        $employee->setDeletedAt(new \DateTime());
-
-        $manager->persist($employee);
         $manager->flush();
     }
 
@@ -70,6 +49,6 @@ class LoadEmployeeData extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function getOrder()
     {
-        return 2;
+        return 14;
     }
 }

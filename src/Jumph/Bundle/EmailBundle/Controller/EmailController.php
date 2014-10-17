@@ -27,10 +27,9 @@ class EmailController extends Controller
 {
 
     /**
-     * @Template("JumphEmailBundle:Email:overview.html.twig")
-     *
      * Email overview page
      *
+     * @param Request $request
      *
      * @return Response A Response instance
      */
@@ -41,18 +40,17 @@ class EmailController extends Controller
 
         $filter = $this->get('jumph_email.email_filter');
 
-        return array(
+        return $this->render("JumphEmailBundle:Email:overview.html.twig", array(
             'filterForm' => $filterForm->createView(),
             'emails' => $filter->getPaginatedResults(
                 $filterForm,
                 $request->query->get('page', 1),
                 15
             )
-        );
+        ));
     }
 
     /**
-     * @Template("JumphEmailBundle:Email:view.html.twig")
      * @ParamConverter("email", class="JumphEmailBundle:Email", options={"id" = "emailId"})
      *
      * View email
@@ -63,14 +61,12 @@ class EmailController extends Controller
      */
     public function viewAction(Email $email)
     {
-        return array(
+        return $this->render("JumphEmailBundle:Email:view.html.twig", array(
             'email' => $email
-        );
+        ));
     }
 
     /**
-     * @Template("JumphEmailBundle:Email:form.html.twig")
-     *
      * Add email
      *
      * @param Request $request A Request instance
@@ -98,13 +94,12 @@ class EmailController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphEmailBundle:Email:form.html.twig", array(
             'emailForm' => $emailForm->createView()
-        );
+        ));
     }
 
     /**
-     * @Template("JumphEmailBundle:Email:form.html.twig")
      * @ParamConverter("email", class="JumphEmailBundle:Email", options={"id" = "emailId"})
      *
      * Edit email
@@ -134,9 +129,9 @@ class EmailController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphEmailBundle:Email:form.html.twig", array(
             'emailForm' => $emailForm->createView()
-        );
+        ));
     }
 
     /**

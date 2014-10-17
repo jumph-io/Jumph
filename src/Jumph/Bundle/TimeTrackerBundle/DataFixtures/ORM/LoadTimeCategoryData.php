@@ -30,7 +30,7 @@ class LoadTimeCategoryData extends AbstractFixture implements OrderedFixtureInte
     {
         $faker = Factory::create();
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $timeCategory = new TimeCategory();
             $timeCategory->setName($faker->sentence(6));
             $timeCategory->setDescription($faker->paragraph(2));
@@ -47,6 +47,6 @@ class LoadTimeCategoryData extends AbstractFixture implements OrderedFixtureInte
      */
     public function getOrder()
     {
-        return 3;
+        return 33;
     }
 }

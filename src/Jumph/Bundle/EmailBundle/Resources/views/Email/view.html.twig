@@ -44,7 +44,7 @@
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt>Name</dt>
-                        <dd>{{ email.company.name }}</dd>
+                        <dd>{{ email.company is not null ? email.company.name : "" }}</dd>
                     </dl>
                 </div>
                 <div class="box-footer">
@@ -59,9 +59,9 @@
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt>Name</dt>
-                        <dd>{{ email.employee.firstname }} {{ email.employee.lastname }}</dd>
+                        <dd>{{ email.employee is not null ? email.employee.firstname ~ " " ~ email.employee.lastname  : "" }}</dd>
                         <dt>Email</dt>
-                        <dd>{{ email.employee.email }}</dd>
+                        <dd>{{ email.employee is not null ? email.employee.email : "" }}</dd>
                     </dl>
                 </div>
                 <div class="box-footer">
@@ -76,7 +76,7 @@
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt>Name</dt>
-                        <dd>{{ email.project.name }}</dd>
+                        <dd>{{ email.project is not null ? email.project.name : "" }}</dd>
                     </dl>
                 </div>
                 <div class="box-footer">

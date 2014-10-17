@@ -9,21 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\TimeTrackerBundle\Tests\Controller;
+namespace Jumph\Bundle\ClientBundle\Tests\Controller;
 
 use Jumph\Bundle\AppBundle\Tests\BaseWebTestCase;
 
 /**
- * Functional time category controller tests
+ * Functional company controller tests
  */
-class TimeCategoryControllerTest extends BaseWebTestCase
+class CompanyControllerTest extends BaseWebTestCase
 {
     /**
      * Test the overview method
      */
     public function testOverview()
     {
-        $this->client->request('GET', '/config/timetracker/category');
+        $this->client->request('GET', '/clients');
         $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 
@@ -32,7 +32,7 @@ class TimeCategoryControllerTest extends BaseWebTestCase
      */
     public function testView()
     {
-        $this->client->request('GET', '/config/timetracker/category/1/view');
+        $this->client->request('GET', '/clients/1/view');
         $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 
@@ -41,10 +41,10 @@ class TimeCategoryControllerTest extends BaseWebTestCase
      */
     public function testAdd()
     {
-        $this->client->request('GET', '/config/timetracker/category/add');
+        $this->client->request('GET', '/clients/add');
         $this->assertTrue($this->client->getResponse()->isSuccessful());
 
-        $this->client->request('POST', '/config/timetracker/category/add');
+        $this->client->request('POST', '/clients/add');
         $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 
@@ -53,10 +53,10 @@ class TimeCategoryControllerTest extends BaseWebTestCase
      */
     public function testEdit()
     {
-        $this->client->request('GET', '/config/timetracker/category/1/edit');
+        $this->client->request('GET', '/clients/1/edit');
         $this->assertTrue($this->client->getResponse()->isSuccessful());
 
-        $this->client->request('POST', '/config/timetracker/category/1/edit');
+        $this->client->request('POST', '/clients/1/edit');
         $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 
@@ -65,7 +65,7 @@ class TimeCategoryControllerTest extends BaseWebTestCase
      */
     public function testDelete()
     {
-        $this->client->request('DELETE', '/config/timetracker/category/1/delete');
+        $this->client->request('DELETE', '/clients/1/delete');
         $this->client->followRedirect();
         $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
