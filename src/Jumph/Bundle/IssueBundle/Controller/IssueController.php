@@ -12,14 +12,12 @@
 namespace Jumph\Bundle\IssueBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 class IssueController extends Controller
 {
 
     /**
-     * @Template("JumphIssueBundle:Issue:overview.html.twig")
-     *
      * Issue overview page
      *
      *
@@ -27,6 +25,6 @@ class IssueController extends Controller
      */
     public function overviewAction()
     {
-        return array();
+        return $this->render("JumphIssueBundle:Issue:overview.html.twig");
     }
 }

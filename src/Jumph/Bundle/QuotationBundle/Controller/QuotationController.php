@@ -12,21 +12,18 @@
 namespace Jumph\Bundle\QuotationBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 class QuotationController extends Controller
 {
 
     /**
-     * @Template("JumphQuotationBundle:Project:overview.html.twig")
-     *
      * Quotation overview page
-     *
      *
      * @return Response A Response instance
      */
     public function overviewAction()
     {
-        return array();
+        return $this->render("JumphQuotationBundle:Project:overview.html.twig");
     }
 }

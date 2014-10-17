@@ -173,7 +173,7 @@ class EmployeeController extends Controller
      * @param Company $company
      * @param Employee $employee
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse A Response instance
+     * @return RedirectResponse A Response instance
      */
     public function deleteAction(Company $company, Employee $employee)
     {

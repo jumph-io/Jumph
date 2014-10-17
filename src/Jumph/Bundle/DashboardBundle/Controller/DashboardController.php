@@ -13,14 +13,11 @@ namespace Jumph\Bundle\DashboardBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DashboardController extends Controller
 {
 
     /**
-     * @Template("JumphDashboardBundle:Dashboard:overview.html.twig")
-     *
      * Dashboard overview page
      *
      * @return Response A Response instance
@@ -29,8 +26,8 @@ class DashboardController extends Controller
     {
         $blocksContainer = $this->get('jumph_dashboard.dashboard_block_container');
 
-        return array(
+        return $this->render("JumphDashboardBundle:Dashboard:overview.html.twig", array(
             'blocks' => $blocksContainer->getAllBlocks()
-        );
+        ));
     }
 }

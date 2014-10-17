@@ -12,50 +12,37 @@
 namespace Jumph\Bundle\InstallerBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class InstallController
 {
 
     /**
-     * @Template("JumphInstallerBundle:Install:check.html.twig")
-     *
      * Check if system complies
      *
      * @return Response A Response instance
      */
     public function checkAction()
     {
-        return array(
-
-        );
+        return $this->render("JumphInstallerBundle:Install:check.html.twig");
     }
 
     /**
-     * @Template("JumphInstallerBundle:Install:database.html.twig")
-     *
      * Install database page
      *
      * @return Response A Response instance
      */
     public function databaseAction()
     {
-         return array(
-
-        );
+         return $this->render("JumphInstallerBundle:Install:database.html.twig");
     }
 
     /**
-     * @Template("JumphInstallerBundle:Install:user.html.twig")
-     *
      * Install user page
      *
      * @return Response A Response instance
      */
     public function userAction()
     {
-        return array(
-
-        );
+        return $this->render("JumphInstallerBundle:Install:user.html.twig");
     }
 }

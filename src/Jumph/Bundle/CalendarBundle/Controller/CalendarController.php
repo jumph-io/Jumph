@@ -12,21 +12,18 @@
 namespace Jumph\Bundle\CalendarBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\BrowserKit\Response;
 
 class CalendarController extends Controller
 {
 
     /**
-     * @Template("JumphCalendarBundle:Calendar:overview.html.twig")
-     *
      * Calendar overview page
      *
      * @return Response A Response instance
      */
     public function overviewAction()
     {
-        return array();
+        return $this->render("JumphCalendarBundle:Calendar:overview.html.twig");
     }
 }
