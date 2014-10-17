@@ -61,23 +61,4 @@ class ProjectManagerTest extends \PHPUnit_Framework_TestCase
 
         $this->projectManager->delete($project);
     }
-
-    public function testGetQueryBuilder()
-    {
-        $qb = \Mockery::mock('\Doctrine\Orm\QueryBuilder');
-        $repo = \Mockery::mock('\Doctrine\Common\Persistence\ObjectRepository');
-
-        $repo->shouldReceive('createQueryBuilder')
-            ->once()
-            ->with(ProjectManager::ENTITY_ALIAS)
-            ->andReturn($qb);
-
-        $this->objectManagerMock
-            ->shouldReceive('getRepository')
-            ->once()
-            ->with(ProjectManager::ENTITY_CLASS)
-            ->andReturn($repo);
-
-        $this->projectManager->getQueryBuilder();
-    }
 }

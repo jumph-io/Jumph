@@ -61,23 +61,4 @@ class EmployeeManagerTest extends \PHPUnit_Framework_TestCase
 
         $this->employeeManager->delete($employee);
     }
-
-    public function testGetQueryBuilder()
-    {
-        $qb = \Mockery::mock('\Doctrine\Orm\QueryBuilder');
-        $repo = \Mockery::mock('\Doctrine\Common\Persistence\ObjectRepository');
-
-        $repo->shouldReceive('createQueryBuilder')
-            ->once()
-            ->with(EmployeeManager::ENTITY_ALIAS)
-            ->andReturn($qb);
-
-        $this->objectManagerMock
-            ->shouldReceive('getRepository')
-            ->once()
-            ->with(EmployeeManager::ENTITY_CLASS)
-            ->andReturn($repo);
-
-        $this->employeeManager->getQueryBuilder();
-    }
 }

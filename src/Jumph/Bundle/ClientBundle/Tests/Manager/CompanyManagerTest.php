@@ -60,23 +60,4 @@ class CompanyManagerTest extends \PHPUnit_Framework_TestCase
 
         $this->companyManager->delete($company);
     }
-
-    public function testGetQueryBuilder()
-    {
-        $qb = \Mockery::mock('\Doctrine\Orm\QueryBuilder');
-        $repo = \Mockery::mock('\Doctrine\Common\Persistence\ObjectRepository');
-
-        $repo->shouldReceive('createQueryBuilder')
-            ->once()
-            ->with(CompanyManager::ENTITY_ALIAS)
-            ->andReturn($qb);
-
-        $this->objectManagerMock
-            ->shouldReceive('getRepository')
-            ->once()
-            ->with(CompanyManager::ENTITY_CLASS)
-            ->andReturn($repo);
-
-        $this->companyManager->getQueryBuilder();
-    }
 }

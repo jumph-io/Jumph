@@ -61,23 +61,4 @@ class EmailManagerTest extends \PHPUnit_Framework_TestCase
 
         $this->emailManager->delete($email);
     }
-
-    public function testGetQueryBuilder()
-    {
-        $qb = \Mockery::mock('\Doctrine\Orm\QueryBuilder');
-        $repo = \Mockery::mock('\Doctrine\Common\Persistence\ObjectRepository');
-
-        $repo->shouldReceive('createQueryBuilder')
-            ->once()
-            ->with(EmailManager::ENTITY_ALIAS)
-            ->andReturn($qb);
-
-        $this->objectManagerMock
-            ->shouldReceive('getRepository')
-            ->once()
-            ->with(EmailManager::ENTITY_CLASS)
-            ->andReturn($repo);
-
-        $this->emailManager->getQueryBuilder();
-    }
 }
