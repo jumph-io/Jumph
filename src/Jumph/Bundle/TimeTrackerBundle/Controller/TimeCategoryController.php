@@ -24,8 +24,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class TimeCategoryController extends Controller
 {
     /**
-     * @Template("JumphTimeTrackerBundle:TimeCategory:overview.html.twig")
-     *
      * Time category overview page
      *
      * @param Request $request A Request instance
@@ -39,18 +37,17 @@ class TimeCategoryController extends Controller
 
         $filter = $this->get('jumph_time_tracker.time_category_filter');
 
-        return array(
+        return $this->render("JumphTimeTrackerBundle:TimeCategory:overview.html.twig", array(
             'filterForm' => $filterForm->createView(),
             'timeCategories' => $filter->getPaginatedResults(
                 $filterForm,
                 $request->query->get('page', 1),
                 15
             )
-        );
+        ));
     }
 
     /**
-     * @Template("JumphTimeTrackerBundle:TimeCategory:view.html.twig")
      * @ParamConverter("timeCategory", class="JumphTimeTrackerBundle:TimeCategory", options={"id" = "timeCategoryId"})
      *
      * View time category
@@ -61,14 +58,12 @@ class TimeCategoryController extends Controller
      */
     public function viewAction(TimeCategory $timeCategory)
     {
-        return array(
+        return $this->array("JumphTimeTrackerBundle:TimeCategory:view.html.twig", array(
             'timeCategory' => $timeCategory
-        );
+        ));
     }
 
     /**
-     * @Template("JumphTimeTrackerBundle:TimeCategory:form.html.twig")
-     *
      * Add time category
      *
      * @param Request $request A Request instance
@@ -93,13 +88,12 @@ class TimeCategoryController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphTimeTrackerBundle:TimeCategory:form.html.twig", array(
             'timeCategoryForm' => $timeCategoryForm->createView()
-        );
+        ));
     }
 
     /**
-     * @Template("JumphTimeTrackerBundle:TimeCategory:form.html.twig")
      * @ParamConverter("timeCategory", class="JumphTimeTrackerBundle:TimeCategory", options={"id" = "timeCategoryId"})
      *
      * Edit time category
@@ -126,9 +120,9 @@ class TimeCategoryController extends Controller
             }
         }
 
-        return array(
+        return $this->render("JumphTimeTrackerBundle:TimeCategory:form.html.twig", array(
             'timeCategoryForm' => $timeCategoryForm->createView()
-        );
+        ));
     }
 
     /**

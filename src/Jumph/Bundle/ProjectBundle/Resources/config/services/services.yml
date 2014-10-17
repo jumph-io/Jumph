@@ -3,4 +3,3 @@ services:
         class: Jumph\Bundle\ProjectBundle\Dashboard\ProjectBlock
         tags:
             -  { name: jumph_dashboard.block, alias: project_block }
-            

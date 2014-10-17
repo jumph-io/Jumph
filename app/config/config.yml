@@ -20,7 +20,7 @@ framework:
     session:
         name: JUMPHSESSID
         handler_id: session.handler.native_file
-        save_path: "%kernel.root_dir%//sessions/"
+        save_path: "%kernel.root_dir%/sessions/"
     fragments:       ~
     http_method_override: true
 

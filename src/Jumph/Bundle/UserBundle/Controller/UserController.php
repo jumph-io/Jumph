@@ -17,15 +17,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
+/**
+ * Controller to manage users
+ */
 class UserController extends Controller
 {
 
     /**
-     * @Template("JumphUserBundle:User:overview.html.twig")
-     *
      * User overview page
      *
      * @param Request $request A Request instance
@@ -39,18 +39,17 @@ class UserController extends Controller
 
         $filter = $this->get('jumph_user.user_filter');
 
-        return array(
+        return $this->render('JumphUserBundle:User:overview.html.twig', array(
             'filterForm' => $filterForm->createView(),
             'users' => $filter->getPaginatedResults(
                 $filterForm,
                 $request->query->get('page', 1),
                 15
             )
-        );
+        ));
     }
 
     /**
-     * @Template("JumphUserBundle:User:view.html.twig")
      * @ParamConverter("user", class="JumphUserBundle:User", options={"id" = "userId"})
      *
      * View user
@@ -61,14 +60,12 @@ class UserController extends Controller
      */
     public function viewAction(User $user)
     {
-        return array(
+        return $this->render('JumphUserBundle:User:view.html.twig', array(
             'user' => $user
-        );
+        ));
     }
 
     /**
-     * @Template("JumphUserBundle:User:form.html.twig")
-     *
      * Add user
      *
      * @param Request $request A Request instance
@@ -81,13 +78,12 @@ class UserController extends Controller
             return $this->redirect($this->generateUrl('jumph_user_overview'));
         }
 
-        return array(
+        return $this->render('JumphUserBundle:User:form.html.twig', array(
 
-        );
+        ));
     }
 
     /**
-     * @Template("JumphUserBundle:User:form.html.twig")
      * @ParamConverter("user", class="JumphUserBundle:User", options={"id" = "userId"})
      *
      * Edit user
@@ -103,9 +99,9 @@ class UserController extends Controller
             return $this->redirect($this->generateUrl('jumph_user_overview'));
         }
 
-        return array(
+        return $this->render('JumphUserBundle:User:form.html.twig', array(
 
-        );
+        ));
     }
 
     /**

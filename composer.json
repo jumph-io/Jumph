@@ -16,12 +16,12 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
-        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/orm": "2.4.*",
         "doctrine/doctrine-bundle": "1.2.*",
-        "twig/extensions": "1.0.*",
+        "twig/extensions": "1.1.*",
         "symfony/assetic-bundle": "2.3.*",
         "symfony/swiftmailer-bundle": "2.3.*",
-        "symfony/monolog-bundle": "2.3.*",
+        "symfony/monolog-bundle": "2.6.*",
         "sensio/distribution-bundle": "2.3.*",
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
@@ -37,11 +37,14 @@
         "webfactory/exceptions-bundle": "4.0.*",
         "squizlabs/php_codesniffer": "1.5.*",
         "pdepend/pdepend": "2.0.*",
-        "phpmd/phpmd": "2.0.*",
-        "phpunit/phpunit": "4.1.*",
+        "phpmd/phpmd": "2.1.*",
+        "phpunit/phpunit": "4.3.*",
         "satooshi/php-coveralls": "0.7.*@dev",
         "mockery/mockery": "0.9.*",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*"
+        "liip/functional-test-bundle": "1.0.*",
+        "doctrine/doctrine-fixtures-bundle": "2.2.*",
+        "doctrine/data-fixtures": "dev-master",
+        "fzaninotto/faker": "1.4.*"
     },
     "scripts": {
         "post-install-cmd": [
@@ -61,7 +64,8 @@
         ]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "process-timeout": 3000
     },
     "minimum-stability": "stable",
     "extra": {
