@@ -80,6 +80,7 @@ class Email
      * Set subject
      *
      * @param string $subject
+     *
      * @return Email
      */
     public function setSubject($subject)
@@ -103,6 +104,7 @@ class Email
      * Set body
      *
      * @param string $body
+     *
      * @return Email
      */
     public function setBody($body)
@@ -126,6 +128,7 @@ class Email
      * Set company
      *
      * @param Company $company
+     *
      * @return Email
      */
     public function setCompany(Company $company = null)
@@ -149,6 +152,7 @@ class Email
      * Set employee
      *
      * @param Employee $employee
+     *
      * @return Email
      */
     public function setEmployee(Employee $employee = null)
@@ -172,6 +176,7 @@ class Email
      * Set project
      *
      * @param Project $project
+     *
      * @return Email
      */
     public function setProject(Project $project = null)
@@ -215,9 +220,10 @@ class Email
      * Set deletedAt
      *
      * @param \DateTime $deletedAt
+     *
      * @return Email
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeletedAt(\DateTime $deletedAt = null)
     {
         $this->deletedAt = $deletedAt;
 

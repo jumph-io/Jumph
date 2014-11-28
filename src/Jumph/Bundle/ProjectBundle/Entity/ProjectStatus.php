@@ -59,6 +59,7 @@ class ProjectStatus
      * Set name
      *
      * @param string $name
+     *
      * @return ProjectStatus
      */
     public function setName($name)
@@ -82,6 +83,7 @@ class ProjectStatus
      * Set description
      *
      * @param string $description
+     *
      * @return ProjectStatus
      */
     public function setDescription($description)
@@ -125,9 +127,10 @@ class ProjectStatus
      * Set deletedAt
      *
      * @param \DateTime $deletedAt
+     *
      * @return ProjectStatus
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeletedAt(\DateTime $deletedAt = null)
     {
         $this->deletedAt = $deletedAt;
 

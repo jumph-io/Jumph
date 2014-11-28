@@ -226,7 +226,7 @@ class TimeTracker
      *
      * @return TimeTracker
      */
-    public function setDeletedAt(\DateTime $deletedAt)
+    public function setDeletedAt(\DateTime $deletedAt = null)
     {
         $this->deletedAt = $deletedAt;
 

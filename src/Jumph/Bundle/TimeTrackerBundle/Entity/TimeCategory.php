@@ -59,6 +59,7 @@ class TimeCategory
      * Set name
      *
      * @param string $name
+     *
      * @return TimeCategory
      */
     public function setName($name)
@@ -82,6 +83,7 @@ class TimeCategory
      * Set description
      *
      * @param string $description
+     *
      * @return TimeCategory
      */
     public function setDescription($description)
@@ -125,9 +127,10 @@ class TimeCategory
      * Set deletedAt
      *
      * @param \DateTime $deletedAt
+     *
      * @return TimeCategory
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeletedAt(\DateTime $deletedAt = null)
     {
         $this->deletedAt = $deletedAt;
 

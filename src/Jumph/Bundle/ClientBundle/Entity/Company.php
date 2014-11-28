@@ -19,27 +19,27 @@ class Company
     private $name;
 
     /**
-     * @var Collection
+     * @var ArrayCollection
      */
     private $employees;
 
     /**
-     * @var Collection
+     * @var ArrayCollection
      */
     private $projects;
 
     /**
-     * @var date $createdAt
+     * @var \DateTime $createdAt
      */
     private $createdAt;
 
     /**
-     * @var date $updatedAt
+     * @var \DateTime $updatedAt
      */
     private $updatedAt;
 
     /**
-     * @var date $deletedAt
+     * @var \DateTime $deletedAt
      */
     private $deletedAt;
 
@@ -66,6 +66,7 @@ class Company
      * Set name
      *
      * @param string $name
+     *
      * @return Company
      */
     public function setName($name)
@@ -89,12 +90,14 @@ class Company
      * Add employees
      *
      * @param Employee $employee
+     *
      * @return Company
      */
     public function addEmployee(Employee $employee)
     {
         $this->employees[] = $employee;
         $employee->setCompany($this);
+
         return $this;
     }
 
@@ -111,7 +114,7 @@ class Company
     /**
      * Get employees
      *
-     * @return Collection
+     * @return ArrayCollection
      */
     public function getEmployees()
     {
@@ -121,7 +124,7 @@ class Company
     /**
      * Get projects
      *
-     * @return Collection
+     * @return ArrayCollection
      */
     public function getProjects()
     {
@@ -132,12 +135,14 @@ class Company
      * Add projects
      *
      * @param Project $project
+     *
      * @return Company
      */
     public function addProject(Project $project)
     {
         $this->projects[] = $project;
         $project->setCompany($this);
+
         return $this;
     }
 
@@ -154,7 +159,7 @@ class Company
     /**
      * Get creation date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -164,7 +169,7 @@ class Company
     /**
      * Get update date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -174,7 +179,7 @@ class Company
     /**
      * Get deletion date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getDeletedAt()
     {
@@ -186,7 +191,7 @@ class Company
      *
      * @param \DateTime $deletedAt
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeletedAt(\DateTime $deletedAt = null)
     {
         $this->deletedAt = $deletedAt;
     }

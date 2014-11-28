@@ -43,22 +43,22 @@ class Employee
     private $company;
 
     /**
-     * @var Collection
+     * @var ArrayCollection
      */
     private $projects;
 
     /**
-     * @var date $createdAt
+     * @var \DateTime $createdAt
      */
     private $createdAt;
 
     /**
-     * @var date $updatedAt
+     * @var \DateTime $updatedAt
      */
     private $updatedAt;
 
     /**
-     * @var date $deletedAt
+     * @var \DateTime $deletedAt
      */
     private $deletedAt;
 
@@ -151,6 +151,11 @@ class Employee
         return $this;
     }
 
+    /**
+     * Get the name of the employee
+     *
+     * @return string
+     */
     public function getName()
     {
         return $this->getFirstname() . " " . $this->getLastname();
@@ -170,6 +175,7 @@ class Employee
      * Set company
      *
      * @param Company $company
+     *
      * @return Employee
      */
     public function setCompany(Company $company = null)
@@ -182,7 +188,7 @@ class Employee
     /**
      * Get projects
      *
-     * @return Collection
+     * @return ArrayCollection
      */
     public function getProjects()
     {
@@ -193,12 +199,14 @@ class Employee
      * Add projects
      *
      * @param Project $project
+     *
      * @return Employee
      */
     public function addProject(Project $project)
     {
         $this->projects[] = $project;
         $project->setEmployee($this);
+
         return $this;
     }
 
@@ -215,7 +223,7 @@ class Employee
     /**
      * Get creation date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -225,7 +233,7 @@ class Employee
     /**
      * Get update date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -235,7 +243,7 @@ class Employee
     /**
      * Get deletion date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getDeletedAt()
     {
@@ -247,7 +255,7 @@ class Employee
      *
      * @param \DateTime $deletedAt
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeletedAt(\DateTime $deletedAt = null)
     {
         $this->deletedAt = $deletedAt;
     }

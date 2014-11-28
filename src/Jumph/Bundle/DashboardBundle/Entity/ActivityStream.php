@@ -46,7 +46,6 @@ class ActivityStream
      */
     private $user;
 
-
     /**
      * Get id
      *

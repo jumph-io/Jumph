@@ -6,7 +6,6 @@ use FOS\UserBundle\Model\User as BaseUser;
 
 class User extends BaseUser
 {
-
     /**
      * @var integer
      */
@@ -23,17 +22,17 @@ class User extends BaseUser
     private $lastname;
 
     /**
-     * @var date $createdAt
+     * @var \DateTime $createdAt
      */
     private $createdAt;
 
     /**
-     * @var date $updatedAt
+     * @var \DateTime $updatedAt
      */
     private $updatedAt;
 
     /**
-     * @var date $deletedAt
+     * @var \DateTime $deletedAt
      */
     private $deletedAt;
 
@@ -115,7 +114,7 @@ class User extends BaseUser
     /**
      * Get creation date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -125,7 +124,7 @@ class User extends BaseUser
     /**
      * Get update date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -135,7 +134,7 @@ class User extends BaseUser
     /**
      * Get deletion date
      *
-     * @return date
+     * @return \DateTime
      */
     public function getDeletedAt()
     {
@@ -145,9 +144,9 @@ class User extends BaseUser
     /**
      * Set deletion date
      *
-     * @param $deletedAt
+     * @param \DateTime $deletedAt
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeletedAt(\DateTime $deletedAt = null)
     {
         $this->deletedAt = $deletedAt;
     }
