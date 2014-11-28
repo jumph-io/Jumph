@@ -24,3 +24,6 @@ composer.phar
 #Capifony
 Capfile
 app/config/deploy.rb
+
+# Gulp
+node_modules
