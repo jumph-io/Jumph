@@ -31,7 +31,7 @@
                         {{ form_end(filterForm, {'render_rest': false}) }}
                     </div>
                 </div>
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body no-padding">
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -59,7 +59,7 @@
                                             <li><a href="{{ path('jumph_config_project_status_view', { 'projectStatusId': projectStatus.id }) }}">View</a></li>
                                             <li><a href="{{ path('jumph_config_project_status_edit', { 'projectStatusId': projectStatus.id }) }}">Edit</a></li>
                                             <li class="divider"></li>
-                                            <li><a href="{{ path('jumph_config_project_status_delete', { 'projectStatusId': projectStatus.id }) }}" class="js-delete-item">Delete</a></li>
+                                            <li><a href="{{ path('jumph_config_project_status_delete', { 'projectStatusId': projectStatus.id }) }}" class="delete js-delete-item">Delete</a></li>
                                         </ul>
                                     </div>
                                 </td>

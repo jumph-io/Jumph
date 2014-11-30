@@ -30,7 +30,7 @@
                         {{ form_end(filterForm, {'render_rest': false}) }}
                     </div>
                 </div>
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body no-padding">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -62,7 +62,7 @@
                                                 <li><a href="{{ path('jumph_email_view', { 'emailId': email.id }) }}">View</a></li>
                                                 <li><a href="{{ path('jumph_email_edit', { 'emailId': email.id }) }}">Edit</a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="{{ path('jumph_email_delete', { 'emailId': email.id }) }}" class="js-delete-item">Delete</a></li>
+                                                <li><a href="{{ path('jumph_email_delete', { 'emailId': email.id }) }}" class="delete js-delete-item">Delete</a></li>
                                             </ul>
                                         </div>
                                     </td>

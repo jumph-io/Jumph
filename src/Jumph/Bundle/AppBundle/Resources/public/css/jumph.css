@@ -9,3 +9,7 @@ table th a.sortable {
 table th a:hover {
     color: #3c8dbc;
 }
+
+.dropdown-menu > li > a.delete:hover {
+    background-color: #f56954;
+}
