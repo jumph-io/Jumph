@@ -5,4 +5,13 @@ services:
           - { name: kernel.event_listener, event: jumph.build_menu, method: onMenuDashboard }
     jumph_dashboard.dashboard_block_container:
         class: Jumph\Bundle\DashboardBundle\Service\DashboardBlockContainer
-
+    jumph_dashboard.activity_subscriber:
+        class: Jumph\Bundle\DashboardBundle\EventListener\Doctrine\ActivitySubscriber
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+    jumph_dashboard.activity_listener:
+        class: Jumph\Bundle\DashboardBundle\EventListener\ActivityListener
+        calls:
+            - [setContainer, [ @service_container ] ]
+        tags:
+          - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

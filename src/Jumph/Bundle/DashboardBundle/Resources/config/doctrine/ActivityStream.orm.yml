@@ -19,6 +19,7 @@ Jumph\Bundle\DashboardBundle\Entity\ActivityStream:
         objectId:
             type: string
             length: 150
+            nullable: true
         objectType:
             type: string
             length: 150

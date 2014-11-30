@@ -3,9 +3,10 @@
 namespace Jumph\Bundle\ClientBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Jumph\Bundle\DashboardBundle\Entity\ActivityInterface;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
 
-class Company
+class Company implements ActivityInterface
 {
 
     /**
