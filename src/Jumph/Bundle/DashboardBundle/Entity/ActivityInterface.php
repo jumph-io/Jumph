@@ -20,4 +20,4 @@ interface ActivityInterface
      * @return integer
      */
     public function getId();
-} 
+}
