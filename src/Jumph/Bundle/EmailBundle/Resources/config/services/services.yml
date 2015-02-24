@@ -1,5 +1,7 @@
 services:
     jumph_email.dashboard_email_block:
         class: Jumph\Bundle\EmailBundle\Dashboard\EmailBlock
+        arguments:
+            - @jumph_email.email_manager
         tags:
             -  { name: jumph_dashboard.block, alias: email_block }

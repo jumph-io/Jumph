@@ -1,0 +1,5 @@
+services:
+    jumph_dashboard.activity_manager:
+        class: Jumph\Bundle\DashboardBundle\Manager\ActivityManager
+        arguments:
+            - @doctrine.orm.entity_manager

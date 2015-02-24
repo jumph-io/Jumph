@@ -1,0 +1,9 @@
+services:
+    jumph_dashboard.twig.activity_render:
+        class: Jumph\Bundle\DashboardBundle\Twig\Extension\ActivityRenderExtension
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @twig
+        public: false
+        tags:
+            - { name: twig.extension }

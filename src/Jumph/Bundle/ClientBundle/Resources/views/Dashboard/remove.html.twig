@@ -1,0 +1,7 @@
+<li>
+    <i class="fa fa-building bg-purple"></i>
+    <div class="timeline-item">
+        <span class="time"><i class="fa fa-clock-o"></i> {{ stream.createdAt|ago }}</span>
+        <h3 class="timeline-header no-border"><a href="#">{{ stream.user is not null ? stream.user.firstname ~ " " ~ stream.user.lastname  : "" }}</a> deleted a company</h3>
+    </div>
+</li>

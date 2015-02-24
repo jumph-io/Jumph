@@ -12,6 +12,7 @@
 namespace Jumph\Bundle\EmailBundle\Dashboard;
 
 use Jumph\Bundle\DashboardBundle\Entity\DashboardBlockInterface;
+use Jumph\Bundle\EmailBundle\Manager\EmailManager;
 
 class EmailBlock implements DashboardBlockInterface
 {
@@ -31,25 +32,21 @@ class EmailBlock implements DashboardBlockInterface
     private $itemName;
 
     /**
-     * @var string
+     * @var EmailManager
      */
-    private $link;
-
-    /**
-     * @var integer
-     */
-    private $totalItems;
+    private $emailManager;
 
     /**
      * Constructor
+     *
+     * @param EmailManager $emailManager
      */
-    public function __construct()
+    public function __construct(EmailManager $emailManager)
     {
+        $this->emailManager = $emailManager;
         $this->color = "green";
         $this->icon = "envelope";
         $this->itemName = "emails";
-        $this->link = "#";
-        $this->totalItems = "8";
     }
 
     /**
@@ -77,18 +74,10 @@ class EmailBlock implements DashboardBlockInterface
     }
 
     /**
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->link;
-    }
-
-    /**
      * @return int
      */
     public function getTotalItems()
     {
-        return $this->totalItems;
+        return $this->emailManager->count();
     }
 }

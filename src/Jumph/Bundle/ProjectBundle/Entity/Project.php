@@ -13,10 +13,11 @@ namespace Jumph\Bundle\ProjectBundle\Entity;
 
 use Jumph\Bundle\ClientBundle\Entity\Employee;
 use Jumph\Bundle\ClientBundle\Entity\Company;
+use Jumph\Bundle\DashboardBundle\Entity\ActivityInterface;
 use Jumph\Bundle\TimeTrackerBundle\Entity\TimeTracker;
 use Doctrine\Common\Collections\ArrayCollection;
 
-class Project
+class Project implements ActivityInterface
 {
     /**
      * @var integer

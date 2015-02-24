@@ -29,11 +29,6 @@ interface DashboardBlockInterface
     public function getItemName();
 
     /**
-     * @return string
-     */
-    public function getLink();
-
-    /**
      * @return int
      */
     public function getTotalItems();

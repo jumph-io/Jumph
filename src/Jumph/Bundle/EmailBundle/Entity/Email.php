@@ -15,9 +15,10 @@ namespace Jumph\Bundle\EmailBundle\Entity;
 
 use Jumph\Bundle\ClientBundle\Entity\Company;
 use Jumph\Bundle\ClientBundle\Entity\Employee;
+use Jumph\Bundle\DashboardBundle\Entity\ActivityInterface;
 use Jumph\Bundle\ProjectBundle\Entity\Project;
 
-class Email
+class Email implements ActivityInterface
 {
 
     /**

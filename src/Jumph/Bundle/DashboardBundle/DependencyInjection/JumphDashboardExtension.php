@@ -27,6 +27,9 @@ class JumphDashboardExtension extends Extension
         $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
+        $loader->load('services/listeners.yml');
+        $loader->load('services/managers.yml');
+        $loader->load('services/services.yml');
+        $loader->load('services/twig.yml');
     }
 }

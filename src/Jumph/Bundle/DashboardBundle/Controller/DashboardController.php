@@ -26,8 +26,11 @@ class DashboardController extends Controller
     {
         $blocksContainer = $this->get('jumph_dashboard.dashboard_block_container');
 
+        $activityManager = $this->get('jumph_dashboard.activity_manager');
+
         return $this->render("JumphDashboardBundle:Dashboard:overview.html.twig", array(
-            'blocks' => $blocksContainer->getAllBlocks()
+            'blocks' => $blocksContainer->getAllBlocks(),
+            'streams' => $activityManager->findAll()
         ));
     }
 }

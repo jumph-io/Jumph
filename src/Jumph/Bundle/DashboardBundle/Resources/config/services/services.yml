@@ -1,0 +1,3 @@
+services:
+    jumph_dashboard.dashboard_block_container:
+        class: Jumph\Bundle\DashboardBundle\Service\DashboardBlockContainer

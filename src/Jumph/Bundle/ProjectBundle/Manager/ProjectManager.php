@@ -51,6 +51,20 @@ class ProjectManager implements FilterableManagerInterface
     }
 
     /**
+     * Count the total of projects
+     *
+     * @return int
+     */
+    public function count()
+    {
+        $qb = $this->getQueryBuilder();
+
+        return $qb->select($qb->expr()->count(self::ENTITY_ALIAS))
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /**
      * Create a project
      *
      * @param Project $project

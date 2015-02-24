@@ -12,6 +12,7 @@
 namespace Jumph\Bundle\ProjectBundle\Dashboard;
 
 use Jumph\Bundle\DashboardBundle\Entity\DashboardBlockInterface;
+use Jumph\Bundle\ProjectBundle\Manager\ProjectManager;
 
 class ProjectBlock implements DashboardBlockInterface
 {
@@ -31,25 +32,26 @@ class ProjectBlock implements DashboardBlockInterface
     private $itemName;
 
     /**
-     * @var string
-     */
-    private $link;
-
-    /**
      * @var integer
      */
     private $totalItems;
 
     /**
-     * Constructor
+     * @var ProjectManager
      */
-    public function __construct()
+    private $projectManager;
+
+    /**
+     * Constructor
+     *
+     * @param ProjectManager $projectManager
+     */
+    public function __construct(ProjectManager $projectManager)
     {
+        $this->projectManager = $projectManager;
         $this->color = "aqua";
         $this->icon = "tasks";
         $this->itemName = "products";
-        $this->link = "#";
-        $this->totalItems = "5";
     }
 
     /**
@@ -77,18 +79,10 @@ class ProjectBlock implements DashboardBlockInterface
     }
 
     /**
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->link;
-    }
-
-    /**
      * @return int
      */
     public function getTotalItems()
     {
-        return $this->totalItems;
+        return $this->projectManager->count();
     }
 }

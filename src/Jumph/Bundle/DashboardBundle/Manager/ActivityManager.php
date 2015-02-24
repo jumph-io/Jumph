@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Jumph\Bundle\EmailBundle\Manager;
+namespace Jumph\Bundle\DashboardBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\QueryBuilder;
 use Jumph\Bundle\AppBundle\Entity\FilterableManagerInterface;
 use Jumph\Bundle\EmailBundle\Entity\Email;
 
-class EmailManager implements FilterableManagerInterface
+class ActivityManager implements FilterableManagerInterface
 {
 
     /**
@@ -24,14 +24,14 @@ class EmailManager implements FilterableManagerInterface
      *
      * @var constant
      */
-    const ENTITY_ALIAS = 'e';
+    const ENTITY_ALIAS = 'ac';
 
     /**
      * Entity to use
      *
      * @var constant
      */
-    const ENTITY_CLASS = 'JumphEmailBundle:Email';
+    const ENTITY_CLASS = 'JumphDashboardBundle:ActivityStream';
 
     /**
      * Object manager
@@ -51,50 +51,19 @@ class EmailManager implements FilterableManagerInterface
     }
 
     /**
-     * Count the total of emails
+     * Find all activities
      *
-     * @return int
+     * @param string $sortField The field to sort
+     * @param string $sortOrder The order to sort in
+     *
+     * @return array
      */
-    public function count()
+    public function findAll($sortField = 'createdAt', $sortOrder = 'DESC')
     {
-        $qb = $this->getQueryBuilder();
-
-        return $qb->select($qb->expr()->count(self::ENTITY_ALIAS))
+        return $this->getQueryBuilder()
+            ->orderBy(self::ENTITY_ALIAS.'.' . $sortField, $sortOrder)
             ->getQuery()
-            ->getSingleScalarResult();
-    }
-
-    /**
-     * Create a email
-     *
-     * @param Email $email
-     */
-    public function create(Email $email)
-    {
-        $this->objectManager->persist($email);
-        $this->objectManager->flush();
-    }
-
-    /**
-     * Update a email
-     *
-     * @param Email $email
-     */
-    public function update(Email $email)
-    {
-        $this->objectManager->persist($email);
-        $this->objectManager->flush();
-    }
-
-    /**
-     * Delete a email
-     *
-     * @param Email $email
-     */
-    public function delete(Email $email)
-    {
-        $this->objectManager->remove($email);
-        $this->objectManager->flush();
+            ->getResult();
     }
 
     /**
