@@ -6,11 +6,8 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% stylesheets  filter='cssrewrite'
-        '%kernel.root_dir%/../vendor/components/bootstrap-daterangepicker/daterangepicker-bs3.css'
-    %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/daterangepicker-bs3.css') }}" />
 {% endblock %}
 
 {% block headerContent %}
@@ -122,14 +119,10 @@
 
 {% block javascripts %}
     {{ parent() }}
-    {% javascripts
-        '%kernel.root_dir%/../vendor/components/highcharts/highcharts.js'
-        '%kernel.root_dir%/../vendor/components/highcharts/modules/exporting.js'
-        '%kernel.root_dir%/../vendor/components/moment/min/moment-with-locales.min.js'
-        '%kernel.root_dir%/../vendor/components/bootstrap-daterangepicker/daterangepicker.js'
-    %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script src="{{ asset('js/highcharts.js') }}"></script>
+    <script src="{{ asset('js/exporting.js') }}"></script>
+    <script src="{{ asset('js//moment-with-locales.min.js') }}"></script>
+    <script src="{{ asset('js/daterangepicker.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
 

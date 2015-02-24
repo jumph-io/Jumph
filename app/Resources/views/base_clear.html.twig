@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html class="bg-black">
+<html>
     <head>
         <meta charset="utf-8">
         <title>{% block title %}Jumph{% endblock %}</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
-        {% stylesheets  filter='cssrewrite'
-            '%kernel.root_dir%/../vendor/components/bootstrap/dist/css/bootstrap.css'
-            '%kernel.root_dir%/../vendor/components/fontawesome/css/font-awesome.css'
-            '%kernel.root_dir%/../vendor/components/admin-lte/css/AdminLTE.css'
-            '%kernel.root_dir%/../vendor/components/bootstrap-datepicker/css/datepicker3.css'
-            '@JumphAppBundle/Resources/public/css/jumph.css'
-        %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/AdminLTE.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/datepicker3.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/blue.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/jumph.css') }}" />
+        {% endblock %}
     </head>
 
-    <body class="bg-black">
+    <body class="login-page">
         {% block content %}
         {% endblock %}
 
-        {% javascripts
-            '%kernel.root_dir%/../vendor/components/jquery/dist/jquery.min.js'
-            '%kernel.root_dir%/../vendor/components/bootstrap/dist/js/bootstrap.min.js'
-            '%kernel.root_dir%/../vendor/components/admin-lte/js/AdminLTE/app.js'
-            '%kernel.root_dir%/../vendor/components/bootstrap-datepicker/js/bootstrap-datepicker.js'
-        %}
-            <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('js/bootstrap-datepicker.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('js/icheck.min.js') }}" type="text/javascript"></script>
+            <script>
+                $(function () {
+                    $('input').iCheck({
+                        checkboxClass: 'icheckbox_square-blue',
+                        radioClass: 'iradio_square-blue',
+                        increaseArea: '20%' // optional
+                    });
+                });
+            </script>
+        {% endblock %}
     </body>
 </html>

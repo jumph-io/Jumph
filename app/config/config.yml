@@ -32,36 +32,6 @@ twig:
         resources:
             - '::form.html.twig'
 
-# Assetic Configuration
-assetic:
-    debug:          "%kernel.debug%"
-    use_controller: false
-    bundles:        [ JumphCalendarBundle, JumphTimeTrackerBundle ]
-    assets:
-        font-awesome-otf:
-            inputs: '%kernel.root_dir%/../vendor/components/fontawesome/fonts/FontAwesome.otf'
-            output: 'fonts/FontAwesome.otf'
-        font-awesome-eot:
-            inputs: '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.eot'
-            output: 'fonts/fontawesome-webfont.eot'
-        font-awesome-svg:
-            inputs: '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.svg'
-            output: 'fonts/fontawesome-webfont.svg'
-        font-awesome-ttf:
-            inputs: '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.ttf'
-            output: 'fonts/fontawesome-webfont.ttf'
-        font-awesome-woff:
-            inputs: '%kernel.root_dir%/../vendor/components/fontawesome/fonts/fontawesome-webfont.woff'
-            output: 'fonts/fontawesome-webfont.woff'
-        minimal-icon-2x:
-            inputs: '%kernel.root_dir%/../vendor/components/admin-lte/css/iCheck/minimal/minimal@2x.png'
-            output: 'iCheck/minimal/minimal@2x.png'
-        minimal-icon:
-            inputs: '%kernel.root_dir%/../vendor/components/admin-lte/css/iCheck/minimal/minimal.png'
-            output: 'iCheck/minimal/minimal.png'
-    filters:
-        cssrewrite: ~
-
 # Doctrine Configuration
 doctrine:
     dbal:

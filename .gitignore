@@ -12,7 +12,9 @@ app/sessions/*
 !app/sessions/.gitkeep
 web/uploads/*
 web/bundles/*
-web/assets/*
+web/js/*
+web/css/*
+web/fonts/*
 
 # Configuration files
 app/config/parameters.ini

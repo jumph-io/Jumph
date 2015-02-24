@@ -1,16 +1,24 @@
 {% extends '::base_clear.html.twig' %}
 
 {% block content %}
-    <div class="form-box" id="login-box">
-        <div class="header">Register</div>
-        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-            <div class="body bg-gray">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="{{ path('fos_user_security_login') }}">Jumph</a>
+        </div>
+
+        <div class="register-box-body">
+            <p class="login-box-msg">Register</p>
+            <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="post">
                 {{ form_widget(form) }}
-            </div>
-            <div class="footer">
-                <button type="submit" class="btn bg-olive btn-block">Register</button>
-                <a href="{{ path('fos_user_security_login') }}" class="text-center">Login</a>
-            </div>
-        </form>
-    </div>
+
+                <div class="row">
+                    <div class="col-xs-offset-8 col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+                    </div><!-- /.col -->
+                </div>
+            </form>
+
+            <a href="{{ path('fos_user_security_login') }}" class="text-center">Login</a>
+        </div><!-- /.form-box -->
+    </div><!-- /.register-box -->
 {% endblock %}

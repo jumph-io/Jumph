@@ -18,22 +18,13 @@
     <div class="row">
         {% for block in blocks %}
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-{{ block.color }}">
-                    <div class="inner">
-                        <h3>
-                            {{ block.totalItems }}
-                        </h3>
-                        <p>
-                            {{ block.itemName }}
-                        </p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-{{ block.icon }}"></i>
-                    </div>
-                    <a href="{{ block.link }}" class="small-box-footer">
-                        More info <i class="fa fa-arrow-circle-right"></i>
-                    </a>
-                </div>
+                <div class="info-box">
+                    <span class="info-box-icon bg-{{ block.color }}"><i class="fa fa-{{ block.icon }}"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">{{ block.itemName }}</span>
+                        <span class="info-box-number">{{ block.totalItems }}</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
             </div>
         {% endfor %}
 

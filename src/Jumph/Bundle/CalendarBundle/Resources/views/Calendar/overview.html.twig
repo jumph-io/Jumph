@@ -6,11 +6,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% stylesheets  filter='cssrewrite'
-        '%kernel.root_dir%/../vendor/components/admin-lte/css/fullcalendar/fullcalendar.css'
-    %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/fullcalendar.css') }}" />
 {% endblock %}
 
 {% block headerContent %}
@@ -67,11 +63,8 @@
 
 {% block javascripts %}
     {{ parent() }}
-    {% javascripts
-        '%kernel.root_dir%/../vendor/components/admin-lte/js/plugins/fullcalendar/fullcalendar.min.js'
-    %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script src="{{ asset('js/moment-with-locales.min.js') }}"></script>
+    <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
     <script type="text/javascript">
         $(function() {
 
