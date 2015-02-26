@@ -13,4 +13,4 @@ parameters:
 
     locale:            en
     secret:            208d6b10a76608e45246cb0a243184fee53ac8de
-    assets_version     ~
+    assets_version:    ~
