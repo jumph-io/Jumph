@@ -87,7 +87,7 @@ class CompanyController extends Controller
                 $dispatcher->dispatch(ClientEvents::CREATE_COMPANY, new Event());
 
                 $alertMessage = $this->get('jumph_app.alert_message');
-                $alertMessage->success('Company created!');
+                $alertMessage->success($this->get('translator')->trans('client.company.flash.create'));
 
                 return $this->redirect($this->generateUrl('jumph_client_company_overview'));
             }
@@ -122,7 +122,7 @@ class CompanyController extends Controller
                 $dispatcher->dispatch(ClientEvents::UPDATE_COMPANY, new Event());
 
                 $alertMessage = $this->get('jumph_app.alert_message');
-                $alertMessage->success('Company updated!');
+                $alertMessage->success($this->get('translator')->trans('client.company.flash.update'));
 
                 return $this->redirect($this->generateUrl('jumph_client_company_overview'));
             }
@@ -151,7 +151,7 @@ class CompanyController extends Controller
         $dispatcher->dispatch(ClientEvents::DELETE_COMPANY, new Event());
 
         $alertMessage = $this->get('jumph_app.alert_message');
-        $alertMessage->success('Company deleted!');
+        $alertMessage->success($this->get('translator')->trans('client.company.flash.delete'));
 
         return $this->redirect($this->generateUrl('jumph_client_company_overview'));
     }

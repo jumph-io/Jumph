@@ -100,7 +100,7 @@ class EmployeeController extends Controller
                 $dispatcher->dispatch(ClientEvents::CREATE_EMPLOYEE, new Event());
 
                 $alertMessage = $this->get('jumph_app.alert_message');
-                $alertMessage->success('Employee created!');
+                $alertMessage->success($this->get('translator')->trans('client.employee.flash.create'));
 
                 return $this->redirect(
                     $this->generateUrl(
@@ -145,7 +145,7 @@ class EmployeeController extends Controller
                 $dispatcher->dispatch(ClientEvents::UPDATE_EMPLOYEE, new Event());
 
                 $alertMessage = $this->get('jumph_app.alert_message');
-                $alertMessage->success('Employee updated!');
+                $alertMessage->success($this->get('translator')->trans('client.employee.flash.update'));
 
                 return $this->redirect(
                     $this->generateUrl(
@@ -184,7 +184,7 @@ class EmployeeController extends Controller
         $dispatcher->dispatch(ClientEvents::DELETE_EMPLOYEE, new Event());
 
         $alertMessage = $this->get('jumph_app.alert_message');
-        $alertMessage->success('Employee deleted!');
+        $alertMessage->success($this->get('translator')->trans('client.employee.flash.delete'));
 
         return $this->redirect(
             $this->generateUrl(

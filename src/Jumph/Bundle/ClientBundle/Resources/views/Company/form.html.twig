@@ -1,17 +1,17 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ parent() }} | Clients
+    {{ parent() }} | {{ 'client.clients'|trans }}
 {% endblock %}
 
 {% block headerContent %}
     <h1>
-        Clients
-        <small>Add / Edit</small>
+        {{ 'client.clients'|trans }}
+        <small>{{ 'common.button.add_edit'|trans }}</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ path('jumph_client_company_overview') }}"><i class="fa fa-building"></i> Clients</a></li>
-        <li> Add / Edit</li>
+        <li><a href="{{ path('jumph_client_company_overview') }}"><i class="fa fa-building"></i> {{ 'client.clients'|trans }}</a></li>
+        <li> {{ 'common.button.add_edit'|trans }}</li>
     </ol>
 {% endblock %}
 
@@ -28,7 +28,7 @@
                         {{ form_widget(companyForm._token) }}
                     </div>
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">{{ 'common.button.save'|trans }}</button>
                     </div>
                 {{ form_end(companyForm, {'render_rest': false}) }}
             </div>

@@ -23,7 +23,10 @@ class CompanyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
+        $builder->add('name', 'text', array(
+            'label' => 'client.company.fields.name',
+            'required' => true
+        ));
     }
 
     /**

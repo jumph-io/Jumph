@@ -1,16 +1,16 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ parent() }} | Clients
+    {{ parent() }} | {{ 'client.clients'|trans }}
 {% endblock %}
 
 {% block headerContent %}
     <h1>
-        Clients
+        {{ 'client.clients'|trans }}
         <small>View</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{ path('jumph_client_company_overview') }}"><i class="fa fa-building"></i> Clients</a></li>
+        <li><a href="{{ path('jumph_client_company_overview') }}"><i class="fa fa-building"></i> {{ 'client.clients'|trans }}</a></li>
         <li> View</li>
     </ol>
 {% endblock %}
@@ -20,11 +20,11 @@
         <div class="col-lg-8 col-md-12">
             <div class="box box-primary">
                 <div class="box-header">
-                    <h3 class="box-title">Company</h3>
+                    <h3 class="box-title">{{ 'client.company.company'|trans }}</h3>
                 </div>
                 <div class="box-body">
                     <dl class="dl-horizontal">
-                        <dt>Name</dt>
+                        <dt>{{ 'client.company.fields.name'|trans }}</dt>
                         <dd>{{ company.name }}</dd>
                     </dl>
                 </div>
@@ -37,7 +37,7 @@
         <div class="col-lg-4 col-md-12">
             <div class="box box-primary">
                 <div class="box-header">
-                    <h3 class="box-title">Employees</h3>
+                    <h3 class="box-title">{{ 'client.employee.employees'|trans }}</h3>
                 </div>
                 <div class="box-body">
                     {% for employee in company.employees %}

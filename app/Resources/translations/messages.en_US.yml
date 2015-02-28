@@ -1,0 +1,13 @@
+common:
+    yes: Yes
+    no: No
+    ok: Ok
+    cancel: Cancel
+    options: Options
+    button:
+        edit: Edit
+        add: Add
+        add_edit: Add / Edit
+        delete: Delete
+        view: View
+        save: Save

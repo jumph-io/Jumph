@@ -1,17 +1,17 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ parent() }} | Clients
+    {{ parent() }} | {{ 'client.clients'|trans }}
 {% endblock %}
 
 {% block headerContent %}
     <h1>
-        Clients
-        <small>Overview</small>
+        {{ 'client.clients'|trans }}
+        <small>{{ 'client.overview'|trans }}</small>
     </h1>
 
     <ol class="breadcrumb">
-        <li><i class="fa fa-building"></i> Clients</li>
+        <li><i class="fa fa-building"></i> {{ 'client.clients'|trans }}</li>
     </ol>
 {% endblock %}
 
@@ -37,14 +37,14 @@
                             <tr>
                                 <th></th>
                                 <th>{{ knp_pagination_sortable(companies, 'Name', 'c.name') }}</th>
-                                <th>Employees</th>
-                                <th>Options</th>
+                                <th>{{ 'client.employee.employees'|trans }}</th>
+                                <th>{{ 'common.options'|trans }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% if companies is empty %}
                                 <tr>
-                                    <td colspan="4" class="text-center">No results</td>
+                                    <td colspan="4" class="text-center">{{ 'client.company.no_results'|trans }}</td>
                                 </tr>
                             {% endif %}
                             {% for company in companies  %}
@@ -55,14 +55,14 @@
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                                Options <span class="caret"></span>
+                                                {{ 'common.options'|trans }} <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="{{ path('jumph_client_company_view', {'companyId' : company.id}) }}">View</a></li>
-                                                <li><a href="{{ path('jumph_client_company_edit', {'companyId' : company.id}) }}">Edit</a></li>
-                                                <li><a href="{{ path('jumph_client_employee_overview', {'companyId' : company.id}) }}">Employees</a></li>
+                                                <li><a href="{{ path('jumph_client_company_view', {'companyId' : company.id}) }}">{{ 'common.button.view'|trans }}</a></li>
+                                                <li><a href="{{ path('jumph_client_company_edit', {'companyId' : company.id}) }}">{{ 'common.button.edit'|trans }}</a></li>
+                                                <li><a href="{{ path('jumph_client_employee_overview', {'companyId' : company.id}) }}">{{ 'client.employee.employees'|trans }}</a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="{{ path('jumph_client_company_delete', {'companyId' : company.id}) }}" class="delete js-delete-item">Delete</a></li>
+                                                <li><a href="{{ path('jumph_client_company_delete', {'companyId' : company.id}) }}" class="delete js-delete-item">{{ 'common.button.delete'|trans }}</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -74,7 +74,7 @@
                 <div class="box-footer clearfix">
                     <div class="col-xs-6">
                         <div class="btn-group pagination">
-                            <a href="{{ path('jumph_client_company_add') }}" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  Add company</a>
+                            <a href="{{ path('jumph_client_company_add') }}" class="btn btn-primary"><i class="fa fa-lg fa-plus-circle"></i>  {{ 'client.company.add'|trans }}</a>
                             <!--<a href="" class="btn btn-default"><i class="fa fa-lg fa-trash-o"></i>  Delete selected</a>-->
                         </div>
                     </div>

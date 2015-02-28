@@ -1,0 +1,23 @@
+client:
+    clients: Clients
+    overview: Overview
+    company:
+        company: Company
+        companies: Companies
+        no_results: No companies found!
+        add: Add company
+        fields:
+            name: Company name
+        flash:
+            create: Company created!
+            update: Company updated!
+            delete: Company deleted!
+    employee:
+        employee: Employee
+        employees: Employees
+        no_results: No employees found!
+        add: Add employee
+        flash:
+            create: Employee created!
+            update: Employee updated!
+            delete: Employee deleted!

@@ -57,7 +57,8 @@ class AppKernel extends Kernel
     public function getCacheDir()
     {
         if (in_array($this->environment, array('dev', 'test'))) {
-            return sys_get_temp_dir() . '/jumph/cache/' .  $this->environment;
+            //return sys_get_temp_dir() . '/jumph/cache/' .  $this->environment;
+            return '/dev/shm/jumph/cache/' .  $this->environment;
         }
 
         return parent::getCacheDir();
@@ -66,7 +67,8 @@ class AppKernel extends Kernel
     public function getLogDir()
     {
         if (in_array($this->environment, array('dev', 'test'))) {
-            return sys_get_temp_dir() . '/jumph/logs';
+            //return sys_get_temp_dir() . '/jumph/logs';
+            return '/dev/shm/jumph/logs';
         }
 
         return parent::getLogDir();

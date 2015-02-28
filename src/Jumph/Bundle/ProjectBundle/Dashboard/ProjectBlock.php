@@ -32,11 +32,6 @@ class ProjectBlock implements DashboardBlockInterface
     private $itemName;
 
     /**
-     * @var integer
-     */
-    private $totalItems;
-
-    /**
      * @var ProjectManager
      */
     private $projectManager;
@@ -51,7 +46,7 @@ class ProjectBlock implements DashboardBlockInterface
         $this->projectManager = $projectManager;
         $this->color = "aqua";
         $this->icon = "tasks";
-        $this->itemName = "products";
+        $this->itemName = "projects";
     }
 
     /**
