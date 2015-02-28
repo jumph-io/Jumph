@@ -2,7 +2,7 @@
     <i class="fa fa-envelope bg-green"></i>
     <div class="timeline-item">
         <span class="time"><i class="fa fa-clock-o"></i> {{ stream.createdAt|ago }}</span>
-        <h3 class="timeline-header"><a href="#">{{ stream.user is not null ? stream.user.firstname ~ " " ~ stream.user.lastname  : "" }}</a> added email "{{ entity.subject }}"</h3>
+        <h3 class="timeline-header"><a href="#">{{ stream.user is not null ? stream.user.firstname ~ " " ~ stream.user.lastname  : "" }}</a> updated email "{{ entity.subject }}"</h3>
         <div class="timeline-body">
             {{ entity.body| truncate(400, true) }}
         </div>
