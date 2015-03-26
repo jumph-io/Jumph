@@ -31,11 +31,21 @@ class Builder extends ContainerAware
         $menu->setChildrenAttribute('class', 'sidebar-menu');
 
         $menu->addChild(
-            'Check',
+            'Requirements',
             array(
-                'route' => 'jumph_install_check',
+                'route' => 'jumph_install_requirements',
                 'extras' => array(
                     'icon' => 'fa-check fa-fw'
+                )
+            )
+        );
+
+        $menu->addChild(
+            'Recommendations',
+            array(
+                'route' => 'jumph_install_recommendations',
+                'extras' => array(
+                    'icon' => 'fa-bolt fa-fw'
                 )
             )
         );

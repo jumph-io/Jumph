@@ -19,43 +19,24 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="box box-primary">
-                <form>
-                    <div class="box-header">
-                        <!-- Potential title -->
-                    </div>
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label class="required">Database</label>
-                            <select class="form-control">
-                                <option>MySQL</option>
-                                <option>PostgreSQL</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Host</label>
-                            <input class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Port</label>
-                            <input class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Username</label>
-                            <input class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Password</label>
-                            <input class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Database name</label>
-                            <input class="form-control" type="text" />
-                        </div>
-                    </div>
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+                {{ form_start(databaseForm, { 'attr': { 'id': 'main-form'}}) }}
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body">
+                    {{ form_row(databaseForm.database_driver) }}
+                    {{ form_row(databaseForm.database_host) }}
+                    {{ form_row(databaseForm.database_port) }}
+                    {{ form_row(databaseForm.database_name) }}
+                    {{ form_row(databaseForm.database_user) }}
+                    {{ form_row(databaseForm.database_password) }}
+
+                    {{ form_widget(databaseForm._token) }}
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">{{ 'common.button.save'|trans }}</button>
+                </div>
+                {{ form_end(databaseForm, {'render_rest': false}) }}
             </div>
         </div>
     </div>

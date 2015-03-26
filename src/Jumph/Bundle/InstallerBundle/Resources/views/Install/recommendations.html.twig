@@ -1,0 +1,43 @@
+{% extends '::base_install.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Installer
+{% endblock %}
+
+{% block headerContent %}
+    <h1>
+        Installer
+        <small>Recommendations</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-wrench"></i> Installer</li>
+        <li>Recommendations</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            {% for recommendation in recommendations %}
+                {% if recommendation.fulfilled %}
+                    <div class="box box-solid bg-green">
+                        <div class="box-header">
+                            <h3 class="box-title">{{ recommendation.testMessage }}</h3>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="box box-solid bg-orange">
+                        <div class="box-header">
+                            <h3 class="box-title">{{ recommendation.testMessage }}</h3>
+                        </div>
+                        <div class="box-body">
+                            <p>
+                                {{ recommendation.helpHtml|raw }}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,12 +1,23 @@
-jumph_install_check:
-    path:  /install
-    defaults: { _controller: JumphInstallerBundle:Install:check }
+jumph_install_overview:
+    path: /install
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: jumph_install_requirements
+        permanent: true
+
+jumph_install_requirements:
+    path:  /install/requirements
+    defaults: { _controller: JumphInstallerBundle:Install:requirements }
+    methods:  [GET]
+jumph_install_recommendations:
+    path:  /install/recommendations
+    defaults: { _controller: JumphInstallerBundle:Install:recommendations }
     methods:  [GET]
 jumph_install_database:
     path:  /install/database
     defaults: { _controller: JumphInstallerBundle:Install:database }
-    methods:  [GET]
+    methods:  [GET, POST]
 jumph_install_user:
     path:  /install/user
     defaults: { _controller: JumphInstallerBundle:Install:user }
-    methods:  [GET]
+    methods:  [GET, POST]

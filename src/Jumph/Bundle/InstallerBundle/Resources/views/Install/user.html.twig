@@ -19,37 +19,23 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="box box-primary">
-                <form>
-                    <div class="box-header">
-                        <!-- Potential title -->
-                    </div>
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label class="required">First name</label>
-                            <input class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Last name</label>
-                            <input class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Username</label>
-                            <input class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Password</label>
-                            <input class="form-control" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Repeat password</label>
-                            <input class="form-control" type="text" />
-                        </div>
+                {{ form_start(adminUserForm, { 'attr': { 'id': 'main-form'}}) }}
+                <div class="box-header">
+                    <!-- Potential title -->
+                </div>
+                <div class="box-body">
+                    {{ form_row(adminUserForm.firstname) }}
+                    {{ form_row(adminUserForm.lastname) }}
+                    {{ form_row(adminUserForm.email) }}
+                    {{ form_row(adminUserForm.username) }}
+                    {{ form_row(adminUserForm.password) }}
 
-                    </div>
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+                    {{ form_widget(adminUserForm._token) }}
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">{{ 'common.button.save'|trans }}</button>
+                </div>
+                {{ form_end(adminUserForm, {'render_rest': false}) }}
             </div>
         </div>
     </div>

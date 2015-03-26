@@ -1,9 +1,9 @@
 parameters:
-    database_driver:   pdo_mysql
-    database_host:     127.0.0.1
+    database_driver:   pdo_sqlite
+    database_host:     ~
     database_port:     ~
-    database_name:     symfony
-    database_user:     root
+    database_name:     ~
+    database_user:     ~
     database_password: ~
 
     mailer_transport:  smtp

@@ -1,0 +1,43 @@
+{% extends '::base_install.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | Installer
+{% endblock %}
+
+{% block headerContent %}
+    <h1>
+        Installer
+        <small>Requirements</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-wrench"></i> Installer</li>
+        <li>Requirements</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            {% for requirement in requirements %}
+                {% if requirement.fulfilled %}
+                    <div class="box box-solid bg-green">
+                        <div class="box-header">
+                            <h3 class="box-title">{{ requirement.testMessage }}</h3>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="box box-solid bg-red">
+                        <div class="box-header">
+                            <h3 class="box-title">{{ requirement.testMessage }}</h3>
+                        </div>
+                        <div class="box-body">
+                            <p>
+                                {{ requirement.helpHtml|raw }}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

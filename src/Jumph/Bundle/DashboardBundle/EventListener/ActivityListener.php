@@ -37,7 +37,7 @@ class ActivityListener
      */
     public function onKernelRequest(GetResponseEvent $event)
     {
-        $securityContext = $this->container->get('security.context', ContainerInterface::NULL_ON_INVALID_REFERENCE);
+        /*$securityContext = $this->container->get('security.context', ContainerInterface::NULL_ON_INVALID_REFERENCE);
         if (!is_null($securityContext) && $securityContext->getToken()) {
             $user = $securityContext->getToken()->getUser();
 
@@ -45,7 +45,6 @@ class ActivityListener
                 $activitySubscriber = $this->container->get('jumph_dashboard.activity_subscriber');
                 $activitySubscriber->setUser($user);
             }
-
-        }
+        }*/
     }
 }

@@ -1,0 +1,5 @@
+services:
+    jumph_install.parameter_persister:
+            class: Jumph\Bundle\InstallerBundle\Service\ParameterPersister
+            arguments:
+                - %kernel.root_dir%/config/parameters.yml
